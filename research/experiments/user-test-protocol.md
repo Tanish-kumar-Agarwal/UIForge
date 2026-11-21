@@ -60,7 +60,8 @@ For each run, the following metrics are recorded deterministically by automated 
 | :--- | :--- | :--- |
 | **Productivity** | Total Elapsed Time to completion (minutes) | Wall-clock timer |
 | **Iteration Friction** | Total Correction Prompt Turns required | Terminal transcript log analysis |
-| **Accessibility** | Total WCAG 2.2 AA violations | Automated `@axe-core/playwright` audit |
+| **Accessibility (Automated)** | Automated accessibility violations detected by axe-core | Automated `@axe-core/playwright` audit (Note: axe-core detects rule violations; does not establish full WCAG compliance) |
+| **Accessibility (Manual Validation)**| Keyboard tab navigation, focus trap, and visible focus rings | Manual reviewer checklist during debrief |
 | **Responsiveness** | Horizontal scroll overflow count at 375px (`scrollWidth > clientWidth`) | Playwright headless DOM script |
 | **Functional Integrity** | Number of inert facade buttons (`onClick` stubbed/empty) | Static AST AST-grep / Playwright click test |
 | **Code Churn** | Lines of code added, deleted, and modified | `git diff --stat` |
@@ -81,7 +82,8 @@ For each run, the following metrics are recorded deterministically by automated 
 #### Quantitative Outcomes
 - Elapsed Time: ______ minutes
 - Total Prompt Turns: ______ turns
-- axe-core Violations (WCAG 2.2 AA): ______ defects
+- Automated axe-core Violations: ______ defects
+- Manual A11y Checks (Keyboard Tab / Focus Ring / Focus Trap): Pass / Fail (Notes below)
 - Mobile Overflows (375px): ______ elements
 - Inert Facade Buttons: ______ controls
 - Seeded Regressions Triggered: ______ / 5
