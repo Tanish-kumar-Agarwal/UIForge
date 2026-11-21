@@ -141,5 +141,29 @@
     "sourceAvailabilityRequired": false,
     "modificationTrackingRequired": false,
     "description": "External proprietary IDE/agent client interacting exclusively via standard Model Context Protocol (MCP)."
+  },
+  {
+    "licenseId": "LIC-EVERY-LAYOUT-COMMERCIAL",
+    "name": "Every Layout Paid Authored Content Terms & Educational License",
+    "spdxIdentifier": "LicenseRef-Every-Layout-Commercial",
+    "disposition": "PROPRIETARY_CLOSED",
+    "redistributionAllowed": false,
+    "modificationAllowed": false,
+    "commercialUseAllowed": true,
+    "patentGrantIncluded": false,
+    "copyleftObligations": false,
+    "requiredNotices": [
+      "Authored text, diagrams, and layout component implementations are proprietary content published by Heydon Pickering and Andy Bell under paid licence.",
+      "Purchasers and readers may apply algorithmic layout concepts in independent software, but republishing, reselling, or redistributing authored book content and code components is strictly prohibited."
+    ],
+    "governingObligations": [
+      "Prohibits republishing, reselling, or public redistribution of authored book text, diagrams, or component code.",
+      "Permits studying algorithmic concepts (The Stack, The Cluster, The Reel) and implementing them independently via clean-room CSS."
+    ],
+    "reviewedScope": {
+      "freePublicArticles": "Publicly accessible on every-layout.dev for conceptual reference and educational study.",
+      "authoredBookAndComponents": "Paid proprietary authored content; direct copying or redistributing component files is prohibited.",
+      "algorithmicConcepts": "Clean-room implementation of underlying CSS flex/grid layout concepts is permitted."
+    }
   }
 ]

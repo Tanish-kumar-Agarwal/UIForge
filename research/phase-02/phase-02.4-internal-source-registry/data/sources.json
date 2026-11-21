@@ -42,7 +42,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-01"
   },
   {
     "sourceId": "SRC-OS-COMP-02",
@@ -88,7 +89,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-02"
   },
   {
     "sourceId": "SRC-OS-COMP-03",
@@ -134,7 +136,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-03"
   },
   {
     "sourceId": "SRC-OS-COMP-04",
@@ -178,7 +181,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-04"
   },
   {
     "sourceId": "SRC-OS-COMP-05",
@@ -223,7 +227,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-05"
   },
   {
     "sourceId": "SRC-OS-COMP-06",
@@ -268,7 +273,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-06"
   },
   {
     "sourceId": "SRC-OS-COMP-07",
@@ -312,7 +318,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-07"
   },
   {
     "sourceId": "SRC-OS-COMP-08",
@@ -356,7 +363,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-08"
   },
   {
     "sourceId": "SRC-OS-COMP-09",
@@ -401,7 +409,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-09"
   },
   {
     "sourceId": "SRC-OS-COMP-10",
@@ -446,7 +455,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-10"
   },
   {
     "sourceId": "SRC-OS-COMP-11",
@@ -490,7 +500,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-11"
   },
   {
     "sourceId": "SRC-OS-COMP-12",
@@ -534,7 +545,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-12"
   },
   {
     "sourceId": "SRC-OS-COMP-13",
@@ -578,7 +590,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-13"
   },
   {
     "sourceId": "SRC-OS-COMP-14",
@@ -622,7 +635,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-14"
   },
   {
     "sourceId": "SRC-OS-COMP-15",
@@ -666,7 +680,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-COMP-15"
   },
   {
     "sourceId": "SRC-OS-MKT-01",
@@ -710,7 +725,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-01"
   },
   {
     "sourceId": "SRC-OS-MKT-02",
@@ -754,7 +770,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-02"
   },
   {
     "sourceId": "SRC-OS-MKT-03",
@@ -798,7 +815,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-03"
   },
   {
     "sourceId": "SRC-OS-MKT-04",
@@ -842,7 +860,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-04"
   },
   {
     "sourceId": "SRC-OS-MKT-05",
@@ -886,7 +905,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-05"
   },
   {
     "sourceId": "SRC-OS-MKT-06",
@@ -930,7 +950,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-06"
   },
   {
     "sourceId": "SRC-OS-MKT-07",
@@ -974,7 +995,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-MKT-07"
   },
   {
     "sourceId": "SRC-OS-MKT-08",
@@ -1019,7 +1041,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "PROPRIETARY_TRADEMARK",
       "commercialTerms": "PROPRIETARY_CLOSED"
-    }
+    },
+    "candidateId": "OS-MKT-08"
   },
   {
     "sourceId": "SRC-OS-DASH-01",
@@ -1063,7 +1086,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-01"
   },
   {
     "sourceId": "SRC-OS-DASH-02",
@@ -1107,7 +1131,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-02"
   },
   {
     "sourceId": "SRC-OS-DASH-03",
@@ -1151,7 +1176,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-03"
   },
   {
     "sourceId": "SRC-OS-DASH-04",
@@ -1195,7 +1221,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-04"
   },
   {
     "sourceId": "SRC-OS-DASH-05",
@@ -1239,7 +1266,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-05"
   },
   {
     "sourceId": "SRC-OS-DASH-06",
@@ -1283,7 +1311,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-06"
   },
   {
     "sourceId": "SRC-OS-DASH-07",
@@ -1327,7 +1356,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-07"
   },
   {
     "sourceId": "SRC-OS-DASH-08",
@@ -1371,7 +1401,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-DASH-08"
   },
   {
     "sourceId": "SRC-OS-TOKN-01",
@@ -1413,7 +1444,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-01"
   },
   {
     "sourceId": "SRC-OS-TOKN-02",
@@ -1455,7 +1487,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-02"
   },
   {
     "sourceId": "SRC-OS-TOKN-03",
@@ -1497,7 +1530,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-03"
   },
   {
     "sourceId": "SRC-OS-TOKN-04",
@@ -1539,7 +1573,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-04"
   },
   {
     "sourceId": "SRC-OS-TOKN-05",
@@ -1581,7 +1616,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-05"
   },
   {
     "sourceId": "SRC-OS-TOKN-06",
@@ -1623,7 +1659,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-06"
   },
   {
     "sourceId": "SRC-OS-TOKN-07",
@@ -1665,7 +1702,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-07"
   },
   {
     "sourceId": "SRC-OS-TOKN-08",
@@ -1707,7 +1745,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-08"
   },
   {
     "sourceId": "SRC-OS-TOKN-09",
@@ -1749,7 +1788,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-09"
   },
   {
     "sourceId": "SRC-OS-TOKN-10",
@@ -1791,7 +1831,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TOKN-10"
   },
   {
     "sourceId": "SRC-OS-ANIM-01",
@@ -1833,7 +1874,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ANIM-01"
   },
   {
     "sourceId": "SRC-OS-ANIM-02",
@@ -1875,7 +1917,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ANIM-02"
   },
   {
     "sourceId": "SRC-OS-ANIM-03",
@@ -1917,7 +1960,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ANIM-03"
   },
   {
     "sourceId": "SRC-OS-ANIM-04",
@@ -1959,7 +2003,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "NON_COMPETE_RESTRICTED"
-    }
+    },
+    "candidateId": "OS-ANIM-04"
   },
   {
     "sourceId": "SRC-OS-ANIM-05",
@@ -2001,7 +2046,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ANIM-05"
   },
   {
     "sourceId": "SRC-OS-ANIM-06",
@@ -2043,7 +2089,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ANIM-06"
   },
   {
     "sourceId": "SRC-OS-ANIM-07",
@@ -2085,7 +2132,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ANIM-07"
   },
   {
     "sourceId": "SRC-OS-ANIM-08",
@@ -2127,7 +2175,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "PAID_COMMERCIAL_REQUIRED"
-    }
+    },
+    "candidateId": "OS-ANIM-08"
   },
   {
     "sourceId": "SRC-OS-ICON-01",
@@ -2172,7 +2221,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-01"
   },
   {
     "sourceId": "SRC-OS-ICON-02",
@@ -2214,7 +2264,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-02"
   },
   {
     "sourceId": "SRC-OS-ICON-03",
@@ -2256,7 +2307,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-03"
   },
   {
     "sourceId": "SRC-OS-ICON-04",
@@ -2298,7 +2350,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-04"
   },
   {
     "sourceId": "SRC-OS-ICON-05",
@@ -2340,7 +2393,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-05"
   },
   {
     "sourceId": "SRC-OS-ICON-06",
@@ -2382,7 +2436,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-06"
   },
   {
     "sourceId": "SRC-OS-ICON-07",
@@ -2424,7 +2479,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-07"
   },
   {
     "sourceId": "SRC-OS-ICON-08",
@@ -2466,7 +2522,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-ICON-08"
   },
   {
     "sourceId": "SRC-OS-CHRT-01",
@@ -2508,7 +2565,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-01"
   },
   {
     "sourceId": "SRC-OS-CHRT-02",
@@ -2550,7 +2608,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-02"
   },
   {
     "sourceId": "SRC-OS-CHRT-03",
@@ -2592,7 +2651,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-03"
   },
   {
     "sourceId": "SRC-OS-CHRT-04",
@@ -2634,7 +2694,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-04"
   },
   {
     "sourceId": "SRC-OS-CHRT-05",
@@ -2676,7 +2737,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-05"
   },
   {
     "sourceId": "SRC-OS-CHRT-06",
@@ -2718,7 +2780,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-06"
   },
   {
     "sourceId": "SRC-OS-CHRT-07",
@@ -2760,7 +2823,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-07"
   },
   {
     "sourceId": "SRC-OS-CHRT-08",
@@ -2802,7 +2866,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-CHRT-08"
   },
   {
     "sourceId": "SRC-OS-TYPO-01",
@@ -2847,7 +2912,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TYPO-01"
   },
   {
     "sourceId": "SRC-OS-TYPO-02",
@@ -2892,7 +2958,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TYPO-02"
   },
   {
     "sourceId": "SRC-OS-TYPO-03",
@@ -2936,7 +3003,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TYPO-03"
   },
   {
     "sourceId": "SRC-OS-TYPO-04",
@@ -2982,7 +3050,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "RESERVED_FONT_NAME",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TYPO-04"
   },
   {
     "sourceId": "SRC-OS-TYPO-05",
@@ -3028,7 +3097,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "RESERVED_FONT_NAME",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TYPO-05"
   },
   {
     "sourceId": "SRC-OS-TYPO-06",
@@ -3072,7 +3142,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-TYPO-06"
   },
   {
     "sourceId": "SRC-OS-LAYT-01",
@@ -3116,7 +3187,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-01"
   },
   {
     "sourceId": "SRC-OS-LAYT-02",
@@ -3160,7 +3232,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-02"
   },
   {
     "sourceId": "SRC-OS-LAYT-03",
@@ -3205,7 +3278,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-03"
   },
   {
     "sourceId": "SRC-OS-LAYT-04",
@@ -3249,7 +3323,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-04"
   },
   {
     "sourceId": "SRC-OS-LAYT-05",
@@ -3294,7 +3369,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-05"
   },
   {
     "sourceId": "SRC-OS-LAYT-06",
@@ -3338,7 +3414,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-06"
   },
   {
     "sourceId": "SRC-OS-LAYT-07",
@@ -3382,7 +3459,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-LAYT-07"
   },
   {
     "sourceId": "SRC-OS-LAYT-08",
@@ -3400,7 +3478,7 @@
     "identityStatus": "CANONICAL",
     "discoveryPriority": "P1",
     "technicalEvaluationStatus": "complete",
-    "licenseDisposition": "eligible",
+    "licenseDisposition": "PROPRIETARY_CLOSED",
     "registryEligibility": "approved",
     "repositoryRef": null,
     "packageRefs": [
@@ -3410,7 +3488,7 @@
       "COMP-OS-LAYT-08-PRIMARY"
     ],
     "assetRefs": [],
-    "licenseRef": "LIC-MIT",
+    "licenseRef": "LIC-EVERY-LAYOUT-COMMERCIAL",
     "provenanceRef": "PROV-OS-LAYT-08",
     "evaluationRef": "EVAL-OS-LAYT-08",
     "createdAt": "2026-11-21",
@@ -3421,13 +3499,14 @@
     "externalPlatformUrl": "https://every-layout.dev",
     "licenseScope": {
       "repositoryLicenseRef": null,
-      "packageLicenseRef": "LIC-MIT",
-      "componentLicenseRef": "LIC-MIT",
+      "packageLicenseRef": null,
+      "componentLicenseRef": "LIC-EVERY-LAYOUT-COMMERCIAL",
       "assetLicenseRef": null,
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "PROPRIETARY_TRADEMARK",
       "commercialTerms": "PROPRIETARY_CLOSED"
-    }
+    },
+    "candidateId": "OS-LAYT-08"
   },
   {
     "sourceId": "SRC-OS-A11Y-01",
@@ -3472,7 +3551,8 @@
       "transitiveCopyleftRisk": "HIGH",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-01"
   },
   {
     "sourceId": "SRC-OS-A11Y-02",
@@ -3514,7 +3594,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-02"
   },
   {
     "sourceId": "SRC-OS-A11Y-03",
@@ -3556,7 +3637,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-03"
   },
   {
     "sourceId": "SRC-OS-A11Y-04",
@@ -3598,7 +3680,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-04"
   },
   {
     "sourceId": "SRC-OS-A11Y-05",
@@ -3642,7 +3725,8 @@
       "transitiveCopyleftRisk": "HIGH",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-05"
   },
   {
     "sourceId": "SRC-OS-A11Y-06",
@@ -3684,7 +3768,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-06"
   },
   {
     "sourceId": "SRC-OS-A11Y-07",
@@ -3726,7 +3811,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-07"
   },
   {
     "sourceId": "SRC-OS-A11Y-08",
@@ -3769,7 +3855,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-08"
   },
   {
     "sourceId": "SRC-OS-A11Y-09",
@@ -3812,7 +3899,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-09"
   },
   {
     "sourceId": "SRC-OS-A11Y-10",
@@ -3854,7 +3942,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-A11Y-10"
   },
   {
     "sourceId": "SRC-OS-D2C-01",
@@ -3898,7 +3987,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-01"
   },
   {
     "sourceId": "SRC-OS-D2C-02",
@@ -3942,7 +4032,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-02"
   },
   {
     "sourceId": "SRC-OS-D2C-03",
@@ -3987,7 +4078,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-03"
   },
   {
     "sourceId": "SRC-OS-D2C-04",
@@ -4031,7 +4123,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-04"
   },
   {
     "sourceId": "SRC-OS-D2C-05",
@@ -4075,7 +4168,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-05"
   },
   {
     "sourceId": "SRC-OS-D2C-06",
@@ -4119,7 +4213,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-06"
   },
   {
     "sourceId": "SRC-OS-D2C-07",
@@ -4163,7 +4258,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-D2C-07"
   },
   {
     "sourceId": "SRC-OS-D2C-08",
@@ -4208,7 +4304,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "PROPRIETARY_TRADEMARK",
       "commercialTerms": "PROPRIETARY_CLOSED"
-    }
+    },
+    "candidateId": "OS-D2C-08"
   },
   {
     "sourceId": "SRC-OS-AGNT-01",
@@ -4251,7 +4348,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-01"
   },
   {
     "sourceId": "SRC-OS-AGNT-02",
@@ -4293,7 +4391,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-02"
   },
   {
     "sourceId": "SRC-OS-AGNT-03",
@@ -4336,7 +4435,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "PROPRIETARY_TRADEMARK",
       "commercialTerms": "PROPRIETARY_CLOSED"
-    }
+    },
+    "candidateId": "OS-AGNT-03"
   },
   {
     "sourceId": "SRC-OS-AGNT-04",
@@ -4379,7 +4479,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "PROPRIETARY_TRADEMARK",
       "commercialTerms": "PROPRIETARY_CLOSED"
-    }
+    },
+    "candidateId": "OS-AGNT-04"
   },
   {
     "sourceId": "SRC-OS-AGNT-05",
@@ -4422,7 +4523,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "PROPRIETARY_TRADEMARK",
       "commercialTerms": "PROPRIETARY_CLOSED"
-    }
+    },
+    "candidateId": "OS-AGNT-05"
   },
   {
     "sourceId": "SRC-OS-AGNT-06",
@@ -4464,7 +4566,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-06"
   },
   {
     "sourceId": "SRC-OS-AGNT-07",
@@ -4506,7 +4609,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-07"
   },
   {
     "sourceId": "SRC-OS-AGNT-08",
@@ -4548,7 +4652,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-08"
   },
   {
     "sourceId": "SRC-OS-AGNT-09",
@@ -4590,7 +4695,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-09"
   },
   {
     "sourceId": "SRC-OS-AGNT-10",
@@ -4632,7 +4738,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-10"
   },
   {
     "sourceId": "SRC-OS-AGNT-11",
@@ -4674,7 +4781,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-11"
   },
   {
     "sourceId": "SRC-OS-AGNT-12",
@@ -4717,7 +4825,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-AGNT-12"
   },
   {
     "sourceId": "SRC-OS-BROW-01",
@@ -4762,7 +4871,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-01"
   },
   {
     "sourceId": "SRC-OS-BROW-02",
@@ -4805,7 +4915,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-02"
   },
   {
     "sourceId": "SRC-OS-BROW-03",
@@ -4847,7 +4958,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-03"
   },
   {
     "sourceId": "SRC-OS-BROW-04",
@@ -4889,7 +5001,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-04"
   },
   {
     "sourceId": "SRC-OS-BROW-05",
@@ -4931,7 +5044,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-05"
   },
   {
     "sourceId": "SRC-OS-BROW-06",
@@ -4973,7 +5087,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-06"
   },
   {
     "sourceId": "SRC-OS-BROW-07",
@@ -5015,7 +5130,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-07"
   },
   {
     "sourceId": "SRC-OS-BROW-08",
@@ -5057,7 +5173,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-BROW-08"
   },
   {
     "sourceId": "SRC-OS-VREG-01",
@@ -5101,7 +5218,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-01"
   },
   {
     "sourceId": "SRC-OS-VREG-02",
@@ -5145,7 +5263,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-02"
   },
   {
     "sourceId": "SRC-OS-VREG-03",
@@ -5189,7 +5308,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-03"
   },
   {
     "sourceId": "SRC-OS-VREG-04",
@@ -5233,7 +5353,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-04"
   },
   {
     "sourceId": "SRC-OS-VREG-05",
@@ -5277,7 +5398,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-05"
   },
   {
     "sourceId": "SRC-OS-VREG-06",
@@ -5321,7 +5443,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-06"
   },
   {
     "sourceId": "SRC-OS-VREG-07",
@@ -5365,7 +5488,8 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-07"
   },
   {
     "sourceId": "SRC-OS-VREG-08",
@@ -5409,6 +5533,7 @@
       "transitiveCopyleftRisk": "NONE",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
-    }
+    },
+    "candidateId": "OS-VREG-08"
   }
 ]

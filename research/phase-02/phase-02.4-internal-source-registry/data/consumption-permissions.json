@@ -4761,7 +4761,9 @@
     "consumptionMode": "DEPENDENCY",
     "eligibility": "ELIGIBLE_WITH_RESTRICTIONS",
     "conditions": [
-      "Emitted user dependency allowed under Webflow April 2025 commercial free terms; non-compete clause strictly prohibits inclusion in competing visual no-code animation builders."
+      "Emitted user dependency allowed under Webflow April 30, 2025 Standard Commercial License (free for commercial use in websites, web apps, and digital interfaces).",
+      "Scoped non-compete clause strictly prohibits embedding GSAP into no-code visual animation-building tools that compete with Webflow animation authoring.",
+      "UIForge code generator emits standard programmatic React/TypeScript code (import gsap from \"gsap\") and does NOT build a no-code visual animation keyframe builder."
     ],
     "requiredNotices": [],
     "requiredAttribution": [],
@@ -8387,9 +8389,9 @@
     "candidateId": "OS-LAYT-08",
     "sourceId": "SRC-OS-LAYT-08",
     "consumptionMode": "DEPENDENCY",
-    "eligibility": "APPROVED",
+    "eligibility": "NOT_APPLICABLE",
     "conditions": [
-      "Standard npm dependency installation. Lockfile integrity pinned."
+      "Documentation resource and web book; publishes no installable npm runtime package."
     ],
     "requiredNotices": [
       "Preserve upstream license notice in production build."
@@ -8399,7 +8401,7 @@
     "counselReviewRequired": false,
     "counselReviewRef": null,
     "lastReviewedAt": "2026-11-22",
-    "allowed": true
+    "allowed": false
   },
   {
     "permissionId": "PERM-OS-LAYT-08-SOURCE_COPY",
@@ -8552,14 +8554,16 @@
     "candidateId": "OS-A11Y-01",
     "sourceId": "SRC-OS-A11Y-01",
     "consumptionMode": "EXTERNAL_TOOL",
-    "eligibility": "APPROVED",
+    "eligibility": "ELIGIBLE_WITH_RESTRICTIONS",
     "conditions": [
-      "Execute as isolated out-of-process CLI tool with process boundary."
+      "UIForge supports axe-core execution strictly as a user-managed external integration: invokes user-installed @axe-core/cli or local devDependency via out-of-process CLI runner.",
+      "UIForge does NOT bundle, redistribute, or host executable axe-core binaries directly.",
+      "If pre-compiled enterprise test bundles containing axe-core binaries are ever distributed, MPL-2.0 Section 3 notices and source availability obligations must be fulfilled."
     ],
     "requiredNotices": [],
     "requiredAttribution": [],
     "sourceAvailabilityRequirements": [],
-    "counselReviewRequired": false,
+    "counselReviewRequired": true,
     "counselReviewRef": null,
     "lastReviewedAt": "2026-11-22",
     "allowed": true
@@ -10625,9 +10629,9 @@
     "candidateId": "OS-AGNT-03",
     "sourceId": "SRC-OS-AGNT-03",
     "consumptionMode": "DEPENDENCY",
-    "eligibility": "REFERENCE_ONLY",
+    "eligibility": "NOT_APPLICABLE",
     "conditions": [
-      "Proprietary external client. Interface via Model Context Protocol only."
+      "Commercial agent CLI tool; not an installable npm runtime library. Interface via MCP."
     ],
     "requiredNotices": [],
     "requiredAttribution": [],
@@ -10729,9 +10733,9 @@
     "candidateId": "OS-AGNT-04",
     "sourceId": "SRC-OS-AGNT-04",
     "consumptionMode": "DEPENDENCY",
-    "eligibility": "REFERENCE_ONLY",
+    "eligibility": "NOT_APPLICABLE",
     "conditions": [
-      "Proprietary external client. Interface via Model Context Protocol only."
+      "Commercial IDE application; not an installable npm runtime library."
     ],
     "requiredNotices": [],
     "requiredAttribution": [],
@@ -10833,9 +10837,9 @@
     "candidateId": "OS-AGNT-05",
     "sourceId": "SRC-OS-AGNT-05",
     "consumptionMode": "DEPENDENCY",
-    "eligibility": "APPROVED",
+    "eligibility": "NOT_APPLICABLE",
     "conditions": [
-      "Standard npm dependency installation. Lockfile integrity pinned."
+      "Commercial IDE application; not an installable npm runtime library."
     ],
     "requiredNotices": [
       "Preserve upstream license notice in production build."
@@ -10845,7 +10849,7 @@
     "counselReviewRequired": false,
     "counselReviewRef": null,
     "lastReviewedAt": "2026-11-22",
-    "allowed": true
+    "allowed": false
   },
   {
     "permissionId": "PERM-OS-AGNT-05-SOURCE_COPY",

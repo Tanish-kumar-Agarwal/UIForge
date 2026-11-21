@@ -108,5 +108,63 @@
     "reviewStatus": "VERIFIED",
     "evidenceRef": "EV-LIC-0110",
     "notes": "Automated browser executable downloaded via playwright install; BSD-3-Clause Chromium licenses preserved."
+  },
+  {
+    "assetId": "ASSET-OS-TYPO-03-JB",
+    "parentCandidateId": "OS-TYPO-03",
+    "assetName": "JetBrainsMono-Variable.woff2 (@fontsource/jetbrains-mono)",
+    "artifactType": "FONT_BINARY",
+    "declaredLicense": "OFL-1.1",
+    "author": "JetBrains s.r.o. / Fontsource",
+    "upstreamSource": "https://github.com/fontsource/fontsource/tree/main/fonts/jetbrains-mono",
+    "fontVersion": "2.304",
+    "fileName": "jetbrains-mono-variable.woff2",
+    "copyrightStatement": "Copyright (c) 2020 JetBrains s.r.o.",
+    "licenseTextRef": "LIC-OFL-1.1",
+    "explicitRfnDeclared": true,
+    "declaredReservedFontNames": [
+      "JetBrains Mono"
+    ],
+    "rfnDeclarationClause": "with Reserved Font Name JetBrains Mono",
+    "redistributionState": "UNCHANGED_BINARY",
+    "modificationState": "UNMODIFIED",
+    "requiredNotices": [
+      "Retain SIL Open Font License 1.1 text",
+      "Retain copyright notice and RFN declaration",
+      "Font software may not be sold by itself"
+    ],
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "VERIFIED",
+    "evidenceRef": "EVI-SRC-OS-TYPO-03-LIC",
+    "notes": "Monospace font distributed via Fontsource monorepo candidate (OS-TYPO-03); SIL OFL 1.1 with explicit RFN."
+  },
+  {
+    "assetId": "ASSET-OS-TYPO-03-FC",
+    "parentCandidateId": "OS-TYPO-03",
+    "assetName": "FiraCode-Variable.woff2 (@fontsource/fira-code)",
+    "artifactType": "FONT_BINARY",
+    "declaredLicense": "OFL-1.1",
+    "author": "Nikita Prokopov / Fontsource",
+    "upstreamSource": "https://github.com/fontsource/fontsource/tree/main/fonts/fira-code",
+    "fontVersion": "6.2",
+    "fileName": "fira-code-variable.woff2",
+    "copyrightStatement": "Copyright (c) 2014-2021 The Fira Code Project Authors",
+    "licenseTextRef": "LIC-OFL-1.1",
+    "explicitRfnDeclared": true,
+    "declaredReservedFontNames": [
+      "Fira Code"
+    ],
+    "rfnDeclarationClause": "with Reserved Font Name Fira Code",
+    "redistributionState": "UNCHANGED_BINARY",
+    "modificationState": "UNMODIFIED",
+    "requiredNotices": [
+      "Retain SIL Open Font License 1.1 text",
+      "Retain copyright notice and RFN declaration",
+      "Font software may not be sold by itself"
+    ],
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "VERIFIED",
+    "evidenceRef": "EVI-SRC-OS-TYPO-03-LIC",
+    "notes": "Monospace font distributed via Fontsource monorepo candidate (OS-TYPO-03); SIL OFL 1.1 with explicit RFN."
   }
 ]
