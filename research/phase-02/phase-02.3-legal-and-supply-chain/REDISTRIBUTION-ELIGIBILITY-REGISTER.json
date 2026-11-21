@@ -1,0 +1,1379 @@
+[
+  {
+    "candidateId": "OS-COMP-01",
+    "canonicalName": "shadcn-ui/ui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice in copied source files"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-02",
+    "canonicalName": "radix-ui/primitives",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice in package bundles"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-03",
+    "canonicalName": "adobe/react-spectrum",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Include Apache-2.0 notice and state changes in modified files"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-04",
+    "canonicalName": "tailwindlabs/headlessui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-05",
+    "canonicalName": "mantinedev/mantine",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-06",
+    "canonicalName": "chakra-ui/chakra-ui",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-07",
+    "canonicalName": "mui/material-ui",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-08",
+    "canonicalName": "ant-design/ant-design",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-09",
+    "canonicalName": "nextui-org/nextui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-10",
+    "canonicalName": "chakra-ui/ark",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-11",
+    "canonicalName": "mui/base-ui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-12",
+    "canonicalName": "chakra-ui/park-ui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-13",
+    "canonicalName": "ariakit/ariakit",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-14",
+    "canonicalName": "palantir/blueprint",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-COMP-15",
+    "canonicalName": "saas-js/saas-ui",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-01",
+    "canonicalName": "magicuidesign/magicui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-02",
+    "canonicalName": "nolly-studio/cult-ui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-03",
+    "canonicalName": "DavidHDev/react-bits",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-04",
+    "canonicalName": "cosscom/originui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-05",
+    "canonicalName": "htmlstreamofficial/preline",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-06",
+    "canonicalName": "themesberg/flowbite-react",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-07",
+    "canonicalName": "markmead/hyperui",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-MKT-08",
+    "canonicalName": "aceternity/ui",
+    "consumptionMode": "REJ",
+    "eligibility": "INCOMPATIBLE",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Commercial Terms of Service strictly prohibit redistribution or packaging in developer tools. REJECTED."
+    ],
+    "disposition": "REJECTED"
+  },
+  {
+    "candidateId": "OS-DASH-01",
+    "canonicalName": "tremorlabs/tremor",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-02",
+    "canonicalName": "tremorlabs/tremor-raw",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-03",
+    "canonicalName": "TanStack/table",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain MIT copyright notice in application bundle"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-04",
+    "canonicalName": "TanStack/virtual",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-05",
+    "canonicalName": "react-grid-layout/react-grid-layout",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-06",
+    "canonicalName": "refinedev/refine",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-07",
+    "canonicalName": "marmelab/react-admin",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-DASH-08",
+    "canonicalName": "tabler/tabler-react",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-01",
+    "canonicalName": "design-tokens/community-group",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Acknowledge W3C Community specification standard"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-02",
+    "canonicalName": "style-dictionary/style-dictionary",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-03",
+    "canonicalName": "argyleink/open-props",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-04",
+    "canonicalName": "tailwindlabs/tailwindcss",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain MIT copyright notice"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-05",
+    "canonicalName": "radix-ui/colors",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-06",
+    "canonicalName": "tokens-studio/sd-transforms",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-07",
+    "canonicalName": "primer/primitives",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-08",
+    "canonicalName": "carbon-design-system/carbon",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-09",
+    "canonicalName": "material-components/material-web",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TOKN-10",
+    "canonicalName": "adobe/spectrum-tokens",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-01",
+    "canonicalName": "motiondivision/motion",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain MIT notice; 100% MIT rewrite supersedes Framer proprietary tiers"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-02",
+    "canonicalName": "formkit/auto-animate",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-03",
+    "canonicalName": "pmndrs/react-spring",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-04",
+    "canonicalName": "greensock/gsap",
+    "consumptionMode": "REJ",
+    "eligibility": "ELIGIBLE_WITH_RESTRICTIONS",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Commercial fee required for multi-customer applications. Conflicts with MIT open-core model. REJECTED."
+    ],
+    "disposition": "REJECTED",
+    "spdxLicense": "LicenseRef-GSAP-Standard",
+    "notes": "Free for commercial web/app use under Webflow Standard License (April 30, 2025). Prohibited for no-code visual animation builders."
+  },
+  {
+    "candidateId": "OS-ANIM-05",
+    "canonicalName": "airbnb/lottie-web",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-06",
+    "canonicalName": "animate-css/animate.css",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-07",
+    "canonicalName": "catdad/canvas-confetti",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ANIM-08",
+    "canonicalName": "remotion-dev/remotion",
+    "consumptionMode": "REJ",
+    "eligibility": "INCOMPATIBLE",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Commercial license required for cloud/server-side rendering. REJECTED."
+    ],
+    "disposition": "REJECTED"
+  },
+  {
+    "candidateId": "OS-ICON-01",
+    "canonicalName": "lucide-icons/lucide",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain ISC notice in distributed vector assets"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-02",
+    "canonicalName": "tailwindlabs/heroicons",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-03",
+    "canonicalName": "tabler/tabler-icons",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-04",
+    "canonicalName": "phosphor-icons/core",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-05",
+    "canonicalName": "iconify/iconify",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-06",
+    "canonicalName": "google/material-design-icons",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-07",
+    "canonicalName": "gregberge/svgr",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-ICON-08",
+    "canonicalName": "simple-icons/simple-icons",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-01",
+    "canonicalName": "recharts/recharts",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-02",
+    "canonicalName": "apache/echarts",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-03",
+    "canonicalName": "plouc/nivo",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-04",
+    "canonicalName": "airbnb/visx",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-05",
+    "canonicalName": "chartjs/Chart.js",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-06",
+    "canonicalName": "observablehq/plot",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-07",
+    "canonicalName": "d3/d3",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-CHRT-08",
+    "canonicalName": "FormidableLabs/victory",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TYPO-01",
+    "canonicalName": "tailwindlabs/tailwindcss-typography",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Do not sell font standalone; do not rename font (Reserved Font Name \"Inter\"); bundle OFL.txt notice"
+    ],
+    "disposition": "CONDITIONALLY_APPROVED_COUNSEL_PENDING"
+  },
+  {
+    "candidateId": "OS-TYPO-02",
+    "canonicalName": "seek-oss/capsize",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Do not sell font standalone; do not rename font (Reserved Font Name \"Geist\"); bundle OFL.txt notice"
+    ],
+    "disposition": "CONDITIONALLY_APPROVED_COUNSEL_PENDING"
+  },
+  {
+    "candidateId": "OS-TYPO-03",
+    "canonicalName": "fontsource/fontsource",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TYPO-04",
+    "canonicalName": "rsms/inter",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TYPO-05",
+    "canonicalName": "vercel/geist-font",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-TYPO-06",
+    "canonicalName": "opentypejs/opentype.js",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-01",
+    "canonicalName": "bvaughn/react-resizable-panels",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain MIT notice in production bundles"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-02",
+    "canonicalName": "tailwindlabs/tailwindcss-container-queries",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-03",
+    "canonicalName": "radix-ui/primitives (Aspect Ratio)",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Duplicate capability reference to radix-ui/primitives (Layout)"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-04",
+    "canonicalName": "drcmda/react-spring (Parallax)",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-05",
+    "canonicalName": "desandro/masonry",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-06",
+    "canonicalName": "kristoferbaxter/flexboxgrid",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-07",
+    "canonicalName": "yannickcr/eslint-plugin-react",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-LAYT-08",
+    "canonicalName": "Every-Layout/every-layout",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-01",
+    "canonicalName": "dequelabs/axe-core",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": true,
+    "obligations": [
+      "MPL-2.0 Larger Work notice obligations; preserve source notices in axe-core modules; make modified axe-core source available"
+    ],
+    "disposition": "CONDITIONALLY_APPROVED_COUNSEL_PENDING"
+  },
+  {
+    "candidateId": "OS-A11Y-02",
+    "canonicalName": "axe-core/playwright",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-03",
+    "canonicalName": "jsx-eslint/eslint-plugin-jsx-a11y",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-04",
+    "canonicalName": "nickcolley/jest-axe",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-05",
+    "canonicalName": "pa11y/pa11y",
+    "consumptionMode": "INF",
+    "eligibility": "REQUIRES_REVIEW",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Subprocess execution boundary only; do not import into library bundles; external legal counsel review required (ESC-01)"
+    ],
+    "disposition": "CONDITIONALLY_APPROVED_COUNSEL_PENDING"
+  },
+  {
+    "candidateId": "OS-A11Y-06",
+    "canonicalName": "GoogleChrome/lighthouse",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-07",
+    "canonicalName": "microsoft/accessibility-insights-web",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-08",
+    "canonicalName": "w3c/aria-practices",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-09",
+    "canonicalName": "storybookjs/addon-a11y",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-A11Y-10",
+    "canonicalName": "accesslint/accesslint",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-01",
+    "canonicalName": "BuilderIO/mitosis",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain MIT copyright notice"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-02",
+    "canonicalName": "figma/code-connect",
+    "consumptionMode": "INT",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-03",
+    "canonicalName": "abi/screenshot-to-code",
+    "consumptionMode": "INF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Build-time dependency; retain MIT license in tooling headers"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-04",
+    "canonicalName": "figma/plugin-samples",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-05",
+    "canonicalName": "WICG/open-ui",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-06",
+    "canonicalName": "ast-grep/ast-grep",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-07",
+    "canonicalName": "babel/babel",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-D2C-08",
+    "canonicalName": "locofy/locofy",
+    "consumptionMode": "REJ",
+    "eligibility": "INCOMPATIBLE",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Closed-source commercial SaaS. REJECTED."
+    ],
+    "disposition": "REJECTED"
+  },
+  {
+    "candidateId": "OS-AGNT-01",
+    "canonicalName": "modelcontextprotocol/typescript-sdk",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain MIT notice across modular SDK v2 integration"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-02",
+    "canonicalName": "anomalyco/opencode",
+    "consumptionMode": "INT",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-03",
+    "canonicalName": "anthropics/claude-code",
+    "consumptionMode": "REF",
+    "eligibility": "RESTRICTED",
+    "counselReviewRequired": true,
+    "obligations": [
+      "Reference-only interaction; no source code bundling authorized"
+    ],
+    "disposition": "CONDITIONALLY_APPROVED_COUNSEL_PENDING"
+  },
+  {
+    "candidateId": "OS-AGNT-04",
+    "canonicalName": "anysphere/cursor",
+    "consumptionMode": "REF",
+    "eligibility": "RESTRICTED",
+    "counselReviewRequired": true,
+    "obligations": [
+      "External commercial IDE client; interface via standard MCP protocol only"
+    ],
+    "disposition": "CONDITIONALLY_APPROVED_COUNSEL_PENDING"
+  },
+  {
+    "candidateId": "OS-AGNT-05",
+    "canonicalName": "codeium/windsurf",
+    "consumptionMode": "INT",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-06",
+    "canonicalName": "continuedev/continue",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-07",
+    "canonicalName": "CopilotKit/CopilotKit",
+    "consumptionMode": "REG",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-08",
+    "canonicalName": "vercel/ai",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-09",
+    "canonicalName": "langchain-ai/langgraphjs",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-10",
+    "canonicalName": "run-llama/LlamaIndexTS",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-11",
+    "canonicalName": "cline/cline",
+    "consumptionMode": "INT",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-AGNT-12",
+    "canonicalName": "rooveterinaryinc/roo-cline",
+    "consumptionMode": "INT",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-01",
+    "canonicalName": "microsoft/playwright",
+    "consumptionMode": "INF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Include Apache-2.0 notice; Playwright browser binaries downloaded dynamically at installation"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-02",
+    "canonicalName": "puppeteer/puppeteer",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-03",
+    "canonicalName": "webdriverio/webdriverio",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-04",
+    "canonicalName": "testcontainers/testcontainers-node",
+    "consumptionMode": "INF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-05",
+    "canonicalName": "browserless/chrome",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-06",
+    "canonicalName": "browser-use/browser-use",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-07",
+    "canonicalName": "SeleniumHQ/selenium",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-BROW-08",
+    "canonicalName": "cypress-io/cypress",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-01",
+    "canonicalName": "mapbox/pixelmatch",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain ISC license notice in canvas/pixel comparison utilities"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-02",
+    "canonicalName": "gemini-testing/looks-same",
+    "consumptionMode": "DEP",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-03",
+    "canonicalName": "argos-ci/argos",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-04",
+    "canonicalName": "oblador/loki",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-05",
+    "canonicalName": "garris/BackstopJS",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-06",
+    "canonicalName": "lost-pixel/lost-pixel",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-07",
+    "canonicalName": "rsmbl/Resemble.js",
+    "consumptionMode": "REF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  },
+  {
+    "candidateId": "OS-VREG-08",
+    "canonicalName": "storybookjs/test-runner",
+    "consumptionMode": "INF",
+    "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+    "counselReviewRequired": false,
+    "obligations": [
+      "Retain copyright notice and permission notice under MIT"
+    ],
+    "disposition": "APPROVED_FOR_INTEGRATION"
+  }
+]

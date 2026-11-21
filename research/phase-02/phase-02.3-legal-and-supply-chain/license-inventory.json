@@ -1,365 +1,4845 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "inventoryId": "UIF-PH02.3-JSON-LIC-01",
-  "phase": "02.3",
-  "generatedAt": "2026-11-21T18:00:00.000Z",
-  "auditor": "Principal Open-Source Licensing and Compliance Architect",
-  "statistics": {
-    "totalCandidates": 125,
-    "multiAxialBreakdown": {
-      "axis1TargetHosting": {
-        "gitHubRepositories": 119,
-        "webTargetsAndSpecs": 6,
-        "totalAxis1": 125
-      },
-      "axis2FunctionalRoles": {
-        "directNpmRuntimePackages": 45,
-        "multiPackageMonorepos": 8,
-        "componentRegistryTemplates": 16,
-        "typographyAndFontAssets": 6,
-        "vectorIconSystems": 8,
-        "openSpecifications": 1,
-        "commercialProprietaryReferences": 7,
-        "abandonedDeprecatedProjects": 3,
-        "cleanRoomArchitecturalReferences": 31,
-        "note": "Axis 2 roles intersect across targets and must never be summed additively against Axis 1 total"
-      }
-    },
-    "dispositions": {
-      "APPROVED": 78,
-      "APPROVED_WITH_OBLIGATIONS": 24,
-      "CONDITIONAL": 5,
-      "REFERENCE_ONLY": 9,
-      "DEPENDENCY_ONLY": 4,
-      "SOURCE_COPYING_RESTRICTED": 1,
-      "COMMERCIAL_REQUIRED": 2,
-      "REJECTED": 2
+  "schemaVersion": "1.0.0",
+  "inventoryId": "UIFORGE-LICENSE-INTELLIGENCE",
+  "candidateCount": 125,
+  "metadata": {
+    "generatedAt": "2026-11-21T17:04:04.094Z",
+    "auditor": "Principal Software Licensing Analyst & Software Supply-Chain Security Reviewer",
+    "standards": "SPDX 2.3 Specification, SPDX License List v3.26, ISO/IEC 5230 OpenChain Conformance",
+    "statistics": {
+      "totalCandidates": 125,
+      "permissiveLicenses": 114,
+      "reciprocalLicenses": 2,
+      "fontLicenses": 2,
+      "commercialOrIncompatible": 4,
+      "counselEscalationsCount": 10
     }
-  },
-  "consumptionModes": {
-    "MODE_1": "Reference Only (Design & AST patterns; clean-room; no code reproduction)",
-    "MODE_2": "Dependency Integration (Runtime/Dev npm packages; license text retention)",
-    "MODE_3": "Source Copying / Registry Consumption (Direct code copying into user repo; header retention)",
-    "MODE_4": "Infrastructure & Tooling (Subprocess CLI / container isolation; OS stdio/IPC boundary)"
   },
   "candidates": [
     {
-      "id": "OS-COMP-01",
-      "name": "shadcn-ui/ui",
-      "repoUrl": "https://github.com/shadcn-ui/ui",
-      "npmPackage": "shadcn",
-      "upstreamOrg": "shadcn",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_3",
-      "auditedVersion": "v0.9.4",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Retain upstream MIT copyright notice and license text in copied components"]
-    },
-    {
-      "id": "OS-COMP-02",
-      "name": "radix-ui/primitives",
-      "repoUrl": "https://github.com/radix-ui/primitives",
-      "npmPackage": "@radix-ui/react-primitive",
-      "upstreamOrg": "WorkOS",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v1.1.2",
-      "disposition": "APPROVED",
-      "obligations": ["Retain MIT license in published bundles"]
-    },
-    {
-      "id": "OS-COMP-03",
-      "name": "adobe/react-spectrum",
-      "repoUrl": "https://github.com/adobe/react-spectrum",
-      "npmPackage": "react-aria",
-      "upstreamOrg": "Adobe Inc.",
-      "repoLicense": "Apache-2.0",
-      "npmLicense": "Apache-2.0",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v3.35.0",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Retain Adobe NOTICE file", "Patent grant active under Section 3"]
-    },
-    {
-      "id": "OS-COMP-11",
-      "name": "mui/base-ui",
-      "repoUrl": "https://github.com/mui/base-ui",
-      "npmPackage": "@base-ui-components/react",
-      "upstreamOrg": "Material UI SAS",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v1.2.0",
-      "disposition": "APPROVED",
-      "obligations": ["Retain MIT copyright notice in package metadata"]
-    },
-    {
-      "id": "OS-LAND-01",
-      "name": "magicuidesign/magicui",
-      "repoUrl": "https://github.com/magicuidesign/magicui",
-      "npmPackage": "magicui",
-      "upstreamOrg": "Magic UI Community",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_3",
-      "auditedVersion": "v0.2.1",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Inject upstream JSDoc attribution header into emitted components"]
-    },
-    {
-      "id": "OS-LAND-02",
-      "name": "aceternity/ui",
-      "repoUrl": "https://ui.aceternity.com",
-      "npmPackage": null,
-      "upstreamOrg": "Aceternity Inc.",
-      "repoLicense": "Proprietary",
-      "npmLicense": "Commercial",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_1",
-      "auditedVersion": "2026.1",
-      "disposition": "COMMERCIAL_REQUIRED",
-      "obligations": ["Prohibited from copying source code or registry distribution; clean-room study only"]
-    },
-    {
-      "id": "OS-TOKN-01",
-      "name": "amzn/style-dictionary",
-      "repoUrl": "https://github.com/amzn/style-dictionary",
-      "npmPackage": "style-dictionary",
-      "upstreamOrg": "Amazon Web Services",
-      "repoLicense": "Apache-2.0",
-      "npmLicense": "Apache-2.0",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v5.8.0",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Retain Amazon NOTICE file", "Pin >= 5.4.4 to remediate CVE-2026-54639"]
-    },
-    {
-      "id": "OS-TOKN-10",
-      "name": "design-tokens/community-group",
-      "repoUrl": "https://github.com/design-tokens/community-group",
-      "npmPackage": null,
-      "upstreamOrg": "W3C DTCG",
-      "repoLicense": "W3C-Software-and-Document",
-      "npmLicense": "NON-PKG",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_1",
-      "auditedVersion": "2025.10",
-      "disposition": "APPROVED",
-      "obligations": ["Implement schema using correct colorSpace and components format"]
-    },
-    {
-      "id": "OS-ANIM-01",
-      "name": "motiondivision/motion",
-      "repoUrl": "https://github.com/motiondivision/motion",
-      "npmPackage": "motion",
-      "upstreamOrg": "Matt Perry",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v12.0.0",
-      "disposition": "APPROVED",
-      "obligations": ["Retain MIT license in distribution bundles"]
-    },
-    {
-      "id": "OS-ANIM-02",
-      "name": "greensock/gsap",
-      "repoUrl": "https://github.com/greensock/gsap",
-      "npmPackage": "gsap",
-      "upstreamOrg": "GreenSock Inc.",
-      "repoLicense": "Standard 'No-Charge' License",
-      "npmLicense": "Proprietary",
-      "consistency": "DISCREPANCY",
-      "consumptionMode": "MODE_1",
-      "auditedVersion": "v3.12.5",
-      "disposition": "REJECTED",
-      "obligations": ["Commercial license required for software products; replace with Motion"]
-    },
-    {
-      "id": "OS-ICON-01",
-      "name": "lucide-icons/lucide",
-      "repoUrl": "https://github.com/lucide-icons/lucide",
-      "npmPackage": "lucide-react",
-      "upstreamOrg": "Lucide Contributors",
-      "repoLicense": "ISC",
-      "npmLicense": "ISC",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v0.469.0",
-      "disposition": "APPROVED",
-      "obligations": ["Retain ISC copyright notice in component distribution"]
-    },
-    {
-      "id": "OS-ICON-04",
-      "name": "simple-icons/simple-icons",
-      "repoUrl": "https://github.com/simple-icons/simple-icons",
-      "npmPackage": "simple-icons",
-      "upstreamOrg": "Simple Icons Team",
-      "repoLicense": "CC0-1.0",
-      "npmLicense": "CC0-1.0",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v14.1.0",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": [
-        "Inject nominative fair use trademark disclaimer and user opt-in prompt into emitted brand components",
-        "Pin exact semver 14.1.0 in pnpm-lock.yaml to prevent unvetted brand marks from weekly upstream release cadence"
+      "candidateId": "OS-COMP-01",
+      "canonicalName": "shadcn-ui/ui",
+      "repositoryUrl": "https://github.com/shadcn-ui/ui",
+      "originalAuthor": "shadcn (Shadcn LLC)",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/shadcn-ui/ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "shadcn",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "shadcn-ui",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice in copied source files"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice in copied source files"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0001"
       ]
     },
     {
-      "id": "OS-FONT-01",
-      "name": "rsms/inter",
-      "repoUrl": "https://github.com/rsms/inter",
-      "npmPackage": "@fontsource/inter",
-      "upstreamOrg": "Rasmus Andersson",
-      "repoLicense": "OFL-1.1",
-      "npmLicense": "MIT",
-      "consistency": "DISCREPANCY",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v4.1",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Font binaries are OFL-1.1; preserve Reserved Font Name 'Inter'; bundle OFL text; self-host"]
-    },
-    {
-      "id": "OS-FONT-02",
-      "name": "vercel/geist-font",
-      "repoUrl": "https://github.com/vercel/geist-font",
-      "npmPackage": "geist",
-      "upstreamOrg": "Vercel Inc.",
-      "repoLicense": "OFL-1.1",
-      "npmLicense": "OFL-1.1",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v1.3.1",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Preserve Reserved Font Name 'Geist'; bundle OFL text; no standalone sale"]
-    },
-    {
-      "id": "OS-LAYT-01",
-      "name": "tailwindlabs/tailwindcss",
-      "repoUrl": "https://github.com/tailwindlabs/tailwindcss",
-      "npmPackage": "tailwindcss",
-      "upstreamOrg": "Tailwind Labs",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v4.0.0",
-      "disposition": "APPROVED",
-      "obligations": ["Standard MIT attribution in build manifests"]
-    },
-    {
-      "id": "OS-A11Y-01",
-      "name": "dequelabs/axe-core",
-      "repoUrl": "https://github.com/dequelabs/axe-core",
-      "npmPackage": "axe-core",
-      "upstreamOrg": "Deque Systems Inc.",
-      "repoLicense": "MPL-2.0",
-      "npmLicense": "MPL-2.0",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v4.14.1",
-      "disposition": "CONDITIONAL",
-      "obligations": [
-        "Wrap behind @uiforge/a11y-engine; consume unmodified; do not edit internal source; retain Section 3.1 notice and Section 3.2 source availability",
-        "Reconcile with audited axe-core@4.10.2 + @axe-core/playwright@4.10.1 harness; Phase 03 will pair 4.14.1 with compatible adapter or inject via AxeBuilder.withSource()",
-        "Configure bundlers to externalize axe-core as an engineering recommendation"
+      "candidateId": "OS-COMP-02",
+      "canonicalName": "radix-ui/primitives",
+      "repositoryUrl": "https://github.com/radix-ui/primitives",
+      "originalAuthor": "WorkOS Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/radix-ui/primitives/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@radix-ui/react-primitive",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@radix-ui/react-dialog",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@radix-ui/react-popover",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice in package bundles"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice in package bundles"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0002"
       ]
     },
     {
-      "id": "OS-A11Y-02",
-      "name": "pa11y/pa11y",
-      "repoUrl": "https://github.com/pa11y/pa11y",
-      "npmPackage": "pa11y",
-      "upstreamOrg": "Pa11y Team",
-      "repoLicense": "LGPL-3.0",
-      "npmLicense": "LGPL-3.0",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_4",
-      "auditedVersion": "v10.0.0",
-      "disposition": "CONDITIONAL",
-      "obligations": ["Mode 4 subprocess CLI runner ONLY; zero in-process library linking with Core"]
-    },
-    {
-      "id": "OS-AST-01",
-      "name": "dsherret/ts-morph",
-      "repoUrl": "https://github.com/dsherret/ts-morph",
-      "npmPackage": "ts-morph",
-      "upstreamOrg": "David Sherret",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v28.0.0",
-      "disposition": "APPROVED",
-      "obligations": ["Retain MIT license; isolate behind internal AST compiler contract"]
-    },
-    {
-      "id": "OS-AST-02",
-      "name": "biomejs/biome",
-      "repoUrl": "https://github.com/biomejs/biome",
-      "npmPackage": "@biomejs/biome",
-      "upstreamOrg": "Biome Core Team",
-      "repoLicense": "MIT OR Apache-2.0",
-      "npmLicense": "MIT OR Apache-2.0",
-      "consistency": "DUAL",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v2.6.8",
-      "disposition": "APPROVED",
-      "obligations": ["UIForge elects Apache-2.0 option for express patent grant protection"]
-    },
-    {
-      "id": "OS-AGNT-01",
-      "name": "modelcontextprotocol/servers",
-      "repoUrl": "https://github.com/modelcontextprotocol/servers",
-      "npmPackage": "@modelcontextprotocol/server",
-      "upstreamOrg": "Anthropic PBC",
-      "repoLicense": "MIT",
-      "npmLicense": "MIT",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v0.6.2 / v1.x",
-      "disposition": "APPROVED",
-      "obligations": [
-        "Standard MIT attribution",
-        "Reconcile historical candidate @modelcontextprotocol/sdk@0.6.0 with stable v1 maintenance line (^1.0.0) and emerging modular v2 packages behind @uiforge/mcp-server"
+      "candidateId": "OS-COMP-03",
+      "canonicalName": "adobe/react-spectrum",
+      "repositoryUrl": "https://github.com/adobe/react-spectrum",
+      "originalAuthor": "Adobe Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Apache-2.0",
+        "licenseTextReference": "https://github.com/adobe/react-spectrum/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@adobe/react-spectrum",
+          "declaredLicense": "Apache-2.0"
+        },
+        {
+          "packageName": "react-aria",
+          "declaredLicense": "Apache-2.0"
+        },
+        {
+          "packageName": "react-stately",
+          "declaredLicense": "Apache-2.0"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Include Apache-2.0 notice and state changes in modified files"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Include Apache-2.0 notice and state changes in modified files"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0003"
       ]
     },
     {
-      "id": "OS-BROW-01",
-      "name": "microsoft/playwright",
-      "repoUrl": "https://github.com/microsoft/playwright",
-      "npmPackage": "playwright",
-      "upstreamOrg": "Microsoft Corp.",
-      "repoLicense": "Apache-2.0",
-      "npmLicense": "Apache-2.0",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_4",
-      "auditedVersion": "v1.65.1",
-      "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Retain Microsoft NOTICE; verify browser binary sha256 checksums before launch"]
+      "candidateId": "OS-COMP-04",
+      "canonicalName": "tailwindlabs/headlessui",
+      "repositoryUrl": "https://github.com/tailwindlabs/headlessui",
+      "originalAuthor": "tailwindlabs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tailwindlabs/headlessui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@headlessui/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0004"
+      ]
     },
     {
-      "id": "OS-VIS-01",
-      "name": "mapbox/pixelmatch",
-      "repoUrl": "https://github.com/mapbox/pixelmatch",
-      "npmPackage": "pixelmatch",
-      "upstreamOrg": "Mapbox Inc.",
-      "repoLicense": "ISC",
-      "npmLicense": "ISC",
-      "consistency": "MATCH",
-      "consumptionMode": "MODE_2",
-      "auditedVersion": "v8.0.0",
-      "disposition": "APPROVED",
-      "obligations": ["Retain ISC copyright notice"]
+      "candidateId": "OS-COMP-05",
+      "canonicalName": "mantinedev/mantine",
+      "repositoryUrl": "https://github.com/mantinedev/mantine",
+      "originalAuthor": "mantinedev Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/mantinedev/mantine/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@mantine/core",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@mantine/hooks",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0005"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-06",
+      "canonicalName": "chakra-ui/chakra-ui",
+      "repositoryUrl": "https://github.com/chakra-ui/chakra-ui",
+      "originalAuthor": "chakra-ui Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/chakra-ui/chakra-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@chakra-ui/react",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@chakra-ui/dom",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0006"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-07",
+      "canonicalName": "mui/material-ui",
+      "repositoryUrl": "https://github.com/mui/material-ui",
+      "originalAuthor": "mui Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/mui/material-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@mui/material",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0007"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-08",
+      "canonicalName": "ant-design/ant-design",
+      "repositoryUrl": "https://github.com/ant-design/ant-design",
+      "originalAuthor": "ant-design Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/ant-design/ant-design/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "antd",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0008"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-09",
+      "canonicalName": "nextui-org/nextui",
+      "repositoryUrl": "https://github.com/nextui-org/nextui",
+      "originalAuthor": "nextui-org Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/nextui-org/nextui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@heroui/react",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@nextui-org/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0009"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-10",
+      "canonicalName": "chakra-ui/ark",
+      "repositoryUrl": "https://github.com/chakra-ui/ark",
+      "originalAuthor": "chakra-ui Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/chakra-ui/ark/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@ark-ui/react",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@zag-js/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0010"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-11",
+      "canonicalName": "mui/base-ui",
+      "repositoryUrl": "https://github.com/mui/base-ui",
+      "originalAuthor": "mui Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/mui/base-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@mui/base",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0011"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-12",
+      "canonicalName": "chakra-ui/park-ui",
+      "repositoryUrl": "https://github.com/chakra-ui/park-ui",
+      "originalAuthor": "chakra-ui Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/chakra-ui/park-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@park-ui/presets",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0012"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-13",
+      "canonicalName": "ariakit/ariakit",
+      "repositoryUrl": "https://github.com/ariakit/ariakit",
+      "originalAuthor": "ariakit Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/ariakit/ariakit/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@ariakit/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0013"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-14",
+      "canonicalName": "palantir/blueprint",
+      "repositoryUrl": "https://github.com/palantir/blueprint",
+      "originalAuthor": "palantir Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/palantir/blueprint/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@blueprintjs/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0014"
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-15",
+      "canonicalName": "saas-js/saas-ui",
+      "repositoryUrl": "https://github.com/saas-js/saas-ui",
+      "originalAuthor": "saas-js Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/saas-js/saas-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@saas-ui/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0015"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-01",
+      "canonicalName": "magicuidesign/magicui",
+      "repositoryUrl": "https://github.com/magicuidesign/magicui",
+      "originalAuthor": "magicuidesign Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/magicuidesign/magicui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "magicui",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0016"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-02",
+      "canonicalName": "nolly-studio/cult-ui",
+      "repositoryUrl": "https://github.com/nolly-studio/cult-ui",
+      "originalAuthor": "nolly-studio Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/nolly-studio/cult-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "cult-ui",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0017"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-03",
+      "canonicalName": "DavidHDev/react-bits",
+      "repositoryUrl": "https://github.com/DavidHDev/react-bits",
+      "originalAuthor": "DavidHDev Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "react-bits",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0018"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-04",
+      "canonicalName": "cosscom/originui",
+      "repositoryUrl": "https://github.com/cosscom/ui",
+      "originalAuthor": "cosscom Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/cosscom/ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "originui",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0019"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-05",
+      "canonicalName": "htmlstreamofficial/preline",
+      "repositoryUrl": "https://github.com/htmlstreamofficial/preline",
+      "originalAuthor": "htmlstreamofficial Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/htmlstreamofficial/preline/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "preline",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0020"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-06",
+      "canonicalName": "themesberg/flowbite-react",
+      "repositoryUrl": "https://github.com/themesberg/flowbite-react",
+      "originalAuthor": "themesberg Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/themesberg/flowbite-react/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "flowbite-react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0021"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-07",
+      "canonicalName": "markmead/hyperui",
+      "repositoryUrl": "https://github.com/markmead/hyperui",
+      "originalAuthor": "markmead Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/markmead/hyperui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "hyperui",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0022"
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-08",
+      "canonicalName": "aceternity/ui",
+      "repositoryUrl": null,
+      "originalAuthor": "Aceternity Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Commercial",
+        "licenseTextReference": null,
+        "verificationStatus": "RESTRICTED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Commercial Terms of Service strictly prohibit redistribution or packaging in developer tools. REJECTED."
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REJ",
+        "eligibility": "INCOMPATIBLE",
+        "obligations": [
+          "Commercial Terms of Service strictly prohibit redistribution or packaging in developer tools. REJECTED."
+        ],
+        "restrictions": [
+          "Redistribution in open tools prohibited"
+        ],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "REJECTED",
+      "evidence": [
+        "EV-LIC-0023"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-01",
+      "canonicalName": "tremorlabs/tremor",
+      "repositoryUrl": "https://github.com/tremorlabs/tremor",
+      "originalAuthor": "tremorlabs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tremorlabs/tremor/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@tremor/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0024"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-02",
+      "canonicalName": "tremorlabs/tremor-raw",
+      "repositoryUrl": "https://github.com/tremorlabs/tremor-raw",
+      "originalAuthor": "tremorlabs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tremorlabs/tremor-raw/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "tremor-raw",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0025"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-03",
+      "canonicalName": "TanStack/table",
+      "repositoryUrl": "https://github.com/TanStack/table",
+      "originalAuthor": "Tanner Linsley",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/TanStack/table/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@tanstack/react-table",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain MIT copyright notice in application bundle"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain MIT copyright notice in application bundle"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0026"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-04",
+      "canonicalName": "TanStack/virtual",
+      "repositoryUrl": "https://github.com/TanStack/virtual",
+      "originalAuthor": "TanStack Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/TanStack/virtual/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@tanstack/react-virtual",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0027"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-05",
+      "canonicalName": "react-grid-layout/react-grid-layout",
+      "repositoryUrl": "https://github.com/react-grid-layout/react-grid-layout",
+      "originalAuthor": "react-grid-layout Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/react-grid-layout/react-grid-layout/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "react-grid-layout",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0028"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-06",
+      "canonicalName": "refinedev/refine",
+      "repositoryUrl": "https://github.com/refinedev/refine",
+      "originalAuthor": "refinedev Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/refinedev/refine/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@refinedev/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0029"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-07",
+      "canonicalName": "marmelab/react-admin",
+      "repositoryUrl": "https://github.com/marmelab/react-admin",
+      "originalAuthor": "marmelab Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/marmelab/react-admin/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "react-admin",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0030"
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-08",
+      "canonicalName": "tabler/tabler-react",
+      "repositoryUrl": "https://github.com/tabler/tabler-react",
+      "originalAuthor": "tabler Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tabler/tabler-react/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "tabler-react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0031"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-01",
+      "canonicalName": "design-tokens/community-group",
+      "repositoryUrl": "https://github.com/design-tokens/community-group",
+      "originalAuthor": "W3C Design Tokens Community Group",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "W3C-20150513",
+        "licenseTextReference": "https://github.com/design-tokens/community-group/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Acknowledge W3C Community specification standard"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE",
+        "obligations": [
+          "Acknowledge W3C Community specification standard"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0032"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-02",
+      "canonicalName": "style-dictionary/style-dictionary",
+      "repositoryUrl": "https://github.com/style-dictionary/style-dictionary",
+      "originalAuthor": "style-dictionary Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/style-dictionary/style-dictionary/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "style-dictionary",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0033"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-03",
+      "canonicalName": "argyleink/open-props",
+      "repositoryUrl": "https://github.com/argyleink/open-props",
+      "originalAuthor": "argyleink Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/argyleink/open-props/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "open-props",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0034"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-04",
+      "canonicalName": "tailwindlabs/tailwindcss",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss",
+      "originalAuthor": "Tailwind Labs Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tailwindlabs/tailwindcss/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "tailwindcss",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain MIT copyright notice"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain MIT copyright notice"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0035"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-05",
+      "canonicalName": "radix-ui/colors",
+      "repositoryUrl": "https://github.com/radix-ui/colors",
+      "originalAuthor": "radix-ui Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/radix-ui/colors/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@radix-ui/colors",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0036"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-06",
+      "canonicalName": "tokens-studio/sd-transforms",
+      "repositoryUrl": "https://github.com/tokens-studio/sd-transforms",
+      "originalAuthor": "tokens-studio Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tokens-studio/sd-transforms/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@primer/primitives",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0037"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-07",
+      "canonicalName": "primer/primitives",
+      "repositoryUrl": "https://github.com/primer/primitives",
+      "originalAuthor": "primer Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/primer/primitives/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "theo",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0038"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-08",
+      "canonicalName": "carbon-design-system/carbon",
+      "repositoryUrl": "https://github.com/carbon-design-system/carbon",
+      "originalAuthor": "carbon-design-system Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/carbon-design-system/carbon/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@carbon/design-tokens",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0039"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-09",
+      "canonicalName": "material-components/material-web",
+      "repositoryUrl": "https://github.com/material-components/material-web",
+      "originalAuthor": "material-components Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/material-components/material-web/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@material/web",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0040"
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-10",
+      "canonicalName": "adobe/spectrum-tokens",
+      "repositoryUrl": "https://github.com/adobe/spectrum-tokens",
+      "originalAuthor": "adobe Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/adobe/spectrum-tokens/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@atlaskit/tokens",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0041"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-01",
+      "canonicalName": "motiondivision/motion",
+      "repositoryUrl": "https://github.com/motiondivision/motion",
+      "originalAuthor": "Motion Division (Matt Perry)",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "motion",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain MIT notice; 100% MIT rewrite supersedes Framer proprietary tiers"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain MIT notice; 100% MIT rewrite supersedes Framer proprietary tiers"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0042"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-02",
+      "canonicalName": "formkit/auto-animate",
+      "repositoryUrl": "https://github.com/formkit/auto-animate",
+      "originalAuthor": "formkit Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/formkit/auto-animate/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@formkit/auto-animate",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0043"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-03",
+      "canonicalName": "pmndrs/react-spring",
+      "repositoryUrl": "https://github.com/pmndrs/react-spring",
+      "originalAuthor": "pmndrs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/pmndrs/react-spring/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@react-spring/web",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0044"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-04",
+      "canonicalName": "greensock/gsap",
+      "repositoryUrl": "https://github.com/greensock/gsap",
+      "originalAuthor": "GreenSock Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "LicenseRef-GSAP-Standard",
+        "licenseTextReference": "https://gsap.com/standard-license",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "gsap",
+          "declaredLicense": "LicenseRef-GSAP-Standard"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notices and proprietary branding in source distributions. Include GSAP standard license text reference."
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_RESTRICTIONS",
+        "obligations": [
+          "Retain copyright and proprietary notices.",
+          "Permitted for all commercial web and digital application use.",
+          "Prohibited from inclusion in tools that allow users to build visual animations without code in a way that materially competes with Webflow visual animation builder capabilities."
+        ],
+        "restrictions": [
+          "Visual animation no-code builder non-compete restriction (Webflow competitor clause)"
+        ],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "CONDITIONALLY_CLEARED",
+      "evidence": [
+        "EV-LIC-0045"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-05",
+      "canonicalName": "airbnb/lottie-web",
+      "repositoryUrl": "https://github.com/airbnb/lottie-web",
+      "originalAuthor": "airbnb Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/airbnb/lottie-web/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "animejs",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0046"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-06",
+      "canonicalName": "animate-css/animate.css",
+      "repositoryUrl": "https://github.com/animate-css/animate.css",
+      "originalAuthor": "animate-css Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/animate-css/animate.css/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "animate.css",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0047"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-07",
+      "canonicalName": "catdad/canvas-confetti",
+      "repositoryUrl": "https://github.com/catdad/canvas-confetti",
+      "originalAuthor": "catdad Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/catdad/canvas-confetti/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "canvas-confetti",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0048"
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-08",
+      "canonicalName": "remotion-dev/remotion",
+      "repositoryUrl": "https://github.com/remotion-dev/remotion",
+      "originalAuthor": "Remotion Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Remotion Commercial",
+        "licenseTextReference": "https://github.com/remotion-dev/remotion/blob/main/LICENSE",
+        "verificationStatus": "RESTRICTED"
+      },
+      "packages": [
+        {
+          "packageName": "remotion",
+          "declaredLicense": "Remotion Commercial"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Commercial license required for cloud/server-side rendering. REJECTED."
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REJ",
+        "eligibility": "INCOMPATIBLE",
+        "obligations": [
+          "Commercial license required for cloud/server-side rendering. REJECTED."
+        ],
+        "restrictions": [
+          "Redistribution in open tools prohibited"
+        ],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "REJECTED",
+      "evidence": [
+        "EV-LIC-0049"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-01",
+      "canonicalName": "lucide-icons/lucide",
+      "repositoryUrl": "https://github.com/lucide-icons/lucide",
+      "originalAuthor": "Lucide Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "ISC",
+        "licenseTextReference": "https://github.com/lucide-icons/lucide/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "lucide-react",
+          "declaredLicense": "ISC"
+        },
+        {
+          "packageName": "lucide",
+          "declaredLicense": "ISC"
+        }
+      ],
+      "components": [],
+      "assets": [
+        "ASSET-OS-ICON-01-1"
+      ],
+      "attributionRequirements": [
+        "Retain ISC notice in distributed vector assets"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain ISC notice in distributed vector assets"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0050"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-02",
+      "canonicalName": "tailwindlabs/heroicons",
+      "repositoryUrl": "https://github.com/tailwindlabs/heroicons",
+      "originalAuthor": "tailwindlabs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tailwindlabs/heroicons/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "simple-icons",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0051"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-03",
+      "canonicalName": "tabler/tabler-icons",
+      "repositoryUrl": "https://github.com/tabler/tabler-icons",
+      "originalAuthor": "tabler Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tabler/tabler-icons/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@heroicons/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0052"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-04",
+      "canonicalName": "phosphor-icons/core",
+      "repositoryUrl": "https://github.com/phosphor-icons/core",
+      "originalAuthor": "phosphor-icons Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/phosphor-icons/core/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@tabler/icons-react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0053"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-05",
+      "canonicalName": "iconify/iconify",
+      "repositoryUrl": "https://github.com/iconify/iconify",
+      "originalAuthor": "iconify Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/iconify/iconify/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@radix-ui/react-icons",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0054"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-06",
+      "canonicalName": "google/material-design-icons",
+      "repositoryUrl": "https://github.com/google/material-design-icons",
+      "originalAuthor": "google Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/google/material-design-icons/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "line-awesome",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0055"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-07",
+      "canonicalName": "gregberge/svgr",
+      "repositoryUrl": "https://github.com/gregberge/svgr",
+      "originalAuthor": "gregberge Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/gregberge/svgr/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "ionicons",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0056"
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-08",
+      "canonicalName": "simple-icons/simple-icons",
+      "repositoryUrl": "https://github.com/simple-icons/simple-icons",
+      "originalAuthor": "simple-icons Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/simple-icons/simple-icons/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "feather-icons",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0057"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-01",
+      "canonicalName": "recharts/recharts",
+      "repositoryUrl": "https://github.com/recharts/recharts",
+      "originalAuthor": "recharts Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/recharts/recharts/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "recharts",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0058"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-02",
+      "canonicalName": "apache/echarts",
+      "repositoryUrl": "https://github.com/apache/echarts",
+      "originalAuthor": "apache Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/apache/echarts/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@nivo/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0059"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-03",
+      "canonicalName": "plouc/nivo",
+      "repositoryUrl": "https://github.com/plouc/nivo",
+      "originalAuthor": "plouc Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/plouc/nivo/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@visx/visx",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0060"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-04",
+      "canonicalName": "airbnb/visx",
+      "repositoryUrl": "https://github.com/airbnb/visx",
+      "originalAuthor": "airbnb Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/airbnb/visx/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "echarts",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0061"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-05",
+      "canonicalName": "chartjs/Chart.js",
+      "repositoryUrl": "https://github.com/chartjs/Chart.js",
+      "originalAuthor": "chartjs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/chartjs/Chart.js/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "chart.js",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0062"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-06",
+      "canonicalName": "observablehq/plot",
+      "repositoryUrl": "https://github.com/observablehq/plot",
+      "originalAuthor": "observablehq Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/observablehq/plot/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "victory",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0063"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-07",
+      "canonicalName": "d3/d3",
+      "repositoryUrl": "https://github.com/d3/d3",
+      "originalAuthor": "d3 Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/d3/d3/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@observablehq/plot",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0064"
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-08",
+      "canonicalName": "FormidableLabs/victory",
+      "repositoryUrl": "https://github.com/FormidableLabs/victory",
+      "originalAuthor": "FormidableLabs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/FormidableLabs/victory/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "apexcharts",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0065"
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-01",
+      "canonicalName": "tailwindlabs/tailwindcss-typography",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss-typography",
+      "originalAuthor": "Rasmus Andersson",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "OFL-1.1",
+        "licenseTextReference": "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@fontsource/inter",
+          "declaredLicense": "OFL-1.1"
+        },
+        {
+          "packageName": "inter",
+          "declaredLicense": "OFL-1.1"
+        }
+      ],
+      "components": [],
+      "assets": [
+        "ASSET-OS-TYPO-01-1"
+      ],
+      "attributionRequirements": [
+        "Do not sell font standalone; do not rename font (Reserved Font Name \"Inter\"); bundle OFL.txt notice"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Do not sell font standalone; do not rename font (Reserved Font Name \"Inter\"); bundle OFL.txt notice"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "ESCALATED_TO_COUNSEL",
+      "evidence": [
+        "EV-LIC-0066"
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-02",
+      "canonicalName": "seek-oss/capsize",
+      "repositoryUrl": "https://github.com/seek-oss/capsize",
+      "originalAuthor": "Vercel Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "OFL-1.1",
+        "licenseTextReference": "https://github.com/seek-oss/capsize/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@fontsource/geist-sans",
+          "declaredLicense": "OFL-1.1"
+        },
+        {
+          "packageName": "geist",
+          "declaredLicense": "OFL-1.1"
+        }
+      ],
+      "components": [],
+      "assets": [
+        "ASSET-OS-TYPO-02-1"
+      ],
+      "attributionRequirements": [
+        "Do not sell font standalone; do not rename font (Reserved Font Name \"Geist\"); bundle OFL.txt notice"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Do not sell font standalone; do not rename font (Reserved Font Name \"Geist\"); bundle OFL.txt notice"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "ESCALATED_TO_COUNSEL",
+      "evidence": [
+        "EV-LIC-0067"
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-03",
+      "canonicalName": "fontsource/fontsource",
+      "repositoryUrl": "https://github.com/fontsource/fontsource",
+      "originalAuthor": "fontsource Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/fontsource/fontsource/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "fontsource",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0068"
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-04",
+      "canonicalName": "rsms/inter",
+      "repositoryUrl": "https://github.com/rsms/inter",
+      "originalAuthor": "rsms Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/rsms/inter/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@capsizecss/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0069"
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-05",
+      "canonicalName": "vercel/geist-font",
+      "repositoryUrl": "https://github.com/vercel/geist-font",
+      "originalAuthor": "vercel Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/vercel/geist-font/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0070"
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-06",
+      "canonicalName": "opentypejs/opentype.js",
+      "repositoryUrl": "https://github.com/opentypejs/opentype.js",
+      "originalAuthor": "opentypejs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/opentypejs/opentype.js/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "modern-font-stacks",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0071"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-01",
+      "canonicalName": "bvaughn/react-resizable-panels",
+      "repositoryUrl": "https://github.com/bvaughn/react-resizable-panels",
+      "originalAuthor": "Danylo Demedes",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/bvaughn/react-resizable-panels/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "tailwind-merge",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain MIT notice in production bundles"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain MIT notice in production bundles"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0072"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-02",
+      "canonicalName": "tailwindlabs/tailwindcss-container-queries",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries",
+      "originalAuthor": "tailwindlabs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/tailwindlabs/tailwindcss-container-queries/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "tailwind-variants",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0073"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-03",
+      "canonicalName": "radix-ui/primitives (Aspect Ratio)",
+      "repositoryUrl": "https://github.com/radix-ui/primitives",
+      "originalAuthor": "WorkOS Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/radix-ui/primitives/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@radix-ui/react-aspect-ratio",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@radix-ui/react-scroll-area",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Duplicate capability reference to radix-ui/primitives (Layout)"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Duplicate capability reference to radix-ui/primitives (Layout)"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0074"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-04",
+      "canonicalName": "drcmda/react-spring (Parallax)",
+      "repositoryUrl": "https://github.com/pmndrs/react-spring",
+      "originalAuthor": "drcmda Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/pmndrs/react-spring/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@react-spring/web",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0075"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-05",
+      "canonicalName": "desandro/masonry",
+      "repositoryUrl": "https://github.com/desandro/masonry",
+      "originalAuthor": "desandro Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/desandro/masonry/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@xyflow/react",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "reactflow",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0076"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-06",
+      "canonicalName": "kristoferbaxter/flexboxgrid",
+      "repositoryUrl": "https://github.com/kristoferbaxter/flexboxgrid",
+      "originalAuthor": "kristoferbaxter Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/kristoferbaxter/flexboxgrid/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@atlaskit/pragmatic-drag-and-drop",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0077"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-07",
+      "canonicalName": "yannickcr/eslint-plugin-react",
+      "repositoryUrl": "https://github.com/jsx-eslint/eslint-plugin-react",
+      "originalAuthor": "yannickcr Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/jsx-eslint/eslint-plugin-react/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@dnd-kit/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0078"
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-08",
+      "canonicalName": "Every-Layout/every-layout",
+      "repositoryUrl": null,
+      "originalAuthor": "Every-Layout Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": null,
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0079"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-01",
+      "canonicalName": "dequelabs/axe-core",
+      "repositoryUrl": "https://github.com/dequelabs/axe-core",
+      "originalAuthor": "Deque Systems Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MPL-2.0",
+        "licenseTextReference": "https://github.com/dequelabs/axe-core/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "axe-core",
+          "declaredLicense": "MPL-2.0"
+        },
+        {
+          "packageName": "@axe-core/playwright",
+          "declaredLicense": "MPL-2.0"
+        }
+      ],
+      "components": [],
+      "assets": [
+        "ASSET-OS-A11Y-01-1"
+      ],
+      "attributionRequirements": [
+        "MPL-2.0 Larger Work notice obligations; preserve source notices in axe-core modules; make modified axe-core source available"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "MPL-2.0 Larger Work notice obligations; preserve source notices in axe-core modules; make modified axe-core source available"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "ESCALATED_TO_COUNSEL",
+      "evidence": [
+        "EV-LIC-0080"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-02",
+      "canonicalName": "axe-core/playwright",
+      "repositoryUrl": "https://github.com/dequelabs/axe-core-npm",
+      "originalAuthor": "axe-core Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/dequelabs/axe-core-npm/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "eslint-plugin-jsx-a11y",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0081"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-03",
+      "canonicalName": "jsx-eslint/eslint-plugin-jsx-a11y",
+      "repositoryUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y",
+      "originalAuthor": "jsx-eslint Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "eslint-plugin-jsx-a11y",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0082"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-04",
+      "canonicalName": "nickcolley/jest-axe",
+      "repositoryUrl": "https://github.com/nickcolley/jest-axe",
+      "originalAuthor": "nickcolley Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/nickcolley/jest-axe/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "lighthouse",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0083"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-05",
+      "canonicalName": "pa11y/pa11y",
+      "repositoryUrl": "https://github.com/pa11y/pa11y",
+      "originalAuthor": "Pa11y Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "LGPL-3.0",
+        "licenseTextReference": "https://github.com/pa11y/pa11y/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "pa11y",
+          "declaredLicense": "LGPL-3.0"
+        }
+      ],
+      "components": [],
+      "assets": [
+        "ASSET-OS-A11Y-05-1"
+      ],
+      "attributionRequirements": [
+        "Subprocess execution boundary only; do not import into library bundles; external legal counsel review required (ESC-01)"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INF",
+        "eligibility": "REQUIRES_REVIEW",
+        "obligations": [
+          "Subprocess execution boundary only; do not import into library bundles; external legal counsel review required (ESC-01)"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "ESCALATED_TO_COUNSEL",
+      "evidence": [
+        "EV-LIC-0084"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-06",
+      "canonicalName": "GoogleChrome/lighthouse",
+      "repositoryUrl": "https://github.com/GoogleChrome/lighthouse",
+      "originalAuthor": "GoogleChrome Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/GoogleChrome/lighthouse/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "html_codesniffer",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0085"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-07",
+      "canonicalName": "microsoft/accessibility-insights-web",
+      "repositoryUrl": "https://github.com/microsoft/accessibility-insights-web",
+      "originalAuthor": "microsoft Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/microsoft/accessibility-insights-web/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "accesslint",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0086"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-08",
+      "canonicalName": "w3c/aria-practices",
+      "repositoryUrl": "https://github.com/w3c/aria-practices",
+      "originalAuthor": "w3c Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/w3c/aria-practices/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "focus-trap",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "focus-trap-react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0087"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-09",
+      "canonicalName": "storybookjs/addon-a11y",
+      "repositoryUrl": "https://github.com/storybookjs/storybook",
+      "originalAuthor": "storybookjs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/storybookjs/storybook/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@testing-library/dom",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@testing-library/react",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0088"
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-10",
+      "canonicalName": "accesslint/accesslint",
+      "repositoryUrl": "https://github.com/accesslint/accesslint",
+      "originalAuthor": "accesslint Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/accesslint/accesslint/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "ally.js",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0089"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-01",
+      "canonicalName": "BuilderIO/mitosis",
+      "repositoryUrl": "https://github.com/BuilderIO/mitosis",
+      "originalAuthor": "Colin McDonnell",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/BuilderIO/mitosis/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "zod",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain MIT copyright notice"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain MIT copyright notice"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0090"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-02",
+      "canonicalName": "figma/code-connect",
+      "repositoryUrl": "https://github.com/figma/code-connect",
+      "originalAuthor": "figma Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/figma/code-connect/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "valibot",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INT",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0091"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-03",
+      "canonicalName": "abi/screenshot-to-code",
+      "repositoryUrl": "https://github.com/abi/screenshot-to-code",
+      "originalAuthor": "Babel Core Team",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/abi/screenshot-to-code/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@babel/core",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@babel/parser",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Build-time dependency; retain MIT license in tooling headers"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Build-time dependency; retain MIT license in tooling headers"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0092"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-04",
+      "canonicalName": "figma/plugin-samples",
+      "repositoryUrl": "https://github.com/figma/plugin-samples",
+      "originalAuthor": "figma Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/figma/plugin-samples/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "ts-morph",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0093"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-05",
+      "canonicalName": "WICG/open-ui",
+      "repositoryUrl": "https://github.com/WICG/open-ui",
+      "originalAuthor": "WICG Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/WICG/open-ui/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@biomejs/biome",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0094"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-06",
+      "canonicalName": "ast-grep/ast-grep",
+      "repositoryUrl": "https://github.com/ast-grep/ast-grep",
+      "originalAuthor": "ast-grep Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/ast-grep/ast-grep/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@swc/core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0095"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-07",
+      "canonicalName": "babel/babel",
+      "repositoryUrl": "https://github.com/babel/babel",
+      "originalAuthor": "babel Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/babel/babel/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@builder.io/mitosis",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0096"
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-08",
+      "canonicalName": "locofy/locofy",
+      "repositoryUrl": null,
+      "originalAuthor": "Locofy Pte Ltd",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Commercial",
+        "licenseTextReference": null,
+        "verificationStatus": "RESTRICTED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Closed-source commercial SaaS. REJECTED."
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REJ",
+        "eligibility": "INCOMPATIBLE",
+        "obligations": [
+          "Closed-source commercial SaaS. REJECTED."
+        ],
+        "restrictions": [
+          "Redistribution in open tools prohibited"
+        ],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "REJECTED",
+      "evidence": [
+        "EV-LIC-0097"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-01",
+      "canonicalName": "modelcontextprotocol/typescript-sdk",
+      "repositoryUrl": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "originalAuthor": "Anthropic PBC & Model Context Protocol Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/modelcontextprotocol/typescript-sdk/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@modelcontextprotocol/sdk",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "@modelcontextprotocol/server",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain MIT notice across modular SDK v2 integration"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain MIT notice across modular SDK v2 integration"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0098"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-02",
+      "canonicalName": "anomalyco/opencode",
+      "repositoryUrl": "https://github.com/anomalyco/opencode",
+      "originalAuthor": "anomalyco Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/anomalyco/opencode/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "opencode",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INT",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0099"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-03",
+      "canonicalName": "anthropics/claude-code",
+      "repositoryUrl": null,
+      "originalAuthor": "Anthropic PBC",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Proprietary",
+        "licenseTextReference": null,
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "claude-code",
+          "declaredLicense": "Proprietary"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Reference-only interaction; no source code bundling authorized"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "RESTRICTED",
+        "obligations": [
+          "Reference-only interaction; no source code bundling authorized"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "ESCALATED_TO_COUNSEL",
+      "evidence": [
+        "EV-LIC-0100"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-04",
+      "canonicalName": "anysphere/cursor",
+      "repositoryUrl": null,
+      "originalAuthor": "Anysphere Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Proprietary",
+        "licenseTextReference": null,
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "External commercial IDE client; interface via standard MCP protocol only"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "RESTRICTED",
+        "obligations": [
+          "External commercial IDE client; interface via standard MCP protocol only"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": true
+      },
+      "reviewStatus": "ESCALATED_TO_COUNSEL",
+      "evidence": [
+        "EV-LIC-0101"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-05",
+      "canonicalName": "codeium/windsurf",
+      "repositoryUrl": null,
+      "originalAuthor": "codeium Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": null,
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INT",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0102"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-06",
+      "canonicalName": "continuedev/continue",
+      "repositoryUrl": "https://github.com/continuedev/continue",
+      "originalAuthor": "continuedev Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/continuedev/continue/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "continue",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0103"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-07",
+      "canonicalName": "CopilotKit/CopilotKit",
+      "repositoryUrl": "https://github.com/CopilotKit/CopilotKit",
+      "originalAuthor": "CopilotKit Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/CopilotKit/CopilotKit/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@copilotkit/react-core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REG",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0104"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-08",
+      "canonicalName": "vercel/ai",
+      "repositoryUrl": "https://github.com/vercel/ai",
+      "originalAuthor": "vercel Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/vercel/ai/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "ai",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0105"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-09",
+      "canonicalName": "langchain-ai/langgraphjs",
+      "repositoryUrl": "https://github.com/langchain-ai/langgraphjs",
+      "originalAuthor": "langchain-ai Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/langchain-ai/langgraphjs/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@langchain/langgraph",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0106"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-10",
+      "canonicalName": "run-llama/LlamaIndexTS",
+      "repositoryUrl": "https://github.com/run-llama/LlamaIndexTS",
+      "originalAuthor": "run-llama Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/run-llama/LlamaIndexTS/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "llamaindex",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0107"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-11",
+      "canonicalName": "cline/cline",
+      "repositoryUrl": "https://github.com/cline/cline",
+      "originalAuthor": "cline Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/cline/cline/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "cline",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INT",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0108"
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-12",
+      "canonicalName": "rooveterinaryinc/roo-cline",
+      "repositoryUrl": "https://github.com/RooVetGit/Roo-Code",
+      "originalAuthor": "rooveterinaryinc Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/RooVetGit/Roo-Code/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "roo-cline",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "roo-code",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INT",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0109"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-01",
+      "canonicalName": "microsoft/playwright",
+      "repositoryUrl": "https://github.com/microsoft/playwright",
+      "originalAuthor": "Microsoft Corporation",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "Apache-2.0",
+        "licenseTextReference": "https://github.com/microsoft/playwright/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "playwright",
+          "declaredLicense": "Apache-2.0"
+        },
+        {
+          "packageName": "playwright-core",
+          "declaredLicense": "Apache-2.0"
+        }
+      ],
+      "components": [],
+      "assets": [
+        "ASSET-OS-BROW-01-1"
+      ],
+      "attributionRequirements": [
+        "Include Apache-2.0 notice; Playwright browser binaries downloaded dynamically at installation"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Include Apache-2.0 notice; Playwright browser binaries downloaded dynamically at installation"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0110"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-02",
+      "canonicalName": "puppeteer/puppeteer",
+      "repositoryUrl": "https://github.com/puppeteer/puppeteer",
+      "originalAuthor": "puppeteer Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/puppeteer/puppeteer/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "puppeteer",
+          "declaredLicense": "MIT"
+        },
+        {
+          "packageName": "puppeteer-core",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0111"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-03",
+      "canonicalName": "webdriverio/webdriverio",
+      "repositoryUrl": "https://github.com/webdriverio/webdriverio",
+      "originalAuthor": "webdriverio Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/webdriverio/webdriverio/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "webdriverio",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0112"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-04",
+      "canonicalName": "testcontainers/testcontainers-node",
+      "repositoryUrl": "https://github.com/testcontainers/testcontainers-node",
+      "originalAuthor": "testcontainers Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/testcontainers/testcontainers-node/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "testcontainers",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0113"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-05",
+      "canonicalName": "browserless/chrome",
+      "repositoryUrl": "https://github.com/browserless/chrome",
+      "originalAuthor": "browserless Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/browserless/chrome/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "chrome-remote-interface",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0114"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-06",
+      "canonicalName": "browser-use/browser-use",
+      "repositoryUrl": "https://github.com/browser-use/browser-use",
+      "originalAuthor": "browser-use Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/browser-use/browser-use/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "browser-use",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0115"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-07",
+      "canonicalName": "SeleniumHQ/selenium",
+      "repositoryUrl": "https://github.com/SeleniumHQ/selenium",
+      "originalAuthor": "SeleniumHQ Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/SeleniumHQ/selenium/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "selenium-webdriver",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0116"
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-08",
+      "canonicalName": "cypress-io/cypress",
+      "repositoryUrl": "https://github.com/cypress-io/cypress",
+      "originalAuthor": "cypress-io Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/cypress-io/cypress/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "cypress",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0117"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-01",
+      "canonicalName": "mapbox/pixelmatch",
+      "repositoryUrl": "https://github.com/mapbox/pixelmatch",
+      "originalAuthor": "Mapbox Inc.",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "ISC",
+        "licenseTextReference": "https://github.com/mapbox/pixelmatch/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "pixelmatch",
+          "declaredLicense": "ISC"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain ISC license notice in canvas/pixel comparison utilities"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain ISC license notice in canvas/pixel comparison utilities"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0118"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-02",
+      "canonicalName": "gemini-testing/looks-same",
+      "repositoryUrl": "https://github.com/gemini-testing/looks-same",
+      "originalAuthor": "gemini-testing Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/gemini-testing/looks-same/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "looks-same",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "DEP",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0119"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-03",
+      "canonicalName": "argos-ci/argos",
+      "repositoryUrl": "https://github.com/argos-ci/argos",
+      "originalAuthor": "argos-ci Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/argos-ci/argos/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@argos-ci/cli",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0120"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-04",
+      "canonicalName": "oblador/loki",
+      "repositoryUrl": "https://github.com/oblador/loki",
+      "originalAuthor": "oblador Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/oblador/loki/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "loki",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0121"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-05",
+      "canonicalName": "garris/BackstopJS",
+      "repositoryUrl": "https://github.com/garris/BackstopJS",
+      "originalAuthor": "garris Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/garris/BackstopJS/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "backstopjs",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0122"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-06",
+      "canonicalName": "lost-pixel/lost-pixel",
+      "repositoryUrl": "https://github.com/lost-pixel/lost-pixel",
+      "originalAuthor": "lost-pixel Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/lost-pixel/lost-pixel/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "lost-pixel",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0123"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-07",
+      "canonicalName": "rsmbl/Resemble.js",
+      "repositoryUrl": "https://github.com/rsmbl/Resemble.js",
+      "originalAuthor": "rsmbl Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/rsmbl/Resemble.js/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "resemblejs",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "REF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0124"
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-08",
+      "canonicalName": "storybookjs/test-runner",
+      "repositoryUrl": "https://github.com/storybookjs/test-runner",
+      "originalAuthor": "storybookjs Contributors",
+      "version": "latest-stable",
+      "commitSha": null,
+      "rootLicense": {
+        "spdxIdentifier": "MIT",
+        "licenseTextReference": "https://github.com/storybookjs/test-runner/blob/main/LICENSE",
+        "verificationStatus": "VERIFIED"
+      },
+      "packages": [
+        {
+          "packageName": "@storybook/test-runner",
+          "declaredLicense": "MIT"
+        }
+      ],
+      "components": [],
+      "assets": [],
+      "attributionRequirements": [
+        "Retain copyright notice and permission notice under MIT"
+      ],
+      "modifications": [],
+      "redistributionAssessment": {
+        "consumptionMode": "INF",
+        "eligibility": "ELIGIBLE_WITH_OBLIGATIONS",
+        "obligations": [
+          "Retain copyright notice and permission notice under MIT"
+        ],
+        "restrictions": [],
+        "counselReviewRequired": false
+      },
+      "reviewStatus": "VERIFIED",
+      "evidence": [
+        "EV-LIC-0125"
+      ]
     }
   ]
 }

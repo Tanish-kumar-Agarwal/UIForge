@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForgeLicenseIntelligenceInventory",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "inventoryId",
+    "candidateCount",
+    "candidates"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "inventoryId": {
+      "type": "string"
+    },
+    "candidateCount": {
+      "type": "integer"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidateId",
+          "canonicalName",
+          "rootLicense",
+          "redistributionAssessment",
+          "reviewStatus"
+        ],
+        "properties": {
+          "candidateId": {
+            "type": "string"
+          },
+          "canonicalName": {
+            "type": "string"
+          },
+          "repositoryUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "originalAuthor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "commitSha": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rootLicense": {
+            "type": "object",
+            "required": [
+              "spdxIdentifier",
+              "verificationStatus"
+            ],
+            "properties": {
+              "spdxIdentifier": {
+                "type": "string"
+              },
+              "licenseTextReference": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "verificationStatus": {
+                "type": "string",
+                "enum": [
+                  "VERIFIED",
+                  "PARTIAL",
+                  "NOT_VERIFIED",
+                  "RESTRICTED",
+                  "PROPRIETARY",
+                  "INCOMPATIBLE"
+                ]
+              }
+            }
+          },
+          "packages": {
+            "type": "array"
+          },
+          "components": {
+            "type": "array"
+          },
+          "assets": {
+            "type": "array"
+          },
+          "attributionRequirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "modifications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "redistributionAssessment": {
+            "type": "object",
+            "required": [
+              "consumptionMode",
+              "eligibility",
+              "counselReviewRequired"
+            ],
+            "properties": {
+              "consumptionMode": {
+                "type": "string"
+              },
+              "eligibility": {
+                "type": "string",
+                "enum": [
+                  "ELIGIBLE",
+                  "ELIGIBLE_WITH_OBLIGATIONS",
+                  "REQUIRES_REVIEW",
+                  "RESTRICTED",
+                  "INCOMPATIBLE",
+                  "UNKNOWN",
+                  "NOT_VERIFIED"
+                ]
+              },
+              "obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "restrictions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "counselReviewRequired": {
+                "type": "boolean"
+              }
+            }
+          },
+          "reviewStatus": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "REQUIRES_REVIEW",
+              "REJECTED",
+              "ESCALATED_TO_COUNSEL"
+            ]
+          },
+          "evidence": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

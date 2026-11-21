@@ -1,0 +1,56 @@
+[
+  {
+    "assetId": "ASSET-OS-ICON-01-1",
+    "parentCandidateId": "OS-ICON-01",
+    "assetName": "SVG Vector Icons (ISC)",
+    "license": "ISC",
+    "author": "Lucide Contributors",
+    "reviewStatus": "VERIFIED",
+    "evidenceRef": "EV-LIC-0050"
+  },
+  {
+    "assetId": "ASSET-OS-TYPO-01-1",
+    "parentCandidateId": "OS-TYPO-01",
+    "assetName": "Inter.var.woff2 (OFL-1.1)",
+    "license": "OFL-1.1",
+    "author": "Rasmus Andersson",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0066"
+  },
+  {
+    "assetId": "ASSET-OS-TYPO-02-1",
+    "parentCandidateId": "OS-TYPO-02",
+    "assetName": "Geist-Variable.woff2 (OFL-1.1)",
+    "license": "OFL-1.1",
+    "author": "Vercel Inc.",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0067"
+  },
+  {
+    "assetId": "ASSET-OS-A11Y-01-1",
+    "parentCandidateId": "OS-A11Y-01",
+    "assetName": "axe.min.js (MPL-2.0)",
+    "license": "MPL-2.0",
+    "author": "Deque Systems Inc.",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0080"
+  },
+  {
+    "assetId": "ASSET-OS-A11Y-05-1",
+    "parentCandidateId": "OS-A11Y-05",
+    "assetName": "HTML_CodeSniffer (BSD-3-Clause)",
+    "license": "LGPL-3.0",
+    "author": "Pa11y Contributors",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0084"
+  },
+  {
+    "assetId": "ASSET-OS-BROW-01-1",
+    "parentCandidateId": "OS-BROW-01",
+    "assetName": "Chromium Headless Shell (BSD-3-Clause)",
+    "license": "Apache-2.0",
+    "author": "Microsoft Corporation",
+    "reviewStatus": "VERIFIED",
+    "evidenceRef": "EV-LIC-0110"
+  }
+]
