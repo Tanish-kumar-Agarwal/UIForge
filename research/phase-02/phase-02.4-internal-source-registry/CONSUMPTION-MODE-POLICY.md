@@ -1,100 +1,132 @@
-# UIFORGE PHASE 02.4 — CONSUMPTION-MODE GOVERNANCE POLICY
-# Multi-Mode Operational Boundaries, Notice Requirements & Redistribution Matrix
+# UIForge Phase 02.4: Consumption Mode Policy
 
-**Document ID:** `UIF-PH02.4-CONSUMPTION-POLICY`  
-**Phase:** 02.4 — Internal Source Registry  
-**Standard:** Software Licensing Analyst & Principal Software Architect  
-**Status:** Mandatory Governance Protocol  
-
----
-
-## 1. The Six Consumption Modes Framework
-
-UIForge rejects the assumption of a single universal "approved" flag. A technology may be safe for architectural study but prohibited from source redistribution. A package may be eligible as an external npm dependency but illegal to re-host in a component registry.
-
-UIForge establishes **six independently governed consumption modes**:
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   THE SIX CONSUMPTION MODES OF UIFORGE                 │
-├───────────────────────┬────────────────────────────────────────────────┤
-│ Consumption Mode      │ Core Action & Execution Scope                  │
-├───────────────────────┼────────────────────────────────────────────────┤
-│ 1. REFERENCE_ONLY     │ Architectural analysis, API study, W3C spec    │
-│ 2. DEPENDENCY         │ `npm install` addition to user's package.json  │
-│ 3. SOURCE_COPY        │ Copying component source into user project     │
-│ 4. ASSET_REDISTRIB    │ Bundling font binaries, vector SVGs, engines   │
-│ 5. EXTERNAL_TOOL      │ Spawning out-of-process CLI runners / browsers │
-│ 6. TEMPLATE_ADAPT     │ Structural adaptation of dashboard/page layouts│
-└───────────────────────┴────────────────────────────────────────────────┘
-```
+**Document ID:** UIF-PH02.4-CONSUMPTION-MODE-POLICY  
+**Classification:** Open-Source Governance, Legal Risk Mitigation, Consumption Architecture  
+**Status:** Certified / Approved  
+**Authoritative Location:** `research/phase-02/phase-02.4-internal-source-registry/CONSUMPTION-MODE-POLICY.md`  
 
 ---
 
-## 2. Granular Consumption Mode Rules
+## 1. Executive Summary & Purpose
 
-### 2.1 Mode 1: `REFERENCE_ONLY`
-- **Definition:** Studying component architecture, state machines, accessibility patterns, fluid layout mathematics, and token hierarchy without copying code or assets.
-- **Governing Rule:** Permitted universally across open-source and commercial candidates (unless gated by a signed proprietary Non-Disclosure Agreement).
-- **Restrictions:** Authorizes zero source copying, zero asset distribution, and zero automated dependency additions.
+A monolithic "approved / rejected" binary classification is legally and architecturally hazardous. A library may be ideal as an emitted user dependency but illegal to copy into proprietary source code; an accessibility engine may be licensed under a copyleft regime (MPL-2.0 or LGPL-3.0) that permits isolated external execution but imposes strict notice or distribution obligations if linked at runtime.
 
-### 2.2 Mode 2: `DEPENDENCY`
-- **Definition:** Emitting package specifiers into customer `package.json` manifests for installation via `npm`, `pnpm`, or `bun`.
-- **Governing Rule:** Permitted only for packages with verified permissive (MIT, Apache-2.0, ISC) or qualified weak copyleft / custom commercial terms.
-- **Mandatory Requirements:**
-  1. Exact version range pinned.
-  2. License compatibility verified.
-  3. No viral GPL/AGPL dependencies in the transitive dependency tree.
-- **Special Dispositions:**
-  - `greensock/gsap`: Permitted as an emitted user dependency (`import gsap from 'gsap'`) under Webflow Standard License. Prohibited from being bundled into UIForge core binaries.
-  - `dequelabs/axe-core`: Permitted under MPL-2.0 Section 3.3 Larger Work provisions. Bundled distributions must include MPL-2.0 license notice and source availability instructions.
-
-### 2.3 Mode 3: `SOURCE_COPY`
-- **Definition:** Copying raw TypeScript/JSX source files into customer application directories (e.g. `components/ui/button.tsx`) or into the UIForge internal registry template library.
-- **Governing Rule:** Requires affirmative **file-level intellectual property clearance**. A root repository license is never assumed to cover copied files.
-- **Mandatory Requirements:**
-  1. Source files must be audited for embedded third-party licenses.
-  2. Copyright headers and original author notices must be preserved at the top of copied source files.
-  3. Any file modifications must be tracked with clear comment annotations.
-- **Strict Prohibitions:**
-  - Copying source from LGPL-3.0 (`pa11y`), commercial SaaS (`aceternity`, `locofy`), or proprietary clients (`claude-code`, `cursor`) is strictly **BLOCKED**.
-
-### 2.4 Mode 4: `ASSET_REDISTRIBUTION`
-- **Definition:** Distributing standalone binary or media assets (font `.woff2` binaries, SVG icon collections, bundled JavaScript engines).
-- **Governing Rule:** Every asset must be evaluated independently under its specific asset license.
-- **Asset-Specific Mandates:**
-  - **Fonts (`Inter.var.woff2`, `Geist-Variable.woff2` - OFL-1.1):** Font software cannot be sold standalone. Original OFL copyright headers must be retained. Reserved Font Names require explicit copyright declaration; verbatim redistribution retains the original name.
-  - **Icons (`Lucide SVG` - ISC):** Permitted with license notice retention in icon bundle metadata.
-  - **Bundled Engines (`axe.min.js` - MPL-2.0):** Executable form distribution requires informing recipients how to obtain the Source Code under MPL Section 3.1.
-
-### 2.5 Mode 5: `EXTERNAL_TOOL`
-- **Definition:** Spawning external executables or browser automation drivers via `child_process.fork()` or `node:spawn`.
-- **Governing Rule:** Process boundary isolation. The external tool must execute in a separate operating system process with pinned standard I/O streams.
-- **Special Dispositions:**
-  - `pa11y/pa11y` (LGPL-3.0): Must execute strictly as an out-of-process subprocess. Direct library linking or bundler inclusion into `@uiforge/cli` is strictly prohibited. Legal counsel review remains open under `LEG-02`.
-  - `microsoft/playwright` (Apache-2.0): Approved for headless browser orchestration. Chromium binaries installed into isolated user cache directories.
-
-### 2.6 Mode 6: `TEMPLATE_ADAPTATION`
-- **Definition:** Adapting full-page structural compositions, dashboard shells, or marketing layouts into UIForge generative templates.
-- **Governing Rule:** Permitted only for structurally unencumbered layouts under permissive licenses. Third-party branding, logos, and proprietary marketing copy must be purged during adaptation.
+This policy defines the **Six Consumption Modes** of UIForge, the canonical decision enum, the granular activities governed under `REFERENCE_ONLY`, and the specific governance boundaries for critical candidates.
 
 ---
 
-## 3. Master Consumption Mode Matrix across 125 Sources
+## 2. The Six Formal Consumption Modes
 
-The complete permissions matrix is codified in [`data/consumption-permissions.json`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.4-internal-source-registry/data/consumption-permissions.json) ($125 \times 6 = 750\text{ records}$):
+UIForge evaluates every source candidate across six independent consumption modes:
 
 ```
-┌─────────────────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐
-│ Candidate Category      │ Reference    │ Dependency   │ Source Copy  │ Asset Red    │ External Tool│ Template Adapt│
-├─────────────────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-│ Permissive Component    │ APPROVED     │ APPROVED     │ APPROVED     │ N/A          │ N/A          │ APPROVED     │
-│ Permissive Utility/Hook │ APPROVED     │ APPROVED     │ APPROVED     │ N/A          │ N/A          │ N/A          │
-│ OFL-1.1 Font Software   │ APPROVED     │ APPROVED     │ N/A          │ ELIG_RESTRICT│ N/A          │ N/A          │
-│ MPL-2.0 axe-core        │ APPROVED     │ ELIG_RESTRICT│ ELIG_RESTRICT│ ELIG_RESTRICT│ APPROVED     │ N/A          │
-│ LGPL-3.0 pa11y          │ APPROVED     │ PENDING_REV  │ BLOCKED      │ N/A          │ ELIG_RESTRICT│ N/A          │
-│ GSAP Animation Engine   │ APPROVED     │ ELIG_RESTRICT│ BLOCKED      │ BLOCKED      │ N/A          │ N/A          │
-│ Closed SaaS / Commercial│ APPROVED     │ BLOCKED      │ BLOCKED      │ BLOCKED      │ N/A          │ BLOCKED      │
-│ Proprietary IDE/Client  │ APPROVED     │ REFERENCE    │ BLOCKED      │ BLOCKED      │ N/A          │ N/A          │
-└─────────────────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────┘
+┌────────────────────────────────────────────────────────┐
+│  MODE 1: REFERENCE_ONLY                                │
+│  - Architectural inspection & factual benchmarking     │
+│  - Zero code emission, zero asset redistribution       │
+├────────────────────────────────────────────────────────┤
+│  MODE 2: DEPENDENCY                                    │
+│  - Package listed in emitted user package.json         │
+│  - Resolved and installed via npm/pnpm                 │
+├────────────────────────────────────────────────────────┤
+│  MODE 3: SOURCE_COPY                                   │
+│  - Component source code copied into user workspace    │
+│  - Scaffolding & adaptation (shadcn/ui model)          │
+├────────────────────────────────────────────────────────┤
+│  MODE 4: ASSET_REDISTRIBUTION                          │
+│  - Static assets (fonts, icons, WASM, rule bundles)    │
+│  - Bundled directly into UIForge runtime or templates  │
+├────────────────────────────────────────────────────────┤
+│  MODE 5: EXTERNAL_TOOL                                 │
+│  - Executed as out-of-process CLI tool in pipeline     │
+│  - Strict process boundary (e.g. axe-core CLI, pa11y)  │
+├────────────────────────────────────────────────────────┤
+│  MODE 6: TEMPLATE_ADAPTATION                           │
+│  - Code generator / AST transformation templates       │
+│  - Scaffolding engines (LiquidJS, Handlebars)          │
+└────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 3. Canonical Decision Enum & Precedence
+
+To eliminate conflicting terminology and ensure semantic consistency, all 750 permission records in [`data/consumption-permissions.json`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.4-internal-source-registry/data/consumption-permissions.json) strictly adhere to a single canonical eligibility enum:
+
+| Canonical Eligibility State | Semantic Definition & Legal Impact | `allowed` Boolean |
+| :--- | :--- | :---: |
+| **`APPROVED`** | Unconditional permission granted under permissive terms (MIT, Apache-2.0, ISC). | `true` |
+| **`ELIGIBLE_WITH_RESTRICTIONS`** | Permission granted subject to strict notice, attribution, or non-compete conditions. | `true` |
+| **`REFERENCE_ONLY`** | Permission restricted strictly to architectural inspection and factual research. | `true` |
+| **`PENDING_REVIEW`** | Permission suspended pending formal legal counsel or technical architecture review. | `false` |
+| **`BLOCKED`** | Prohibited under all circumstances due to licensing incompatibility or proprietary terms. | `false` |
+| **`NOT_APPLICABLE`** | Consumption mode does not apply to this candidate typology (e.g. font asset in CLI tool mode). | `false` |
+
+### Strict Decision Precedence:
+$$\text{BLOCKED} > \text{PENDING\_REVIEW} > \text{REFERENCE\_ONLY} > \text{ELIGIBLE\_WITH\_RESTRICTIONS} > \text{APPROVED} > \text{NOT\_APPLICABLE}$$
+
+---
+
+## 4. Reference-Only Scope & Activity Boundaries (Finding C04 Resolution)
+
+Approval under `REFERENCE_ONLY` does **NOT** grant unrestricted inspection, cloning, or extraction rights. The registry distinguishes six discrete activities:
+
+| Activity | Open-Source Repositories (119 Sources) | Commercial / Closed Portals (6 Sources) |
+| :--- | :---: | :---: |
+| **1. Public Documentation Inspection** | **AUTHORIZED** | **AUTHORIZED** |
+| **2. Architectural Factual Research** | **AUTHORIZED** | **AUTHORIZED** |
+| **3. Public Source Code Inspection** | **AUTHORIZED** | **PROHIBITED** (Source code closed/proprietary) |
+| **4. Local Repository Cloning** | **AUTHORIZED** | **PROHIBITED** (No public Git repository) |
+| **5. Automated Mass Scraping** | **STRICTLY PROHIBITED** | **STRICTLY PROHIBITED** |
+| **6. Source Code Copying** | **PROHIBITED** (Governed by Mode 3) | **PROHIBITED** (Governed by Mode 3) |
+
+Every `REFERENCE_ONLY` record in `consumption-permissions.json` encodes this granular breakdown in its `referenceScope` object:
+```json
+{
+  "publicDocumentationInspection": true,
+  "factualResearch": true,
+  "publicSourceCodeInspection": false,
+  "localCloning": false,
+  "automatedScraping": false,
+  "codeCopying": false
+}
+```
+
+---
+
+## 5. Domain Governance Boundaries for Critical Candidates (Finding C03 Resolution)
+
+### 5.1 GSAP (`SRC-OS-ANIM-04`)
+- **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Condition:** Emitted user dependency allowed under Webflow April 2025 commercial free terms (`npm install gsap`).
+  - **Restriction:** Non-compete clause strictly prohibits inclusion in competing visual no-code animation builders. Flagged `counselReviewRequired: true`.
+- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
+  - **Condition:** Copying GSAP source code into user templates or UIForge core is strictly illegal under proprietary terms.
+
+### 5.2 axe-core (`SRC-OS-A11Y-01`)
+- **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Condition:** Governed by Mozilla Public License 2.0 (MPL-2.0). Section 3.3 "Larger Works" notice obligations require retaining MPL-2.0 copyright notices in generated distributions.
+- **`SOURCE_COPY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Condition:** If any axe-core source file is modified, the modified covered file must be made available under MPL-2.0.
+- **`EXTERNAL_TOOL`: `APPROVED` (`allowed: true`)**
+  - **Condition:** Execution as an isolated out-of-process CLI tool across a process boundary.
+
+### 5.3 pa11y (`SRC-OS-A11Y-05`)
+- **`DEPENDENCY`: `PENDING_REVIEW` (`allowed: false`)**
+  - **Condition:** Governed by GNU Lesser General Public License v3.0 (LGPL-3.0). Direct dynamic linking into compiled JavaScript runtime bundles carries viral copyleft risk. Suspended pending formal legal counsel review.
+- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
+  - **Condition:** Copying LGPL-3.0 source code into user project trees is strictly prohibited.
+- **`EXTERNAL_TOOL`: `PENDING_REVIEW` (`allowed: false`)**
+  - **Condition:** A proposed subprocess architecture does not itself establish that distribution and execution satisfy every applicable LGPL obligation. External tool execution remains `PENDING_REVIEW` pending formal counsel review of the packaging and distribution model. Flagged `counselReviewRequired: true`.
+
+### 5.4 LiquidJS (`SRC-OS-UTIL-01`)
+- **`DEPENDENCY`: `APPROVED` (`allowed: true`)**
+- **`SOURCE_COPY`: `APPROVED` (`allowed: true`)**
+- **`TEMPLATE_ADAPTATION`: `APPROVED` (`allowed: true`)**
+  - **Condition:** Fully verified MIT license. Historical MulanPSL references reconciled and confirmed non-applicable to audited v10.x line.
+
+### 5.5 Commercial Closed Platforms (Aceternity UI, Locofy.ai)
+- **`DEPENDENCY`: `BLOCKED` (`allowed: false`)**
+- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
+- **`REFERENCE_ONLY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Condition:** Commercial Terms of Service strictly forbid redistribution, copying, or embedding. Reference access is restricted strictly to public documentation inspection.
