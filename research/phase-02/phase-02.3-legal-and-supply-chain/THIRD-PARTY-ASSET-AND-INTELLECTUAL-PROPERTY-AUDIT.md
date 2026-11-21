@@ -62,8 +62,9 @@ The OFL-1.1 is the industry-standard free, open, and libre font license recogniz
    - *UIForge Decision*: UIForge distributes strictly **unmodified** official upstream font binaries via Fontsource (`@fontsource/inter`, `@fontsource/geist-sans`). Zero font modifications are performed, fully respecting RFN protections.
 3. **Requirement to Bundle License Text (Clause 4)**: The font license and copyright notices must accompany the software.
    - *UIForge Implementation*: `@uiforge/cli` includes the full OFL-1.1 text in `/public/fonts/OFL.txt` whenever font assets are initialized in a customer project.
-4. **Self-Hosted vs CDN Webfonts**:
-   - To eliminate GDPR non-compliance risks associated with remote Google Fonts requests (referencing the 2022 Munich Regional Court ruling, Landgericht München, Case 3 O 17493/20), UIForge enforces **100% self-hosted font loading** via `@fontsource` packages.
+4. **Self-Hosted vs CDN Webfonts (Privacy Hygiene & GDPR Realities)**:
+   - *The Munich Precedent*: In *Landgericht München I* (Case 3 O 17493/20, Jan 2022), dynamic loading of Google Fonts from US servers without prior consent was held to violate GDPR Article 6(1)(f) due to unauthorized IP address transfer.
+   - *Privacy Benefit & Limitations*: Self-hosting fonts via `@fontsource` packages eliminates third-party transmission of user IP addresses to Google, providing immediate privacy hygiene and enabling reliable offline development. However, self-hosting fonts does **not** automatically make an entire website "GDPR compliant," as GDPR compliance requires lawful processing across all server logging, analytics, cookies, and telemetry.
 
 ---
 
@@ -78,22 +79,25 @@ UIForge evaluates four foundational system icon libraries:
 
 *Legal Conclusion*: All four libraries are fully approved for direct dependency bundling, React component generation, and registry distribution under permissive terms.
 
-### 3.2 The Simple Icons Trademark Boundary (`OS-ICON-04`)
+### 3.2 The Simple Icons Trademark Boundary & Multi-Jurisdictional Realities (`OS-ICON-04`)
 `simple-icons/simple-icons` provides over 3,000 SVG brand logos for popular companies, platforms, and technologies (e.g., Google, Apple, GitHub, AWS, Stripe, Slack).
 
 - **The Copyright vs Trademark Divergence**:
-  - *Copyright Status*: Simple Icons dedicates all SVG vector paths and project code to the public domain under **Creative Commons Zero 1.0 Universal (CC0-1.0)**. Under copyright law, users have the absolute right to copy, adapt, and distribute the SVG paths.
+  - *Copyright Status*: Simple Icons dedicates all SVG vector paths and project code to the public domain under **Creative Commons Zero 1.0 Universal (CC0-1.0)**. Under copyright law, users have the right to copy and adapt the SVG paths.
   - *Trademark Status*: CC0-1.0 explicitly states in Section 4(b): *"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document."*
-  - The logos contained in Simple Icons remain protected registered trademarks of their respective owners.
-- **UIForge Trademark Compliance Policy (`LDEC-07`)**:
-  1. **Nominative Fair Use**: UIForge permits rendering brand icons in generated code only to identify the respective brand, product, or integration (nominative fair use).
-  2. **No False Endorsement**: UIForge CLI and Studio must never use brand logos in a manner that suggests sponsorship, affiliation, or endorsement by the brand owner.
-  3. **Mandatory Trademark Disclaimer**: When Simple Icons components are generated, UIForge injects an explicit legal notice:
+  - The logos contained in Simple Icons remain protected registered trademarks of their respective owners worldwide.
+- **International Trademark Jurisprudence & Limits of Disclaimers**:
+  1. *Nominative Fair Use is Not Global*: Nominative fair use (*New Kids on the Block* test) is a common-law defense under United States trademark law. It does not exist in identical form in other jurisdictions. In the European Union (EU Trade Mark Regulation 2017/1001, Art. 14) and India (Trade Marks Act 1999, Sec. 30), statutory defenses require proof of "honest practices" and non-detriment to distinctive character.
+  2. *Disclaimers Do Not Cure Infringement*: Adding a JSDoc disclaimer comment does not automatically insulate a developer or enterprise distributor from trademark infringement, dilution, or unfair competition claims if brand logos are altered, displayed prominently, or used in commercial contexts.
+- **UIForge Trademark Policy (`LDEC-07`)**:
+  - Emitting brand icon components requires **explicit user opt-in** in the CLI.
+  - The CLI and component generator inject an advisory notice reminding users that brand assets are subject to the brand owner's official trademark usage policies:
      ```typescript
      /**
-      * TRADEMARK NOTICE: The logo rendered below is the registered trademark
-      * of its respective owner. UIForge and its users claim no trademark rights
-      * therein. Rendered strictly under nominative fair use for identification.
+      * TRADEMARK ADVISORY: The vector logo rendered below is the protected
+      * registered trademark of its respective owner. UIForge and its users claim
+      * zero trademark rights therein. Emitted under developer opt-in for
+      * identification purposes only. Verify usage against official brand guidelines.
       */
      ```
 
