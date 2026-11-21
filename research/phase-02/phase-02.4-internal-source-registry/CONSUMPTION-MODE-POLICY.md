@@ -89,14 +89,14 @@ To prevent mode-level permissions from silently overriding terminal exclusions, 
 - **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
   - **Condition:** Copying GSAP source code into UIForge or user project repositories is strictly prohibited under proprietary license terms.
 
-### 5.2 axe-core (`SRC-OS-A11Y-01`) — Concrete Distribution Model (Issue 6 & 11 Resolution)
+### 5.2 axe-core (`SRC-OS-A11Y-01`) — User-Managed External Integration Boundary (Issue 6 & 11 Resolution)
 - **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
   - **Condition:** Governed by Mozilla Public License 2.0 (MPL-2.0). Section 3.3 "Larger Works" notice obligations require retaining MPL-2.0 copyright notices in generated distributions.
 - **`SOURCE_COPY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
   - **Condition:** Any modified covered files must be offered under MPL-2.0 and source made available.
 - **`EXTERNAL_TOOL`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
-  - **Concrete Distribution Model:** UIForge supports axe-core execution strictly as a **user-managed external integration**. UIForge invokes a user-installed copy or devDependency (`@axe-core/cli`, MPL-2.0) via an out-of-process CLI runner. UIForge does **NOT** bundle, redistribute, or host executable axe-core binaries.
-  - **Legal Gate:** If pre-compiled enterprise test bundles containing axe-core binaries are ever distributed, MPL-2.0 Section 3 notices and source availability obligations must be fulfilled. Flagged `counselReviewRequired: true`.
+  - **Architectural Boundary:** UIForge supports axe-core execution strictly as a **user-managed external integration**. UIForge invokes a user-installed copy or devDependency (`@axe-core/cli`, MPL-2.0) via an out-of-process CLI runner. UIForge does **NOT** bundle, redistribute, or host executable axe-core binaries.
+  - **Legal Review Scope & Caveat:** While this out-of-process, user-installed architecture establishes a sound architectural boundary against direct binary bundling and redistribution risks, it does **not** constitute unconditional legal clearance or a universal exemption from copyleft scrutiny. The permission status is strictly classified as `ELIGIBLE_WITH_RESTRICTIONS` and preserves `counselReviewRequired: true` pending formal confirmation from qualified intellectual property counsel.
 
 ### 5.3 pa11y (`SRC-OS-A11Y-05`) — Prudent Legal Review Gating
 - **`DEPENDENCY`: `PENDING_REVIEW` (`allowed: false`)**
@@ -106,12 +106,12 @@ To prevent mode-level permissions from silently overriding terminal exclusions, 
 - **`EXTERNAL_TOOL`: `PENDING_REVIEW` (`allowed: false`)**
   - **Condition:** A proposed subprocess architecture does not itself establish that distribution and execution satisfy every applicable LGPL obligation. External tool execution remains `PENDING_REVIEW` pending formal counsel review of the packaging and distribution model. Flagged `counselReviewRequired: true`.
 
-### 5.4 Every Layout (`SRC-OS-LAYT-08`) — Authoritative License Basis (Issue 3 & 10 Resolution)
+### 5.4 Every Layout (`SRC-OS-LAYT-08`) — Authoritative License Basis & Clean-Room Boundary (Issue 3 & 10 Resolution)
 - **`DEPENDENCY`: `NOT_APPLICABLE` (`allowed: false`)** (No installable npm package).
 - **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)** (Authored component code copying prohibited).
 - **`REFERENCE_ONLY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
-  - **Reviewed Scope:** Free public articles on `every-layout.dev` were reviewed for algorithmic layout patterns (The Stack, The Cluster, The Reel). The authored book and component library are paid content published under commercial terms prohibiting redistribution.
-  - **Permitted Use:** Clean-room implementation of underlying CSS flex/grid layout concepts in UIForge's own TypeScript/CSS primitives is permitted. Direct copying of authored book text, diagrams, or component code is strictly prohibited.
+  - **Reviewed Scope:** Free public articles on `every-layout.dev` were reviewed for general algorithmic layout patterns (The Stack, The Cluster, The Reel). The authored book, full illustrations, and component library are paid content published under commercial terms prohibiting redistribution.
+  - **Clean-Room Scope vs. Authored Protection Boundary:** Studying general, uncopyrightable CSS layout concepts (such as flexbox wrapping, CSS grid auto-fit/auto-fill calculations, and clamp-based fluid spacing) is permissible as architectural research. However, copying, reproducing, republishing, or redistributing protected authored text, explanatory prose, copyrighted diagrams, illustrations, or proprietary implementation code from Heydon Pickering and Andy Bell's book is strictly prohibited under `LIC-EVERY-LAYOUT-COMMERCIAL`. UIForge makes **no unconditional legal guarantee** that every algorithm-related layout implementation is automatically permitted; any clean-room implementation must be independently developed without copying authored artifacts and remains subject to clean-room verification and legal counsel review before production distribution.
 
 ---
 

@@ -100,7 +100,7 @@ Accounting for all 125 candidate sources in `DEPENDENCY` mode:
 | **`LIC-REMOTION-COMMERCIAL`**| Remotion Company License | **1** | `CONDITIONAL` | Free for individuals / companies $\le 3$ employees; commercial key required for $>3$ employees. |
 | **`LIC-COMMERCIAL`** | Commercial Terms of Service | **2** | `PROPRIETARY_CLOSED` | `Aceternity UI`, `Locofy.ai`: Redistribution and code copying strictly prohibited. |
 | **`LIC-PROPRIETARY`** | Closed Proprietary Platform Terms | **2** | `PROPRIETARY_CLOSED` | `Cursor`, `Windsurf`: Closed-source developer IDE platforms. |
-| **`LIC-EVERY-LAYOUT-COMMERCIAL`** | Every Layout Paid Authored Content Terms | **1** | `PROPRIETARY_CLOSED` | Authored book text, diagrams, and components are paid content. Clean-room CSS algorithms permitted. |
+| **`LIC-EVERY-LAYOUT-COMMERCIAL`** | Every Layout Paid Authored Content Terms | **1** | `PROPRIETARY_CLOSED` | Authored book text, diagrams, and components are paid content (copying prohibited). Studying general CSS layout concepts is permissible; derived implementations require clean-room verification and legal review without unconditional guarantees. |
 | **TOTAL** | **12 License Entities** | **125** | — | **100% Candidates Accounted For** |
 
 ---
