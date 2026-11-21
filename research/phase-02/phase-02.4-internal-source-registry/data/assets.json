@@ -1,0 +1,80 @@
+[
+  {
+    "assetId": "ASSET-OS-ICON-01-1",
+    "parentCandidateId": "OS-ICON-01",
+    "assetName": "Lucide SVG Vector Icons",
+    "artifactType": "SVG_ICON_LIBRARY",
+    "declaredLicense": "ISC",
+    "author": "Lucide Contributors",
+    "upstreamSource": "https://github.com/lucide-icons/lucide/tree/main/icons",
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "VERIFIED",
+    "evidenceRef": "EV-LIC-0050",
+    "notes": "Vector SVG icons under ISC license; attribution retained in icon bundle headers."
+  },
+  {
+    "assetId": "ASSET-OS-TYPO-04-1",
+    "parentCandidateId": "OS-TYPO-04",
+    "assetName": "Inter.var.woff2",
+    "artifactType": "FONT_BINARY",
+    "declaredLicense": "OFL-1.1",
+    "author": "Rasmus Andersson",
+    "upstreamSource": "https://github.com/rsms/inter/releases/tag/v4.1",
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0066",
+    "notes": "OFL-1.1 with explicit Reserved Font Name Inter. Font binary cannot be sold standalone; bundle OFL text notice."
+  },
+  {
+    "assetId": "ASSET-OS-TYPO-05-1",
+    "parentCandidateId": "OS-TYPO-05",
+    "assetName": "Geist-Variable.woff2",
+    "artifactType": "FONT_BINARY",
+    "declaredLicense": "OFL-1.1",
+    "author": "Vercel Inc.",
+    "upstreamSource": "https://github.com/vercel/geist-font/releases/tag/v1.4.0",
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0067",
+    "notes": "OFL-1.1 with explicit Reserved Font Name Geist. Font binary cannot be sold standalone; bundle OFL text notice."
+  },
+  {
+    "assetId": "ASSET-OS-A11Y-01-1",
+    "parentCandidateId": "OS-A11Y-01",
+    "assetName": "axe.min.js",
+    "artifactType": "BUNDLED_JAVASCRIPT_RUNTIME",
+    "declaredLicense": "MPL-2.0",
+    "author": "Deque Systems Inc.",
+    "upstreamSource": "https://github.com/dequelabs/axe-core/blob/master/axe.min.js",
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0080",
+    "notes": "MPL-2.0 Section 3 Larger Work obligations. Retain license notices; make modified axe-core source available."
+  },
+  {
+    "assetId": "ASSET-OS-A11Y-05-1",
+    "parentCandidateId": "OS-A11Y-05",
+    "assetName": "HTML_CodeSniffer Rules Bundle",
+    "artifactType": "JAVASCRIPT_RULES_BUNDLE",
+    "declaredLicense": "LGPL-3.0",
+    "author": "Pa11y Contributors / Squiz Pty Ltd",
+    "upstreamSource": "https://github.com/pa11y/pa11y/tree/master/lib",
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "ESCALATED_TO_COUNSEL",
+    "evidenceRef": "EV-LIC-0084",
+    "notes": "LGPL-3.0 sub-dependency. Out-of-process CLI boundary required to prevent combined-work copyright obligations."
+  },
+  {
+    "assetId": "ASSET-OS-BROW-01-1",
+    "parentCandidateId": "OS-BROW-01",
+    "assetName": "Chromium Headless Shell",
+    "artifactType": "BROWSER_EXECUTABLE_ARTIFACT",
+    "declaredLicense": "Apache-2.0",
+    "author": "Microsoft Corporation / The Chromium Authors",
+    "upstreamSource": "https://github.com/microsoft/playwright",
+    "verificationStatus": "INDEPENDENTLY_VERIFIED",
+    "reviewStatus": "VERIFIED",
+    "evidenceRef": "EV-LIC-0110",
+    "notes": "Automated browser executable downloaded via playwright install; BSD-3-Clause Chromium licenses preserved."
+  }
+]
