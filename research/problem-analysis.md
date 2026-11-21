@@ -292,6 +292,14 @@ To distinguish mathematical/mechanical certainty from empirical market occurrenc
 - **Current Detection Methods:** Git diff review, CI/CD automated test suites.
 - **Existing Solutions:** Git version control, pull request reviews.
 - **Remaining Gaps:** No frontend AI tool provides an integrated, local-first safety system combining read-only AST inspection, scoped diff review, and regression verification before applying changes.
+- **Dedicated Six-Factor Brownfield Safety Suite:**
+  1. *Unrelated Files Modified:* Count of files modified outside the designated task scope boundary.
+  2. *Existing Test Regressions:* Count of previously passing unit, integration, or E2E tests that fail (`pnpm vitest run`).
+  3. *Unapproved Dependencies:* Count of new packages added to `package.json` outside project policy.
+  4. *Protected Symbols Deleted:* Count of AST-identified protected functions, exported interfaces, or business logic hooks removed or altered without authorization.
+  5. *Diff Scope:* Count of files, lines added, and lines removed (`git diff --stat`) relative to the approved task requirements.
+  6. *Atomic Rollback Verification:* Binary verification (0/1) confirming that rejecting a patch cleanly restores the exact prior Git commit SHA and passing test state.
+  > **Crucial Distinction (Intentional vs. Unintended Modifications):** Diff size alone is not an indicator of safety. A large diff is not automatically unsafe if it represents an intentional, approved refactor (e.g., system-wide design token migration) with zero regressions. Conversely, a 1-line diff is not automatically safe if it alters an authentication check or breaks a calculation. The safety suite strictly measures *unintended, unapproved, and out-of-scope alterations*.
 - **Potential UIForge Capability:** **Safe Improvement Engine (Phase 06/15)**: A comprehensive safety system comprising:
   1. Read-only AST project inspection (reading source files statically without code execution).
   2. Framework and dependency detection.
