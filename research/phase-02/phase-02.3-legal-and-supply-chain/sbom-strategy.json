@@ -23,7 +23,8 @@
     },
     "legalExport": {
       "standard": "SPDX",
-      "version": "2.3",
+      "specificationVersion": "2.3",
+      "licenseListVersion": "v3.26.0",
       "format": "JSON",
       "targetUse": "Enterprise legal audits, OSPO review, M&A due diligence",
       "tooling": "@spdx/spdx-tools",
