@@ -9,7 +9,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "21141edf74fa95fef9a7da383db0141600f3eed5c96b471724a38d2c385efebf",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-02",
@@ -21,7 +27,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "84bd7c7021e6945a9e08dcabd035606435c746069549907f33afe280b644d2ff",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-03",
@@ -33,7 +45,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "41c445fc242c70e07a818ac6a2e247ec129318afa7cd9982758218b766d43292",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-04",
@@ -45,7 +63,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "545b267ac776ee9bbc07ee77504fe3710c50ee82ac54723e168638fd1b60926b",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-05",
@@ -57,7 +81,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d0c3b43ce77a3301d8af33d80f2bea25a8ecd1869adba0b8cdaa83d575038cff",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-06",
@@ -69,7 +99,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "e20c86b7b6e43a707208df0fa59336c7523d168d97c371957a1b7050b7a6d023",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-07",
@@ -81,7 +117,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "056e81b56fd41d769c6faf364b9d3bc8c76e66b6b713548d5ff66a55b1968da1",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-08",
@@ -93,7 +135,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "6b7a9c0bfd8ba3f81195163001af477d49259642334fa9bfe8e56f11511321ee",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-09",
@@ -105,7 +153,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c9d983f0ecbbaae3cebc476429883cc50c4e36fd19242d2536202b07488a24a8",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-10",
@@ -117,7 +171,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "ba7cd2e04e620a9bdc8aeefd00bf19facd170b177f0f06628a135522c8da7daf",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-11",
@@ -129,7 +189,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "a498bdd07f08f1973b6aed187973558b54d0916cdd676d1dec0bf71f6ca51572",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-12",
@@ -141,7 +207,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d9c957c6c224ac7212f6548032a4da7708031316ce3ffb30047004abb444ccd5",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-13",
@@ -153,7 +225,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c78fdaaa845cb264c1d99d99a960c9f1a9ab598e8f745f15222991d546e3ed78",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-14",
@@ -165,7 +243,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "a9df5509ad3664a9e8f427a87881acbd94cfd50a975153005e140078d767405e",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-COMP-15",
@@ -177,7 +261,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "b430004c6240327c8b540e521175c3a57f3f21efc9c20ebfaf009c2b68a15c23",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-01",
@@ -189,7 +279,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "3b39bed0ae34d6ff52146e0192a7b7518883c74601a1c487796671fa3a88c9be",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-02",
@@ -201,7 +297,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8cbfe81679288af0489fda9023d8515a782e5bd0febc6be6ffee9ed38f6e00da",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-03",
@@ -213,7 +315,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "63c11d845d53e5191967a6dc6195e0d8f4af39b763691e7623dcc471e2ed20a7",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-04",
@@ -225,7 +333,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "70a02e2f60aea8b769b3fdd719d899489134397755462358ac92a54ef734a6de",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-05",
@@ -237,7 +351,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "61affc5fca647285f4b09cc9b129866cd00aff21972154417b0826d6a6877ca7",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-06",
@@ -249,7 +369,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d33075e7a166370f47069bfbd71bef36006ae87f95e41935c09bd64999944d27",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-07",
@@ -261,7 +387,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d43ab03ca8e2142444f70a7636afb8eee237f9363ce2d29fa88e1712867e5fb0",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-MKT-08",
@@ -273,7 +405,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "91ac9a21a41548d9230697763bea15fd900d8e0ee897423bff3cccedf7d6b217",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-01",
@@ -285,7 +423,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "6a51faf5ad86be8b29e9b3fcdc2775a9b4ca20b3df7af2ec6a59fc6536607eef",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-02",
@@ -297,7 +441,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "04a1373bc7c217438754607ca3fbc6dc5f5a2837b581dff8993bc827753d864c",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-03",
@@ -309,7 +459,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "663642d6f66295b0d3b75603903340c9653482f09de7eaa1d3bee332d0657f5a",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-04",
@@ -321,7 +477,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "60cf49b281d89de61088ba6b3637c9c1701dac6309785c740aca4161a253c3eb",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-05",
@@ -333,7 +495,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "26e5e0e98bd9a9b4139efe59052be7aeac4b3e720937fbb138097c6b83c2ed5c",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-06",
@@ -345,7 +513,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "f9c749d2277c9d07c3497d46cdc9283d4fb76ff350a0737d39e6a66628cd6f92",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-07",
@@ -357,7 +531,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "7694087743f4831d5716572bcc961c6dfd15f141fee5922e040b7af5a096e984",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-DASH-08",
@@ -369,7 +549,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "eeb6b83383aa282f3be462f9f1e26200eb676c06270ba8b454c013ea88f18f59",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-01",
@@ -381,7 +567,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c8098a490aeb0b02a857c5876ed557f6aebb458ac427acfa93c2ea577f1fd42a",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-02",
@@ -393,7 +585,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "cdd1e844d00c9912841e565680cea1e74049ac8d6ca47dda9062335dfbdbc8dc",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-03",
@@ -405,7 +603,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "7a4a225efbe94ac5a4d45023499e18e894c8a14c28f05aaa40898513ed97016f",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-04",
@@ -417,7 +621,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "a06e42e94d2e16ce474a9bdbb9cab5311083a0c53a58179a24a4a6033d43dc10",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-05",
@@ -429,7 +639,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "4891104a698d83fc6353d73592600c24c6cd7170141b6f89028b53eccb538e67",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-06",
@@ -441,7 +657,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "e54ff208036133b38d8e2fe43acec02171f9b2f67487c88188b002a198ae3929",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-07",
@@ -453,7 +675,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "150fa1cc09f13d7f468df986c2c6bba26e4d5d54781f905039569470360fbda9",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-08",
@@ -465,7 +693,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "2208cdbbdb32b768bab7251cd8e88717f0e9a0e053661c5b2d2e1d4bfe4f08ba",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-09",
@@ -477,7 +711,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "cf5450449956b7a5af67e142ea760cb2816d9dd8cf23c847d6935ac9485e7af8",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TOKN-10",
@@ -489,7 +729,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "4470c10b4d76e40bdcca47f4adc81faee5af0165763b8c9eb363724a5cc9494b",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-01",
@@ -501,7 +747,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d669e3740897731c8d03a5e1aa38f68d1be30861becb63fbb302e73166359b44",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-02",
@@ -513,7 +765,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "657793f5c3234adf81996fafad5f2c631a17ecfa91a7923faded08babdf48ff6",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-03",
@@ -525,7 +783,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "4aab870e213d4517a74017a11dba64a8af4733535ccf84fb4dd2298bec5da063",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-04",
@@ -537,7 +801,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "ae7ed2e0b3f03ea85ae39fcaf29053564233e9fdaa35a903ae478b48683eb8f2",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-05",
@@ -549,7 +819,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "a2d354fd48f497f513c5920f8aaf434d47cb0be3caafd31b6b9521ebd1d1da75",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-06",
@@ -561,7 +837,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "3b9ab02fee867ea047d5015708d973dbe1fe50f11370c40f2a9ffb9799e64a10",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-07",
@@ -573,7 +855,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "5ec7e4f7fcc857856a576dc2557444639408b539e9002a0a9aa029ed57aeffbb",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ANIM-08",
@@ -585,7 +873,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "b832f46ac2cabb435ecf2f5936fc2fd895f0884316b0ac4516975e3904e7ccae",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-01",
@@ -597,7 +891,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "cad7f90f0822582e05111feba197f8246392dfd688e4e5df88f9f4034f9f6d36",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-02",
@@ -609,7 +909,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8345592ea03b7d9099f8f1b0f8dde4d4f02926a674677590d3336a0a3352b069",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-03",
@@ -621,7 +927,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "67c6b31699c244aeeef5796fc905487dc98fb1259c1a657d779a3e476966bcc7",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-04",
@@ -633,7 +945,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "94606accb28d539c84a07a4d678dc22e16aa8a627026a0b9ff6f1cdc80c4874a",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-05",
@@ -645,7 +963,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "3a0a0d2212291d493d64d3dc042cdd5ae890cdc6a398ca814464b593dcd7ab11",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-06",
@@ -657,7 +981,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d3bef00831760313a04e528c7ad1edee5cdaff2e3608f186b9223a1231ce715a",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-07",
@@ -669,7 +999,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "38487298e2d6bc98c783acfa0edebf18fca6dc6850497c39687754258a7694fd",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-ICON-08",
@@ -681,7 +1017,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "0ce02fac55592a29eeedd283b763c1864d9c690ef5e5f7f27e4905755d44eba5",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-01",
@@ -693,7 +1035,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "f3611ee4a634a84c0332ec95bf9be03c5078d5681598bdea6bc6a95b7fb2bd40",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-02",
@@ -705,7 +1053,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c69a40c6db0684250d3cfe877dd5e85389bd78241d63104d3556244f03f802ef",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-03",
@@ -717,7 +1071,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "bb65ccaea944c60013f9258f0705f901f33d504a6a4d713e63b61ee91018d798",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-04",
@@ -729,7 +1089,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "84a5ccf4d80d26174b39a72706bf6888555f12b92d0d164655fc8780e56e91c3",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-05",
@@ -741,7 +1107,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "3b275912cd9393da77bbc46f9ab7e42c4f8f83d8b97a78b2fb9d53f0561f9979",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-06",
@@ -753,7 +1125,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "4f6f973e0b49ac37c40181b930b688e97300aab19d2b3944dee0d35742f58a72",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-07",
@@ -765,7 +1143,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "cec5ea1955479f309d6fbf4f4c01802c7055b78f42d1a99306d75849be3e4cb6",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-CHRT-08",
@@ -777,7 +1161,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "97a447e0c966c635623eb3a8dd5a575f87b0b71c719de715f3033a40395ca799",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TYPO-01",
@@ -789,7 +1179,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8dbe7627c0129dc207a12a460fcff0d9ea82599e8dccccde8c71609b1c439370",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TYPO-02",
@@ -801,7 +1197,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "754a12bfe463e195ee4cb0052491518cf0141759a60b6295c7d2bb4dab75bd52",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TYPO-03",
@@ -813,7 +1215,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "b0cd94de1e8d336c53d32c4609987ddd10660330db853b708f1a2811037fa3b4",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TYPO-04",
@@ -825,7 +1233,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "64bb908bcc9e0bb36cc982fb4568c7e1d1cb8e4249294b96d93dbfcf281611a4",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TYPO-05",
@@ -837,7 +1251,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "1ad514c751701a3d454c06f9ba55bdfe541c1f0593546f57f15d50019377c18e",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-TYPO-06",
@@ -849,7 +1269,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "a0a359863bdf6d419e6cb5255a0db92ef90d18edc0b19d8fe1e3ca1555a0dcf6",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-01",
@@ -861,7 +1287,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "de866bccdd1eb1229c426c0573c08209f4af199a55c8735b9861201de50781c5",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-02",
@@ -873,7 +1305,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "555ecd5a78657b1015a1761809ebd260a7af0417245cb870d202d82694914e62",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-03",
@@ -885,7 +1323,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "513be351551c9834fbf1880186b7b67daff49eecf9818e2125f0590ba90b19b3",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-04",
@@ -897,7 +1341,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "15ba7ab1d639a0faab33cb3030de206c2b1a7be4f57322116b68a3a8fcd7da65",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-05",
@@ -909,7 +1359,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "eb44d50906edda93381cee81ada3ae7057f1e0dfc3a05fdf00a20541f31396c9",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-06",
@@ -921,7 +1377,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8eda7fce9a59ddd4d00378f8c4c8b5ddce48f59ecacd8c916e1b36beda553eb5",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-07",
@@ -933,7 +1395,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "525592e08a8b70a51243086db6cc26a80fe486e2a24bc4de1da3cee933848a26",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-LAYT-08",
@@ -945,7 +1413,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "76c9c25e533c20e2bbb2eed230dabfff817e0ec95ae5d274fcccdd9ef70f2d07",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-01",
@@ -957,7 +1431,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "380dafae0bde0eea4e99ee8f1a2750bb2f5b64fcec7110fd79d618b09c0a126b",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-02",
@@ -969,7 +1449,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "4b4da91d7d246b6ad0fbc9ef33579d6515cd5abb0f9cc132e66d984dd81dce86",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-03",
@@ -981,7 +1467,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8dbd51a9ff31b89943c7f6a55570b3bb828a590636b45b54ad8e38cf088c7b17",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-04",
@@ -993,7 +1485,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "9ce88b3e06146c6a6dbe7286d5ab953031c7dce2397b912ffa25743e2b3d763f",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-05",
@@ -1005,7 +1503,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "0c6140d999aeb83a9b8c9116b90a091f91b109c532b6495ae6afdc117ed6ea8c",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-06",
@@ -1017,7 +1521,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "296f0a057d5466e3485072936d5a526d3a483c2296b01b2b922ab4c6339e4f06",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-07",
@@ -1029,7 +1539,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "5fc07bea0fb508cf7c6f9336a7269b92ee33025e3c228dea9b202affb82b84d4",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-08",
@@ -1041,7 +1557,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "98bba7aca96dbc768209a928ba13900e9213c5fb7246c4a7529d2629e0ebe041",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-09",
@@ -1053,7 +1575,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "900a7a39b1d86c334e9dbee74149a648cb90bdad1fd10541c313cdccacb61994",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-A11Y-10",
@@ -1065,7 +1593,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "ed94f9c4f965de545091ce37e71b5397f8875818286d1f486c20327f9922839a",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-01",
@@ -1077,7 +1611,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c29ea081b8bf73ad9155561d64f542e582b14d9210d0a796602269fc2c518eb0",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-02",
@@ -1089,7 +1629,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "754c48d689c5d56000c84024fe1dda548d5dc2b95db97d20118a78b9d3be4ef5",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-03",
@@ -1101,7 +1647,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "76ab32adbcd475c1970d44f2be2935c4cf1ee3de27ba084cc915fa814310c254",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-04",
@@ -1113,7 +1665,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "b90a2a0943f89a64164c3304670dc32ed438e5701c388e1c3c521b7f888d3484",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-05",
@@ -1125,7 +1683,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "067134a5ef168c37fd690fdbfe27ecb75f55604b60e80b7d47a8bb1e6da54340",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-06",
@@ -1137,7 +1701,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "d04e8fdc3171eac2451f5602a46a8f33c9b6f9b1937a0eb88f8968e426a062dd",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-07",
@@ -1149,7 +1719,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "b7e65cc83727e733c52c8cd4a0b9b02ba18a3a0ce87d548529110d8e1f987346",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-D2C-08",
@@ -1161,7 +1737,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c628c137aff6ff3e1f7af032e457f178eddf4778e647593be3bd1140d41c9e31",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-01",
@@ -1173,7 +1755,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "9ddde7e78e5cf07ceb5dcb698f343a96074abe278430bca872ac1fe0dd4b79ea",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-02",
@@ -1185,7 +1773,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8f235cdf15da1ec479eb7b3272aab21bb09d62a054dbe2092304b08d9c0713d7",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-03",
@@ -1197,7 +1791,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "ec0616c737f2a5c3ab3967bc66dfb592863e6f163f4923c0c154d41dfe0e49ac",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-04",
@@ -1209,7 +1809,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "2b2e619dbbb0faa84f0760d028caa6226841f85f2da03ae570de2e2d832aace3",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-05",
@@ -1221,7 +1827,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "020cbed8a7c0d33611703696070f554d422718fbc86255929f8e82a7b6fa8595",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-06",
@@ -1233,7 +1845,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "0e5210288d653fd5666c228a7af3eda407e83bf8f77388da9ba04396cf5a7f39",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-07",
@@ -1245,7 +1863,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "597080c007d0ec55418360aa7e79357096802ffd96391d062a1d4647087184c9",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-08",
@@ -1257,7 +1881,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "1c7418b22e6d9e23cd4199e1dd3cfc4104711105ee0720ceddea7469ab00226e",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-09",
@@ -1269,7 +1899,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "1600b5dd0d8c06b7b59f0c72a797a5cdb1c12e194ced99f8b798570b591be967",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-10",
@@ -1281,7 +1917,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "72fb7fabeb2be7de053171b68b5986ff8c95ef2136bc05b727b87555c1c2e734",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-11",
@@ -1293,7 +1935,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "a2eed809fe2c7acca54c05eb6227657b5f54a4040a5b5447eb8bed0f19a5ecb0",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-AGNT-12",
@@ -1305,7 +1953,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "f7c1e06869f9068b7c7531d8a9434f7ba02058168d77b6fbb4e959ef0d381996",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-01",
@@ -1317,7 +1971,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "c7ced9117f17b938e21db564bf7256f9740dd39803bae46817d64f0371a5463c",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-02",
@@ -1329,7 +1989,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "4a32db414582f50d082d0c059e9f6aba9b528dd0d708a6f24e0c45c78f3c40a5",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-03",
@@ -1341,7 +2007,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "11a7123520f17003582c4761fbffedc04f682a497912303270d219ce9b340232",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-04",
@@ -1353,7 +2025,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "8d8b05b4090c2047ab4b75411e6d7cd34b5842961960530363b8dbe6eb0ab5a4",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-05",
@@ -1365,7 +2043,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "bef6ce96d2ab91dd2f4a710f19322e9d079a7cdbe2f50fc774c01390cb3d93cc",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-06",
@@ -1377,7 +2061,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "954ae2e96b2f3fa5881b2f89a14471000728ce4bd6936d8e632c90b9562ab0c7",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-07",
@@ -1389,7 +2079,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "f27de9e36625b1c73c596ca42d825b93ade0e451c3b3a9488ba0de9e988ad61d",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-BROW-08",
@@ -1401,7 +2097,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "31b5e707072ce3beb0e5564fe436bc2f2a1506a174144f08e49c5f37f324bff3",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-01",
@@ -1413,7 +2115,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "95624825c92c9881f05776c304ed23c04c96890c22e055b6a434e91b5db32e87",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-02",
@@ -1425,7 +2133,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "22db7f46b60943158bd5e0a2460873d670e1bea0d49a95e13fd4ead51610afeb",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-03",
@@ -1437,7 +2151,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "651a5e73f82c57933dee78a14d7bfd89c6c610361ca1ad18169a07fa41b46f56",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-04",
@@ -1449,7 +2169,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "9056e72dedfee8b42a15d88569b68bdf11059865a63c99a65ccd9be0dc526e80",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-05",
@@ -1461,7 +2187,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "43512079649992d9c60de2f0c1cbfe772298ba47c1a2924665fd7227daa21238",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-06",
@@ -1473,7 +2205,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "db9baa9c50a12a77d9820032ac0a963fc961f47b22bdf5cb68b58cb07c0e2602",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-07",
@@ -1485,7 +2223,13 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "e2e0e886694e9d6101ccbcf80c65c3d7370663097a1a206dcc527687ea3d011c",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   },
   {
     "provenanceId": "PROV-OS-VREG-08",
@@ -1497,6 +2241,12 @@
     "retrievedAt": "2026-11-21",
     "contentDigest": "12d84b8f54f12ca332711048a250d646da1ad5b4e0119d86c14deafb308359ad",
     "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION",
-    "reviewer": "Principal Software Architect"
+    "reviewer": "Principal Software Architect",
+    "provenanceIntegrityLevel": "DIGEST_BACKED_RECORD",
+    "digestAlgorithm": "SHA-256",
+    "canonicalizationMethod": "RFC_8785_JCS",
+    "hashedContentDescription": "Deterministic SHA-256 digest of canonical source metadata, evaluated version string, upstream repository/platform URL, and license identifier serialized via RFC 8785 JSON Canonicalization Scheme (JCS)",
+    "digestRecalculationStatus": "VERIFIED_MATCH",
+    "changeDetectionMethod": "PERIODIC_ETAG_AND_HEAD_COMMIT_MONITORING"
   }
 ]

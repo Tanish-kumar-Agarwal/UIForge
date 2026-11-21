@@ -286,19 +286,6 @@
     "lastCheckedAt": "2026-11-21"
   },
   {
-    "repositoryId": "REPO-OS-MKT-08",
-    "sourceId": "SRC-OS-MKT-08",
-    "provider": "GITHUB",
-    "owner": "aceternity",
-    "repositoryName": "ui",
-    "canonicalUrl": "https://ui.aceternity.com",
-    "defaultBranch": "main",
-    "currentCommit": "NOT_TRACKED",
-    "archived": false,
-    "fork": false,
-    "lastCheckedAt": "2026-11-21"
-  },
-  {
     "repositoryId": "REPO-OS-DASH-01",
     "sourceId": "SRC-OS-DASH-01",
     "provider": "GITHUB",
@@ -1014,19 +1001,6 @@
     "lastCheckedAt": "2026-11-21"
   },
   {
-    "repositoryId": "REPO-OS-LAYT-08",
-    "sourceId": "SRC-OS-LAYT-08",
-    "provider": "GITHUB",
-    "owner": "Every-Layout",
-    "repositoryName": "every-layout",
-    "canonicalUrl": "https://every-layout.dev",
-    "defaultBranch": "main",
-    "currentCommit": "NOT_TRACKED",
-    "archived": false,
-    "fork": false,
-    "lastCheckedAt": "2026-11-21"
-  },
-  {
     "repositoryId": "REPO-OS-A11Y-01",
     "sourceId": "SRC-OS-A11Y-01",
     "provider": "GITHUB",
@@ -1248,19 +1222,6 @@
     "lastCheckedAt": "2026-11-21"
   },
   {
-    "repositoryId": "REPO-OS-D2C-08",
-    "sourceId": "SRC-OS-D2C-08",
-    "provider": "GITHUB",
-    "owner": "locofy",
-    "repositoryName": "locofy",
-    "canonicalUrl": "https://www.locofy.ai",
-    "defaultBranch": "main",
-    "currentCommit": "NOT_TRACKED",
-    "archived": false,
-    "fork": false,
-    "lastCheckedAt": "2026-11-21"
-  },
-  {
     "repositoryId": "REPO-OS-AGNT-01",
     "sourceId": "SRC-OS-AGNT-01",
     "provider": "GITHUB",
@@ -1280,45 +1241,6 @@
     "owner": "anomalyco",
     "repositoryName": "opencode",
     "canonicalUrl": "https://github.com/anomalyco/opencode",
-    "defaultBranch": "main",
-    "currentCommit": "NOT_TRACKED",
-    "archived": false,
-    "fork": false,
-    "lastCheckedAt": "2026-11-21"
-  },
-  {
-    "repositoryId": "REPO-OS-AGNT-03",
-    "sourceId": "SRC-OS-AGNT-03",
-    "provider": "GITHUB",
-    "owner": "anthropics",
-    "repositoryName": "claude-code",
-    "canonicalUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code",
-    "defaultBranch": "main",
-    "currentCommit": "NOT_TRACKED",
-    "archived": false,
-    "fork": false,
-    "lastCheckedAt": "2026-11-21"
-  },
-  {
-    "repositoryId": "REPO-OS-AGNT-04",
-    "sourceId": "SRC-OS-AGNT-04",
-    "provider": "GITHUB",
-    "owner": "anysphere",
-    "repositoryName": "cursor",
-    "canonicalUrl": "https://cursor.com",
-    "defaultBranch": "main",
-    "currentCommit": "NOT_TRACKED",
-    "archived": false,
-    "fork": false,
-    "lastCheckedAt": "2026-11-21"
-  },
-  {
-    "repositoryId": "REPO-OS-AGNT-05",
-    "sourceId": "SRC-OS-AGNT-05",
-    "provider": "GITHUB",
-    "owner": "codeium",
-    "repositoryName": "windsurf",
-    "canonicalUrl": "https://codeium.com/windsurf",
     "defaultBranch": "main",
     "currentCommit": "NOT_TRACKED",
     "archived": false,

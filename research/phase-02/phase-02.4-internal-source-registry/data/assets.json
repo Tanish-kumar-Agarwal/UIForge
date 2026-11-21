@@ -23,7 +23,23 @@
     "verificationStatus": "INDEPENDENTLY_VERIFIED",
     "reviewStatus": "ESCALATED_TO_COUNSEL",
     "evidenceRef": "EV-LIC-0066",
-    "notes": "OFL-1.1 with explicit Reserved Font Name Inter. Font binary cannot be sold standalone; bundle OFL text notice."
+    "notes": "OFL-1.1 with explicit Reserved Font Name Inter. Font binary cannot be sold standalone; bundle OFL text notice.",
+    "fontVersion": "4.1",
+    "fileName": "Inter.var.woff2",
+    "copyrightStatement": "Copyright (c) 2016-2024 The Inter Project Authors (https://github.com/rsms/inter)",
+    "licenseTextRef": "LIC-OFL-1.1",
+    "explicitRfnDeclared": true,
+    "declaredReservedFontNames": [
+      "Inter"
+    ],
+    "rfnDeclarationClause": "with Reserved Font Name Inter",
+    "redistributionState": "UNCHANGED_BINARY",
+    "modificationState": "UNMODIFIED",
+    "requiredNotices": [
+      "Retain SIL Open Font License 1.1 text",
+      "Retain copyright notice and RFN declaration",
+      "Font software may not be sold by itself"
+    ]
   },
   {
     "assetId": "ASSET-OS-TYPO-05-1",
@@ -36,7 +52,23 @@
     "verificationStatus": "INDEPENDENTLY_VERIFIED",
     "reviewStatus": "ESCALATED_TO_COUNSEL",
     "evidenceRef": "EV-LIC-0067",
-    "notes": "OFL-1.1 with explicit Reserved Font Name Geist. Font binary cannot be sold standalone; bundle OFL text notice."
+    "notes": "OFL-1.1 with explicit Reserved Font Name Geist. Font binary cannot be sold standalone; bundle OFL text notice.",
+    "fontVersion": "1.4.0",
+    "fileName": "Geist-Variable.woff2",
+    "copyrightStatement": "Copyright (c) 2023 Vercel, Inc. (https://vercel.com)",
+    "licenseTextRef": "LIC-OFL-1.1",
+    "explicitRfnDeclared": true,
+    "declaredReservedFontNames": [
+      "Geist"
+    ],
+    "rfnDeclarationClause": "with Reserved Font Name Geist",
+    "redistributionState": "UNCHANGED_BINARY",
+    "modificationState": "UNMODIFIED",
+    "requiredNotices": [
+      "Retain SIL Open Font License 1.1 text",
+      "Retain copyright notice and RFN declaration",
+      "Font software may not be sold by itself"
+    ]
   },
   {
     "assetId": "ASSET-OS-A11Y-01-1",
