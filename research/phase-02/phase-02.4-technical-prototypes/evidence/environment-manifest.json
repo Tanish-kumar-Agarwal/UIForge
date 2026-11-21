@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "manifestId": "UIF-PH02.4-ENV-MANIFEST-01",
+  "phase": "02.4",
+  "generatedAt": "2026-11-21T20:12:00.000Z",
+  "runtime": {
+    "nodeVersion": "v24.15.0",
+    "npmVersion": "11.12.1",
+    "v8Version": "12.9.202.28-node.14",
+    "os": "win32",
+    "platform": "Windows 11 Home / Pro (x64)",
+    "filesystem": "NTFS",
+    "architecture": "x64"
+  },
+  "toolchain": {
+    "gate1": {
+      "typescriptInstalled": "7.1.0-beta",
+      "releaseChannel": "prerelease-beta",
+      "ts7NativeRpcDaemon": "tsgo (Windows Named Pipe \\\\.\\pipe\\tsgo-sync-...)",
+      "ts7DaemonStatus": "ACCESSIBLE_OUTSIDE_SANDBOX_BLOCKED_IN_SANDBOX",
+      "inMemoryTsVersion": "6.0.2",
+      "tsMorphVersion": "28.0.0"
+    },
+    "gate2": {
+      "databaseEngine": "node:sqlite (Node.js 24 native)",
+      "journalMode": "WAL (Write-Ahead Logging)",
+      "synchronous": "NORMAL",
+      "fileLockMechanism": "Advisory write-exclusive lockfile (.uiforge/transaction.lock)"
+    },
+    "gate3": {
+      "playwrightVersion": "1.50.1",
+      "browserEngine": "Chromium Headless Shell",
+      "browserRevision": "133.0.6943.16 (playwright build v1155)",
+      "pixelmatchVersion": "7.1.0",
+      "pngjsVersion": "7.0.0",
+      "viewportMatrix": ["375x667", "768x1024", "1280x800", "1920x1080"],
+      "calibratedDiffThreshold": 0.05
+    }
+  },
+  "workspaces": {
+    "prototypeRoot": "research/phase-02/phase-02.4-technical-prototypes",
+    "gate1Fixtures": "research/phase-02/phase-02.4-technical-prototypes/gate-1-typescript-api/fixtures",
+    "gate2Workspace": "research/phase-02/phase-02.4-technical-prototypes/gate-2-filesystem-recovery/disposable_workspace",
+    "gate3Fixtures": "research/phase-02/phase-02.4-technical-prototypes/gate-3-browser-visual-verification/fixtures",
+    "artifacts": "research/phase-02/phase-02.4-technical-prototypes/gate-3-browser-visual-verification/artifacts",
+    "evidence": "research/phase-02/phase-02.4-technical-prototypes/evidence"
+  }
+}

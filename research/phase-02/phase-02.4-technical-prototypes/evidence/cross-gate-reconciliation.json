@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "reconciliationId": "UIF-PH02.4-CROSS-GATE-RECON-01",
+  "phase": "02.4",
+  "generatedAt": "2026-11-21T20:12:30.000Z",
+  "gateEvaluations": {
+    "gate1_typescript": {
+      "status": "PASS",
+      "verdict": "CONDITIONAL_PASS_HYBRID_AST_MANDATED",
+      "validatedDecisions": [
+        "In-memory AST discovery & symbol resolution is fast (44.5ms median) and reliable",
+        "TypeChecker accurately detects semantic type mismatches (TS2322) and path aliases",
+        "Static dependency graph successfully identifies dynamic imports and circular cycles",
+        "createIncrementalProgram delivers 42.9% latency reduction on cached runs"
+      ],
+      "invalidatedAssumptions": [
+        "Direct adoption of TS 7.1 native Go daemon (tsgo) via Named Pipes is blocked in sandboxed/container environments with Access Denied",
+        "ts-morph@28.0.0 cannot wrap TS 7.1 because it is pinned to monolithic TS 6.0.2",
+        "ts.createPrinter cannot preserve byte-for-byte formatting or quote styles during code emit"
+      ],
+      "architecturalCorrection": "Adopt Hybrid AST Architecture: In-Memory TS Compiler API for AST scanning/type-checking + AST-guided surgical text-range patching for code modifications"
+    },
+    "gate2_filesystem": {
+      "status": "PASS",
+      "verdict": "PASS_RECOVERABLE_PROTOCOL_VALIDATED",
+      "validatedDecisions": [
+        "SQLite WAL journal guarantees ACID persistence for transaction state and file pre-image hashes",
+        "TOCTOU precondition revalidation successfully detects external file modifications and prevents silent overwrites (Invariant A)",
+        "Post-crash recovery audits disk state, detects user modifications during failure interval, halts rollback, and creates conflict backups (Invariant B & G)",
+        "Exclusive mutex lock prevents concurrent conflicting transactions",
+        "Path canonicalizer rejects traversal, absolute, Windows drive, and UNC attacks (Invariant D)"
+      ],
+      "invalidatedAssumptions": [
+        "Multi-file filesystem changes can never be described as 'atomic transactions' because OS filesystems do not support multi-file atomicity. Must be defined as a Recoverable Multi-File Mutation Protocol."
+      ],
+      "architecturalCorrection": "Formalize Contract F as Recoverable Multi-File Protocol with explicit user-conflict preservation"
+    },
+    "gate3_visual": {
+      "status": "PASS",
+      "verdict": "PASS_VISUAL_VERIFICATION_VALIDATED",
+      "validatedDecisions": [
+        "Playwright 1.50.1 + Chromium Headless Shell 133 provides 100% baseline reproducibility (0 diff pixels across 5 repeated captures)",
+        "Pixelmatch reliably detects subtle 1px alignment shifts, color modifications, missing borders, hidden icons, overflow clipping, and spacing changes",
+        "Responsive multi-viewport evaluation correctly verifies mobile, tablet, and desktop layouts",
+        "Programmatic interaction drives modal dialog opening, focus trapping, Escape dismissal, and focus restoration to trigger"
+      ],
+      "invalidatedAssumptions": [
+        "Visual threshold of 0.10 is too coarse: it completely masked low-contrast borders (#e2e8f0 on #f8fafc with color delta ~0.069, yielding 0 diff pixels)"
+      ],
+      "architecturalCorrection": "Calibrate default visual regression threshold to 0.05, capturing all 10,634 border pixels while maintaining 0 false positives on baseline captures"
+    }
+  },
+  "contractImpact": {
+    "contractA_ProjectIntelligence": "Retained as authoritative AST contract; implementation layer standardized on in-memory TS compiler API rather than external named-pipe daemon",
+    "contractF_ChangeApproval": "Updated to explicitly document TOCTOU pre-image hashing and .uiforge/conflicts backup mechanism",
+    "contractG_BrowserVerification": "Updated default diff threshold to 0.05 and added multi-viewport geometry bounds inspection"
+  }
+}

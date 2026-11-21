@@ -1,0 +1,111 @@
+{
+  "gateId": "GATE-02-FILESYSTEM-CRASH-RECOVERY",
+  "executionDate": "2026-11-21T14:35:45.220Z",
+  "platform": {
+    "os": "win32",
+    "arch": "x64",
+    "filesystem": "Windows NTFS",
+    "nodeVersion": "v24.15.0",
+    "sqliteMode": "WAL (Write-Ahead Logging)"
+  },
+  "scenarios": {
+    "F1": {
+      "hypothesis": "Valid multi-file changes commit cleanly with WAL journal records and expected hashes.",
+      "status": "PASS",
+      "txId": "TX-F1-NORMAL-001",
+      "state": "COMMITTED",
+      "appliedFiles": 2
+    },
+    "F2": {
+      "hypothesis": "Interruption before any file replacement leaves disk intact and transitions journal safely.",
+      "status": "PASS",
+      "interruptedGracefully": true,
+      "recoveryState": "ROLLED_BACK",
+      "diskContentPreserved": true
+    },
+    "F3": {
+      "hypothesis": "Crash after partial file application is detected; journal correctly records PARTIALLY_APPLIED and recovers.",
+      "status": "PASS",
+      "partialFailureInjected": true,
+      "recoveryOutcome": {
+        "txId": "TX-F3-MID-APPLICATION-003",
+        "state": "ROLLED_BACK",
+        "actionTaken": "CLEAN_RESTORE",
+        "restoredFiles": 2
+      }
+    },
+    "F4": {
+      "hypothesis": "TOCTOU check detects external edit before application and prevents silent overwrite (Invariant A).",
+      "status": "PASS",
+      "conflictDetected": true,
+      "errorMessage": "TOCTOU_DISK_MODIFICATION_DETECTED: Target src/App.tsx was modified externally between snapshot and application. Aborting transaction without overwriting.",
+      "developerWorkPreserved": true
+    },
+    "F5": {
+      "hypothesis": "Concurrent edit during multi-file loop triggers TOCTOU abort without overwriting the conflicting file.",
+      "status": "PASS",
+      "abortedOnConflict": true,
+      "concurrentEditIntact": true
+    },
+    "F6": {
+      "hypothesis": "Rollback refrains from overwriting external modification in crash window; marks CONFLICTED and backs up user file (Invariant B).",
+      "status": "PASS",
+      "recoveryState": "CONFLICTED",
+      "developerHotfixPreserved": true,
+      "conflictBackupCreated": true
+    },
+    "F7": {
+      "hypothesis": "Fresh process instance reads SQLite WAL journal and re-synchronizes state after abrupt process termination.",
+      "status": "PASS",
+      "recoveredAcrossInstances": true
+    },
+    "F8": {
+      "hypothesis": "Exclusive file lock blocks concurrent transaction; releases cleanly upon completion.",
+      "status": "PASS",
+      "lockA_Held": true,
+      "lockB_Blocked": true,
+      "lockB_AcquiredAfterRelease": true
+    },
+    "F9": {
+      "hypothesis": "Path sanitizer rejects traversal (..), absolute paths, UNC paths, and Windows drive letters (Invariant D).",
+      "status": "PASS",
+      "totalAttacksTested": 4,
+      "attacksRejected": 4
+    },
+    "F10": {
+      "hypothesis": "Missing paths or invalid inputs fail closed before touching disk.",
+      "status": "PASS",
+      "failedClosed": true
+    },
+    "F11": {
+      "hypothesis": "Running recovery repeatedly is idempotent and creates zero duplicate mutations (Invariant F).",
+      "status": "PASS",
+      "firstRecoveryState": "ROLLED_BACK",
+      "secondRecoveryState": "ROLLED_BACK",
+      "isIdempotent": true
+    },
+    "F12": {
+      "hypothesis": "System detects user additions after partial crash, halts rollback, creates backup, and prevents data loss (Invariants A, B, G).",
+      "status": "PASS",
+      "userCodePreservedOnDisk": true,
+      "conflictBackupVerified": true,
+      "recoveryState": "CONFLICTED",
+      "conflictsRecorded": 1
+    }
+  },
+  "invariantsScorecard": {
+    "invariantA_NoSilentOverwrite": "VERIFIED",
+    "invariantB_NoBlindRollback": "VERIFIED",
+    "invariantC_Recoverability": "VERIFIED",
+    "invariantD_ScopeEnforcement": "VERIFIED",
+    "invariantE_EvidenceIntegrity": "VERIFIED",
+    "invariantF_IdempotentRecovery": "VERIFIED",
+    "invariantG_ExplicitUncertainty": "VERIFIED"
+  },
+  "acceptanceScorecard": {
+    "gateId": "GATE-02",
+    "status": "PASS",
+    "verdict": "PASS — RECOVERABLE MULTI-FILE PROTOCOL VALIDATED (NOT A FULL ATOMIC FILESYSTEM TRANSACTION)",
+    "summary": "Gate 2 Validated: All 12 scenarios passed with zero silent overwrites, zero silent data loss, and 100% preservation of external user edits during crash intervals. Crucial architectural realism: SQLite WAL provides ACID durability for metadata, but filesystem multi-file modifications remain a recoverable protocol rather than native transactional atomicity."
+  }
+}
