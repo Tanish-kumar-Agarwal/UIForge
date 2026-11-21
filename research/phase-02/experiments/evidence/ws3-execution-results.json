@@ -1,0 +1,96 @@
+{
+  "E1": {
+    "validResult": {
+      "isValid": true,
+      "errors": []
+    },
+    "invalidResult": {
+      "isValid": false,
+      "errors": [
+        "Missing required field 'name'",
+        "Invalid type 'registry:unsupported_custom_type'. Expected one of registry:base, registry:component, registry:font, registry:page, registry:file, registry:style, registry:theme, registry:item, registry:ui, registry:block, registry:hook, registry:lib",
+        "Field 'files' must be an array"
+      ]
+    }
+  },
+  "E2": {
+    "parsedCount": 7,
+    "sampleResolvedAlias": {
+      "path": [
+        "color",
+        "semantic",
+        "action",
+        "primary"
+      ],
+      "type": "color",
+      "rawValue": "{color.primitive.blue.500}",
+      "description": "Primary action fill",
+      "deprecated": false,
+      "resolvedValue": "#3b82f6",
+      "isAlias": true,
+      "targetPath": "color.primitive.blue.500"
+    },
+    "sampleInheritedType": "color",
+    "sampleCompositeArrayShadow": [
+      {
+        "color": "rgba(0,0,0,0.1)",
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "3px",
+        "spread": "0px"
+      },
+      {
+        "color": "rgba(0,0,0,0.06)",
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0px"
+      }
+    ]
+  },
+  "E3": {
+    "cssSnippet": ":root {\n  --color-primitive-blue-500: #3b82f6;\n  --color-primitive-blue-600: #2563eb;\n  --color-primitive-gray-100: #f3f4f6;\n  --color-primitive-gray-900: #111827;\n  --color-semantic-action-primary: #3b82f6;\n  ..."
+  },
+  "E4": {
+    "tailwindV4": "@theme {\n  --color-blue-500: #3b82f6;\n  --color-action-primary: var(--color-semantic-action-primary);\n}",
+    "cssModules": {
+      "globalTokensFile": ":root {\n  --color-action-primary: #3b82f6;\n}",
+      "componentModuleFile": ".card {\n  background: var(--color-action-primary);\n  padding: 1rem;\n}"
+    },
+    "antDesign": {
+      "colorPrimary": "#3b82f6",
+      "colorBgBase": "#f3f4f6",
+      "borderRadius": 8
+    }
+  },
+  "E5": {
+    "valuePreserved": true,
+    "originalDescriptionPresentInReverse": false,
+    "lossClassification": "APPROXIMATE_RECOVERY_WITH_METADATA_LOSS"
+  },
+  "E6": {
+    "tailwindLayer": "components (layered)",
+    "cssModuleLayer": "unlayered (implicit highest layer)",
+    "specificityOutcome": "Unlayered CSS Modules override @layer rules regardless of source order",
+    "recommendation": "Wrap CSS Modules in explicit cascade layers or avoid mixing utility overrides on identical elements"
+  },
+  "E7": {
+    "cycleCheck": {
+      "cycleDetected": true,
+      "failedNode": "nodeA"
+    },
+    "unresolvedRefHandling": "FLAGGED_AS_UNRESOLVED_REFERENCE_ABORT"
+  },
+  "E8": {
+    "rollbackTriggered": true,
+    "cleanRestoration": true,
+    "initialHashes": {
+      "styles/globals.css": "f0825cdea46582446888c686b503f74274f4fc2cb4f9131ff29b397653ffcad0",
+      "theme/tokens.ts": "37b78855b0062f519f91a133168f0a4300cf9808607570c73791413a6adc5159"
+    },
+    "postRollbackHashes": {
+      "styles/globals.css": "f0825cdea46582446888c686b503f74274f4fc2cb4f9131ff29b397653ffcad0",
+      "theme/tokens.ts": "37b78855b0062f519f91a133168f0a4300cf9808607570c73791413a6adc5159"
+    }
+  }
+}
