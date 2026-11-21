@@ -104,3 +104,22 @@ Phase 02.2 is organized into five rigorous technical workstreams:
   - **Transport-Specific Security & Observability:** Local `stdio` operates over OS pipes without network authentication; remote `streamableHttp` enforces TLS and HTTP authorization. Audit logging implements SHA-256 digest chaining (noting external anchoring requirements).
   - **Reconciled Scorecard:** 9 PASS, 9 PARTIAL, 2 NOT ESTABLISHED across 20 criteria.
 - **Empirical Evidence:** Experiments E1–E10 recorded in [ws5-evidence/ws5-evidence.md](ws5-evidence/ws5-evidence.md).
+
+---
+
+## 3. Phase 02.2 Cross-Workstream Consolidation & System Architecture
+
+The five independent workstreams have been fully reconciled and consolidated into a single authoritative system architecture in [`research/phase-02/phase-02.2-consolidation/`](../phase-02.2-consolidation/README.md).
+
+Key consolidation deliverables include:
+- **Unified System Architecture:** [MASTER-ARCHITECTURE.md](../phase-02.2-consolidation/MASTER-ARCHITECTURE.md) (11 canonical layers, topology diagram, responsibility ownership matrix).
+- **Shared Interface Contracts:** [SHARED-INTERFACE-CONTRACTS.md](../phase-02.2-consolidation/SHARED-INTERFACE-CONTRACTS.md) (10 canonical cross-subsystem data contracts: A through J).
+- **Package Architecture:** [DEPENDENCY-AND-PACKAGE-ARCHITECTURE.md](../phase-02.2-consolidation/DEPENDENCY-AND-PACKAGE-ARCHITECTURE.md) (Topological DAG proof, 12 monorepo packages, dynamic adapter strategy).
+- **Security & Trust Architecture:** [SECURITY-AND-TRUST-ARCHITECTURE.md](../phase-02.2-consolidation/SECURITY-AND-TRUST-ARCHITECTURE.md) (21-vector threat model, 5-level security ladder, single-use diff-bound approval tokens).
+- **Provenance & Governance:** [PROVENANCE-AND-REGISTRY-GOVERNANCE.md](../phase-02.2-consolidation/PROVENANCE-AND-REGISTRY-GOVERNANCE.md) (6-tier consumption model, `provenance.json` schema, Phase 02.3 handoff).
+- **Unified Evidence Architecture:** [UNIFIED-EVIDENCE-ARCHITECTURE.md](../phase-02.2-consolidation/UNIFIED-EVIDENCE-ARCHITECTURE.md) (8 evidence classifications, 18-code failure taxonomy, actionable diagnostic envelopes).
+- **Architecture Decision Register:** [ARCHITECTURE-DECISION-REGISTER.md](../phase-02.2-consolidation/ARCHITECTURE-DECISION-REGISTER.md) (15 cross-workstream reconciled ADRs: ADR-001 to ADR-015).
+- **Conflict & Gap Register:** [CONFLICT-AND-GAP-REGISTER.md](../phase-02.2-consolidation/CONFLICT-AND-GAP-REGISTER.md) (12 technical contradictions formally resolved).
+- **End-to-End Workflows:** [END-TO-END-WORKFLOWS.md](../phase-02.2-consolidation/END-TO-END-WORKFLOWS.md) (Flows A through G with complete Mermaid sequence diagrams).
+- **Phase 03 Implementation Readiness:** [PHASE-03-IMPLEMENTATION-READINESS.md](../phase-02.2-consolidation/PHASE-03-IMPLEMENTATION-READINESS.md) (4-stage topological implementation roadmap, complexity matrix).
+- **Acceptance & Evidence Report:** [ACCEPTANCE-AND-EVIDENCE-REPORT.md](../phase-02.2-consolidation/ACCEPTANCE-AND-EVIDENCE-REPORT.md) (Audit of 28 criteria; 26 PASS, 2 PARTIAL, 0 NOT ESTABLISHED).
