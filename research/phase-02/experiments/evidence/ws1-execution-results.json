@@ -1,0 +1,64 @@
+{
+  "E1": {
+    "fileCount": 5,
+    "files": [
+      "app\\dashboard\\page.tsx",
+      "components\\dashboard\\kpi-card.tsx",
+      "components\\ui\\card.tsx",
+      "lib\\utils.ts",
+      "tsconfig.json"
+    ],
+    "durationMs": 2.593
+  },
+  "E2": {
+    "testComponent": "KpiCard",
+    "testedProp": "trend",
+    "testedValue": "positive",
+    "allowedUnion": [
+      "up",
+      "down",
+      "neutral"
+    ],
+    "isValid": false,
+    "diagnosticCode": "TS2322",
+    "diagnosticMessage": "Type '\"positive\"' is not assignable to type '\"up\" | \"down\" | \"neutral\" | undefined'."
+  },
+  "E3": {
+    "searchedPattern": "<KpiCard $$$PROPS />",
+    "matchCount": 3,
+    "matches": [
+      "<KpiCard\n          title=\"Total Revenue\"\n          value=\"$128,430\" /* Formatted in USD */\n          trend=\"up\"\n          description=\"+14.2% from last month\"\n        />",
+      "<KpiCard\n          title=\"Active Subscriptions\"\n          value=\"2,410\"\n          trend=\"neutral\"\n        />",
+      "<KpiCard\n          title=\"Churn Rate\"\n          value=\"1.2%\"\n          trend=\"down\"\n          description=\"-0.4% from average\"\n        />"
+    ]
+  },
+  "E4": {
+    "originalHash": "c42d0a8bb1af99f4c48a91894547bbb1efcf43fbbfbf27ed2baa05f7dbddcda5",
+    "transformedHash": "730ac628b2fe34ad32d7d7a62d5f99c144922381bf39cca37dfb39a800e47e9b",
+    "textPreservationOutsideSnippet": true,
+    "syntaxPreserved": true,
+    "semanticPreserved": true,
+    "diff": {
+      "removed": "<KpiCard\n          title=\"Active Subscriptions\"\n          value=\"2,410\"\n          trend=\"neutral\"\n        />",
+      "added": "<KpiCard\n          title=\"Active Subscriptions\"\n          value=\"2,410\"\n          trend=\"neutral\"\n          description=\"Healthy retention rate\"\n        />"
+    }
+  },
+  "E5": {
+    "conflictDetection": {
+      "expectedHash": "c42d0a8bb1af99f4c48a91894547bbb1efcf43fbbfbf27ed2baa05f7dbddcda5",
+      "actualDiskHash": "a072822e53632354e0bda51eb9e48f4b9a9fe8084da01a5f66730d147bc5e8c4",
+      "conflictDetected": true,
+      "aborted": true
+    },
+    "rollbackTest": {
+      "initialHash": "c42d0a8bb1af99f4c48a91894547bbb1efcf43fbbfbf27ed2baa05f7dbddcda5",
+      "restoredHash": "c42d0a8bb1af99f4c48a91894547bbb1efcf43fbbfbf27ed2baa05f7dbddcda5",
+      "restorationMatchesInitial": true,
+      "scopedRecoveryLog": {
+        "filesystem": "RESTORED (Reverted app/dashboard/page.tsx)",
+        "npmCache": "MODIFIED (Unmanaged external cache state)",
+        "packageLock": "INSPECT_REQUIRED (Lockfile was not written)"
+      }
+    }
+  }
+}
