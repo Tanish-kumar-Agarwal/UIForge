@@ -58,19 +58,19 @@ We conduct an exhaustive threat modeling analysis covering 21 critical threat ve
 | **TH-05** | **Malicious Lifecycle Scripts**| `npm install` executing malicious `postinstall` shell scripts. | WS-1 / WS-3 | WS-1 (Transforms) | UIForge strictly enforces `--ignore-scripts` on any automated package operation. | Eliminated by `--ignore-scripts`. |
 | **TH-06** | **Registry SSRF** | Attacker specifies registry URL pointing to AWS metadata or internal IP. | WS-3 (Registry) | WS-3 (Registry) | Deny RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), 169.254.169.254, IPv6 loopback (`::1`). | Low; enforced at HTTP request client level. |
 | **TH-07** | **Redirect Abuse** | Registry URL redirects from public HTTPS to internal HTTP intranet. | WS-3 (Registry) | WS-3 (Registry) | Disallow automatic HTTP 3xx cross-origin or downgrade redirects. | Low. |
-| **TH-08** | **Path Traversal Escape** | Malicious file paths (e.g., `../../etc/passwd` or `C:\Windows`). | WS-1 / WS-7 | WS-1 (Transforms) | Path canonicalization via `fs.realpathSync`; assert `path.startsWith(canonicalRepoRoot)`. | Low; verified in WS-5 Experiment E5. |
-| **TH-09** | **Symlink Hijacking** | Target repo contains symlink pointing to sensitive system file outside repo. | WS-1 / WS-7 | WS-1 (Transforms) | Rejects modifications to symlinks or paths traversing symlinked directories. | Low; requires live runtime OS test in Phase 03. |
-| **TH-10** | **TOCTOU Race Condition** | File modified on disk between human approval and physical write. | WS-1 / WS-7 | WS-1 (Transforms) | Physical write checks pre-image SHA-256 against exact disk state in same atomic tick. | Low; verified in WS-5 Experiment E5. |
-| **TH-11** | **Unauthorized File Writes** | AI agent calls tool attempting direct file write without approval. | WS-5 / WS-11 | WS-5 (Security) | 5-level security ladder blocks Level 2+ execution without valid approval token. | Zero; fail-closed gate. |
-| **TH-12** | **Approval Token Replay** | Replaying an intercepted approval token to execute a second modification. | WS-5 / WS-11 | WS-5 (Security) | Tokens are strictly single-use; marked consumed in SQLite journal immediately upon entry. | Zero; atomic consumption. |
-| **TH-13** | **Expired Approval Execution**| Executing a change using a stale approval token issued hours earlier. | WS-5 / WS-11 | WS-5 (Security) | Hard TTL limit: maximum 15 minutes validity; rejects expired tokens. | Zero. |
-| **TH-14** | **Secret & API Key Exposure** | Hardcoded `.env` secrets or API keys leaked in agent context or logs. | WS-5 / WS-9 | WS-5 (Agent SDK) | Blacklist `.env*`, `.pem`, `id_rsa`; regex redactor masks Bearer tokens, AWS keys, GitHub tokens. | Low; verified in WS-5 Experiment E9. |
+| **TH-08** | **Path Traversal Escape** | Malicious file paths (e.g., `../../etc/passwd` or `C:\Windows`). | WS-1 (Execution) | WS-1 (Transforms) | Path canonicalization via `fs.realpathSync`; assert `path.startsWith(canonicalRepoRoot)`. | Low; verified in WS-5 Experiment E5. |
+| **TH-09** | **Symlink Hijacking** | Target repo contains symlink pointing to sensitive system file outside repo. | WS-1 (Execution) | WS-1 (Transforms) | Rejects modifications to symlinks or paths traversing symlinked directories. | Low; requires live runtime OS test in Phase 03. |
+| **TH-10** | **TOCTOU Race Condition** | File modified on disk between human approval and physical write. | WS-1 (Execution) | WS-1 (Transforms) | Physical write checks pre-image SHA-256 against exact disk state in same atomic tick. | Low; verified in WS-5 Experiment E5. |
+| **TH-11** | **Unauthorized File Writes** | AI agent calls tool attempting direct file write without approval. | WS-5 (Security) | WS-5 (Security Gate) | 5-level security ladder blocks Level 2+ execution without valid approval token. | Zero; fail-closed gate. |
+| **TH-12** | **Approval Token Replay** | Replaying an intercepted approval token to execute a second modification. | WS-5 (Security) | WS-5 (Security Gate) | Tokens are strictly single-use; marked consumed in SQLite journal immediately upon entry. | Zero; atomic consumption. |
+| **TH-13** | **Expired Approval Execution**| Executing a change using a stale approval token issued hours earlier. | WS-5 (Security) | WS-5 (Security Gate) | Hard TTL limit: maximum 15 minutes validity; rejects expired tokens. | Zero. |
+| **TH-14** | **Secret & API Key Exposure** | Hardcoded `.env` secrets or API keys leaked in agent context or logs. | WS-5 (Agent SDK) | Core (Audit Subsystem) | Blacklist `.env*`, `.pem`, `id_rsa`; regex redactor masks Bearer tokens, AWS keys, GitHub tokens. | Low; verified in WS-5 Experiment E9. |
 | **TH-15** | **MCP Tool Parameter Poisoning**| Malformed JSON-RPC payloads designed to exploit prototype pollution. | WS-5 (MCP) | WS-5 (MCP Server) | Zod schema validation; `Object.freeze` on parsed inputs; disallow `__proto__`, `constructor`. | Zero; verified in WS-3 Experiment E4. |
 | **TH-16** | **Session Hijacking** | Malicious local process hijacking another agent's MCP session. | WS-5 (MCP) | WS-5 (MCP Server) | Stdio transport restricted to OS parent-child pipes; HTTP requires localhost bearer token. | Low. |
-| **TH-17** | **Audit Log Tampering** | Attacker modifies `.uiforge/journal.db` or audit logs to conceal changes. | WS-9 / WS-10 | WS-9 (Evidence) | Chained SHA-256 digests (`recordDigest[n] = H(record[n] + recordDigest[n-1])`). | Low; detectability guaranteed (external anchor required). |
+| **TH-17** | **Audit Log Tampering** | Attacker modifies `.uiforge/journal.db` or audit logs to conceal changes. | Core (Evidence) | Core (Audit Subsystem) | Chained SHA-256 digests (`recordDigest[n] = H(record[n] + recordDigest[n-1])`). | Low; detectability guaranteed (external anchor required). |
 | **TH-18** | **Browser Intranet SSRF** | Playwright navigating to internal cloud metadata or local microservices. | WS-4 (Browser) | WS-4 (Browser) | Network route interception blocks non-whitelisted destinations; restricts to target app port. | Low; verified in WS-4 Experiment E8. |
 | **TH-19** | **Malicious Webpage Exploits**| Rendered page executes malicious WebSockets or WebRTC to bypass sandbox. | WS-4 (Browser) | WS-4 (Browser) | Disable WebSockets/WebRTC in Playwright context; disable cross-origin iframes. | Low. |
-| **TH-20** | **Visual Trace / Screen Leak** | Screenshot of UI containing PII or production user data stored insecurely. | WS-4 / WS-9 | WS-4 (Browser) | Verification screenshots stored locally in `.uiforge/artifacts/` with 0600 file permissions. | Low. |
+| **TH-20** | **Visual Trace / Screen Leak** | Screenshot of UI containing PII or production user data stored insecurely. | WS-4 (Browser) | Core (Artifacts) | Verification screenshots stored locally in `.uiforge/artifacts/` with 0600 file permissions. | Low. |
 | **TH-21** | **Cross-Project Pollution** | Agent operating in Repo A reads or writes files in Repo B. | WS-1 / WS-5 | WS-1 (Project) | Every session strictly pinned to a single canonical repository root. Cross-repo paths rejected. | Zero; path bounds enforced. |
 
 ---
@@ -113,8 +113,8 @@ sequenceDiagram
     participant Agent as AI Coding Agent
     participant MCP as @uiforge/mcp-server
     participant Planner as WS-1 Change Planner
-    participant Security as Security Gate (WS-11)
-    participant Journal as SQLite Journal (WS-7)
+    participant Security as Security Gate (WS-5)
+    participant Journal as SQLite Journal (Core Engine)
     participant Disk as Target Repository Files
 
     Agent->>MCP: uiforge_plan_transformation(intent, targetFiles)
@@ -126,27 +126,34 @@ sequenceDiagram
 
     MCP->>Developer: Present Side-by-Side Diff & DiffDigest in CLI/GUI
     Developer->>Security: Approve Proposal P-101
-    Security->>Security: Mint Single-Use ApprovalToken (TTL: 15m, Bound to DiffDigest & Pre-Image)
+    Security->>Security: Mint Single-Use ApprovalToken (TTL: 15m, Bound to ProjectId, SnapshotId, TaskId, TargetPaths & DiffDigest)
     Security-->>Agent: ApprovalToken issued
 
     Agent->>MCP: uiforge_apply_transformation(ProposalID, ApprovalToken)
     MCP->>Security: Validate ApprovalToken
-    Security->>Security: Check: Valid? Unexpired? Unconsumed? DiffDigest Match?
-    Security->>Disk: Verify current file hash === Pre-Image SHA-256 (TOCTOU Check)
-    Security->>Journal: Begin Transaction & Mark Token Consumed
-    Journal->>Disk: Atomic Multi-File Write
+    Security->>Security: Check: Valid? Unexpired? Unconsumed? Unrevoked? All Bindings Match?
+    Security->>Disk: Precondition Verification: currentHash === preImageSha256?
+    Security->>Journal: Begin Transaction & Record Pre-Images (.uiforge/journal.db)
+    Journal->>Disk: Stage in .uiforge/staging/ & Execute Atomic Replace
     Journal-->>MCP: Execution Success (Committed)
     MCP-->>Agent: Transformation Applied with Evidence Record
 ```
 
-### 5.1 Defense Against TOCTOU Races
+### 5.1 Defense Against TOCTOU Races & Multi-Layer Filesystem Defenses
 A critical vulnerability in automated agent workflows is the **Time-of-Check to Time-of-Use (TOCTOU)** race condition:
 1. Agent inspects file `A.tsx` (Pre-image SHA-256: `abcd...`).
 2. Human approves the diff.
 3. Developer concurrently edits `A.tsx` outside UIForge.
 4. Agent executes mutation, potentially overwriting unapproved developer work.
 
-**UIForge Resolution:** In step 11 above, before modifying a single byte on disk, the execution engine reads the physical file and computes its current SHA-256 hash. If `currentHash !== preImageSha256`, the operation **aborts immediately**, marks the approval token invalid, and issues a `TOCTOU_DISK_MODIFICATION_DETECTED` failure without touching disk.
+**UIForge Resolution & Multi-Layer Protections:**
+- **Precondition Digest Revalidation:** In step 11 above, immediately before staging any disk write, the execution engine reads the physical file and verifies `currentHash === preImageSha256`. If the file was altered, execution halts immediately with `TOCTOU_DISK_MODIFICATION_DETECTED` and revokes the approval token.
+- **Race Condition Realism:** A digest check alone is a **precondition check**, not an atomic elimination of filesystem concurrency. UIForge implements a multi-layer defense:
+  1. *Path Canonicalization:* `fs.realpathSync` resolves all symlinks across the full directory hierarchy, asserting all target paths remain strictly inside `canonicalRepoRoot`.
+  2. *Isolated Staging:* New file contents are rendered to an isolated private directory (`.uiforge/staging/`) with strict 0600 file permissions.
+  3. *Atomic Replacement Primitives:* Where supported by the OS and filesystem, staged files replace target files via atomic file swap or atomic rename (`fs.rename`).
+  4. *OS File Locking:* Advisory or mandatory file locks (`LockFileEx` on Windows, `flock` on POSIX) are acquired during modification where feasible.
+  5. *Write-Ahead Journal Recovery:* All target paths, pre-images, and intent records are committed to SQLite (`.uiforge/journal.db`) before disk writes begin, enabling deterministic rollback upon crash or failure.
 
 ---
 

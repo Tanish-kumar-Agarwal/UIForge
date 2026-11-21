@@ -95,7 +95,7 @@ sequenceDiagram
     participant Orch as Orchestration Layer
     participant WS2 as WS-2: Component Selector
     participant WS3 as WS-3: Registry Ingestor
-    participant WS9 as WS-9: Provenance Tracker
+    participant Provenance as Core: Provenance Tracker
 
     Agent->>Orch: Request Component ('accessible-tabs', RSC Tier: Client)
     Orch->>WS2: findBestCandidates(criteria)
@@ -115,7 +115,7 @@ sequenceDiagram
     else Ingest External shadcn Template
         WS2->>WS3: fetchRegistryResource('shadcn/tabs')
         WS3->>WS3: SSRF Check & Compute SHA-256 Digest
-        WS3->>WS9: Verify License (MIT Permissive)
+        WS3->>Provenance: Verify License (MIT Permissive)
         WS3-->>WS2: Validated RegistryResource
         WS2-->>Orch: Recommend: Ingest 'shadcn/tabs' (Score: 0.82)
     end
@@ -143,7 +143,7 @@ sequenceDiagram
 
     Dev->>Orch: Convert Design Tokens (Source: DTCG JSON -> Target: Tailwind v4 @theme)
     Orch->>WS3: parseAndResolve(dtcgJson, context)
-    WS3->>WS3: Parse color components: [r, g, b] (OKLCH)
+    WS3->>WS3: Parse color components: [L, C, H] (OKLCH) / [r, g, b] (sRGB)
     WS3->>WS3: Resolve Multi-Dimensional Contexts (light/dark/contrast)
     WS3-->>Orch: ResolvedTokenTree
 
@@ -176,8 +176,8 @@ sequenceDiagram
     actor Agent as AI Coding Agent
     participant Ingress as @uiforge/mcp-server
     participant Planner as WS-1: Change Planner
-    participant Security as Security Gate (WS-11)
-    participant Journal as SQLite Journal (WS-7)
+    participant Security as Security Gate (WS-5)
+    participant Journal as SQLite Journal (Core Engine)
     participant Disk as Target Repository Files
     participant WS4 as WS-4: Browser Verifier
 
@@ -266,7 +266,7 @@ sequenceDiagram
     autonumber
     actor Agent as External Agent (Claude Code)
     participant MCP as @uiforge/mcp-server (Ingress Adapter)
-    participant Security as Security Gate (WS-11)
+    participant Security as Security Gate (WS-5)
     participant Core as UIForge Core Engine
 
     Agent->>MCP: POST /mcp (JSON-RPC: initialize, protocol: 2026-07-28)
