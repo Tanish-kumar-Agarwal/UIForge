@@ -139,21 +139,31 @@ sequenceDiagram
     MCP-->>Agent: Transformation Applied with Evidence Record
 ```
 
-### 5.1 Defense Against TOCTOU Races & Multi-Layer Filesystem Defenses
+### 5.1 Recoverable Multi-File Mutation Protocol & Defense-in-Depth
+
 A critical vulnerability in automated agent workflows is the **Time-of-Check to Time-of-Use (TOCTOU)** race condition:
 1. Agent inspects file `A.tsx` (Pre-image SHA-256: `abcd...`).
 2. Human approves the diff.
-3. Developer concurrently edits `A.tsx` outside UIForge.
+3. Developer or external process concurrently edits `A.tsx` outside UIForge.
 4. Agent executes mutation, potentially overwriting unapproved developer work.
 
-**UIForge Resolution & Multi-Layer Protections:**
-- **Precondition Digest Revalidation:** In step 11 above, immediately before staging any disk write, the execution engine reads the physical file and verifies `currentHash === preImageSha256`. If the file was altered, execution halts immediately with `TOCTOU_DISK_MODIFICATION_DETECTED` and revokes the approval token.
-- **Race Condition Realism:** A digest check alone is a **precondition check**, not an atomic elimination of filesystem concurrency. UIForge implements a multi-layer defense:
-  1. *Path Canonicalization:* `fs.realpathSync` resolves all symlinks across the full directory hierarchy, asserting all target paths remain strictly inside `canonicalRepoRoot`.
-  2. *Isolated Staging:* New file contents are rendered to an isolated private directory (`.uiforge/staging/`) with strict 0600 file permissions.
-  3. *Atomic Replacement Primitives:* Where supported by the OS and filesystem, staged files replace target files via atomic file swap or atomic rename (`fs.rename`).
+**UIForge Resolution & Protocol Realism:**
+- **Precondition Digest Revalidation:** Immediately before staging any write, the execution engine reads the physical file and verifies `currentHash === preImageSha256`. If the file was altered, execution halts immediately with `TOCTOU_DISK_MODIFICATION_DETECTED` and revokes the approval token.
+- **Protocol Classification:** A pre-image check is a necessary **precondition validation**, not an atomic elimination of filesystem concurrency. Furthermore, neither POSIX nor Windows filesystems provide native multi-file transactional atomicity, and SQLite ACID guarantees apply strictly to the `.uiforge/journal.db` database file. Therefore, UIForge designates this architecture as a **recoverable multi-file mutation protocol**, not an atomic filesystem transaction.
+- **Multi-Layer Filesystem Defenses:**
+  1. *Closest Existing Ancestor Path Canonicalization:* Target paths are checked using `fs.realpathSync` on the closest existing ancestor directory to verify that the target remains strictly within `path.resolve(repoRoot) + path.sep`, preventing directory traversal and symlink escape collisions. Note that `realpathSync` alone does not eliminate symlink races if a symlink is swapped between validation and writing.
+  2. *Isolated Staging:* New file contents are rendered to an isolated private staging directory (`.uiforge/staging/<txId>/`) with restricted file permissions.
+  3. *Atomic Replacement Primitives:* Staged files replace target files using atomic rename operations (`fs.renameSync`) where supported on the same filesystem volume. On Windows NTFS, file-handle locking by editors, language servers, or anti-virus can cause `renameSync` to fail (`EPERM`/`EBUSY`), requiring explicit retry/recovery logic.
   4. *OS File Locking:* Advisory or mandatory file locks (`LockFileEx` on Windows, `flock` on POSIX) are acquired during modification where feasible.
   5. *Write-Ahead Journal Recovery:* All target paths, pre-images, and intent records are committed to SQLite (`.uiforge/journal.db`) before disk writes begin, enabling deterministic rollback upon crash or failure.
+- **Phase 02.4 Gate 2 Validation Scenarios:** The prototype must validate seven explicit failure modes:
+  1. Process termination after journaling but before staging.
+  2. Termination during staging in `.uiforge/staging/`.
+  3. Termination after replacing only a subset of files (partial write recovery).
+  4. Concurrent external user or tool edits to a target file during the transaction.
+  5. Rollback failure (disk write error during pre-image restoration).
+  6. Disk-full conditions (`ENOSPC`).
+  7. Cross-platform divergence between Windows NTFS file-handle locking and POSIX atomic renames.
 
 ---
 
@@ -162,11 +172,12 @@ A critical vulnerability in automated agent workflows is the **Time-of-Check to 
 ### 6.1 Headless Browser Network Isolation (WS-4)
 Headless browser verification operates inside a locked-down Playwright context:
 1. **Destination Whitelisting:** Navigations are restricted strictly to `127.0.0.1`, `localhost`, or the explicitly designated local development server port (e.g., `http://localhost:3000`).
-2. **SSRF Egress Blocking:** Route interception actively cancels any network request targeting:
+2. **SSRF Egress Blocking via Route Interception:** Route interception actively cancels any network request targeting:
    - Private IPv4 ranges (RFC 1918): `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`.
    - Cloud instance metadata services: `169.254.169.254`.
    - IPv6 loopback (`::1`) or link-local (`fe80::/10`).
-3. **Protocol Restriction:** WebSockets, WebRTC, and file:// protocol navigations are blocked by default.
+3. **Defense-in-Depth Caveat:** Application-level route interception (`page.route()`) is a necessary application filter, but does NOT constitute a complete operating-system or network container sandbox. It does not eliminate DNS rebinding attacks or raw socket bypasses. Live OS containerization / process-level network isolation remains a Phase 02.4 / Phase 03 requirement.
+4. **Protocol Restriction:** WebSockets, WebRTC, and file:// protocol navigations are blocked by default.
 
 ### 6.2 Component Registry Ingestion Isolation (WS-3)
 1. **Canonical Registry Whitelist:** Only approved HTTPS registries (e.g., official `ui.shadcn.com/r` or enterprise-configured mirrors) may be fetched.
