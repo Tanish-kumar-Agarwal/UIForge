@@ -63,6 +63,36 @@ Every finding, benchmark, test result, or compatibility claim produced across UI
 - **Rule 1 (Simulation Demarcation):** A simulated model (such as WS-5 Experiment E8's 3.28× multi-agent token bloat projection) must remain tagged as `REPORTED-SIMULATION`. It must never be upgraded to `LIVE-INTEGRATION-TESTED` without live multi-agent API execution.
 - **Rule 2 (Harness Demarcation):** Passing an in-memory policy test in a standalone Node.js script (such as WS-5 Experiment E5's approval token logic) qualifies strictly as `LOCAL-HARNESS-TESTED`. It does not prove runtime operating-system filesystem enforcement.
 - **Rule 3 (No False Conformance):** Automated axe-core scanning evaluates only 12 out of 55 WCAG 2.2 Level A/AA criteria. Passing axe-core must be recorded as `automated-checks-pass`, never as `WCAG-2.2-AA-compliant`.
+- **Rule 4 (Methodology Transparency):** The 12 automated / 23 browser-assisted / 20 human audit breakdown is **UIForge's internal verification methodology**, not an official or universal W3C classification. W3C defines success criteria and techniques, while individual tools operationalize verification. Automated tools must never claim full conformance.
+
+---
+
+## 3. Workstream Experiment Evidence Reconciliation (WS-1 Through WS-5)
+
+To maintain absolute evidentiary integrity across all five research workstreams, every completed experiment has been independently audited and cataloged with its runner status, assertion result, and final evidence classification:
+
+| Workstream | Experiment ID | Focus Area | Runner Execution | Assertion Result | Final Evidence Classification | Limitations & Disclaimers |
+| :--- | :--- | :--- | :---: | :---: | :--- | :--- |
+| **WS-1** | E1–E3 | AST Grep & Pattern Queries | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Executed on local Next.js fixtures; sub-millisecond Rust NAPI performance. |
+| **WS-1** | E4–E5 | CST Rewriting & Rollback | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Tested single-file AST preservation and hash conflict detection. |
+| **WS-3** | E1–E4 | Registry & Token Resolution | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Verified all 12 shadcn types, DTCG 2025.10 tokens, and theme generation. |
+| **WS-3** | E5–E8 | Cascades & Rollback | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Verified CSS Modules override `@layer components`; multi-file pre-image hashes. |
+| **WS-4** | E1 | Automation Architecture | Exit 0 | Pass | `DOC/SOURCE-VERIFIED` | Evaluated Playwright v1.65.1 spec vs BiDi Level 1; WebKit is open-source WebKit. |
+| **WS-4** | E2 | Perceptual Visual Diff | Exit 0 | Pass | `REPORTED-SIMULATION` | Synthetic RGBA buffer math simulating Pixelmatch v8 OKLab/HyAB. |
+| **WS-4** | E3 | Geometry & Occlusion | Exit 0 | Pass | `REPORTED-SIMULATION` | Synthetic DOM geometry & multi-point corner intersection model. |
+| **WS-4** | E4 | Contrast & 55 Criteria | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Algorithmic contrast calculations; 55-criteria UIForge methodology mapped. |
+| **WS-4** | E5 | Dialog State Machine | Exit 0 | Pass | `REPORTED-SIMULATION` | Synthetic state transition model verifying focus traps and escape keys. |
+| **WS-4** | E6 | Cross-Browser Antialiasing | Exit 0 | Pass | `DOC-VERIFIED` | Documented Blink/Gecko/WebKit text rasterizer behavior; same-browser baseline required. |
+| **WS-4** | E7 | Evidence Digest Tampering | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Proved SHA-256 `recordDigest` detects tampering; not a digital signature. |
+| **WS-4** | E8 | Diagnostic Envelope | Exit 0 | Pass | `REPORTED-SIMULATION` | DOM-to-TSX file localization heuristic model. |
+| **WS-5** | E1–E3 | MCP Protocol & Tool Schemas | Exit 0 | Pass | `DOC/SOURCE-VERIFIED` | Official MCP 2026-07-28 spec, modular v2 SDK, Streamable HTTP single POST. |
+| **WS-5** | E4 | Context Compression | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Measured 91.2% text reduction (9,964 chars to 871 chars) on local fixture. |
+| **WS-5** | E5 | Multi-Level Security Gate | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | In-memory policy logic tested; live OS-level filesystem locks are Phase 03 work. |
+| **WS-5** | E6 | Prompt Injection Sanitizer | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Content integrity digests detect tampering; authorization bounds prevent injection. |
+| **WS-5** | E7 | Session Lifecycle & Cache | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | In-memory session idempotency tested. |
+| **WS-5** | E8 | Multi-Agent Swarm Overhead | Exit 0 | Pass | `REPORTED-SIMULATION` | Mathematical cost model (3.28× token bloat, 3× latency); not a live benchmark. |
+| **WS-5** | E9 | Secret Redaction & Audit | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Regex redaction and SHA-256 digest chaining; external anchor required for PKI. |
+| **WS-5** | E10 | JSON-RPC Dispatch | Exit 0 | Pass | `REPORTED-SIMULATION` | In-memory mock loopback; live client-server process test marked Phase 02.4 work. |
 
 ---
 
@@ -173,7 +203,7 @@ Every failure across all subsystems is mapped to an authoritative error code, co
 | **`PROJECT_CONTEXT_STALE`** | State | Moderate | Yes | WS-1 (Project Intel) | Snapshot hash does not match current repository files. Required: modified file list. |
 | **`UNSUPPORTED_CAPABILITY`** | Domain | High | No | Orchestration | Target framework or syntax unsupported (e.g., Vue in React engine). Required: detected framework. |
 | **`DEPENDENCY_FAILURE`** | Runtime | Critical | Yes | Infrastructure | Required package or binary missing (e.g., missing Playwright). Required: missing package name. |
-| **`SECURITY_BLOCK`** | Security | Critical | No | WS-11 (Security Gate)| Path traversal, SSRF, symlink escape, or prototype pollution detected. Required: blocked target. |
+| **`SECURITY_BLOCK`** | Security | Critical | No | WS-5 (Security Gate)| Path traversal, SSRF, symlink escape, or prototype pollution detected. Required: blocked target. |
 | **`APPROVAL_REQUIRED`** | Security | Info | Yes | User / Developer | Level 2+ mutation proposed; awaiting human authorization. Required: proposalId & diffDigest. |
 | **`APPROVAL_EXPIRED`** | Security | Moderate | Yes | User / Agent | Human approval token exceeded maximum 15-minute TTL. Required: expired token ID. |
 | **`SOURCE_CHANGED`** | Concurrency| High | Yes | WS-1 (Transforms) | Disk file modified between approval and execution (TOCTOU). Required: expected vs actual SHA-256. |

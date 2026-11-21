@@ -76,7 +76,7 @@ Every package in the monorepo is specified with its inputs, outputs, prerequisit
 - **Prerequisites:** `@uiforge/core`.
 
 #### 3. `@uiforge/tokens` (Stage 2: WS-3 Domain)
-- **Purpose:** W3C DTCG 2025.10 design token parsing, color space mathematics (`components: [r, g, b]`), token group inheritance, and multi-dimensional alias resolution.
+- **Purpose:** W3C DTCG 2025.10 design token parsing, color space mathematics (colorSpace-specific components, e.g. `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB), token group inheritance, and multi-dimensional alias resolution.
 - **Complexity:** **Medium**. Requires recursive graph traversal and cycle detection algorithms.
 - **Inputs & Outputs:** Inputs: DTCG JSON / CSS Variables. Outputs: `ResolvedTokenTree` (`uiforge.contract.design-token.v1`).
 - **Security Requirements:** Disallow prototype pollution during `$value` parsing.
@@ -149,21 +149,27 @@ Every package in the monorepo is specified with its inputs, outputs, prerequisit
 
 ---
 
-## 3. High-Risk Capabilities Requiring Prototypes in Phase 02.4
+## 3. High-Risk Capabilities: Phase 02.4 Decision Gates & Prototype Criteria
 
-Before full production implementation begins in Phase 03, the following three high-risk technical capabilities must be prototyped and validated in **Phase 02.4 (System Synthesis & Proof-of-Concept)**:
+Before full production implementation begins in Phase 03, the following three high-risk technical capabilities must be prototyped and validated in **Phase 02.4 (System Synthesis & Proof-of-Concept)** as explicit **Architectural Decision Gates**:
 
-1. **TypeScript 7.1 Programmatic Compiler API Prototype:**
-   - *Risk:* TypeScript 7.1 stable releases November 24, 2026. The new entry points (`typescript/sync`, `typescript/async`, `typescript/fs`) must be validated against `ts-morph` and the fallback `@typescript/typescript6` baseline.
-   - *Prototype Goal:* Prove AST traversal and symbol resolution without native Go runtime crashes.
+### Decision Gate 1: TypeScript 7.1 Programmatic Compiler API Feasibility (Phase 02.4 Gate)
+- **Problem & Risk:** TypeScript 7.0 native Go engine omitted the JS programmatic API. TypeScript 7.1 Beta introduces new modular programmatic entry points (`typescript/sync`, `typescript/async`, `typescript/fs`) scheduled for stable release November 24, 2026.
+- **Prototype Evaluation:** Ingest stable TypeScript 7.1 in a dedicated benchmark harness; execute AST visitor traversal, syntactic diagnostics, and symbol checking on the Next.js 15 test fixtures.
+- **Confirmation Outcome:** If TypeScript 7.1 stable executes cleanly without native crashes, confirm migration for `@uiforge/project-intelligence`.
+- **Fallback / Revisit Outcome:** If TypeScript 7.1 programmatic APIs exhibit instability or memory regressions, retain `@typescript/typescript6@6.0.2` + `ts-morph@28.0.0` as the primary production engine (reconfirming ADR-002).
 
-2. **Cross-Platform SQLite Write-Ahead Journal Prototype:**
-   - *Risk:* Concurrent file access and process kill signals (`SIGKILL`, `SIGTERM`, Windows task termination) must not leave SQLite database locks unreleased or filesystem writes half-applied.
-   - *Prototype Goal:* Prove 100% pre-image rollback under simulated mid-write process termination.
+### Decision Gate 2: SQLite Write-Ahead Journal Crash Recovery & Filesystem Consistency (Phase 02.4 Gate)
+- **Problem & Risk:** Arbitrary multi-file filesystem operations are not ACID. Process termination (`SIGKILL`, power loss) mid-write can corrupt target repositories unless the write-ahead journal and rollback handler reliably restore pre-images.
+- **Prototype Evaluation:** Execute multi-file mutations across 5+ files while simulating sudden process aborts (`process.exit(1)`) at random write intervals on both Windows and POSIX environments. Test startup recovery.
+- **Confirmation Outcome:** If startup recovery detects `PENDING` transactions, compares disk state with pre-image hashes, and restores 100% of modified files, confirm Stage 3 implementation of `@uiforge/transforms` (reconfirming ADR-008).
+- **Fallback / Revisit Outcome:** If SQLite journal locks persist or OS file replacement fails, redesign execution to stage changes into isolated Git shadow worktrees or dedicated staging directories prior to committing Stage 3.
 
-3. **Headless Playwright Multi-Platform Rendering Stability:**
-   - *Risk:* Sub-pixel antialiasing differences across Linux CI and Windows desktop can cause false-positive visual regressions in Pixelmatch v8.
-   - *Prototype Goal:* Calibrate OKLab perceptual diff thresholds (0.05 to 0.15) to eliminate false positives on anti-aliased font stacks.
+### Decision Gate 3: Cross-Platform Headless Playwright Rendering Calibration (Phase 02.4 Gate)
+- **Problem & Risk:** Sub-pixel antialiasing differences across Linux CI (e.g. FreeType) and Windows desktop (DirectWrite) can produce false-positive visual regressions in Pixelmatch v8 on identical TSX code.
+- **Prototype Evaluation:** Execute headless Chromium, Firefox, and WebKit rendering of identical component fixtures across Linux and Windows; compare screenshot buffers with Pixelmatch v8 perceptual OKLab distances.
+- **Confirmation Outcome:** If calibrating perceptual threshold (0.05 to 0.15) and applying dynamic text masking eliminates cross-platform false positives while reliably catching true 1px layout regressions, confirm Stage 4 implementation of `@uiforge/verification` (reconfirming ADR-009, ADR-011).
+- **Fallback / Revisit Outcome:** If cross-OS false positives persist, mandate that visual regression comparisons be strictly constrained to same-OS, same-engine golden baselines.
 
 ---
 
