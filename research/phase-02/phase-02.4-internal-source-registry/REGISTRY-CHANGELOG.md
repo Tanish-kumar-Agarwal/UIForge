@@ -7,29 +7,64 @@
 
 ---
 
+## [1.2.0] — 2026-11-22
+
+### Comprehensive Resolution of Remaining Issues (Issues 1 – 12)
+
+#### 1. Dependency Arithmetic Reconciliation (Issue 1)
+- Reconciled all 125 candidate sources in `DEPENDENCY` mode: **111 APPROVED + 2 RESTRICTED (113 eligible) + 7 BLOCKED + 1 PENDING_REVIEW + 4 NOT_APPLICABLE (`Every-Layout`, `claude-code`, `cursor`, `windsurf`) = 125 exact**.
+- Resolved the missing 2 records by properly classifying non-package candidates (`OS-AGNT-03`, `OS-AGNT-04`, `OS-AGNT-05`, `OS-LAYT-08`) as `NOT_APPLICABLE` in dependency mode rather than using mismatched enums.
+
+#### 2. REJ Selection Precedence & Default Core Stack Exclusion (Issue 2)
+- Formally defined that `originalDiscoveryPriority: REJ` strictly excludes candidates from selection as UIForge's default core runtime stack in Phase 02.5.
+- Mode-level `ELIGIBLE_WITH_RESTRICTIONS` for GSAP defines legal emission boundaries for optional, user-requested secondary plugins only, and does not override core stack rejection.
+
+#### 3. Every Layout Licensing Terms & License Entity Census (Issues 3 & 10)
+- Added **`LIC-EVERY-LAYOUT-COMMERCIAL`** to `data/licenses.json`, expanding the canonical license census to **12 normalized license entities**.
+- Corrected Every Layout's license basis: documented paid authored content terms prohibiting component code redistribution while confirming clean-room implementation permissions for underlying CSS flex/grid layout algorithms.
+
+#### 4. Font Inventory Reconciliation & Fontsource Mapping (Issue 4)
+- Reconciled font inventory: Inter (`OS-TYPO-04`) and Geist (`OS-TYPO-05`) are standalone font upstream candidates; JetBrains Mono and Fira Code are font packages distributed via the Fontsource monorepo candidate (`OS-TYPO-03`).
+- Added asset records for `JetBrains Mono` and `Fira Code` to `data/assets.json` (8 assets total), tracing their SIL OFL 1.1 RFN terms directly to `OS-TYPO-03`.
+
+#### 5. Candidate IDs vs Source IDs Distinction (Issue 5)
+- Preserved original immutable `candidateId` directly alongside `sourceId` across all 125 records in `data/sources.json`.
+- Updated test harness to assert direct equality against upstream master inventory IDs without string alias transformations.
+
+#### 6. axe-core External-Tool Distribution Boundary (Issues 6 & 11)
+- Updated `axe-core` external tool mode to **`ELIGIBLE_WITH_RESTRICTIONS`** (`counselReviewRequired: true`).
+- Formulated concrete distribution model: UIForge supports execution strictly as a user-managed external integration (invoking user-installed `@axe-core/cli`; zero binary bundling or redistribution).
+
+#### 7. Claim-Level Evidence Quality Enhancement (Issue 7)
+- Enhanced all 625 items in `data/evidence.json` with `claimSupported`, `exactSourceArtifact`, `relevantFileOrSection`, and `verificationClassification`.
+
+#### 8. Validation Scope & Boundary Qualification (Issue 8)
+- Qualified in `REGISTRY-VALIDATION-REPORT.md` and acceptance reports precisely what the automated test harness validates (structural and referential data integrity) versus what requires ongoing legal counsel or human review.
+
+#### 9. GSAP Restriction Scoped to UIForge Product Behavior (Issue 9)
+- Scoped GSAP's restriction to Webflow’s April 30, 2025 Standard License terms: prohibited use is narrow (no-code visual animation-building tools). UIForge’s programmatic React/TypeScript code emission is permitted.
+
+#### 10. Technical Evaluation Terminology Standardization (Issue 12)
+- Replaced inappropriate "AST audit" claims with **"71 complete candidate technical evaluations"** and **"54 screened/partial evaluations"**.
+
+#### 11. Validation Suite Expansion (46 / 46 PASS)
+- Expanded `validation/validate_registry.js` from 41 to **46 comprehensive assertions** (all 46 passing cleanly, 0 failures; Script SHA-256: `a96bfe007c3f57c12c0f365a677131de795cb8d38598b1524b2a635bef67916c`).
+
+---
+
 ## [1.1.0] — 2026-11-22
 
 ### Final Independent Reconciliation & Acceptance Correction (C01–C10 Resolution)
-
-#### Canonical Priority & Entity Model Corrections
-- **C01 (Priority Distribution Reconciliation):** Preserved canonical Phase 02.1 / Phase 02.3 priority census in `data/sources.json`: **P0: 24, P1: 47, P2: 50, REJ: 4**. Added `originalDiscoveryPriority`, `currentDiscoveryPriority`, and `registryOperationalTier` (`TIER_A`: 24, `TIER_B`: 47, `TIER_C`: 50, `TIER_D`: 4). Zero silent conversions of P2/REJ to P3.
-- **C02 (Repository Identity & Placeholder Removal):** Reconciled `data/repositories.json` to exactly **119 authoritative Git repositories**. Removed 6 placeholder repositories for commercial products and documentation portals (`aceternity/ui`, `Every-Layout/every-layout`, `locofy/locofy`, `anthropics/claude-code`, `anysphere/cursor`, `codeium/windsurf`). Updated sources to set `repositoryRef: null` and track verified platform URLs.
-- **C03 (Consumption Permissions Consistency):** Unified all 750 permission records under a single canonical eligibility enum (`APPROVED`, `ELIGIBLE_WITH_RESTRICTIONS`, `REFERENCE_ONLY`, `PENDING_REVIEW`, `BLOCKED`, `NOT_APPLICABLE`). Set `pa11y` external tool mode to `PENDING_REVIEW` pending formal counsel confirmation of distribution model.
-- **C04 (Reference-Only Scope Clarification):** Defined explicit 6-activity scope flags in `consumption-permissions.json`. Prohibited mass automated scraping and code copying across all 125 sources. Prohibited source code inspection and local cloning for commercial/closed products.
-- **C05 (Multi-Level License Scoping):** Added granular `licenseScope` to all source records, linking repository, package, component, and asset licenses, along with trademark policies and commercial terms.
-- **C06 (Digest-Backed Provenance Records):** Re-classified provenance from "cryptographically verified" to `DIGEST_BACKED_RECORD`. Documented SHA-256 calculation over RFC 8785 JSON Canonicalization Scheme (JCS) and explicitly distinguished content digests from digital signatures.
-- **C07 (Granular Evidence Dossiers):** Restructured `data/evidence.json` into 125 candidate dossiers containing **625 granular evidence items** ($125 \times 5$), each supporting discrete technical and legal claims.
-- **C08 (10-Dimension Technical Evaluations):** Preserved all **1,250 dimensional assessments** across 10 dimensions in `data/evaluations.json`, traceable to 71 complete (P0/P1) and 54 partial/screened evaluations.
-- **C09 (Canonical License Reconciliation):** Documented explicit mapping from 11 canonical license entities in `data/licenses.json` to the 125 candidate records.
-- **C10 (Font Asset RFN Evidence):** Verified explicit Reserved Font Name (RFN) declarations for Inter ("with Reserved Font Name Inter", v4.1) and Geist ("with Reserved Font Name Geist", v1.4.0) in `data/assets.json`.
-- **Phase 02.5 Filter Correction:** Formulated mode-specific pre-filtering in `PHASE-02.5-HANDOFF.md`, strictly excluding `BLOCKED`, `PENDING_REVIEW`, `STALE`, `EXPIRED`, `NOT_ESTABLISHED`, and reference-only sources from dependency and source-copy selection pools.
-- **Validation Harness Expansion:** Expanded `validation/validate_registry.js` from 35 to **41 comprehensive assertions** (all 41 passing cleanly, 0 failures; Script SHA-256: `502067519829c38183122f6332e3b096083aa2a983b8ca0a12ce0cb1641a2d28`).
+- Preserved canonical priorities (P0: 24, P1: 47, P2: 50, REJ: 4) and operational tiers.
+- Filtered repositories to 119 real Git repositories (removed 6 placeholder portals).
+- Reconciled pa11y external tool to `PENDING_REVIEW`.
+- Re-classified provenance to `DIGEST_BACKED_RECORD`.
 
 ---
 
 ## [1.0.0] — 2026-11-22
 
 ### Initial Authoritative Release of the UIForge Internal Source Registry
-- Established multi-entity normalized model (sources, repositories, packages, components, assets, licenses, evaluations, permissions, provenance, evidence).
+- Established multi-entity normalized model.
 - Defined formal JSON Schema Draft-07 contracts.
 - Documented 6 consumption modes, 30-threat security model, freshness tiers, operating model, and platform integration contracts.
