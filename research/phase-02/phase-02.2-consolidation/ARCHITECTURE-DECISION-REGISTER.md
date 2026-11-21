@@ -74,11 +74,16 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 
 ---
 
-### ADR-003: Authoritative Project Snapshot Representation
-- **Status:** `ACCEPTED`
+### ADR-003: Authoritative Project Snapshot Representation & Invalidation
+- **Status:** `ACCEPTED_WITH_CONDITIONS`
 - **Context:** WS-2, WS-3, WS-4, and WS-5 all need project knowledge (routes, components, tokens, configs). If each subsystem independently scans the filesystem, race conditions, stale caches, and inconsistent interpretations arise.
-- **Decision:** Establish `uiforge.contract.project-intelligence.v1` as the single authoritative project knowledge representation. All subsystems receive an immutable, frozen `ProjectSnapshot` identified by a SHA-256 Merkle root.
-- **Rationale:** Ensures all subsystems evaluate the exact same codebase state.
+- **Decision:** Establish `uiforge.contract.project-intelligence.v1` as the single authoritative project knowledge representation. Formally distinguish:
+  1. `projectId`: Persistent canonical repository UUID.
+  2. `snapshotId`: Deterministic SHA-256 Merkle root across lexicographically sorted relative paths and file contents of tracked source files (`.ts`, `.tsx`, `.js`, `.jsx`, `.css`), package manifests (`package.json`, lockfiles), and configs (`tsconfig.json`, `next.config.*`, `tailwind.config.*`).
+  3. `analysisRunId`: Ephemeral execution UUID per analysis pass.
+  4. `analysisCompleteness`: Explicit status flag (`complete`, `partial-syntax-errors`, `partial-size-limit`, `in-progress`).
+- **Invalidation & Revalidation Rules:** A Merkle root records the state at scan time; **a Merkle root alone does NOT prevent stale analysis or scanner desynchronization** if disk files change concurrently or externally. Cache invalidation tracks file `mtime` and file SHA-256 digests. Prior to authorizing or executing any mutation, the execution engine must revalidate physical disk hashes against the snapshot.
+- **Conditions:** Validate mtime/SHA-256 cache invalidation and Merkle tree generation benchmarks in Phase 02.4.
 - **Evidence:** WS-1 scan benchmarks; single-pass Merkle root calculation.
 
 ---
@@ -92,25 +97,28 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
   - Tier 3: Client Wrapper (Internal state, passes children to server).
   - Tier 4: Client-Exclusive SPA (Vite / CRA style).
 - **Rationale:** Prevents AI agents from injecting client hooks (`useState`, `useEffect`) into Server Components.
+- **Framework Assumptions & Nuances:** This 4-tier taxonomy models React 19 and Next.js 15 App Router architecture. Other frameworks (such as Remix loaders/actions, Astro islands, or standard SPAs) use different execution boundaries and are explicitly classified under their native paradigms.
 - **Evidence:** WS-2 AST taxonomy audit; verified across shadcn and local fixtures.
 
 ---
 
 ### ADR-005: Two-Stage Component Selection Engine
-- **Status:** `ACCEPTED`
+- **Status:** `PROVISIONAL`
 - **Context:** Autonomous agents frequently hallucinate new component libraries or duplicate existing buttons when existing project components already exist.
 - **Decision:** Enforce a **Two-Stage Selection Engine**:
   - Stage 1: Mode-Specific Eligibility Gates (Hard Pass/Fail for RSC tier, runtime, licensing, and security).
   - Stage 2: Multi-Dimensional Weighted Ranking (Favors existing codebase components 2.5× over external templates; favors templates 2.0× over new npm packages).
-- **Rationale:** Preserves brownfield architecture and prevents unnecessary dependency sprawl.
+- **Rationale:** Preserves brownfield architecture and prevents unnecessary dependency sprawl. The 2.5× local preference is marked provisional until calibrated against real enterprise developer feedback in Phase 03/04.
 - **Evidence:** WS-2 selection matrix simulation.
 
 ---
 
-### ADR-006: W3C DTCG 2025.10 Token Standard with Colors
+### ADR-006: W3C DTCG 2025.10 Token Standard with Color Module
 - **Status:** `ACCEPTED`
-- **Context:** Early drafts mischaracterized DTCG as a formal W3C Standards Track Recommendation and used obsolete `"channels"` syntax.
-- **Decision:** Adopt the **stable W3C Design Tokens Community Group (DTCG) 2025.10 specification**. Model color tokens using the canonical Color Module property: `"$value": { "colorSpace": "oklch", "components": [0.65, 0.24, 258.2], "alpha": 1 }`. Expand internal model to all 13 DTCG types.
+- **Context:** Early drafts mischaracterized DTCG as a formal W3C Standards Track Recommendation and used obsolete `"channels"` syntax or conflated OKLCH components with RGB.
+- **Decision:** Adopt the **stable W3C Design Tokens Community Group (DTCG) 2025.10 specification** (published under the W3C Community Group process, not a formal W3C Standards Track Recommendation). Model color tokens using the canonical Color Module property: `"$value": { "colorSpace": "oklch", "components": [0.65, 0.24, 258.2], "alpha": 1 }`. Components are interpreted strictly according to `colorSpace`:
+  - For `oklch`: `[L, C, H]` where L is perceived lightness, C is chroma, and H is hue angle (0..360).
+  - For `srgb`: `[r, g, b]` normalized in [0, 1].
 - **Rationale:** Aligns with modern design tool exports (Figma, Style Dictionary v5) and wide-gamut OKLCH CSS.
 - **Evidence:** WS-3 Experiment E2; verified JSON validation in `run_ws3_unified_suite.cjs`.
 
@@ -125,11 +133,21 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 
 ---
 
-### ADR-008: Write-Ahead Transaction Journal & Rollback
+### ADR-008: Recoverable Write-Ahead Journal & Multi-File Consistency
 - **Status:** `ACCEPTED_WITH_CONDITIONS`
-- **Context:** Automated multi-file AST mutations can fail mid-write, leaving repositories in a corrupted, uncompilable state.
-- **Decision:** Implement a local SQLite write-ahead journal (`.uiforge/journal.db`). Record pre-image SHA-256 snapshots before disk modification. Atomically revert files upon process crash or post-mutation verification failure.
-- **Conditions:** Implement and validate live crash recovery and file-locking tests in Phase 03. Disclaim unmanaged external npm lifecycle caches.
+- **Context:** Multi-file codebase mutations can fail mid-write due to syntax errors, disk full, or process crash (`SIGKILL`), leaving repositories half-modified and uncompilable.
+- **Decision:** Implement a **Recoverable Write-Ahead Journal & Backup Engine**:
+  1. *SQLite ACID Boundary:* SQLite (`.uiforge/journal.db`) guarantees ACID for the journal itself. It does **not** make arbitrary filesystem operations ACID. Multi-file consistency is achieved via a 4-phase recoverable workflow:
+     - Phase 1 (Intent & Pre-Image Logging): Commit target file paths, pre-image hashes, pre-image contents, and expected post-image hashes to SQLite journal within an ACID transaction (`PENDING`).
+     - Phase 2 (Staged Execution): Render files to private staging (`.uiforge/staging/`) and execute atomic replacements.
+     - Phase 3 (Post-Write Verification): Verify each modified file matches its expected post-image SHA-256 digest.
+     - Phase 4 (Commit): Commit transaction in SQLite journal (`COMMITTED`).
+  2. *Failure Handling:*
+     - *Partial Write / Process Kill:* Startup recovery inspects `.uiforge/journal.db` for uncommitted transactions (`PENDING`), compares disk state, and restores pre-images.
+     - *Concurrent External Edit:* Precondition hash verification detects modification and halts with `SOURCE_CHANGED`.
+     - *Rollback Failure:* If disk restore fails, emit emergency recovery script and log `ROLLBACK_FAILURE`.
+     - *Disk Full:* Pre-allocation checks in `.uiforge/staging/` prevent partial writes.
+- **Conditions:** Build and validate Phase 02.4 crash recovery prototype simulating mid-transaction `SIGKILL`. Disclaim unmanaged external npm cache state.
 - **Evidence:** WS-1 Experiment E7, WS-3 Experiment E8, WS-5 Experiment E7.
 
 ---
@@ -137,8 +155,8 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 ### ADR-009: Playwright v1.65.1 Headless Browser Adapter
 - **Status:** `ACCEPTED_WITH_CONDITIONS`
 - **Context:** Testing UI requires deterministic headless rendering across Chromium, Firefox, and WebKit without tying Core to browser binaries.
-- **Decision:** Pin **Playwright `v1.65.1`** (released Nov 13, 2026) within the optional `@uiforge/verification` package. Adopt `page.ariaSnapshot()` (replacing deprecated `page.accessibility.snapshot()`). Expose technology-neutral `IBrowserAdapter`.
-- **Conditions:** Validate Chromium headless performance across Linux, macOS, and Windows in Phase 02.4.
+- **Decision:** Pin **Playwright `v1.65.1`** (released Nov 13, 2026) within the optional `@uiforge/verification` package. Adopt `page.ariaSnapshot()` (replacing deprecated `page.accessibility.snapshot()`). Expose technology-neutral `IBrowserAdapter`. Clarify that WebKit is open-source WebKit, not branded Apple Safari.
+- **Conditions:** Validate Chromium headless performance and calibrate OKLab perceptual diff thresholds across Linux and Windows in Phase 02.4.
 - **Evidence:** WS-4 Experiments E1–E8.
 
 ---
@@ -150,7 +168,7 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
   - 12 Criteria: Automated Static / DOM Checks (axe-core).
   - 23 Criteria: Browser Keyboard & Focus Tracing (Playwright).
   - 20 Criteria: Human & Assistive Tech Audit Required (Screen readers).
-- **Rationale:** Conformance claims remain legally and technically defensible.
+- **Methodology Transparency:** This 12/23/20 breakdown is **UIForge's operational testing methodology**, not a universal W3C classification. Passing automated tests records `automated-checks-pass`, never universal WCAG 2.2 AA conformance.
 - **Evidence:** WS-4 55-criteria matrix; Experiment E4.
 
 ---
@@ -158,7 +176,7 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 ### ADR-011: Pixelmatch v8 OKLab/HyAB Visual Diffing
 - **Status:** `ACCEPTED`
 - **Context:** Legacy pixel diffing using RGB/YIQ produces false positives on anti-aliased text and wide-gamut displays.
-- **Decision:** Adopt **Pixelmatch v8.0.0** using perceptual **OKLab and HyAB color space distances**. Support dynamic element bounding box masking and require explicit human approval for new golden baselines.
+- **Decision:** Adopt **Pixelmatch v8.0.0** using perceptual **OKLab and HyAB color space distances**. Support dynamic element bounding box masking and require explicit human approval for new golden baselines. Cross-engine pixel diffing is rejected; comparisons require same-browser baselines.
 - **Rationale:** Minimizes false visual regression alerts while catching true layout shifts.
 - **Evidence:** WS-4 Experiment E2.
 
@@ -195,6 +213,7 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 ### ADR-015: 5-Level Security Ladder & Diff-Bound Approval
 - **Status:** `ACCEPTED_WITH_CONDITIONS`
 - **Context:** AI coding agents must never be granted autonomous permission to modify files, install dependencies, or delete code in brownfield repositories.
-- **Decision:** Enforce the 5-level security ladder. Level 2+ mutations require single-use, diff-bound, time-bounded (15m TTL) human approval tokens verified against pre-image SHA-256 disk hashes.
-- **Conditions:** Implement OS-level filesystem locks and symlink traversal barriers in Phase 03.
+- **Decision:** Enforce the 5-level security ladder. Level 2+ mutations require single-use, diff-bound, time-bounded (15m TTL) human approval tokens cryptographically bound to `projectId`, `projectSnapshotId`, `taskId`, exact `targetPaths`, and `compositeDiffDigest`.
+- **Filesystem Protections:** Pre-image hash verification acts as a necessary precondition check. Execution combines path canonicalization (`fs.realpathSync`), isolated staging, atomic replacement, and write-ahead journal logging to mitigate race conditions and crash failures.
+- **Conditions:** Implement and test OS-level filesystem locks and symlink traversal barriers in Phase 03.
 - **Evidence:** WS-5 Experiments E5, E6, E7, E9.

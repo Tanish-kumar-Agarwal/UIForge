@@ -68,7 +68,10 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 - **Workstreams Involved:** WS-3 (Tokens & Styling) and WS-2 (Component Styling).
 - **Original Positions:** Early drafts in WS-2 assumed shadcn tokens were raw HSL number tuples (`--primary: 222.2 47.4% 11.2%`). WS-3 evaluated DTCG with obsolete `"channels"` syntax before correcting to the Color Module with `"components"`.
 - **Technical Contradiction:** Downstream components could not parse OKLCH colors, while token generators emitted non-standard properties.
-- **Resolution:** **Canonicalize on W3C DTCG 2025.10 with `components: [number, number, number]` and `colorSpace: 'oklch'`**. Clarify that shadcn's modern `cssVars` supports full CSS color strings (`oklch(0.65 0.24 258.2)`). UIForge converts DTCG color tokens to appropriate target CSS syntax based on the target project's styling paradigm.
+- **Resolution:** **Canonicalize on the stable W3C Design Tokens Community Group (DTCG) 2025.10 specification** (published under the W3C Community Group process, not a formal W3C Standards Track Recommendation). Use the Color Module's `components` property with exact color-space-specific semantics:
+  - For `oklch`: `[L, C, H]` where L is perceived lightness (0..1), C is chroma (0..0.4+), and H is hue angle (0..360).
+  - For `srgb`: `[r, g, b]` normalized in [0, 1].
+  Clarify that shadcn's modern `cssVars` supports full CSS color strings (`oklch(0.65 0.24 258.2)`). UIForge converts DTCG color tokens to appropriate target CSS syntax based on the target project's styling paradigm.
 - **Affected Contracts:** `uiforge.contract.design-token.v1`, `uiforge.contract.styling-transformation.v1`.
 - **ADR Reference:** ADR-006, ADR-007.
 
@@ -98,7 +101,7 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 - **Workstreams Involved:** WS-4 (Browser Testing) and WS-2 (A11y Profile).
 - **Original Positions:** Early drafts loosely claimed "axe-core verifies 40% of WCAG criteria" and described automated passes as "WCAG compliant".
 - **Technical Contradiction:** Automated DOM scanners only reliably check 12 out of 55 WCAG 2.2 Level A/AA criteria. Overclaiming conformance creates severe legal and architectural liability.
-- **Resolution:** **Adopt the 55-Criteria Demarcation Matrix.** Automated passes are recorded strictly as `automated-checks-pass`. Keyboard interactions (23 criteria) require Playwright tracing. The remaining 20 criteria are explicitly flagged as `requires-human-audit`.
+- **Resolution:** **Adopt the 55-Criteria Demarcation Matrix as UIForge's Operational Testing Methodology.** Automated passes are recorded strictly as `automated-checks-pass`. Keyboard interactions (23 criteria) require Playwright tracing. The remaining 20 criteria are explicitly flagged as `requires-human-audit`. This breakdown is recognized as UIForge's engineering methodology, not an official W3C classification.
 - **Affected Contracts:** Contracts B, G, and H.
 - **ADR Reference:** ADR-010.
 
@@ -114,11 +117,11 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 
 ---
 
-### CF-08: Multi-File Rollback Atomicity vs. External Package State
+### CF-08: Multi-File Rollback Atomicity vs. Filesystem Consistency
 - **Workstreams Involved:** WS-1 (Transforms) and WS-3 (Registry & Dependencies).
-- **Original Positions:** WS-1 asserted "guaranteed rollback restores repository state". WS-3 noted that adding registry resources often runs `npm install`, modifying `node_modules` and external caches.
-- **Technical Contradiction:** Filesystem file rollback cannot roll back external package manager caches or globally installed binaries without running unmanaged package scripts.
-- **Resolution:** **Explicitly bound rollback guarantees.** UIForge guarantees atomic rollback of **tracked repository files** recorded in the SQLite pre-image journal. Package manager state changes are isolated: automated dependency operations enforce `--ignore-scripts`, and package restoration requires explicit lockfile reversion.
+- **Original Positions:** WS-1 asserted "guaranteed rollback restores repository state as an ACID transaction". WS-3 noted that adding registry resources often runs `npm install`, modifying `node_modules` and external caches.
+- **Technical Contradiction:** SQLite guarantees ACID transactions for `.uiforge/journal.db`, but arbitrary multi-file filesystem operations are NOT inherently ACID. Furthermore, file rollbacks cannot restore unmanaged external npm caches without running unmanaged package scripts.
+- **Resolution:** **Bound rollback guarantees to a 4-phase recoverable journal workflow.** SQLite guarantees ACID for the journal, which records pre-images before disk writes. Multi-file filesystem consistency is restored upon crash/restart by comparing disk state with journal pre-images. External package manager state changes are isolated: automated dependency operations enforce `--ignore-scripts`, and package restoration requires explicit lockfile inspection.
 - **Affected Contracts:** Contract F.
 - **ADR Reference:** ADR-008.
 
@@ -134,11 +137,11 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 
 ---
 
-### CF-10: In-Memory Policy Testing vs. Operating System Enforcement
+### CF-10: In-Memory Policy Testing vs. Operating System Enforcement & TOCTOU
 - **Workstreams Involved:** WS-5 (Agent Security) and WS-1 (File Transforms).
-- **Original Positions:** WS-5 Experiment E5 passed in-memory policy checks for path boundaries, symlinks, and TOCTOU races, leading to claims that security enforcement was established.
-- **Technical Contradiction:** Testing JavaScript logic in a test script does not prove real OS-level filesystem protection against concurrent processes, OS symlink dereferencing, or disk locking failures.
-- **Resolution:** **Formally reclassify E5 as `LOCAL-HARNESS-TESTED`.** Document the security algorithms in specification, while marking live OS-level kernel filesystem locks and symlink boundary tests as **Phase 03 implementation requirements**.
+- **Original Positions:** WS-5 Experiment E5 passed in-memory policy checks for path boundaries, symlinks, and TOCTOU races, leading to claims that security enforcement and race elimination were established.
+- **Technical Contradiction:** In-memory policy tests evaluate JavaScript logic, but do not prove operating-system filesystem enforcement against concurrent processes, OS symlink dereferencing, or disk write timing windows.
+- **Resolution:** **Formally reclassify E5 as `LOCAL-HARNESS-TESTED`.** Pre-image SHA-256 checking is classified as a precondition check, not complete race elimination. Full filesystem protection is specified as a multi-layer defense: path canonicalization (`fs.realpathSync`), isolated staging (`.uiforge/staging/`), atomic file replacement, OS-level file locking, and crash recovery via write-ahead journal. Implementation-level OS tests are scheduled for Phase 02.4 and Phase 03.
 - **Affected Subsystems:** Security & Execution Layers.
 - **ADR Reference:** ADR-015.
 
