@@ -64,39 +64,51 @@ Every finding, benchmark, test result, or compatibility claim produced across UI
 - **Rule 2 (Harness Demarcation):** Passing an in-memory policy test in a standalone Node.js script (such as WS-5 Experiment E5's approval token logic) qualifies strictly as `LOCAL-HARNESS-TESTED`. It does not prove runtime operating-system filesystem enforcement.
 - **Rule 3 (No False Conformance):** Automated axe-core scanning evaluates only 12 out of 55 WCAG 2.2 Level A/AA criteria. Passing axe-core must be recorded as `automated-checks-pass`, never as `WCAG-2.2-AA-compliant`.
 - **Rule 4 (Methodology Transparency):** The 12 automated / 23 browser-assisted / 20 human audit breakdown is **UIForge's internal verification methodology**, not an official or universal W3C classification. W3C defines success criteria and techniques, while individual tools operationalize verification. Automated tools must never claim full conformance.
+- **Rule 5 (Runner Exit Code vs Empirical Evidence):** A test runner executing with exit code 0 indicates that the harness script ran without unhandled Node.js crashes and internal assertions evaluated to true. It does NOT prove real-world production readiness, OS-level filesystem concurrency safety, or live browser cross-platform rendering consistency. Evidence tiers must reflect the actual harness constraint.
 
 ---
 
 ## 3. Workstream Experiment Evidence Reconciliation (WS-1 Through WS-5)
 
-To maintain absolute evidentiary integrity across all five research workstreams, every completed experiment has been independently audited and cataloged with its runner status, assertion result, and final evidence classification:
+To maintain absolute evidentiary integrity across all five research workstreams, every completed experiment has been independently audited and cataloged with its runner status, tested behavior, harness type, specific assertion output, final evidence classification, and explicit non-coverage boundaries:
 
-| Workstream | Experiment ID | Focus Area | Runner Execution | Assertion Result | Final Evidence Classification | Limitations & Disclaimers |
-| :--- | :--- | :--- | :---: | :---: | :--- | :--- |
-| **WS-1** | E1–E3 | AST Grep & Pattern Queries | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Executed on local Next.js fixtures; sub-millisecond Rust NAPI performance. |
-| **WS-1** | E4–E5 | CST Rewriting & Rollback | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Tested single-file AST preservation and hash conflict detection. |
-| **WS-3** | E1–E4 | Registry & Token Resolution | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Verified all 12 shadcn types, DTCG 2025.10 tokens, and theme generation. |
-| **WS-3** | E5–E8 | Cascades & Rollback | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Verified CSS Modules override `@layer components`; multi-file pre-image hashes. |
-| **WS-4** | E1 | Automation Architecture | Exit 0 | Pass | `DOC/SOURCE-VERIFIED` | Evaluated Playwright v1.65.1 spec vs BiDi Level 1; WebKit is open-source WebKit. |
-| **WS-4** | E2 | Perceptual Visual Diff | Exit 0 | Pass | `REPORTED-SIMULATION` | Synthetic RGBA buffer math simulating Pixelmatch v8 OKLab/HyAB. |
-| **WS-4** | E3 | Geometry & Occlusion | Exit 0 | Pass | `REPORTED-SIMULATION` | Synthetic DOM geometry & multi-point corner intersection model. |
-| **WS-4** | E4 | Contrast & 55 Criteria | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Algorithmic contrast calculations; 55-criteria UIForge methodology mapped. |
-| **WS-4** | E5 | Dialog State Machine | Exit 0 | Pass | `REPORTED-SIMULATION` | Synthetic state transition model verifying focus traps and escape keys. |
-| **WS-4** | E6 | Cross-Browser Antialiasing | Exit 0 | Pass | `DOC-VERIFIED` | Documented Blink/Gecko/WebKit text rasterizer behavior; same-browser baseline required. |
-| **WS-4** | E7 | Evidence Digest Tampering | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Proved SHA-256 `recordDigest` detects tampering; not a digital signature. |
-| **WS-4** | E8 | Diagnostic Envelope | Exit 0 | Pass | `REPORTED-SIMULATION` | DOM-to-TSX file localization heuristic model. |
-| **WS-5** | E1–E3 | MCP Protocol & Tool Schemas | Exit 0 | Pass | `DOC/SOURCE-VERIFIED` | Official MCP 2026-07-28 spec, modular v2 SDK, Streamable HTTP single POST. |
-| **WS-5** | E4 | Context Compression | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Measured 91.2% text reduction (9,964 chars to 871 chars) on local fixture. |
-| **WS-5** | E5 | Multi-Level Security Gate | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | In-memory policy logic tested; live OS-level filesystem locks are Phase 03 work. |
-| **WS-5** | E6 | Prompt Injection Sanitizer | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Content integrity digests detect tampering; authorization bounds prevent injection. |
-| **WS-5** | E7 | Session Lifecycle & Cache | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | In-memory session idempotency tested. |
-| **WS-5** | E8 | Multi-Agent Swarm Overhead | Exit 0 | Pass | `REPORTED-SIMULATION` | Mathematical cost model (3.28× token bloat, 3× latency); not a live benchmark. |
-| **WS-5** | E9 | Secret Redaction & Audit | Exit 0 | Pass | `LOCAL-HARNESS-TESTED` | Regex redaction and SHA-256 digest chaining; external anchor required for PKI. |
-| **WS-5** | E10 | JSON-RPC Dispatch | Exit 0 | Pass | `REPORTED-SIMULATION` | In-memory mock loopback; live client-server process test marked Phase 02.4 work. |
+| Workstream | Experiment ID | Actual Tested Behavior | Harness Type | Actual Assertion / Output | Evidence Classification | What The Experiment Does NOT Establish |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **WS-1** | `E1` | Project discovery & route scanning | Local Node.js file scan | Scanned 5 files in 5.96ms; extracted AST metadata | `STATIC-ANALYSIS` | Does not test multi-thousand file monorepos or uncommitted Git states. |
+| **WS-1** | `E2` | TypeScript compiler type diagnostics | In-memory ts-morph | Caught TS2322 union type mismatch on `trend="positive"` | `LOCAL-HARNESS-TESTED` | Does not test Go-based native TS 7.0 compiler API (TS 7.1 Beta pending). |
+| **WS-1** | `E3` | Structural pattern matching (ast-grep) | In-memory ast-grep | Identified 3 target JSX `<KpiCard />` component nodes | `STATIC-ANALYSIS` | Does not test complex dynamic prop expressions or higher-order components. |
+| **WS-1** | `E4` | CST non-destructive code rewriting | In-memory ts-morph AST | Preserved comments, whitespace, and formatting on rewrite | `LOCAL-HARNESS-TESTED` | Does not test macro-heavy syntax or non-standard JSX extensions. |
+| **WS-1** | `E5` | Pre-image conflict & rollback | In-memory hash check | Aborted write on hash mismatch; restored in-memory state | `LOCAL-HARNESS-TESTED` | Does not test OS-level concurrency, locked file handles, or multi-file crashes. |
+| **WS-3** | `E1` | shadcn v1 registry ingestion schema | In-memory schema check | Validated 12 registry types; rejected invalid types | `STATIC-ANALYSIS` | Does not test live remote registry fetching or network transport. |
+| **WS-3** | `E2` | DTCG 2025.10 token parsing & aliases | In-memory token parser | Parsed 7 tokens; resolved aliases, group types, shadows | `LOCAL-HARNESS-TESTED` | Does not test arbitrary external community plugins or non-standard token models. |
+| **WS-3** | `E3` | CSS Custom Properties generation | In-memory string builder | Emitted scoped CSS custom properties tree from tokens | `LOCAL-HARNESS-TESTED` | Does not test CSS build tools (PostCSS, LightningCSS) in live pipelines. |
+| **WS-3** | `E4` | Cross-paradigm styling adapters | In-memory transformer | Emitted Tailwind v4 `@theme`, CSS Modules, and AntD JSON | `LOCAL-HARNESS-TESTED` | Does not test live runtime theme toggling or dynamic CSS-in-JS injection. |
+| **WS-3** | `E5` | Bidirectional conversion loss scoring | In-memory loss scorer | Scored value preservation vs semantic metadata loss | `LOCAL-HARNESS-TESTED` | Does not guarantee visual parity across disparate layout paradigms (e.g. flex to grid). |
+| **WS-3** | `E6` | CSS cascade layer specificity audit | Static specification audit | Proved unlayered CSS Modules override `@layer` rules | `STATIC-ANALYSIS` | Does not test browser-specific cascade bugs across legacy rendering engines. |
+| **WS-3** | `E7` | Token circular dependency detection | In-memory graph search | Traversed graph, detected cycles, aborted resolution | `LOCAL-HARNESS-TESTED` | Does not evaluate performance across graphs with >100,000 token nodes. |
+| **WS-3** | `E8` | Multi-file journaled rollback engine | Local filesystem mock | Restored modified files to initial SHA-256 pre-images | `LOCAL-HARNESS-TESTED` | Does not test recovery after abrupt process SIGKILL mid-write (Phase 02.4 Gate 2). |
+| **WS-4** | `E1` | Browser automation API baseline audit | Specification inspection | Pinned Playwright v1.65.1; qualified WebKit engine | `DOC/SOURCE-VERIFIED` | Does not execute live browser launches across remote Selenium/BiDi grids. |
+| **WS-4** | `E2` | Perceptual visual regression & mask | Synthetic RGBA buffer math| Verified OKLab/HyAB buffer diffing and ignore-mask | `REPORTED-SIMULATION` | Does not run real headless browser rendering or GPU rasterization. |
+| **WS-4** | `E3` | Responsive layout geometry engine | Synthetic DOM geometry | Detected horizontal overflow, offscreen breach, occlusion | `REPORTED-SIMULATION` | Does not test live CSS subpixel rounding across different device scale factors. |
+| **WS-4** | `E4` | Contrast math & 55 WCAG criteria | Algorithmic math fixture | Calculated 4.5:1/3:1 ratios; mapped 12/23/20 criteria split | `LOCAL-HARNESS-TESTED` | Does not certify full WCAG 2.2 AA compliance; reports internal test results only. |
+| **WS-4** | `E5` | Dialog keyboard trapping & inert state | Synthetic state machine | Modeled open/focus/escape cycle and inert background | `REPORTED-SIMULATION` | Does not test live screen reader speech output or OS accessibility APIs. |
+| **WS-4** | `E6` | Multi-browser rendering discrepancies | Documented engine audit | Audited Blink/Gecko/WebKit subpixel shifts & gamuts | `DOC-VERIFIED` | Did not execute multi-browser binaries in CI; same-engine baseline required. |
+| **WS-4** | `E7` | SHA-256 record digest verification | In-memory hash test | Proved SHA-256 record digest detects payload tampering | `LOCAL-HARNESS-TESTED` | Digest detects modification; not a cryptographic digital signature or PKI anchor. |
+| **WS-4** | `E8` | Agent AST repair diagnostic envelope | Synthetic envelope builder | Emitted structured diagnostic envelope with AST mapping | `LOCAL-HARNESS-TESTED` | Heuristic AST source mapping; does not test network route blocking or SSRF. |
+| **WS-5** | `E1` | MCP protocol specification audit | Specification inspection | Pinned 2026-07-28 & modular v2 SDK baseline | `DOC/SOURCE-VERIFIED` | Does not test live MCP client connections. |
+| **WS-5** | `E2` | Coding agent interface compatibility | Documentation audit | Audited Claude Code, Cursor, OpenCode, Codex, AGY | `DOC/SOURCE-VERIFIED` | Does not execute live autonomous coding agent benchmarks. |
+| **WS-5** | `E3` | Core vs MCP boundary independence | In-memory import check | Core runs pure TypeScript without MCP dependencies | `LOCAL-HARNESS-TESTED` | Does not test running Core as a separate standalone microservice. |
+| **WS-5** | `E4` | Context compression & token packing | In-memory text trimmer | Measured 91.2% text reduction on test fixture | `LOCAL-HARNESS-TESTED` | Uses ~4 chars/token heuristic; does not measure real model tokenizer counts. |
+| **WS-5** | `E5` | 5-level security ladder in-memory policy | In-memory policy harness | In-memory policy rejected unapproved/out-of-scope calls | `LOCAL-HARNESS-TESTED` | In-memory logic check; does not enforce OS filesystem access or block symlink races. |
+| **WS-5** | `E6` | Untrusted code comment sanitization | In-memory string sanitizer | Filtered injection keywords; SHA-256 digest attached | `LOCAL-HARNESS-TESTED` | Digests detect tampering; does not neutralize sophisticated semantic prompt jailbreaks. |
+| **WS-5** | `E7` | Session lifecycle & idempotent retry | In-memory state machine | Verified state transitions and idempotent replay | `LOCAL-HARNESS-TESTED` | Does not test secret redaction or audit log chaining. |
+| **WS-5** | `E8` | Multi-agent coordination cost model | Mathematical cost model | Modeled 3.28× token overhead and 3× latency penalty | `REPORTED-SIMULATION` | Cost model simulation; not a live multi-agent swarm empirical benchmark. |
+| **WS-5** | `E9` | Secret masking & chained audit logs | In-memory regex & hash | Masked Bearer tokens/passwords; SHA-256 hash chaining | `LOCAL-HARNESS-TESTED` | Chaining detects tampering; does not provide external PKI trust anchoring. |
+| **WS-5** | `E10`| Simulated JSON-RPC loopback dispatch | In-memory loopback mock | Dispatched tool call to mock handler in-memory | `REPORTED-SIMULATION` | Mock loopback; does not test real MCP client-server subprocess stdio communication. |
 
 ---
 
-## 3. The Universal Evidence Envelope Schema
+## 4. The Universal Evidence Envelope Schema
 
 Every verification run, visual diff, accessibility check, or AST audit produces a standardized JSON record adhering to `uiforge.contract.evidence-provenance.v1`:
 
@@ -147,7 +159,7 @@ export interface UniversalEvidenceEnvelopeV1 {
 
 ---
 
-## 4. Cross-Workstream Verification Pipeline
+## 5. Cross-Workstream Verification Pipeline
 
 In UIForge, an operation is not considered verified until it traverses the **Cross-Workstream Multi-Gate Verification Pipeline**:
 
@@ -193,7 +205,7 @@ flowchart LR
 
 ---
 
-## 5. Standardized 18-Code Failure Taxonomy
+## 6. Standardized 18-Code Failure Taxonomy
 
 Every failure across all subsystems is mapped to an authoritative error code, complete with severity, retryability, and responsible recovery ownership:
 
@@ -220,7 +232,7 @@ Every failure across all subsystems is mapped to an authoritative error code, co
 
 ---
 
-## 6. Actionable Diagnostic Envelopes for AI Agent Self-Repair
+## 7. Actionable Diagnostic Envelopes for AI Agent Self-Repair
 
 When browser verification (WS-4) or AST transformation (WS-1) fails, UIForge does not return raw, unstructured stack traces. It packages failures into an **Actionable Diagnostic Envelope** tailored for LLM reasoning:
 
