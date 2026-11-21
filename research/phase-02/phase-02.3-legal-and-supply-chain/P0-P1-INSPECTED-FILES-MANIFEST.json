@@ -1,0 +1,1925 @@
+{
+  "manifestVersion": "1.0.0",
+  "generatedAt": "2026-11-21T23:58:00Z",
+  "totalCandidates": 71,
+  "totalFiles": 213,
+  "candidates": [
+    {
+      "candidateId": "OS-COMP-01",
+      "canonicalName": "shadcn-ui/ui",
+      "priority": "P1",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/shadcn-ui/ui",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/shadcn-ui/ui/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/shadcn-ui/ui/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/shadcn-ui/ui/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-02",
+      "canonicalName": "radix-ui/primitives",
+      "priority": "P0",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/radix-ui/primitives",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/radix-ui/primitives/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/radix-ui/primitives/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/radix-ui/primitives/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-03",
+      "canonicalName": "adobe/react-spectrum",
+      "priority": "P0",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/adobe/react-spectrum",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/adobe/react-spectrum/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/adobe/react-spectrum/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/adobe/react-spectrum/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-04",
+      "canonicalName": "tailwindlabs/headlessui",
+      "priority": "P1",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/tailwindlabs/headlessui",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tailwindlabs/headlessui/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tailwindlabs/headlessui/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tailwindlabs/headlessui/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-10",
+      "canonicalName": "chakra-ui/ark",
+      "priority": "P1",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/chakra-ui/ark",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/chakra-ui/ark/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/chakra-ui/ark/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/chakra-ui/ark/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-11",
+      "canonicalName": "mui/base-ui",
+      "priority": "P1",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/mui/base-ui",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/mui/base-ui/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/mui/base-ui/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/mui/base-ui/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-COMP-13",
+      "canonicalName": "ariakit/ariakit",
+      "priority": "P1",
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "repositoryUrl": "https://github.com/ariakit/ariakit",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/ariakit/ariakit/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/ariakit/ariakit/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/ariakit/ariakit/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-01",
+      "canonicalName": "magicuidesign/magicui",
+      "priority": "P1",
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "repositoryUrl": "https://github.com/magicuidesign/magicui",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/magicuidesign/magicui/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/magicuidesign/magicui/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/magicuidesign/magicui/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-MKT-04",
+      "canonicalName": "cosscom/originui",
+      "priority": "P1",
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "repositoryUrl": "https://github.com/cosscom/ui",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/cosscom/ui/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/cosscom/ui/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/cosscom/ui/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-01",
+      "canonicalName": "tremorlabs/tremor",
+      "priority": "P1",
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "repositoryUrl": "https://github.com/tremorlabs/tremor",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tremorlabs/tremor/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tremorlabs/tremor/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tremorlabs/tremor/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-02",
+      "canonicalName": "tremorlabs/tremor-raw",
+      "priority": "P1",
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "repositoryUrl": "https://github.com/tremorlabs/tremor-raw",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tremorlabs/tremor-raw/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tremorlabs/tremor-raw/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tremorlabs/tremor-raw/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-03",
+      "canonicalName": "TanStack/table",
+      "priority": "P0",
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "repositoryUrl": "https://github.com/TanStack/table",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/TanStack/table/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/TanStack/table/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/TanStack/table/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-DASH-04",
+      "canonicalName": "TanStack/virtual",
+      "priority": "P1",
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "repositoryUrl": "https://github.com/TanStack/virtual",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/TanStack/virtual/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/TanStack/virtual/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/TanStack/virtual/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-01",
+      "canonicalName": "design-tokens/community-group",
+      "priority": "P0",
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "repositoryUrl": "https://github.com/design-tokens/community-group",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/design-tokens/community-group/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/design-tokens/community-group/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/design-tokens/community-group/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-02",
+      "canonicalName": "style-dictionary/style-dictionary",
+      "priority": "P1",
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "repositoryUrl": "https://github.com/style-dictionary/style-dictionary",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/style-dictionary/style-dictionary/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/style-dictionary/style-dictionary/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/style-dictionary/style-dictionary/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-03",
+      "canonicalName": "argyleink/open-props",
+      "priority": "P1",
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "repositoryUrl": "https://github.com/argyleink/open-props",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/argyleink/open-props/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/argyleink/open-props/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/argyleink/open-props/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-04",
+      "canonicalName": "tailwindlabs/tailwindcss",
+      "priority": "P0",
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-05",
+      "canonicalName": "radix-ui/colors",
+      "priority": "P1",
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "repositoryUrl": "https://github.com/radix-ui/colors",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/radix-ui/colors/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/radix-ui/colors/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/radix-ui/colors/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TOKN-06",
+      "canonicalName": "tokens-studio/sd-transforms",
+      "priority": "P1",
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "repositoryUrl": "https://github.com/tokens-studio/sd-transforms",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tokens-studio/sd-transforms/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tokens-studio/sd-transforms/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tokens-studio/sd-transforms/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-01",
+      "canonicalName": "motiondivision/motion",
+      "priority": "P0",
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "repositoryUrl": "https://github.com/motiondivision/motion",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/motiondivision/motion/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/motiondivision/motion/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ANIM-02",
+      "canonicalName": "formkit/auto-animate",
+      "priority": "P1",
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "repositoryUrl": "https://github.com/formkit/auto-animate",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/formkit/auto-animate/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/formkit/auto-animate/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/formkit/auto-animate/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-01",
+      "canonicalName": "lucide-icons/lucide",
+      "priority": "P0",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/lucide-icons/lucide",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/lucide-icons/lucide/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/lucide-icons/lucide/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/lucide-icons/lucide/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-02",
+      "canonicalName": "tailwindlabs/heroicons",
+      "priority": "P1",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/tailwindlabs/heroicons",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tailwindlabs/heroicons/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tailwindlabs/heroicons/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tailwindlabs/heroicons/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-03",
+      "canonicalName": "tabler/tabler-icons",
+      "priority": "P1",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/tabler/tabler-icons",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tabler/tabler-icons/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tabler/tabler-icons/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tabler/tabler-icons/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-04",
+      "canonicalName": "phosphor-icons/core",
+      "priority": "P1",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/phosphor-icons/core",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/phosphor-icons/core/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/phosphor-icons/core/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/phosphor-icons/core/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-05",
+      "canonicalName": "iconify/iconify",
+      "priority": "P1",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/iconify/iconify",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/iconify/iconify/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/iconify/iconify/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/iconify/iconify/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-07",
+      "canonicalName": "gregberge/svgr",
+      "priority": "P1",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/gregberge/svgr",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/gregberge/svgr/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/gregberge/svgr/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/gregberge/svgr/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-ICON-08",
+      "canonicalName": "simple-icons/simple-icons",
+      "priority": "P1",
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "repositoryUrl": "https://github.com/simple-icons/simple-icons",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-01",
+      "canonicalName": "recharts/recharts",
+      "priority": "P0",
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "repositoryUrl": "https://github.com/recharts/recharts",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/recharts/recharts/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/recharts/recharts/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/recharts/recharts/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-02",
+      "canonicalName": "apache/echarts",
+      "priority": "P1",
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "repositoryUrl": "https://github.com/apache/echarts",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/apache/echarts/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/apache/echarts/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/apache/echarts/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-03",
+      "canonicalName": "plouc/nivo",
+      "priority": "P1",
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "repositoryUrl": "https://github.com/plouc/nivo",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/plouc/nivo/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/plouc/nivo/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/plouc/nivo/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-04",
+      "canonicalName": "airbnb/visx",
+      "priority": "P1",
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "repositoryUrl": "https://github.com/airbnb/visx",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/airbnb/visx/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/airbnb/visx/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/airbnb/visx/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-CHRT-07",
+      "canonicalName": "d3/d3",
+      "priority": "P1",
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "repositoryUrl": "https://github.com/d3/d3",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/d3/d3/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/d3/d3/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/d3/d3/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-01",
+      "canonicalName": "tailwindlabs/tailwindcss-typography",
+      "priority": "P0",
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss-typography",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-02",
+      "canonicalName": "seek-oss/capsize",
+      "priority": "P1",
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "repositoryUrl": "https://github.com/seek-oss/capsize",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/seek-oss/capsize/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/seek-oss/capsize/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/seek-oss/capsize/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-03",
+      "canonicalName": "fontsource/fontsource",
+      "priority": "P1",
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "repositoryUrl": "https://github.com/fontsource/fontsource",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/fontsource/fontsource/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/fontsource/fontsource/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/fontsource/fontsource/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-04",
+      "canonicalName": "rsms/inter",
+      "priority": "P0",
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "repositoryUrl": "https://github.com/rsms/inter",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/rsms/inter/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/rsms/inter/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/rsms/inter/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-TYPO-05",
+      "canonicalName": "vercel/geist-font",
+      "priority": "P1",
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "repositoryUrl": "https://github.com/vercel/geist-font",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/vercel/geist-font/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/vercel/geist-font/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/vercel/geist-font/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-01",
+      "canonicalName": "bvaughn/react-resizable-panels",
+      "priority": "P0",
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "repositoryUrl": "https://github.com/bvaughn/react-resizable-panels",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/bvaughn/react-resizable-panels/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/bvaughn/react-resizable-panels/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/bvaughn/react-resizable-panels/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-02",
+      "canonicalName": "tailwindlabs/tailwindcss-container-queries",
+      "priority": "P0",
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-03",
+      "canonicalName": "radix-ui/primitives (Aspect Ratio)",
+      "priority": "P1",
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "repositoryUrl": "https://github.com/radix-ui/primitives",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/radix-ui/primitives/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/radix-ui/primitives/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/radix-ui/primitives/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-07",
+      "canonicalName": "yannickcr/eslint-plugin-react",
+      "priority": "P1",
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "repositoryUrl": "https://github.com/jsx-eslint/eslint-plugin-react",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/jsx-eslint/eslint-plugin-react/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/jsx-eslint/eslint-plugin-react/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/jsx-eslint/eslint-plugin-react/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-LAYT-08",
+      "canonicalName": "Every-Layout/every-layout",
+      "priority": "P1",
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "repositoryUrl": "https://every-layout.dev",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://every-layout.dev/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://every-layout.dev/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://every-layout.dev/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-01",
+      "canonicalName": "dequelabs/axe-core",
+      "priority": "P0",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/dequelabs/axe-core",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/dequelabs/axe-core/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/dequelabs/axe-core/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/dequelabs/axe-core/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-02",
+      "canonicalName": "axe-core/playwright",
+      "priority": "P0",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/dequelabs/axe-core-npm",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/dequelabs/axe-core-npm/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/dequelabs/axe-core-npm/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/dequelabs/axe-core-npm/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-03",
+      "canonicalName": "jsx-eslint/eslint-plugin-jsx-a11y",
+      "priority": "P0",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-04",
+      "canonicalName": "nickcolley/jest-axe",
+      "priority": "P1",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/nickcolley/jest-axe",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/nickcolley/jest-axe/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/nickcolley/jest-axe/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/nickcolley/jest-axe/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-06",
+      "canonicalName": "GoogleChrome/lighthouse",
+      "priority": "P1",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/GoogleChrome/lighthouse",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/GoogleChrome/lighthouse/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/GoogleChrome/lighthouse/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/GoogleChrome/lighthouse/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-07",
+      "canonicalName": "microsoft/accessibility-insights-web",
+      "priority": "P1",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/microsoft/accessibility-insights-web",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/microsoft/accessibility-insights-web/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/microsoft/accessibility-insights-web/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/microsoft/accessibility-insights-web/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-A11Y-08",
+      "canonicalName": "w3c/aria-practices",
+      "priority": "P0",
+      "category": "11. Category 10 — Accessibility Utilities",
+      "repositoryUrl": "https://github.com/w3c/aria-practices",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/w3c/aria-practices/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/w3c/aria-practices/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/w3c/aria-practices/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-01",
+      "canonicalName": "BuilderIO/mitosis",
+      "priority": "P1",
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "repositoryUrl": "https://github.com/BuilderIO/mitosis",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/BuilderIO/mitosis/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/BuilderIO/mitosis/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/BuilderIO/mitosis/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-02",
+      "canonicalName": "figma/code-connect",
+      "priority": "P1",
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "repositoryUrl": "https://github.com/figma/code-connect",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/figma/code-connect/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/figma/code-connect/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/figma/code-connect/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-03",
+      "canonicalName": "abi/screenshot-to-code",
+      "priority": "P1",
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "repositoryUrl": "https://github.com/abi/screenshot-to-code",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/abi/screenshot-to-code/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/abi/screenshot-to-code/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/abi/screenshot-to-code/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-05",
+      "canonicalName": "WICG/open-ui",
+      "priority": "P1",
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "repositoryUrl": "https://github.com/WICG/open-ui",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/WICG/open-ui/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/WICG/open-ui/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/WICG/open-ui/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-06",
+      "canonicalName": "ast-grep/ast-grep",
+      "priority": "P0",
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "repositoryUrl": "https://github.com/ast-grep/ast-grep",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/ast-grep/ast-grep/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/ast-grep/ast-grep/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/ast-grep/ast-grep/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-D2C-07",
+      "canonicalName": "babel/babel",
+      "priority": "P0",
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "repositoryUrl": "https://github.com/babel/babel",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/babel/babel/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/babel/babel/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/babel/babel/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-01",
+      "canonicalName": "modelcontextprotocol/typescript-sdk",
+      "priority": "P0",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/modelcontextprotocol/typescript-sdk/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/modelcontextprotocol/typescript-sdk/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/modelcontextprotocol/typescript-sdk/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-02",
+      "canonicalName": "anomalyco/opencode",
+      "priority": "P0",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://github.com/anomalyco/opencode",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/anomalyco/opencode/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/anomalyco/opencode/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/anomalyco/opencode/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-03",
+      "canonicalName": "anthropics/claude-code",
+      "priority": "P0",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-04",
+      "canonicalName": "anysphere/cursor",
+      "priority": "P0",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://cursor.com",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://cursor.com/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://cursor.com/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://cursor.com/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-05",
+      "canonicalName": "codeium/windsurf",
+      "priority": "P1",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://codeium.com/windsurf",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://codeium.com/windsurf/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://codeium.com/windsurf/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://codeium.com/windsurf/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-08",
+      "canonicalName": "vercel/ai",
+      "priority": "P1",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://github.com/vercel/ai",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/vercel/ai/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/vercel/ai/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/vercel/ai/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-11",
+      "canonicalName": "cline/cline",
+      "priority": "P1",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://github.com/cline/cline",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/cline/cline/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/cline/cline/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/cline/cline/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-AGNT-12",
+      "canonicalName": "rooveterinaryinc/roo-cline",
+      "priority": "P1",
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "repositoryUrl": "https://github.com/RooVetGit/Roo-Code",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/RooVetGit/Roo-Code/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/RooVetGit/Roo-Code/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/RooVetGit/Roo-Code/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-01",
+      "canonicalName": "microsoft/playwright",
+      "priority": "P0",
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "repositoryUrl": "https://github.com/microsoft/playwright",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/microsoft/playwright/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/microsoft/playwright/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/microsoft/playwright/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-02",
+      "canonicalName": "puppeteer/puppeteer",
+      "priority": "P1",
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "repositoryUrl": "https://github.com/puppeteer/puppeteer",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/puppeteer/puppeteer/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/puppeteer/puppeteer/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/puppeteer/puppeteer/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-BROW-04",
+      "canonicalName": "testcontainers/testcontainers-node",
+      "priority": "P1",
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "repositoryUrl": "https://github.com/testcontainers/testcontainers-node",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/testcontainers/testcontainers-node/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/testcontainers/testcontainers-node/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/testcontainers/testcontainers-node/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-01",
+      "canonicalName": "mapbox/pixelmatch",
+      "priority": "P0",
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "repositoryUrl": "https://github.com/mapbox/pixelmatch",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/mapbox/pixelmatch/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/mapbox/pixelmatch/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/mapbox/pixelmatch/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-02",
+      "canonicalName": "gemini-testing/looks-same",
+      "priority": "P1",
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "repositoryUrl": "https://github.com/gemini-testing/looks-same",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/gemini-testing/looks-same/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/gemini-testing/looks-same/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/gemini-testing/looks-same/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-03",
+      "canonicalName": "argos-ci/argos",
+      "priority": "P1",
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "repositoryUrl": "https://github.com/argos-ci/argos",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/argos-ci/argos/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/argos-ci/argos/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/argos-ci/argos/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    },
+    {
+      "candidateId": "OS-VREG-08",
+      "canonicalName": "storybookjs/test-runner",
+      "priority": "P1",
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "repositoryUrl": "https://github.com/storybookjs/test-runner",
+      "inspectedFiles": [
+        {
+          "filePath": "LICENSE",
+          "fileType": "LICENSE_MANIFEST",
+          "sourceUrl": "https://github.com/storybookjs/test-runner/blob/main/LICENSE",
+          "verificationMethod": "MANUAL_INSPECTION_AND_SPDX_EXTRACTION"
+        },
+        {
+          "filePath": "package.json",
+          "fileType": "PACKAGE_METADATA",
+          "sourceUrl": "https://github.com/storybookjs/test-runner/blob/main/package.json",
+          "verificationMethod": "PACKAGE_METADATA_LICENSE_VALIDATION"
+        },
+        {
+          "filePath": "README.md",
+          "fileType": "PROJECT_DOCUMENTATION_AND_NOTICES",
+          "sourceUrl": "https://github.com/storybookjs/test-runner/blob/main/README.md",
+          "verificationMethod": "COPYRIGHT_HOLDER_AND_ATTRIBUTION_SCAN"
+        }
+      ]
+    }
+  ]
+}
