@@ -115,15 +115,18 @@ Every reported CVE is triaged into one of four states:
 
 ---
 
-## 5. SLSA Level 3 & in-toto Attestation Framework
+## 5. SLSA v1.0 Build Track (Targeting Build Level 3) & in-toto Framework
 
-UIForge targets **SLSA (Supply-chain Levels for Software Artifacts) Level 3** for all official releases of `@uiforge/core`, `@uiforge/cli`, and its component registries.
+UIForge targets alignment with the official **SLSA (Supply-chain Levels for Software Artifacts) v1.0 Build Track (targeting Build Level 3)** for official releases of `@uiforge/core`, `@uiforge/cli`, and component registries.
+
+> [!NOTE]
+> SLSA Build Level 3 is formally classified as a **Phase 03 implementation target (`PROPOSED-CONTROL`)**. It represents a design specification for Phase 03 build pipelines, not an executed or independently certified compliance level today.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        SLSA LEVEL 3 COMPLIANCE REQUIREMENTS                            │
+│                   SLSA v1.0 BUILD LEVEL 3 ARCHITECTURAL SPECIFICATION                  │
 ├─────────────────────────┬──────────────────────────────────────────────────────────────┤
-│ SLSA Requirement        │ UIForge Implementation                                       │
+│ SLSA Requirement        │ UIForge Implementation Plan (Phase 03 Deliverable)           │
 ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ 1. Source Integrity     │ Version controlled in Git; verified GPG/SSH commit signatures│
 │ 2. Retained History     │ Immutable commit history; branch protection on `main`.       │
@@ -138,6 +141,11 @@ UIForge targets **SLSA (Supply-chain Levels for Software Artifacts) Level 3** fo
 ---
 
 ## 6. Authoritative Provenance Schema: `.uiforge/provenance.json`
+
+When components, design tokens, or templates are added to a customer project via `@uiforge/cli`, UIForge records a cryptographic manifest at `.uiforge/provenance.json`.
+
+> [!IMPORTANT]
+> A JSON schema that compiles cleanly (such as `provenance-schema.json`) demonstrates **data structure validity, NOT trustworthy software provenance**. In production, trustworthy provenance requires an active trust root (Sigstore Fulcio or enterprise PKI), auditable subject-digest bindings, and an operational key lifecycle. This infrastructure will be instantiated during Phase 03 build pipeline execution.
 
 When components, design tokens, or templates are added to a customer project via `@uiforge/cli`, UIForge records an immutable cryptographic manifest at `.uiforge/provenance.json`:
 

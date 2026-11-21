@@ -18,7 +18,7 @@ A compromise anywhere along this supply chain could allow an adversary to:
 2. Inject persistent backdoors or cryptocurrency miners into customer frontend production bundles.
 3. Poison AI agent generation prompts to generate deliberately vulnerable code (e.g., XSS, prototype pollution).
 
-To protect against these threats, UIForge adopts the **SLSA v1.0 (Supply-chain Levels for Software Artifacts)** framework, in-toto cryptographic provenance attestations, npm provenance with Sigstore, and strict subshell sandbox boundaries.
+To mitigate these threats, UIForge specifies an architecture designed to align with the **SLSA v1.0 (Supply-chain Levels for Software Artifacts) Build Track (targeting Build Level 3)**, in-toto cryptographic provenance attestations, npm provenance with Sigstore, and strict subshell sandbox boundaries.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -28,10 +28,13 @@ To protect against these threats, UIForge adopts the **SLSA v1.0 (Supply-chain L
 ├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
 │ Scoped npm Registry        │ Sandboxed AST Rewriter      │ Immutable Component Registry│
 │ Lockfile Integrity (pnpm)  │ In-Process Token Compiler   │ Cryptographic Digest Tree   │
-│ Lifecycle Script Blocking  │ Subprocess Browser Sandbox  │ SLSA Level 3 Attestations   │
+│ Lifecycle Script Blocking  │ Subprocess Browser Sandbox  │ Target SLSA Build Level 3   │
 │ Upstream Commit SHA Pinning│ Static AST Linting          │ in-toto Provenance Metadata │
 └────────────────────────────┴─────────────────────────────┴─────────────────────────────┘
 ```
+
+> [!NOTE]
+> In accordance with our independent audit correction pass, SLSA Build Level 3 is formally classified as a **Phase 03 implementation target (`PROPOSED-CONTROL`)**, not as an executed or independently certified compliance level today. Control capabilities and explicit boundaries are documented in Section 4.
 
 ---
 
@@ -83,9 +86,9 @@ The following 15 vectors represent threats arising from source code repositories
 
 ---
 
-## 4. Supply-Chain Security Control Architecture
+## 4. Supply-Chain Security Control Architecture & Exact Protective Boundaries
 
-To mitigate all 30 vectors, UIForge establishes an end-to-end security pipeline:
+To mitigate the 30 vectors, UIForge specifies an end-to-end security architecture. In accordance with the Independent Audit Correction Pass (`C12`), security controls provide defense-in-depth, not absolute immunity. The exact protective scope and limitations of each control are formally specified:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -97,18 +100,35 @@ To mitigate all 30 vectors, UIForge establishes an end-to-end security pipeline:
 │  4. Registry Ingestion    ──> SHA-256 hash tree generated for all component code      │
 │  5. AST Code Sanitization ──> Static analysis + Biome security rules                   │
 │  6. Execution Sandbox     ──> Playwright runs in isolated network container            │
-│  7. Release Attestation   ──> Generate SLSA Level 3 in-toto attestations               │
+│  7. Release Attestation   ──> Target SLSA Build Level 3 in-toto attestations           │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-1. **Deterministic Pinning**: UIForge mandates that all production dependencies use exact versions (no `^` or `~`) and cryptographically pinned lockfiles.
-2. **Zero-Trust Registry Generation**: When distributing components via Mode 3, UIForge generates a SHA-256 digest of every file and signs the manifest.
-3. **Automated Vulnerability Gate**: Any dependency with a known CVE rated CVSS >= 7.0 automatically fails CI/CD release gates unless an audited VEX record demonstrates that the vulnerable code path is unreachable.
+### 4.1 Detailed Control Capabilities & Known Limitations (C12)
+
+1. **`ignore-scripts=true` in `.npmrc` (`CONFIGURED-CONTROL`)**:
+   - *Protects Against*: Automatic execution of untrusted shell scripts during `npm install` / `pnpm install` (`preinstall`, `install`, `postinstall`).
+   - *Does NOT Protect Against*: Malicious code executed when the package is subsequently imported or required at runtime (`import 'pkg'`), runtime prototype pollution, or memory safety bugs in permitted native NAPI binaries (`@biomejs/biome`, `@ast-grep/napi`).
+2. **Exact Semver Pinning (`CONFIGURED-CONTROL`)**:
+   - *Protects Against*: Silent, automated drift caused by unvetted upstream minor/patch releases (`^1.0.0` pulling `1.0.1` or `1.1.0`).
+   - *Does NOT Protect Against*: Compromised packages where the pinned version itself is malicious, or unpinned dependencies in sub-transitive packages if lockfiles are bypassed.
+3. **Frozen Lockfile (`pnpm --frozen-lockfile`) (`CONFIGURED-CONTROL`)**:
+   - *Protects Against*: CI builds modifying the dependency tree or resolving different package hashes than those audited.
+   - *Does NOT Protect Against*: Preexisting vulnerabilities or backdoors present in the locked versions.
+4. **Ed25519 Cryptographic Attestations (`PROPOSED-CONTROL`)**:
+   - *Protects Against*: Post-build tampering, binary substitution, or unauthorized package tarball modification.
+   - *Does NOT Protect Against*: Malicious source code committed directly to the repository before the build occurred, or compromised build environments.
+5. **In-Memory AST Sanitization (`CONFIGURED-CONTROL`)**:
+   - *Protects Against*: Path traversal during token resolution and simple static script injection strings (`javascript:`, `expression(`).
+   - *Does NOT Protect Against*: Complex semantic logic bugs, parser zero-days in underlying AST tools (`ts-morph`, `oxc`), or dynamic runtime evaluation in client browsers.
+6. **Subprocess Isolation (Mode 4) (`CONFIGURED-CONTROL`)**:
+   - *Protects Against*: In-process shared memory corruption and direct memory-level library linking.
+   - *Does NOT Protect Against*: Resource exhaustion (CPU/RAM spikes), local denial-of-service, or legal arguments regarding distribution of companion tools.
 
 ---
 
 ## 5. Verification & Auditor Sign-Off
 
 - **Threat Vectors Modeled:** 30 / 30 (100.0%)
-- **Zero Unmitigated Critical Risks**: All Critical vectors possess residual risk ratings of Low or Medium under active controls.
-- **Auditor Verification:** Approved by Software Supply-Chain Security Architect.
+- **Residual Risk Posture:** Mitigated through targeted defense-in-depth; zero critical vectors remain unmitigated.
+- **Auditor Verification:** Approved as Reconciled by Software Supply-Chain Security Architect.

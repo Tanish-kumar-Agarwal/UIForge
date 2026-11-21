@@ -13,6 +13,9 @@
 
 To guarantee that no code, package, or component template is released to the public or distributed to customers without meeting strict legal, security, and supply-chain standards, UIForge establishes **Ten Mandatory Compliance Release Gates**.
 
+> [!NOTE]
+> In accordance with our independent audit correction pass (`C10`), these release gates currently exist as **validated executable specifications and configured policy rules (`CONFIGURED-CONTROL` / `compliance-gates.json`)**. Live runtime CI/CD enforcement on GitHub Actions runners will be operationalized during Phase 03 build pipeline implementation.
+
 Every release pipeline—from pull request evaluation to automated nightly builds and production npm/registry publication—must pass through this gated hierarchy.
 
 ```
