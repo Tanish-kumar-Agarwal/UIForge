@@ -8408,19 +8408,17 @@
     "candidateId": "OS-LAYT-08",
     "sourceId": "SRC-OS-LAYT-08",
     "consumptionMode": "SOURCE_COPY",
-    "eligibility": "APPROVED",
+    "eligibility": "BLOCKED",
     "conditions": [
-      "Component source copying permitted under permissive license."
+      "Copying, reproducing, republishing, or redistributing authored book text, diagrams, and component implementation code is strictly prohibited under LIC-EVERY-LAYOUT-COMMERCIAL."
     ],
     "requiredNotices": [],
-    "requiredAttribution": [
-      "Preserve original author copyright header in copied component files."
-    ],
+    "requiredAttribution": [],
     "sourceAvailabilityRequirements": [],
     "counselReviewRequired": false,
     "counselReviewRef": null,
     "lastReviewedAt": "2026-11-22",
-    "allowed": true
+    "allowed": false
   },
   {
     "permissionId": "PERM-OS-LAYT-08-ASSET_REDISTRIBUTION",
