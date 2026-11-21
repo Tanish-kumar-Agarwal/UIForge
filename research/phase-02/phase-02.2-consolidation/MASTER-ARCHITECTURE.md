@@ -211,24 +211,24 @@ To eliminate ambiguity across the five workstreams, every critical system capabi
 | Capability | Primary Owner | Secondary Consumers | Authoritative Data Owner | Interface Contract | Security Enforcement Owner | Evidence Producer | Evidence Consumer |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Project & Route Discovery** | WS-1 (Project Intel) | WS-2, WS-4, WS-5 | WS-1 (`ProjectSnapshot`) | `uiforge.contract.project-intelligence.v1` | WS-1 (Path Traversal Guard) | WS-1 (AST/File Scan) | WS-5 (Agent Context) |
-| **AST Parsing & CST Rewriting** | WS-1 (Transforms) | WS-3, WS-7 | WS-1 (AST Graph) | Internal AST Engine | WS-1 (Syntax Validator) | WS-1 (CST Checksum) | WS-7 (Execution) |
+| **AST Parsing & CST Rewriting** | WS-1 (Transforms) | WS-3, WS-1 (Execution) | WS-1 (AST Graph) | Internal AST Engine | WS-1 (Syntax Validator) | WS-1 (CST Checksum) | WS-1 (Execution) |
 | **Component Discovery & RSC** | WS-2 (Components) | WS-1, WS-5 | WS-2 (`ComponentCatalog`) | `uiforge.contract.component-intelligence.v1` | WS-2 (RSC Boundary Gate) | WS-2 (RSC Audit) | WS-5 (Agent Context) |
 | **Component Selection Engine** | WS-2 (Components) | WS-3, WS-5 | WS-2 (Ranked Candidates) | `uiforge.contract.component-intelligence.v1` | WS-2 (Eligibility Gates) | WS-2 (Ranking Matrix) | WS-1 (Change Plan) |
 | **DTCG Token Normalization** | WS-3 (Tokens) | WS-1, WS-2, WS-4 | WS-3 (`ResolvedTokenTree`) | `uiforge.contract.design-token.v1` | WS-3 (Schema Validator) | WS-3 (Graph Cycle Check) | WS-4 (Visual Baseline) |
 | **Cross-Paradigm Styling** | WS-3 (Styling) | WS-1, WS-4 | WS-3 (Conversion Manifest) | `uiforge.contract.styling-transformation.v1` | WS-3 (Loss Threshold Gate) | WS-3 (Loss Report) | WS-1 (Change Plan) |
 | **Registry Resource Ingestion** | WS-3 (Registry) | WS-2, WS-1 | WS-3 (`RegistryResource`) | `uiforge.contract.registry-resource.v1` | WS-3 (SSRF & SHA-256 Gate) | WS-3 (Integrity Record) | WS-2 (Catalog) |
-| **Change Planning & Diffing** | WS-1 (Planner) | WS-5, CLI, Studio | WS-1 (`ChangePlan`) | `uiforge.contract.change-approval.v1` | WS-11 (Diff-Bound Token) | WS-1 (Diff Digest) | WS-5 (Approval UI) |
-| **Transactional Execution** | WS-1 (Execution) | WS-3, WS-5 | WS-1 (Write Journal) | `uiforge.contract.change-approval.v1` | WS-11 (TOCTOU & Path Guard) | WS-1 (Journal Entry) | WS-9 (Audit Log) |
-| **Rollback & Crash Recovery** | WS-1 (Recovery) | CLI, Studio | WS-1 (Pre-image Cache) | `uiforge.contract.change-approval.v1` | WS-1 (Atomic Reversion) | WS-1 (Rollback Digest) | WS-9 (Audit Log) |
+| **Change Planning & Diffing** | WS-1 (Planner) | WS-5, CLI, Studio | WS-1 (`ChangePlan`) | `uiforge.contract.change-approval.v1` | WS-5 (Security Gate) | WS-1 (Diff Digest) | WS-5 (Approval UI) |
+| **Transactional Execution** | WS-1 (Execution) | WS-3, WS-5 | WS-1 (Write Journal) | `uiforge.contract.change-approval.v1` | WS-5 (Precondition & Path Guard) | WS-1 (Journal Entry) | Core (Audit Subsystem) |
+| **Rollback & Crash Recovery** | WS-1 (Recovery) | CLI, Studio | WS-1 (Pre-image Cache) | `uiforge.contract.change-approval.v1` | WS-1 (Atomic Reversion) | WS-1 (Rollback Digest) | Core (Audit Subsystem) |
 | **Browser Runner & Lifecycle** | WS-4 (Browser) | WS-5, Studio | WS-4 (`BrowserSession`) | `uiforge.contract.browser-verification.v1` | WS-4 (Network Isolation) | WS-4 (Session Trace) | WS-4 (Quality Engine) |
 | **Visual Regression Testing** | WS-4 (Quality) | WS-5, CLI | WS-4 (Diff Buffer) | `uiforge.contract.browser-verification.v1` | WS-4 (Golden Human Baseline) | WS-4 (Per-Pixel Map) | WS-5 (Agent Diagnostic) |
 | **Accessibility Assessment** | WS-4 (Quality) | WS-2, WS-5 | WS-4 (WCAG Findings) | `uiforge.contract.browser-verification.v1` | WS-4 (Rule Evaluator) | WS-4 (55-Criteria Record) | WS-5 (Agent Diagnostic) |
 | **Responsive Geometry Engine**| WS-4 (Quality) | WS-5, CLI | WS-4 (Layout Violations) | `uiforge.contract.browser-verification.v1` | WS-4 (Overflow Gate) | WS-4 (Geometry Map) | WS-5 (Agent Diagnostic) |
-| **MCP Ingress & Protocol** | WS-5 (Agent Protocol) | External Agents | WS-5 (Session Map) | `uiforge.contract.agent-tool.v1` | WS-5 (JSON-RPC Sanitizer) | WS-5 (Transport Log) | WS-9 (Audit Log) |
+| **MCP Ingress & Protocol** | WS-5 (Agent Protocol) | External Agents | WS-5 (Session Map) | `uiforge.contract.agent-tool.v1` | WS-5 (JSON-RPC Sanitizer) | WS-5 (Transport Log) | Core (Audit Subsystem) |
 | **Context Compression & Budget**| WS-5 (Context) | External Agents | WS-5 (Packed Context) | `uiforge.contract.session-context.v1` | WS-5 (Budget Enforcer) | WS-5 (Token Reduction Metric)| External Agent |
-| **5-Level Security Ladder** | WS-5 (Security) | All Subsystems | WS-11 (Policy Rules) | `uiforge.contract.change-approval.v1` | WS-11 (Token Gatekeeper) | WS-11 (Auth Digest) | WS-9 (Audit Log) |
-| **Provenance Tracking & SPDX**| WS-9 (Provenance) | WS-2, WS-3, Legal | WS-9 (`provenance.json`) | `uiforge.contract.evidence-provenance.v1` | WS-9 (License Whitelist Gate)| WS-9 (SPDX Manifest) | User / Release Manager |
-| **Unified Evidence Envelope** | WS-9 (Evidence) | All Subsystems | WS-9 (Evidence Store) | `uiforge.contract.evidence-provenance.v1` | WS-9 (Digest Chain Guard) | All Subsystems | WS-5, CLI, CI/CD |
+| **5-Level Security Ladder** | WS-5 (Security) | All Subsystems | WS-5 (Policy Rules) | `uiforge.contract.change-approval.v1` | WS-5 (Token Gatekeeper) | WS-5 (Auth Digest) | Core (Audit Subsystem) |
+| **Provenance Tracking & SPDX**| Core (Provenance) | WS-2, WS-3, Legal | Core (`provenance.json`) | `uiforge.contract.evidence-provenance.v1` | Core (License Whitelist Gate)| Core (SPDX Manifest) | User / Release Manager |
+| **Unified Evidence Envelope** | Core (Evidence) | All Subsystems | Core (Evidence Store) | `uiforge.contract.evidence-provenance.v1` | Core (Digest Chain Guard) | All Subsystems | WS-5, CLI, CI/CD |
 
 ---
 
@@ -293,7 +293,7 @@ graph TD
         SDK["@uiforge/agent-sdk<br/>(Programmatic Node.js API)"]
     end
 
-    subgraph SecurityGate["Security & Policy Gate (WS-5 / WS-11)"]
+    subgraph SecurityGate["Security & Policy Gate (WS-5)"]
         Ladder["5-Level Security Ladder"]
         Approvals["Diff-Bound Approval Engine"]
         PathGuard["Canonical Path & Symlink Guard"]
@@ -376,6 +376,7 @@ graph TD
 ## 6. Architecture Quality & Conformance Guarantees
 
 1. **No Monolithic AST Overhead:** Fast structural pattern queries run in sub-millisecond Rust AST grep; full type checking is invoked only as a fallback for complex cross-file symbol resolution.
-2. **Deterministic Token Fidelity:** Tokens strictly conform to W3C DTCG 2025.10 with the `components` color syntax. Unsupported styling constructs generate explicit conversion loss reports rather than silent corruption.
-3. **Reproducible Verification:** Browser verification produces structured, hash-digested evidence records. ARIA role snapshots (`page.ariaSnapshot()`) provide stable accessibility regression assertions across browser versions.
-4. **Resilient Failure Recovery:** Multi-file transactions record pre-image SHA-256 snapshots to SQLite before disk writes begin. Process termination, syntax validation failure, or post-mutation verification errors trigger automated rollback to the pre-image state.
+2. **Deterministic Token Fidelity:** Tokens strictly conform to the stable **W3C Design Tokens Community Group (DTCG) 2025.10 specification** (W3C Community Group process) utilizing the Color Module's `components` property with exact color-space semantics (`[L, C, H]` for OKLCH, `[r, g, b]` for sRGB). Unsupported styling constructs generate explicit conversion loss reports rather than silent corruption.
+3. **Reproducible Verification:** Browser verification produces structured, hash-digested evidence records. ARIA role snapshots (`page.ariaSnapshot()`) provide stable accessibility regression assertions across browser versions. Automated axe-core passes evaluate candidate DOM attributes and are never equated with universal WCAG 2.2 AA conformance.
+4. **Resilient Failure Recovery:** Multi-file operations distinguish SQLite ACID database guarantees from multi-file filesystem consistency. Pre-images and execution intent are recorded to the SQLite write-ahead journal (`.uiforge/journal.db`) prior to disk writes. If process termination, disk write failure, or verification errors occur, the recovery engine uses recorded pre-image snapshots to restore tracked repository files to their pre-mutation state.
+5. **Multi-Layer Filesystem Defenses:** Pre-image SHA-256 checks serve as necessary precondition validation. Complete mitigation of TOCTOU and concurrency risks incorporates path canonicalization (`fs.realpathSync`), private staging (`.uiforge/staging/`), atomic rename/swap primitives where supported by the OS, and journaled recovery.

@@ -62,7 +62,7 @@ We evaluate and assign boundaries for all 12 candidate modules:
 - **Runtime Dependencies:** `@uiforge/core`, `@uiforge/project-intelligence`.
 
 #### 4. `@uiforge/tokens` (Tier 2: WS-3 Domain)
-- **Role:** W3C DTCG 2025.10 token parsing, color space mathematics (`components: [r, g, b]`), token group inheritance, `$deprecated` propagation, and multi-dimensional alias resolution.
+- **Role:** W3C DTCG 2025.10 token parsing, color space mathematics (colorSpace-specific components, e.g. `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB), token group inheritance, `$deprecated` propagation, and multi-dimensional alias resolution.
 - **Runtime Dependencies:** `@uiforge/core`, `colord` (color space conversions). Zero styling framework dependencies.
 
 #### 5. `@uiforge/styling` (Tier 3: WS-3 Domain)
