@@ -31,7 +31,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-01",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-02",
@@ -55,7 +59,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-02",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-03",
@@ -79,7 +87,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-03",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-04",
@@ -101,7 +113,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-05",
@@ -123,7 +139,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-06",
@@ -145,7 +165,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-07",
@@ -166,7 +190,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-08",
@@ -187,7 +215,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-08",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-09",
@@ -209,7 +241,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-09"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-09",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-10",
@@ -232,7 +268,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-10"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-10",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-11",
@@ -254,7 +294,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-11"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-11",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-12",
@@ -275,7 +319,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-12"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-12",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-13",
@@ -297,7 +345,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-13"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-13",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-14",
@@ -318,7 +370,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-14"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-14",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-COMP-15",
@@ -339,7 +395,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-15"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-15",
+      "discovery_priority": "P2",
+      "technical_evaluation": "failed",
+      "license_disposition": "eligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-MKT-01",
@@ -362,7 +422,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-01",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-02",
@@ -385,7 +449,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-02",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-03",
@@ -408,7 +476,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-03",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-04",
@@ -431,7 +503,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-05",
@@ -455,7 +531,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-06",
@@ -479,7 +559,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-07",
@@ -502,7 +586,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-MKT-08",
@@ -523,7 +611,11 @@
       "consumptionModes": [
         "REJ"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-08",
+      "discovery_priority": "REJ",
+      "technical_evaluation": "failed",
+      "license_disposition": "ineligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-DASH-01",
@@ -545,7 +637,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-01",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-02",
@@ -566,7 +662,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-03",
@@ -588,7 +688,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-03",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-04",
@@ -609,7 +713,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-05",
@@ -631,7 +739,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-06",
@@ -652,7 +764,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-07",
@@ -673,7 +789,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-DASH-08",
@@ -694,7 +814,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-08",
+      "discovery_priority": "P2",
+      "technical_evaluation": "failed",
+      "license_disposition": "eligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-TOKN-01",
@@ -713,7 +837,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "reference_only"
     },
     {
       "candidateId": "OS-TOKN-02",
@@ -735,7 +863,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-03",
@@ -757,7 +889,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-04",
@@ -779,7 +915,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-04",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-05",
@@ -801,7 +941,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-05",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-06",
@@ -823,7 +967,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-06",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-07",
@@ -844,7 +992,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-08",
@@ -865,7 +1017,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-08",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-09",
@@ -886,7 +1042,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-09"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-09",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TOKN-10",
@@ -907,7 +1067,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-10"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-10",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-01",
@@ -929,7 +1093,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-02",
@@ -951,7 +1119,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-03",
@@ -972,7 +1144,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-03",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-04",
@@ -995,7 +1171,11 @@
         "REF"
       ],
       "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-04",
-      "notes": "Acquired by Webflow; April 30, 2025 Standard License grant makes GSAP and plugins free for commercial web/app use. Restricted from competing no-code visual animation builders."
+      "notes": "Acquired by Webflow; April 30, 2025 Standard License grant makes GSAP and plugins free for commercial web/app use. Restricted from competing no-code visual animation builders.",
+      "discovery_priority": "REJ",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible_with_restrictions",
+      "registry_eligibility": "conditional"
     },
     {
       "candidateId": "OS-ANIM-05",
@@ -1017,7 +1197,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-06",
@@ -1038,7 +1222,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-07",
@@ -1059,7 +1247,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ANIM-08",
@@ -1080,7 +1272,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-08",
+      "discovery_priority": "REJ",
+      "technical_evaluation": "partial",
+      "license_disposition": "ineligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-ICON-01",
@@ -1103,7 +1299,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-02",
@@ -1124,7 +1324,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-03",
@@ -1145,7 +1349,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-04",
@@ -1166,7 +1374,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-05",
@@ -1188,7 +1400,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-05",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-06",
@@ -1209,7 +1425,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-07",
@@ -1230,7 +1450,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-07",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-ICON-08",
@@ -1251,7 +1475,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-08",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-01",
@@ -1273,7 +1501,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-02",
@@ -1295,7 +1527,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-03",
@@ -1317,7 +1553,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-04",
@@ -1339,7 +1579,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-05",
@@ -1360,7 +1604,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-06",
@@ -1381,7 +1629,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-07",
@@ -1403,7 +1655,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-07",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-CHRT-08",
@@ -1424,7 +1680,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-08",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TYPO-01",
@@ -1449,7 +1709,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "pending",
+      "registry_eligibility": "conditional"
     },
     {
       "candidateId": "OS-TYPO-02",
@@ -1474,7 +1738,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "pending",
+      "registry_eligibility": "conditional"
     },
     {
       "candidateId": "OS-TYPO-03",
@@ -1498,7 +1766,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TYPO-04",
@@ -1521,7 +1793,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-04",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TYPO-05",
@@ -1542,7 +1818,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-05",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-TYPO-06",
@@ -1566,7 +1846,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-01",
@@ -1588,7 +1872,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-02",
@@ -1610,7 +1898,11 @@
         "DEP",
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-02",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-03",
@@ -1632,7 +1924,11 @@
       "consumptionModes": [
         "REG"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-04",
@@ -1653,7 +1949,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-04",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-05",
@@ -1675,7 +1975,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-06",
@@ -1696,7 +2000,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-07",
@@ -1717,7 +2025,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-07",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-LAYT-08",
@@ -1736,7 +2048,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-08",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-01",
@@ -1758,7 +2074,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible_with_restrictions",
+      "registry_eligibility": "conditional"
     },
     {
       "candidateId": "OS-A11Y-02",
@@ -1779,7 +2099,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-02",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-03",
@@ -1800,7 +2124,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-03",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-04",
@@ -1821,7 +2149,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-05",
@@ -1842,7 +2174,11 @@
       "consumptionModes": [
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "pending",
+      "registry_eligibility": "conditional"
     },
     {
       "candidateId": "OS-A11Y-06",
@@ -1864,7 +2200,11 @@
         "REF",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-06",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-07",
@@ -1885,7 +2225,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-07",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-08",
@@ -1907,7 +2251,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-08",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-09",
@@ -1929,7 +2277,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-09"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-09",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-A11Y-10",
@@ -1950,7 +2302,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-10"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-10",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-01",
@@ -1974,7 +2330,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-01",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-02",
@@ -1997,7 +2357,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-03",
@@ -2022,7 +2386,11 @@
         "REF",
         "RES"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-04",
@@ -2045,7 +2413,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-04",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-05",
@@ -2068,7 +2440,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-05",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-06",
@@ -2092,7 +2468,11 @@
         "DEP",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-06",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-07",
@@ -2115,7 +2495,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-07",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-D2C-08",
@@ -2136,7 +2520,11 @@
       "consumptionModes": [
         "REJ"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-08",
+      "discovery_priority": "REJ",
+      "technical_evaluation": "failed",
+      "license_disposition": "ineligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-AGNT-01",
@@ -2158,7 +2546,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-02",
@@ -2179,7 +2571,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-02",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-03",
@@ -2200,7 +2596,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-03",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "pending",
+      "registry_eligibility": "reference_only"
     },
     {
       "candidateId": "OS-AGNT-04",
@@ -2219,7 +2619,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-04",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "pending",
+      "registry_eligibility": "reference_only"
     },
     {
       "candidateId": "OS-AGNT-05",
@@ -2238,7 +2642,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-05",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-06",
@@ -2259,7 +2667,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-07",
@@ -2281,7 +2693,11 @@
         "REG",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-08",
@@ -2303,7 +2719,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-08",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-09",
@@ -2324,7 +2744,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-09"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-09",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-10",
@@ -2345,7 +2769,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-10"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-10",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-11",
@@ -2366,7 +2794,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-11"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-11",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-AGNT-12",
@@ -2388,7 +2820,11 @@
       "consumptionModes": [
         "INT"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-12"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-12",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-01",
@@ -2411,7 +2847,11 @@
         "DEP",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-02",
@@ -2434,7 +2874,11 @@
         "REF",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-03",
@@ -2456,7 +2900,11 @@
         "REF",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-03",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-04",
@@ -2477,7 +2925,11 @@
       "consumptionModes": [
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-04",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-05",
@@ -2499,7 +2951,11 @@
         "REF",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-06",
@@ -2521,7 +2977,11 @@
         "REF",
         "RES"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-07",
@@ -2542,7 +3002,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-BROW-08",
@@ -2563,7 +3027,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-08",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-VREG-01",
@@ -2586,7 +3054,11 @@
       "consumptionModes": [
         "DEP"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-01"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-01",
+      "discovery_priority": "P0",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-VREG-02",
@@ -2610,7 +3082,11 @@
         "DEP",
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-02"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-02",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-VREG-03",
@@ -2634,7 +3110,11 @@
         "REF",
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-03"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-03",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-VREG-04",
@@ -2657,7 +3137,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-04"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-04",
+      "discovery_priority": "P2",
+      "technical_evaluation": "failed",
+      "license_disposition": "eligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-VREG-05",
@@ -2680,7 +3164,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-05"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-05",
+      "discovery_priority": "P2",
+      "technical_evaluation": "failed",
+      "license_disposition": "eligible",
+      "registry_eligibility": "blocked"
     },
     {
       "candidateId": "OS-VREG-06",
@@ -2703,7 +3191,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-06"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-06",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-VREG-07",
@@ -2726,7 +3218,11 @@
       "consumptionModes": [
         "REF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-07"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-07",
+      "discovery_priority": "P2",
+      "technical_evaluation": "partial",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     },
     {
       "candidateId": "OS-VREG-08",
@@ -2749,7 +3245,11 @@
       "consumptionModes": [
         "INF"
       ],
-      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-08"
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-08",
+      "discovery_priority": "P1",
+      "technical_evaluation": "complete",
+      "license_disposition": "eligible",
+      "registry_eligibility": "approved"
     }
   ]
 }
