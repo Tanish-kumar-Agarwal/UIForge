@@ -70,18 +70,23 @@ UIForge consumes third-party software across four discrete, non-overlapping arch
 3. **Mode 3: Source Copying / Registry Consumption (`[REG]`)**: Re-distributing source code directly into customer repositories via `uiforge add`. Involves direct copyright reproduction; mandates automated JSDoc upstream author attribution headers.
 4. **Mode 4: Infrastructure & Tooling (`[INF]`)**: High-privilege, heavy, or copylefted tools (Playwright browser binaries, Pa11y LGPL-3.0 CLI) isolated strictly across operating system process boundaries (`child_process.spawn`) or isolated containers.
 
-## 2.2 Reconciled Entity Breakdown (C11)
-The 125 evaluated candidates in `candidate-inventory.md` represent a heterogeneous mix of entities, not 125 identical Git repositories or 125 direct npm runtime packages:
-- **Git Repositories (GitHub)**: 119
-- **Web Targets, Commercial Sites & Educational Books**: 6 (`aceternity/ui`, `every-layout`, `locofy`, `claude-code`, `cursor`, `windsurf`)
-- **Direct Primary npm Runtime Packages**: 45 (e.g. `playwright`, `style-dictionary`, `axe-core`, `ts-morph`, `biome`, `radix-ui`, `motion`, `pixelmatch`)
-- **Multi-Package Monorepos**: 8 monorepos publishing dozens to hundreds of discrete packages (e.g. `radix-ui/primitives`, `adobe/react-spectrum`, `fontsource`)
-- **Component Registry Template Targets**: 16 (e.g. `shadcn-ui/ui`, `magicui`, `park-ui`)
-- **Typography & Font Software Candidates**: 6 (Inter, Geist, Capsize, Fontsource, Source Sans, Opentype.js)
-- **Vector Icon System Candidates**: 8 (Lucide, Heroicons, Tabler, Simple Icons, Radix Icons, Feather, SVGR, SVGO)
-- **Open Specifications**: 1 (W3C DTCG 2025.10 Specification)
-- **Commercial / Proprietary Products Evaluated**: 7 (`aceternity/ui`, `every-layout`, `locofy`, `gsap`, `claude-code`, `cursor`, `windsurf`)
-- **Abandoned / Stale Candidates**: 3 (`diez`, `kodiakhq/tabler-react`, `feather`)
+## 2.2 Multi-Axial Entity Matrix & Reconciled Inventory (C11, C21)
+The 125 evaluated candidates in `candidate-inventory.md` represent a multi-axial catalog evaluated along orthogonal, non-additive dimensions. Candidate targets must never be summed additively across intersecting functional classifications:
+- **Axis 1: Target Hosting & Repository Form (Partition, Sum = 125)**:
+  - **Git Repositories (GitHub Hosted)**: 119
+  - **Web Targets, Commercial Reference Sites & Educational Specifications**: 6 (`aceternity/ui`, `every-layout`, `locofy`, `claude-code`, `cursor`, `windsurf`)
+  - **Total Unique Targets**: 125 (100.0%)
+- **Axis 2: Functional Category & Architectural Role (Intersecting / Non-Additive)**:
+  - **Direct Primary npm Runtime Packages**: 45 (e.g. `playwright`, `style-dictionary`, `axe-core`, `ts-morph`, `biome`, `radix-ui`, `motion`, `pixelmatch`)
+  - **Multi-Package Monorepos**: 8 monorepos publishing dozens to hundreds of discrete packages (e.g. `radix-ui/primitives`, `adobe/react-spectrum`, `fontsource`)
+  - **Component Registry Template Targets**: 16 (e.g. `shadcn-ui/ui`, `magicui`, `park-ui`)
+  - **Typography & Font Software Candidates**: 6 (Inter, Geist, Capsize, Fontsource, Source Sans, Opentype.js)
+  - **Vector Icon System Candidates**: 8 (Lucide, Heroicons, Tabler, Simple Icons, Radix Icons, Feather, SVGR, SVGO)
+  - **Open Specifications**: 1 (W3C DTCG 2025.10 Community Specification)
+  - **Commercial / Proprietary Products Evaluated**: 7 (`aceternity/ui`, `every-layout`, `locofy`, `gsap`, `claude-code`, `cursor`, `windsurf`)
+  - **Abandoned / Stale Candidates**: 3 (`diez`, `kodiakhq/tabler-react`, `feather`)
+  - **Clean-Room Architectural & Algorithmic References**: 31
+  - *(Note: Functional classifications intersect and must NEVER be summed additively against the 125 unique target count).*
 
 ---
 
@@ -92,12 +97,19 @@ The overwhelming majority of UIForge's toolchain rests on permissive licensing.
 - **MIT & ISC**: Form the backbone of the component registry, UI primitives (Radix, Base UI), animation runtimes (Motion), and pixel comparison (pixelmatch). They permit unrestricted copying and modification provided copyright notices are retained.
 - **Apache-2.0 with Section 3 Express Patent Grants**: Governs `@uiforge/core`, `@uiforge/agent-sdk`, Playwright, React Spectrum, and Amazon Style Dictionary. Contributors grant royalty-free patent licenses covering their contributions, backed by automatic patent retaliation defenses against hostile litigants.
 
-## 3.2 File-Scoped Weak Copyleft: MPL-2.0 (`axe-core`) & Larger Works (C02)
-`dequelabs/axe-core@4.14.1` is the authoritative accessibility engine.
-- Under MPL-2.0 Section 3.3, a "Larger Work" may combine MPL-2.0 covered software with independent proprietary or Apache-2.0 modules under different terms. However, Section 3.3 is a **conditional safe harbor**:
-  1. UIForge must comply with Section 3.1 (notice of MPL-2.0 governance) and Section 3.2 (source code availability).
-  2. Any file-level modifications to axe-core source files remain strictly copylefted under MPL-2.0.
-  3. Bundlers must be configured to treat axe-core as an external dynamic package (`external: ['axe-core', '@axe-core/playwright']`) to prevent bundler chunking from creating disputed "Modified Versions."
+## 3.2 File-Scoped Weak Copyleft: MPL-2.0 (`axe-core`), Larger Works & Bundlers (C02, C15, C18)
+`dequelabs/axe-core@4.14.1` is the proposed accessibility engine (reconciled with audited `axe-core@4.10.2` + `@axe-core/playwright@4.10.1` harness).
+- **Statutory Larger Work Scope (Section 3.3)**: Distributing a Larger Work in executable form is explicitly permitted under terms of the distributor's choice, provided the distributor satisfies:
+  1. *Section 3.1 (Notices)*: All recipients must be informed that the Covered Software is governed by MPL-2.0, with license terms provided in `NOTICE`.
+  2. *Section 3.2 (Source Code Availability)*: The distributor must make the Source Code Form of Covered Software available under MPL-2.0.
+  3. *Unmodified Source Files*: Any modifications to axe-core source files remain strictly copylefted under MPL-2.0. UIForge writes zero source patches into axe-core files.
+- **JavaScript Bundlers & Engineering Distinction (C15)**:
+  - Bundling an unmodified MPL package into a bundled JavaScript chunk does NOT automatically extend copyleft or "infect" surrounding application code.
+  - UIForge's recommendation to configure bundlers with `external: ['axe-core', '@axe-core/playwright']` is an **optional engineering architectural choice**, NOT a universal statutory legal command. Externalization prevents ambiguity over what constitutes a "File" under Section 1.4 and simplifies automated license scanning.
+  - Externalization does not independently establish compliance: statutory compliance is governed solely by Section 3.1 notice retention and Section 3.2 source availability.
+- **Adapter Compatibility (C18)**:
+  - In Phase 02.1/02.2, the audited test harness utilized `axe-core@4.10.2` paired with `@axe-core/playwright@4.10.1`.
+  - For `axe-core@4.14.1`, Phase 03 will either pair with a verified compatible `@axe-core/playwright` adapter release or inject `axe-core@4.14.1` directly into browser execution contexts via Playwright's `AxeBuilder.withSource()`.
 
 ## 3.3 Strong Copyleft Analysis: LGPL-3.0 (`pa11y`) & Unbundled Architecture (C01)
 `pa11y@10.0.0` is licensed under GNU LGPL-3.0.
@@ -113,10 +125,11 @@ The overwhelming majority of UIForge's toolchain rests on permissive licensing.
 - OFL-1.1 permits bundling and embedding with software, but strictly prohibits selling fonts standalone or renaming modified versions (Reserved Font Names: "Inter", "Geist").
 - **UIForge Policy (`LDEC-12`)**: Fonts are distributed 100% unmodified via self-hosted `@fontsource` packages. This eliminates third-party transmission of IP addresses to Google (addressing the privacy concern in *Landgericht München I*, 2022). However, self-hosting fonts alone does not make an entire website "GDPR compliant," as compliance requires lawful processing across all telemetry and server logs.
 
-## 4.2 Icons & Brand Trademark Realities (Simple Icons) (C05)
+## 4.2 Icons & Brand Trademark Realities (Simple Icons) (C05, C19)
 - System icons (Lucide under ISC, Heroicons under MIT, Tabler under MIT) are approved unconditionally.
 - `simple-icons/simple-icons` provides brand SVG glyphs under CC0-1.0. While copyright is waived, trademark rights are explicitly reserved by brand owners (Google, Apple, AWS).
 - **UIForge Policy (`LDEC-07`)**: Nominative fair use is a US common-law defense, not a universal global permission. A code disclaimer comment does not automatically cure trademark infringement if marks are used in commercial or confusing contexts. Emitting brand icons requires explicit user opt-in and compliance warnings.
+- **Release Cadence & Lockfile Pinning (`OS-ICON-04`, C19)**: Upstream Simple Icons releases weekly package updates incorporating dozens of new corporate brand marks. To prevent uncontrolled ingestion of unvetted trademarks into the registry, UIForge pins exact semver `14.1.0` in `pnpm-lock.yaml` with zero floating ranges (`^` or `~`). Any icon updates require deliberate architectural review.
 
 ## 4.3 Commercial UI Kits & Clean-Room Engineering
 - Commercial kits such as **Aceternity UI Pro** and **Tailwind UI** forbid component redistribution in registries, CLI tools, or generators.
@@ -169,9 +182,14 @@ UIForge established a comprehensive 30-vector supply-chain threat model mapped t
 
 # 6. SBOM & PROVENANCE ARCHITECTURE (C09)
 
-## 6.1 Dual SBOM Standard (`LDEC-05`)
+## 6.1 Dual SBOM Standard & SPDX Disaggregation (`LDEC-05`, C16)
 - **Primary Security & Runtime: CycloneDX 1.6 (JSON)**: Built into CI workflows; powers automated vulnerability scanning, VEX justification, and non-code asset tracking (tokens, fonts).
 - **Legal Compliance Export: SPDX 2.3 (JSON)**: Emitted on demand via `@uiforge/cli sbom --format=spdx` for legal counsel and enterprise OSPO due diligence.
+- **SPDX Standard & License List Disaggregation (C16)**:
+  - *SPDX Specification Version*: **SPDX 2.3** (ISO/IEC 5962:2021 format, JSON schema defining document structure).
+  - *SPDX License List Version*: **v3.26.0** (official release published November 2024 by the SPDX Legal Team defining short-form identifiers).
+  - *Validation Harness*: Custom Node.js validation harness utilizing official SPDX License List v3.26.0 dataset executed on November 21, 2026.
+  - *Standard Distinction*: Confirmed that specification version (SPDX 2.3) and License List version (v3.26.0) are distinct standards bodies releases and must never be conflated.
 
 ## 6.2 Universal Package URLs (PURL)
 All packages and assets use standard PURLs (e.g. `pkg:npm/%40uiforge/core@1.0.0`, `pkg:github/shadcn-ui/ui@0.9.4#components/ui/button.tsx`).
@@ -205,7 +223,7 @@ A valid JSON schema (such as `provenance-schema.json`) demonstrates **data struc
 - **`@uiforge/core`**: **Apache-2.0** (express patent license, enterprise certainty).
 - **`@uiforge/cli`**: **MIT** (frictionless developer onboarding).
 - **`@uiforge/agent-sdk`**: **Apache-2.0** (patent protection for autonomous tool execution).
-- **`@uiforge/mcp-server`**: **MIT** (aligns with Anthropic reference SDK package license and Linux Foundation / Agentic AI community initiatives).
+- **`@uiforge/mcp-server`**: **MIT** (aligns with Anthropic reference SDK package license and Linux Foundation / Agentic AI community initiatives; reconciles historical candidate `@modelcontextprotocol/sdk@0.6.0` with stable v1 maintenance line `^1.0.0` and modular v2 packages behind UIForge's abstract tool contract, C17).
 - **Component Registry**: **MIT** (unencumbered code copying).
 - **Generated Code**: Governed by the **Qualified Output Ownership and Licensing Policy** (`LDEC-03`).
 - **UIForge Studio**: **Commercial / BSL 1.1** (enterprise SaaS, collaborative fleet management).
@@ -213,10 +231,18 @@ A valid JSON schema (such as `provenance-schema.json`) demonstrates **data struc
 ## 8.2 Contributor Governance: DCO 1.1 & Inbound=Outbound Licensing (C07)
 UIForge enforces the **Developer Certificate of Origin (DCO 1.1)** via automated `Signed-off-by` Git commit checks. DCO is an affirmation of title, not a copyright assignment. It operates in conjunction with an explicit **Inbound = Outbound Contribution Policy**: contributions to Apache-2.0 modules are licensed under Apache-2.0; contributions to MIT modules are licensed under MIT.
 
-## 8.3 International Multi-Jurisdictional IP Framework
-- **Indian Copyright Act, 1957**: Section 14 (software rights), Section 17 (work-for-hire assignment), and Section 57 (inalienable moral rights of paternity). Preserving upstream author headers directly satisfies Section 57.
-- **United States Copyright Act**: 17 U.S.C. § 102(b) validates non-copyrightability of DTCG token interfaces; § 106 governs reproduction boundaries.
-- **EU Software Directive (Directive 2009/24/EC)**: Protects interoperability rights (Articles 5 & 6); EU Cyber Resilience Act (CRA) mandates SBOM transparency.
+## 8.3 International Multi-Jurisdictional IP Framework (C20)
+- **United States Copyright Act**:
+  - 17 U.S.C. § 102(b) validates non-copyrightability of DTCG token interfaces; § 106 governs reproduction boundaries.
+  - Under US Copyright Office Guidance (March 2023) and judicial precedent (*Thaler v. Perlmutter*, 2023; *Naruto v. Slater*), copyright protection requires human authorship. Raw AI-generated outputs lack human authorship and enter the public domain; users own only their original creative contributions (prompts, compilation, creative selection, subsequent human edits).
+- **Indian Copyright Act, 1957**:
+  - Section 14 (software copyright rights), Section 17 (work-for-hire assignment), and Section 57 (inalienable moral rights of paternity). Preserving upstream author headers directly satisfies Section 57.
+  - Section 2(d)(vi) computer-generated author provision: In relation to any computer-generated literary or artistic work, the author is statutorily attributed to "the person who causes the work to be created", potentially recognizing user ownership of generated outputs under Indian law.
+- **European Union Software Directive (Directive 2009/24/EC)**:
+  - Protects interoperability rights (Articles 5 & 6); EU Cyber Resilience Act (CRA) mandates SBOM transparency.
+  - Under CJEU jurisprudence (*Infopaq International* C-5/08), copyright protection requires an "author's own intellectual creation" reflecting personal choices and creative expression.
+- **Universal Multi-Jurisdictional Reality**:
+  - Generalizing US Copyright Office guidance globally is legally untenable. UIForge adopts a qualified output disclaimer policy (`LDEC-03`) while advising enterprise users to seek local jurisdiction counsel regarding the copyright status of machine-generated code.
 
 ---
 
