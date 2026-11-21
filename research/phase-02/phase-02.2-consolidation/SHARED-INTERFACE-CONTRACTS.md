@@ -121,9 +121,13 @@ export interface ProjectIntelligenceContractV1 {
 
 - **Required Fields:** `contractId`, `schemaVersion`, `projectId`, `snapshotId`, `analysisRunId`, `repositoryRoot`, `scannedAt`, `snapshotHash`, `environment`, `dependencies`, `styling`, `routes`, `analysisMetadata`.
 - **Optional Fields:** `typescript.tsconfigPath`, `typescript.compilerVersion`.
-- **Merkle Root Definition & Invalidation Rules:**
-  - `snapshotHash` is computed as the SHA-256 Merkle root across lexicographically sorted relative file paths and SHA-256 contents of all tracked application source files (`.ts`, `.tsx`, `.js`, `.jsx`, `.css`), package manifests (`package.json`, lockfiles), and project configuration files (`tsconfig.json`, `next.config.*`, `tailwind.config.*`).
-  - **Crucial Invalidation Guarantee:** A Merkle root records the state at scan time; **a Merkle root alone does NOT prevent stale analysis or scanner desynchronization** if disk files are modified concurrently or outside UIForge. Invalidation is triggered when filesystem `mtime` or file SHA-256 digests change. Downstream consumers planning mutations must revalidate current disk file digests against `snapshotHash` before authorizing changes.
+- **Merkle Root Definition, Determinism & Invalidation Rules:**
+  - **Deterministic Inclusion:** Scans all tracked application source files (`.ts`, `.tsx`, `.js`, `.jsx`, `.css`, `.json`, `.md`), package manifests (`package.json`), package lockfiles (`pnpm-lock.yaml`, `package-lock.json`, `bun.lockb`, `yarn.lock`), and project configuration files (`tsconfig.json`, `next.config.*`, `vite.config.*`, `tailwind.config.*`, `postcss.config.*`, `components.json`).
+  - **Deterministic Exclusion:** Strictly excludes `node_modules/`, `.git/`, build output directories (`dist/`, `.next/`, `build/`, `out/`), `.uiforge/`, `.env*` secret files, and paths matched by `.gitignore`.
+  - **Deterministic Ordering:** Relative file paths are sorted canonical-lexicographically (UTF-8 byte sequence sorting).
+  - **Symlink Treatment:** Symlinks are recorded as metadata (preserving relative link target string) but are NOT traversed outside repository boundaries; cyclic symlinks or targets outside `repositoryRoot` are flagged as security violations.
+  - `snapshotHash` is computed as the SHA-256 Merkle root across the ordered `(canonicalRelativePath, fileSha256Digest)` pairs.
+  - **Crucial Invalidation Guarantee:** A Merkle root records the state at scan time; **a Merkle root alone does NOT prevent stale analysis or scanner desynchronization** if disk files are modified concurrently or outside UIForge. Invalidation is triggered when filesystem `mtime`, file size, or file SHA-256 digests change. Downstream consumers planning mutations must revalidate current disk file digests against `snapshotHash` immediately prior to authorizing or executing changes.
 - **Error Model:** Emits `PROJECT_SCAN_ERROR`, `SYNTAX_PARSE_ERROR`, or `REPO_ROOT_NOT_FOUND`.
 - **Security Requirements:** Excludes `.git`, `node_modules`, `.env*`, and ignored paths from content scanning. Read-only access enforced.
 - **Compatibility Guarantees:** Forward-compatible; additional environment details will be added as optional fields.
@@ -291,13 +295,16 @@ export type DTCGTokenType =
   | 'number' | 'strokeStyle' | 'border' | 'transition' | 'shadow' | 'gradient' | 'typography';
 
 export interface DTCGColorValue {
-  readonly colorSpace: 'srgb' | 'oklch' | 'srgb-linear' | 'display-p3' | string;
-  // Components strictly defined by colorSpace:
-  // - For 'oklch': [L, C, H] where L in [0, 1] (perceived lightness), C in [0, 0.4+] (chroma), H in [0, 360] (hue angle)
-  // - For 'srgb' / 'display-p3': [r, g, b] normalized in [0, 1]
-  readonly components: [number, number, number];
-  readonly alpha?: number; // Normalized in [0, 1]
+  readonly colorSpace: 
+    | 'srgb' | 'oklch' | 'srgb-linear' | 'display-p3' | 'a98-rgb' | 'prophoto-rgb' 
+    | 'rec2020' | 'lab' | 'oklab' | 'lch' | (string & {}); // Extensible baseline; not exhaustive
+  // Components strictly defined by colorSpace (permits numeric values or 'none' for missing components per CSS Color 4 / DTCG):
+  // - For 'oklch': [L, C, H] where L in [0, 1] or 'none', C in [0, 0.4+] or 'none', H in [0, 360] or 'none'
+  // - For 'srgb' / 'display-p3': [r, g, b] where components in [0, 1] or 'none'
+  readonly components: readonly [number | 'none', number | 'none', number | 'none'] | readonly (number | 'none')[];
+  readonly alpha?: number | 'none'; // Normalized in [0, 1] or 'none'
   readonly hex?: string; // Optional resolved preview string
+  readonly rawString?: string; // Original input string before normalization (e.g., 'oklch(0.7 0.15 180 / 0.9)')
 }
 
 export interface DesignTokenContractV1 {
@@ -342,8 +349,8 @@ export interface DesignTokenContractV1 {
 ```
 
 - **Required Fields:** `contractId`, `schemaVersion`, `tokenSetId`, `projectSnapshotId`, `sourceFormat`, `sourceDigest`, `tokens`, `resolutionContexts`, `conversionDiagnostics`.
-- **Validation Rules:** Color tokens must specify `colorSpace` and a 3-element `components` array matching that color space's dimension definitions (e.g., `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB). Circular references detected during alias traversal must cause `cyclicReferencesFound` to be populated and abort resolution.
-- **Specification Status:** Stable W3C Community Group Specification (October 2025). Adopts Color Module canonical `components` syntax (not legacy `"channels"`).
+- **Validation Rules:** Color tokens must specify `colorSpace` and a `components` array matching that color space's dimension definitions (e.g., `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB), permitting numeric values or `'none'` for missing components per CSS Color 4 and DTCG 2025.10. The listed color spaces represent supported baseline implementations rather than an exhaustive closed set; schemas must be validated against official DTCG 2025.10 Community Group test suites before freezing production contracts. Circular references detected during alias traversal must cause `cyclicReferencesFound` to be populated and abort resolution.
+- **Specification Status:** Stable W3C Design Tokens Community Group (DTCG) 2025.10 Specification (October 2025; published under W3C Community Contributor License Agreement, not a formal W3C Recommendation / Standards Track document). Adopts Color Module canonical `components` syntax (not legacy `"channels"`).
 - **Error Model:** Emits `CYCLIC_TOKEN_REFERENCE`, `INVALID_DTCG_SYNTAX`, or `UNRESOLVED_TOKEN_ALIAS`.
 - **Security Requirements:** Disallows `$value` expressions attempting JavaScript code evaluation or prototype manipulation.
 - **Compatibility Guarantees:** Guarantees lossless round-tripping of all 13 official DTCG 2025.10 token types.
@@ -474,8 +481,9 @@ export interface ChangeProposalAndApprovalContractV1 {
 - **Validation Rules:** Execution is strictly rejected if `permissionLevel >= 2` and `approvalRecord` is missing, expired, consumed, revoked, or if any bound property (`boundProjectId`, `boundSnapshotId`, `boundCompositeDiffDigest`, `boundTargetPaths`) fails exact match.
 - **Error Model:** Emits `APPROVAL_REQUIRED`, `APPROVAL_EXPIRED`, `DIFF_DIGEST_MISMATCH`, or `TOCTOU_DISK_MODIFICATION_DETECTED`.
 - **Security & Filesystem Guarantees:**
-  - Pre-image SHA-256 verification acts as a necessary **precondition check** immediately before disk writing.
-  - A hash check alone does NOT eliminate filesystem race conditions; execution requires a multi-layer defense: path canonicalization (`fs.realpathSync`), staging in a private temporary directory (`.uiforge/staging/`), atomic rename/swap operations where supported by the host OS/filesystem, and persistent write-ahead journal pre-image backups (`.uiforge/journal.db`) to allow deterministic recovery if execution terminates mid-write.
+  - Pre-image SHA-256 verification acts as a necessary **point-in-time precondition check** immediately before staging. A hash check alone does NOT eliminate filesystem race conditions or provide operating-system level access enforcement.
+  - The architecture implements a **recoverable multi-file mutation protocol**, NOT an atomic multi-file filesystem transaction (since POSIX and Windows filesystems do not natively support multi-file transactional atomicity, and SQLite ACID guarantees apply strictly to `.uiforge/journal.db`).
+  - Multi-layer defenses require: path canonicalization against repository root with trailing path separator, private staging in `.uiforge/staging/<txId>/`, atomic file replacement where supported, OS-level file locking, and crash recovery via write-ahead journal pre-images. These defenses are subject to explicit validation against 7 failure scenarios in Phase 02.4 Decision Gate 2.
 - **Compatibility Guarantees:** Compatible with standard Git unified diff format.
 - **Known Limitations:** Rollback restores tracked repository files recorded in pre-image logs; external package manager caches (`node_modules`) are unmanaged and require lockfile inspection.
 
