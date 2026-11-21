@@ -121,15 +121,15 @@ UIForge is organized into **11 Canonical Functional Layers** operating under str
 2. **Decoupled Agent Boundaries:** UIForge provides deterministic environment intelligence and verified action tools. It does not wrap, bill for, or orchestrate proprietary LLM inference engines. External agents connect via standard MCP or the Agent SDK and bring their own intelligence.
 3. **Evidence-Backed Verification:** Automated testing cannot declare WCAG 2.2 AA conformance; it reports discrete test results across 55 criteria (12 automated, 23 browser-traced, 20 human-audited). Visual regression detects per-pixel perceptual differences via Pixelmatch v8 OKLab/HyAB but requires explicit human golden approval.
 4. **Deterministic Token & Styling Transformations:** Design tokens are modeled strictly under DTCG 2025.10 (stable W3C Community Group specification, `colorSpace` + `components` properties, e.g. `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB). Cross-paradigm conversions (Tailwind, CSS Modules, Sass) generate explicit conversion loss reports and distinguish *Value Preservation* from *Semantic Preservation*.
-5. **Multi-File Journaled Atomicity:** Filesystem transformations maintain a local write-ahead journal with pre-image SHA-256 snapshots, atomic file replacement, and multi-layer filesystem protections, providing deterministic rollback while honestly disclaiming unmanaged npm lifecycle scripts and external caches.
+5. **Recoverable Multi-File Mutation Protocol:** Codebase mutations implement a recoverable mutation protocol maintaining a local write-ahead journal (`.uiforge/journal.db`) with pre-image SHA-256 snapshots, closest-ancestor path canonicalization, private staging (`.uiforge/staging/`), atomic replacement, and OS-level file locking, providing deterministic crash recovery while honestly disclaiming unmanaged npm lifecycle scripts and external caches.
 
 ---
 
 ## 5. Phase 02 Transition & Phase 03 Next Steps
 
-With the completion of this consolidation:
+With the completion of this consolidation pass:
 - **Phase 02.1 (Discovery):** Complete (125 candidate ecosystem tools cataloged).
-- **Phase 02.2 (Technical Audits & Consolidation):** **COMPLETE & RECONCILED**.
-- **Phase 02.3 (Licensing & Supply Chain Audit):** Scheduled to evaluate external package dependencies and SPDX legal distribution boundaries based on [PROVENANCE-AND-REGISTRY-GOVERNANCE.md](PROVENANCE-AND-REGISTRY-GOVERNANCE.md).
-- **Phase 02.4 (Synthesis & Proof-of-Concept):** Scheduled to run live multi-platform integration tests for high-risk components (Playwright browser binaries, TypeScript 7.1 stable API, SQLite journal).
-- **Phase 03 (Production Implementation):** Fully unblocked to begin Phase 03 implementation according to the dependency-driven roadmap in [PHASE-03-IMPLEMENTATION-READINESS.md](PHASE-03-IMPLEMENTATION-READINESS.md).
+- **Phase 02.2 (Technical Audits & Consolidation):** **CONDITIONALLY COMPLETE** (Architecture, shared data contracts, threat models, and interface specifications reconciled).
+- **Phase 02.3 (Licensing & Supply Chain Audit):** Scheduled to evaluate external package dependencies, transitive licenses, and SPDX legal distribution boundaries based on [PROVENANCE-AND-REGISTRY-GOVERNANCE.md](PROVENANCE-AND-REGISTRY-GOVERNANCE.md).
+- **Phase 02.4 (Synthesis & Proof-of-Concept Decision Gates):** Scheduled to validate high-risk prototypes (Gate 1: TypeScript 7.1 stable compiler API; Gate 2: Multi-file recoverable journal crash recovery prototype across 7 failure scenarios; Gate 3: Headless Playwright rendering calibration).
+- **Phase 03 (Production Implementation):** **ARCHITECTURE PREPARED — IMPLEMENTATION AUTHORIZATION PENDING GATE RESULTS**. Monorepo production package coding begins only after Phase 02.3 legal review and Phase 02.4 decision gates clear.

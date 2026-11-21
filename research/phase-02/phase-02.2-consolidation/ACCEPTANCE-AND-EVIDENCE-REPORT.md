@@ -17,6 +17,12 @@ In strict accordance with the UIForge Research Standard:
 - Claims are evaluated against demonstrable evidence, formal schema specifications, and reproducible test fixtures.
 - Every criterion is assigned an honest status: `PASS`, `PARTIAL`, `NOT ESTABLISHED`, or `NOT APPLICABLE`.
 - We do not force an artificial 100% pass score. Wherever an architectural decision relies on a planned runtime implementation or pending stable release (such as TypeScript 7.1 or kernel filesystem locking), it is transparently marked `PARTIAL` or `ACCEPTED_WITH_CONDITIONS`.
+- **Evidence Hierarchy & Verification Distinction:**
+  - *Runner Exit Code 0:* Confirms that test runner scripts executed to completion without fatal node exceptions.
+  - *Harness Assertions Pass:* Confirms specific programmatic boolean checks passed within that isolated, local in-memory harness.
+  - *Simulation Passes:* Confirms modeled scenario behavior (e.g., synthetic cost calculations or synthetic pixel math) matched expected calculations.
+  - *Live Integration Tested:* Confirms real running services, live OS processes, and genuine networks interacted successfully.
+  - *Production Guarantee:* Requires comprehensive threat modeling, kernel boundary enforcement, and cross-platform stress testing. A 100% harness pass rate does NOT imply production readiness.
 
 ---
 
@@ -117,7 +123,7 @@ In strict accordance with the UIForge Research Standard:
 
 ### Criterion 10: Approval contracts bind authorization to diff & pre-image
 - **Status:** `PASS`
-- **Evidence:** `uiforge.contract.change-approval.v1` binds approval tokens strictly to `compositeDiffDigest` and `preImageSha256`, preventing TOCTOU file tampering and authorization replay.
+- **Evidence:** `uiforge.contract.change-approval.v1` specifies binding approval tokens strictly to `compositeDiffDigest`, `boundTargetPaths`, `boundProjectId`, `boundSnapshotId`, and `preImageSha256`. Supported by in-memory policy validation in WS-5 Experiment E5 (which confirms that unapproved or out-of-scope operations are rejected by policy logic). Note that this is a contract policy specification, not operating-system-level access enforcement.
 
 ### Criterion 11: Browser verification contracts consume snapshot ID
 - **Status:** `PASS`
@@ -129,7 +135,7 @@ In strict accordance with the UIForge Research Standard:
 
 ### Criterion 13: Evidence contracts shared across all workstreams
 - **Status:** `PASS`
-- **Evidence:** `uiforge.contract.evidence-provenance.v1` provides a universal evidence envelope adopted by all five workstreams.
+- **Evidence:** `uiforge.contract.evidence-provenance.v1` provides a universal evidence envelope adopted by all five workstreams, owned authoritatively by `@uiforge/core (Evidence & Provenance Subsystem)`.
 
 ---
 
@@ -149,15 +155,15 @@ In strict accordance with the UIForge Research Standard:
 
 ### Criterion 17: Browser isolation & SSRF defense specified
 - **Status:** `PARTIAL`
-- **Explanation:** Network route interception blocking RFC 1918, cloud metadata, and IPv6 loopback is fully specified in architecture and verified in local mock harnesses (WS-4 Experiment E8). However, live OS kernel containerization / process sandboxing remains a Phase 02.4 / Phase 03 implementation task.
+- **Explanation:** Network route interception blocking RFC 1918, cloud metadata, and IPv6 loopback is fully specified in the browser adapter architecture (`IBrowserAdapter.routeInterception`). However, empirical route interception has not yet been executed in an automated test runner (`NOT-EXECUTED`), and live OS containerization / process-level sandboxing remains a Phase 02.4 / Phase 03 implementation task.
 
 ### Criterion 18: Approval replay & TOCTOU stale snapshot prevented
 - **Status:** `PARTIAL`
-- **Explanation:** Approval tokens are strictly single-use with a 15-minute TTL bound to `compositeDiffDigest`, `boundTargetPaths`, `boundProjectId`, and `boundSnapshotId`. Microsecond pre-image SHA-256 checks provide point-in-time precondition validation. However, eliminating execution-time filesystem TOCTOU race conditions requires multi-layer defenses (`fs.realpathSync`, staging in `.uiforge/staging/`, atomic rename replacement, OS-level file locking, and crash recovery), which are specified in architecture and proven in in-memory policy harnesses (WS-5 E5) but require live OS-level validation in Phase 02.4 / Phase 03.
+- **Explanation:** Approval tokens are specified as strictly single-use with a 15-minute TTL bound to `compositeDiffDigest`, `boundTargetPaths`, `boundProjectId`, `boundSnapshotId`, and authoritative `isRevoked` state. Point-in-time pre-image SHA-256 checks are verified in an in-memory harness (WS-1 Experiment E5), and in-memory policy token validation is verified (WS-5 Experiment E5). However, eliminating execution-time filesystem TOCTOU race conditions and ensuring multi-file mutation consistency requires a recoverable multi-file mutation protocol (canonical path resolution, `.uiforge/staging/`, atomic replacement, OS file locking, crash recovery), which is specified in architecture but requires prototype validation in Phase 02.4 Gate 2.
 
 ### Criterion 19: Secret redaction & chained audit logging consistent
 - **Status:** `PARTIAL`
-- **Explanation:** Secret redaction regexes and SHA-256 audit chaining are fully specified and validated in local harnesses (WS-5 Experiments E7, E9). External cryptographic trust anchoring (e.g., RFC 3161 timestamping) is deferred to Phase 04.
+- **Explanation:** Secret redaction regexes and local SHA-256 audit chaining are specified in architecture and verified for selected patterns in an in-memory harness (WS-5 Experiment E9). However, local hash chaining does not prevent log tampering if an attacker can rewrite the log without external cryptographic trust anchoring (e.g., RFC 3161 timestamping, deferred to Phase 04).
 
 ---
 
@@ -201,11 +207,11 @@ In strict accordance with the UIForge Research Standard:
 
 ### Criterion 27: Foundational contracts & interfaces complete
 - **Status:** `PASS`
-- **Evidence:** All 10 shared contracts are fully drafted in TypeScript with Zod schemas in [SHARED-INTERFACE-CONTRACTS.md](SHARED-INTERFACE-CONTRACTS.md).
+- **Evidence:** All 10 foundational data contracts are fully specified with reconciled TypeScript interfaces and matching Zod schemas in [SHARED-INTERFACE-CONTRACTS.md](SHARED-INTERFACE-CONTRACTS.md). Note that these represent reconciled schema designs in research specifications, not yet compiled production packages.
 
 ### Criterion 28: High-risk prototypes & deferred work identified
 - **Status:** `PASS`
-- **Evidence:** Identifies 3 required Phase 02.4 prototypes (TypeScript 7.1 entry points, SQLite journal crash recovery, Playwright headless CI calibration) and formally defers Studio GUI and multi-agent swarms.
+- **Evidence:** Identifies 3 required Phase 02.4 prototypes (TypeScript 7.1 entry points, SQLite recoverable journal crash recovery, Playwright headless CI calibration) and formally defers Studio GUI and multi-agent swarms.
 
 ---
 
@@ -215,13 +221,13 @@ In strict accordance with the UIForge Research Standard:
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                              FINAL CONSOLIDATION VERDICT                               │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
-│ STATUS: RESEARCH CONSOLIDATION COMPLETE & ARCHITECTURE FORMALLY ACCEPTED               │
+│ STATUS: RESEARCH CONSOLIDATION CONDITIONALLY COMPLETE — ARCHITECTURE PREPARED         │
 │                                                                                        │
 │ Phase 02.2 successfully unifies Workstreams 1 through 5 into one coherent,             │
-│ implementation-ready, evidence-backed architecture for UIForge.                        │
+│ architecture specification for UIForge.                                                │
 │                                                                                        │
 │ Next Phase: Phase 02.3 (Software Supply-Chain, Licensing & Commercial Risk Audit)      │
-│ Followed By: Phase 02.4 (System Synthesis & Proof-of-Concept Prototypes)               │
-│ Followed By: Phase 03 (Production Implementation of @uiforge/core and Engines)         │
+│ Followed By: Phase 02.4 (Technical Feasibility Prototypes & Decision Gates)            │
+│ Followed By: Phase 03 (Production Implementation, Pending Phase 02.4 Gate Results)     │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
