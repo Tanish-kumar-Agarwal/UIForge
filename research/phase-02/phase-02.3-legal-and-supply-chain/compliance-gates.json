@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "configId": "UIF-PH02.3-JSON-GATES-CONFIG-01",
+  "phase": "02.3",
+  "generatedAt": "2026-11-21T18:01:10.000Z",
+  "governance": "Independent Technical Audit Lead & DevSecOps Lead",
+  "policyVersion": "1.0.0",
+  "gates": [
+    {
+      "gateNumber": 1,
+      "id": "GATE-01-LICENSE-ALLOWLIST",
+      "name": "License Allowlist Compliance",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "allowedLicenses": [
+          "MIT",
+          "Apache-2.0",
+          "ISC",
+          "BSD-2-Clause",
+          "BSD-3-Clause",
+          "CC0-1.0",
+          "W3C-Software-and-Document"
+        ],
+        "conditionalLicenses": [
+          {
+            "license": "MPL-2.0",
+            "condition": "DYNAMIC_LINKING_ONLY",
+            "modifiedFilesAllowed": false
+          },
+          {
+            "license": "LGPL-3.0",
+            "condition": "SUBPROCESS_MODE_4_ONLY",
+            "inProcessLinkingAllowed": false
+          },
+          {
+            "license": "OFL-1.1",
+            "condition": "UNMODIFIED_FONTS_ONLY",
+            "reservedFontNameProtected": true
+          }
+        ],
+        "prohibitedLicenses": [
+          "GPL-1.0",
+          "GPL-2.0",
+          "GPL-3.0",
+          "AGPL-1.0",
+          "AGPL-3.0",
+          "SSPL-1.0",
+          "BSL-1.1-UNAUTHORIZED",
+          "PROPRIETARY-UNAUTHORIZED"
+        ]
+      }
+    },
+    {
+      "gateNumber": 2,
+      "id": "GATE-02-LOCKFILE-INTEGRITY",
+      "name": "Package Manifest & Lockfile Integrity",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "enforceFrozenLockfile": true,
+        "allowFloatingRangesInProduction": false,
+        "supportedPackageManagers": ["pnpm"],
+        "requireShasumVerification": true
+      }
+    },
+    {
+      "gateNumber": 3,
+      "id": "GATE-03-VULNERABILITY-THRESHOLD",
+      "name": "Supply-Chain Vulnerability & VEX Threshold",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "maxPermittedCvss": 6.9,
+        "cvssGteSevenRequiresVex": true,
+        "allowedVexStates": ["not_affected", "resolved"]
+      }
+    },
+    {
+      "gateNumber": 4,
+      "id": "GATE-04-LIFECYCLE-QUARANTINE",
+      "name": "Lifecycle Script Quarantine",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "ignoreScriptsMandatory": true,
+        "scriptExecutionAllowlist": [
+          "@biomejs/biome",
+          "@ast-grep/napi"
+        ]
+      }
+    },
+    {
+      "gateNumber": 5,
+      "id": "GATE-05-HEADER-PRESERVATION",
+      "name": "Copyright & Header Preservation",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "appliesTo": "MODE_3_COMPONENTS",
+        "requiredFields": [
+          "upstreamAuthor",
+          "upstreamRepository",
+          "upstreamLicense",
+          "copyrightYear",
+          "modificationHistory"
+        ]
+      }
+    },
+    {
+      "gateNumber": 6,
+      "id": "GATE-06-DTCG-VALIDATION",
+      "name": "DTCG Token Schema & Sanitization",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "specVersion": "2025.10",
+        "mandatoryColorFormat": "components",
+        "prohibitedStrings": [
+          "javascript:",
+          "expression(",
+          "url(data:",
+          "<script"
+        ]
+      }
+    },
+    {
+      "gateNumber": 7,
+      "id": "GATE-07-PROVENANCE-SIGNING",
+      "name": "Cryptographic Provenance Signing",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "requireFileSha256Tree": true,
+        "requireGitCommitSha": true,
+        "signatureAlgorithm": "Ed25519",
+        "outputManifest": ".uiforge/provenance.json"
+      }
+    },
+    {
+      "gateNumber": 8,
+      "id": "GATE-08-ASSET-TRADEMARK-SANITY",
+      "name": "Asset & Trademark Sanity",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "selfHostedFontsOnly": true,
+        "requireOflTextFile": true,
+        "requireBrandIconDisclaimer": true,
+        "prohibitedAssetSources": [
+          "aceternity",
+          "tailwindui"
+        ]
+      }
+    },
+    {
+      "gateNumber": 9,
+      "id": "GATE-09-A11Y-VISUAL-PASS",
+      "name": "Accessibility & Visual Regression Pass",
+      "mode": "AUTOMATED",
+      "blocking": true,
+      "rule": {
+        "axeCoreVersion": "4.14.1",
+        "maxAxeViolations": 0,
+        "targetStandard": "WCAG_2_2_AA",
+        "minNormalTextContrast": 4.5,
+        "minLargeTextContrast": 3.0,
+        "maxVisualDiffPercent": 0.05
+      }
+    },
+    {
+      "gateNumber": 10,
+      "id": "GATE-10-HUMAN-OSPO-REVIEW",
+      "name": "Human OSPO & Exception Review",
+      "mode": "HUMAN_APPROVAL",
+      "blocking": true,
+      "rule": {
+        "requiredReviewers": [
+          "OSPO_LEAD",
+          "APPLICATION_SECURITY_LEAD"
+        ],
+        "triggerConditions": [
+          "NEW_DEPENDENCY_INTRODUCED",
+          "LICENSE_EXCEPTION_REQUESTED",
+          "VEX_STATEMENT_SUBMITTED"
+        ]
+      }
+    }
+  ]
+}
