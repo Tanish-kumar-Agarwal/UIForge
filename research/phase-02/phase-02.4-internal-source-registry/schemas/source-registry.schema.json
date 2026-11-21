@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForgeSourceRegistrySchema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "sourceId",
+      "canonicalCandidateId",
+      "name",
+      "slug",
+      "sourceType",
+      "primaryCategory",
+      "identityStatus",
+      "discoveryPriority",
+      "technicalEvaluationStatus",
+      "licenseDisposition",
+      "registryEligibility",
+      "repositoryRef",
+      "packageRefs",
+      "licenseRef",
+      "provenanceRef",
+      "evaluationRef"
+    ],
+    "properties": {
+      "sourceId": {
+        "type": "string"
+      },
+      "canonicalCandidateId": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "slug": {
+        "type": "string"
+      },
+      "sourceType": {
+        "type": "string",
+        "enum": [
+          "GITHUB_REPOSITORY",
+          "GITLAB_REPOSITORY",
+          "OTHER_GIT_REPOSITORY",
+          "NPM_PACKAGE",
+          "OTHER_PACKAGE",
+          "COMPONENT_REGISTRY",
+          "DESIGN_SYSTEM",
+          "COMMERCIAL_PRODUCT",
+          "SAAS_PLATFORM",
+          "DOCUMENTATION",
+          "TECHNICAL_SPECIFICATION",
+          "FONT_ASSET",
+          "ICON_ASSET",
+          "BINARY_ARTIFACT",
+          "OTHER"
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "homepage": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "repositoryUrl": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "documentationUrl": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "primaryCategory": {
+        "type": "string"
+      },
+      "secondaryCategories": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "aliases": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "identityStatus": {
+        "type": "string",
+        "enum": [
+          "CANONICAL",
+          "ALIAS",
+          "DEPRECATED",
+          "SUPERSEDED"
+        ]
+      },
+      "discoveryPriority": {
+        "type": "string",
+        "enum": [
+          "P0",
+          "P1",
+          "P2",
+          "REJ"
+        ]
+      },
+      "technicalEvaluationStatus": {
+        "type": "string",
+        "enum": [
+          "complete",
+          "partial",
+          "failed"
+        ]
+      },
+      "licenseDisposition": {
+        "type": "string",
+        "enum": [
+          "eligible",
+          "eligible_with_restrictions",
+          "pending",
+          "ineligible"
+        ]
+      },
+      "registryEligibility": {
+        "type": "string",
+        "enum": [
+          "approved",
+          "conditional",
+          "reference_only",
+          "blocked"
+        ]
+      },
+      "repositoryRef": {
+        "type": "string"
+      },
+      "packageRefs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "componentRefs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "assetRefs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "licenseRef": {
+        "type": "string"
+      },
+      "provenanceRef": {
+        "type": "string"
+      },
+      "evaluationRef": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    }
+  }
+}

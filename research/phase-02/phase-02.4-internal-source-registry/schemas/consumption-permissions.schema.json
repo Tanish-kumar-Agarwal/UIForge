@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForgeConsumptionPermissionsSchema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "permissionId",
+      "candidateId",
+      "sourceId",
+      "consumptionMode",
+      "eligibility",
+      "conditions",
+      "counselReviewRequired"
+    ],
+    "properties": {
+      "permissionId": {
+        "type": "string"
+      },
+      "candidateId": {
+        "type": "string"
+      },
+      "sourceId": {
+        "type": "string"
+      },
+      "consumptionMode": {
+        "type": "string",
+        "enum": [
+          "REFERENCE_ONLY",
+          "DEPENDENCY",
+          "SOURCE_COPY",
+          "ASSET_REDISTRIBUTION",
+          "EXTERNAL_TOOL",
+          "TEMPLATE_ADAPTATION"
+        ]
+      },
+      "eligibility": {
+        "type": "string",
+        "enum": [
+          "APPROVED",
+          "ELIGIBLE_WITH_RESTRICTIONS",
+          "REFERENCE_ONLY",
+          "PENDING_REVIEW",
+          "BLOCKED",
+          "NOT_APPLICABLE"
+        ]
+      },
+      "conditions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "requiredNotices": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "requiredAttribution": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "sourceAvailabilityRequirements": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "counselReviewRequired": {
+        "type": "boolean"
+      },
+      "counselReviewRef": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "lastReviewedAt": {
+        "type": "string"
+      }
+    }
+  }
+}

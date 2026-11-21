@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForgeProvenanceAndEvidenceSchema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "provenanceId",
+      "subjectType",
+      "subjectId",
+      "upstreamUrl",
+      "retrievedAt",
+      "contentDigest",
+      "verificationMethod"
+    ],
+    "properties": {
+      "provenanceId": {
+        "type": "string"
+      },
+      "subjectType": {
+        "type": "string"
+      },
+      "subjectId": {
+        "type": "string"
+      },
+      "upstreamUrl": {
+        "type": "string"
+      },
+      "upstreamVersion": {
+        "type": "string"
+      },
+      "upstreamCommit": {
+        "type": "string"
+      },
+      "retrievedAt": {
+        "type": "string"
+      },
+      "contentDigest": {
+        "type": "string"
+      },
+      "verificationMethod": {
+        "type": "string"
+      },
+      "reviewer": {
+        "type": "string"
+      }
+    }
+  }
+}
