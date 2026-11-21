@@ -68,10 +68,14 @@ Following the Phase 02.3 Independent Audit Correction Pass (`UIF-PH02.3-CORRECTI
   2. *Original UIForge Templates*: Emitted original template and scaffolding code authored by UIForge is licensed to the user under the permissive MIT license.
   3. *Upstream Third-Party Source*: Code copied or derived from upstream component registries (e.g., `shadcn/ui`, `magicui`) remains copyrighted by upstream authors and is licensed to the user under upstream terms (MIT/Apache-2.0), subject to copyright notice retention. UIForge cannot and does not grant original authorship or copyright ownership of third-party code.
   4. *Licensed Typography & Brand Assets*: Bundled font software (Inter, Geist) remains governed by OFL-1.1; brand logos remain protected trademarks of their owners. The user does not acquire copyright in font binaries or trademark rights in brand logos.
-  5. *Raw AI-Generated Output*: Under US Copyright Office guidance (March 2023), raw machine-generated output lacks human authorship and is not subject to copyright. The user owns only their human creative contributions (prompts, compilation, creative selection, subsequent human edits).
-  6. *Unresolved Training Data Status*: Potential infringement risks related to foundation model training data cannot be contractually eliminated or indemnified by UIForge.
-- **Rationale**: Legally defensible, transparent, and accurate under international copyright law.
-- **Consequences**: CLI banners, licenses, and documentation will reflect this qualified segmentation. Unresolved questions escalated to external counsel.
+  5. *Raw AI-Generated Output & Multi-Jurisdictional Realities*:
+     - *United States*: Under US Copyright Office Registration Guidance (March 2023) and judicial precedent (*Thaler v. Perlmutter*, 2023; *Naruto v. Slater*), copyright protection requires human authorship. Raw, unassisted machine-generated outputs lack human authorship and enter the public domain; users own only their human creative contributions (prompts, compilation, creative selection, arrangement, and subsequent human modifications).
+     - *India*: Under the Indian Copyright Act, 1957 Section 2(d)(vi), in relation to any computer-generated artistic, musical, or literary work, the author is statutorily defined as "the person who causes the work to be created", providing a statutory legal basis for user authorship of software outputs generated at the user's direction.
+     - *European Union*: Under Directive 2009/24/EC on the legal protection of computer programs and CJEU jurisprudence (*Infopaq International* C-5/08), copyright protection requires an "author's own intellectual creation" reflecting personality and free creative choices.
+     - *Universal Realities*: Generalizing US Copyright Office guidance globally is legally untenable. UIForge contractually disclaims ownership over output while explicitly instructing enterprise users to seek local jurisdiction intellectual property counsel.
+  6. *Unresolved Training Data Status*: Potential infringement risks and training-data provenance questions related to upstream foundation models (Anthropic Claude, OpenAI GPT, Google Gemini) cannot be contractually eliminated or indemnified by UIForge.
+- **Rationale**: Legally defensible, transparent, and accurately reflects multi-jurisdictional copyright realities across US, Indian, and EU legal systems without overclaiming global uniformity.
+- **Consequences**: CLI banners, licenses, generated-code JSDoc banners, and terms of service will reflect this qualified segmentation. Jurisdiction-specific IP questions must be escalated to qualified external IP counsel.
 - **Evidence Classification**: `PRIMARY-SOURCE-VERIFIED`, `EXTERNAL-LEGAL-REVIEW-REQUIRED`.
 
 ---
@@ -95,11 +99,13 @@ Following the Phase 02.3 Independent Audit Correction Pass (`UIF-PH02.3-CORRECTI
 
 ---
 
-### LDEC-06: File-Scoped Weak Copyleft Encapsulation of MPL-2.0 `axe-core`
-- **Context**: `dequelabs/axe-core` (`v4.14.1`) is licensed under **Mozilla Public License 2.0 (MPL-2.0)**.
-- **Decision**: Consume `axe-core` strictly as an unmodified external npm dependency wrapped behind `@uiforge/a11y-engine`. UIForge will write zero patches or modifications into axe-core source files and will configure bundlers to treat axe-core as an external package.
-- **Rationale**: Under MPL-2.0 Section 3.3 ("Larger Works"), combining unmodified MPL-2.0 files with separate modules is permitted, provided the distributor complies with Section 3.1 (license notice) and Section 3.2 (source code availability). Treating axe-core as an external dynamic dependency prevents bundlers (esbuild, Rollup) from merging MPL-2.0 code into shared application chunks.
-- **Consequences**: Outbound distributions must include MPL-2.0 license text and source availability notices in `NOTICE`. Bundler chunking boundaries escalated to external legal counsel.
+### LDEC-06: File-Scoped Weak Copyleft Encapsulation of MPL-2.0 `axe-core` (Engineering Boundary vs Statutory Scope)
+- **Context**: `dequelabs/axe-core` (`v4.14.1`) is licensed under the **Mozilla Public License 2.0 (MPL-2.0)**.
+- **Decision**: Consume `axe-core` strictly as an unmodified external npm dependency wrapped behind `@uiforge/a11y-engine`. UIForge will write zero patches or modifications into axe-core source files and recommends configuring bundlers (esbuild, Rollup) to treat `axe-core` as an external dependency (`external: ['axe-core']`).
+- **Rationale (Statutory Scope vs Engineering Practice)**:
+  - *Statutory Rule*: Under MPL-2.0 Section 3.3 ("Larger Works"), distributing a Larger Work in executable form is explicitly permitted under terms of the distributor's choice, provided the distributor complies with Section 3.1 (license and copyright notices) and Section 3.2 (source code availability of Covered Software). Bundling an unmodified MPL package into a bundled JavaScript file does NOT automatically extend copyleft or "infect" surrounding proprietary or MIT application code.
+  - *Engineering Recommendation*: Bundler externalization is an **optional engineering architectural choice**, NOT a universal statutory legal command. Configuring bundlers to externalize axe-core preserves clean file-level boundaries on disk, avoids ambiguities regarding what constitutes the covered "File" under Section 1.4, and simplifies automated license auditing. However, externalization does not independently establish compliance: compliance is established solely by providing required notices (Section 3.1) and ensuring access to covered source code (Section 3.2).
+- **Consequences**: Outbound distributions of UIForge must include the full MPL-2.0 license text and an explicit source availability notice in `NOTICE`. Bundler chunking boundaries, minification configurations, and client distribution models must be reviewed by external legal counsel.
 - **Evidence Classification**: `PACKAGE-METADATA-VERIFIED`, `VERSION-SPECIFIC-VERIFIED`, `EXTERNAL-LEGAL-REVIEW-REQUIRED`.
 
 ---

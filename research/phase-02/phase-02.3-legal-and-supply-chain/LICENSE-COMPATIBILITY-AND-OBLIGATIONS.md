@@ -79,15 +79,17 @@ Governs `dequelabs/axe-core` and `@axe-core/playwright`.
 - **Legal Mechanics of MPL-2.0**:
   - Unlike the GNU GPL, the copyleft scope of MPL-2.0 is strictly **file-scoped** (Section 1.10 "Modifications").
   - Any modification to an existing MPL-2.0 source file remains governed by MPL-2.0 and must be made available under MPL-2.0 terms.
-  - **"Larger Work" Safe Harbor (Section 3.3)**: A licensee may create a "Larger Work" by combining Covered Software with other code in separate files and distribute the Larger Work under a different license (e.g., Apache-2.0 or commercial). However, this safe harbor is **conditional**:
+  - **"Larger Work" Safe Harbor (Section 3.3)**: A licensee may create a "Larger Work" by combining Covered Software with other code in separate files and distribute the Larger Work under a different license (e.g., Apache-2.0 or commercial). Under Section 3.3, distributing a Larger Work in executable form is explicitly permitted under terms of the distributor's choice, provided the distributor satisfies:
     1. *Section 3.1 (Notices)*: All recipients must be informed that the Covered Software is governed by MPL-2.0, with license terms provided.
     2. *Section 3.2 (Source Availability)*: The distributor must make the Source Code Form of the Covered Software available under MPL-2.0.
-    3. *Bundler Chunking Boundaries*: If JavaScript bundlers inline or blend MPL-2.0 utility functions into a shared chunk with proprietary code, disputes could arise over whether the resulting chunk is a "Modified Version."
+  - **JavaScript Bundlers & Engineering Distinction (C15)**:
+    - *Statutory Rule*: Bundling an unmodified MPL package into a bundled JavaScript file (via esbuild, Rollup, or Webpack) does NOT automatically infect or extend copyleft to surrounding proprietary or MIT application code.
+    - *Engineering Recommendation*: UIForge recommends configuring bundlers to treat `axe-core` as an external dependency (`external: ['axe-core']`). This is an **optional engineering architectural choice**, NOT a universal statutory requirement. Externalization avoids ambiguity over what constitutes a "File" under Section 1.4 and simplifies automated license scanning. However, externalization does not independently establish compliance: compliance is established solely by providing required notices (Section 3.1) and ensuring access to covered source code (Section 3.2).
 - **UIForge Architectural Conformance**:
   1. UIForge consumes `axe-core` strictly as an unmodified external npm package dependency resolved via package manager.
   2. UIForge writes zero patches or code mutations directly into axe-core source files.
   3. UIForge wraps axe-core in `@uiforge/a11y-engine`, an isolated adapter module distributed under Apache-2.0.
-  4. Build bundlers explicitly configure `axe-core` and `@axe-core/playwright` as external dynamic dependencies (`external`), preventing inlined chunk blending.
+  4. Build bundlers configure `axe-core` and `@axe-core/playwright` as external dynamic dependencies as an engineering safeguard.
   5. The distribution `NOTICE` file bundles the MPL-2.0 license text and an explicit source code availability notice.
 
 ### 2.4 Strong / Reciprocal Library Copyleft: GNU LGPL-3.0
