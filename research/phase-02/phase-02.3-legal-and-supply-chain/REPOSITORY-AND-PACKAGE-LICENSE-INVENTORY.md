@@ -24,29 +24,43 @@ Every entry has been cross-examined against three independent sources:
 - **`DUAL`**: The package explicitly offers multiple licensing paths (e.g., Biome under MIT OR Apache-2.0).
 - **`NON-PKG`**: Repository represents documentation, design assets, or specification without a primary published npm runtime package.
 
-### 1.2 Summary Statistics & Reconciled Entity Breakdown (C11)
+### 1.2 Multi-Axial Matrix & Reconciled Entity Breakdown (C11, C21)
 
-In accordance with our independent audit correction pass, the 125 candidates in `candidate-inventory.md` represent a heterogeneous mix of repositories, packages, monorepos, font software, icon sets, specifications, and commercial references. **Repository count must never be conflated with package count.**
+In accordance with our independent audit correction pass, the 125 candidate records in `candidate-inventory.md` represent a multi-axial catalog evaluated along orthogonal, non-additive dimensions. **Candidate targets must never be summed additively across intersecting functional classifications.**
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│               RECONCILED CANDIDATE ENTITY BREAKDOWN                    │
-├──────────────────────────────────────────────────────┬─────────────────┤
-│ Entity Classification Category                       │ Count           │
-├──────────────────────────────────────────────────────┼─────────────────┤
-│ Public Git Repositories (GitHub)                     │ 119             │
-│ Web Targets, Commercial Sites & Educational Books    │ 6               │
-│ Multi-Package Monorepos (>20 to >100 packages each)  │ 8               │
-│ Primary Direct npm Runtime Packages                  │ 45              │
-│ Component Registry Source Templates                  │ 16              │
-│ Typography & Font Software Assets                    │ 6               │
-│ Vector Icon Systems                                  │ 8               │
-│ Open Specifications (W3C DTCG 2025.10)              │ 1               │
-│ Commercial / Proprietary Products Evaluated          │ 7               │
-│ Abandoned / Deprecated Candidates                    │ 3               │
-├──────────────────────────────────────────────────────┼─────────────────┤
-│ TOTAL EVALUATED CANDIDATE TARGETS                    │ 125             │
-└──────────────────────────────────────────────────────┴─────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│             AXIS 1: REPOSITORY & TARGET HOSTING CLASSIFICATION (PARTITION: N = 125)    │
+├──────────────────────────────────────────────────────────────┬─────────┬───────────────┤
+│ Target Hosting Classification                                │ Count   │ Percentage    │
+├──────────────────────────────────────────────────────────────┼─────────┼───────────────┤
+│ Public Git Repositories (GitHub Hosted)                      │ 119     │ 95.2%         │
+│ Web Targets, Commercial Documentation & Specifications       │ 6       │ 4.8%          │
+├──────────────────────────────────────────────────────────────┼─────────┼───────────────┤
+│ TOTAL UNIQUE EVALUATION TARGETS (AXIS 1 SUM)                 │ 125     │ 100.0%        │
+└──────────────────────────────────────────────────────────────┴─────────┴───────────────┘
+```
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│             AXIS 2: FUNCTIONAL CATEGORY & CONSUMPTION FORM (INTERSECTING / NON-ADDITIVE)│
+├──────────────────────────────────────────────────────────────┬─────────┬───────────────┤
+│ Functional Role / Candidate Form                             │ Count   │ Nature        │
+├──────────────────────────────────────────────────────────────┼─────────┼───────────────┤
+│ Primary Direct npm Runtime Packages (Single-Package repos)   │ 45      │ Mode 2 Direct │
+│ Multi-Package Monorepos (>20 to >100 distinct npm packages)  │ 8       │ Multi-Pkg Mode│
+│ Component Registry Source Templates (Mode 3 Copy-Paste)      │ 16      │ Code Templates│
+│ Typography & Font Software Assets (OFL-1.1 Binaries)         │ 6       │ Font Assets   │
+│ Vector Icon Systems & Compilers (CC0-1.0 / MIT SVGs)         │ 8       │ Icon Sets     │
+│ Open Technical Specifications (W3C DTCG 2025.10 Community)  │ 1       │ Specification │
+│ Commercial / Proprietary External References (Aceternity etc)│ 7       │ Reference/Rej │
+│ Abandoned / Deprecated Historical Projects (e.g. Stitches)    │ 3       │ Deprecated    │
+│ Clean-Room Architectural & Algorithmic References            │ 31      │ Mode 1 Study  │
+├──────────────────────────────────────────────────────────────┴─────────┴───────────────┤
+│ *Note: Functional roles intersect across targets (e.g., a monorepo may provide both   │
+│ direct runtime packages and CLI tools). They must NEVER be summed additively against  │
+│ the 125 unique target count.                                                          │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ```
@@ -163,7 +177,7 @@ In accordance with our independent audit correction pass, the 125 candidates in 
 | `OS-ICON-01` | [lucide-icons/lucide](https://github.com/lucide-icons/lucide)<br>Lucide Contributors | `lucide-react` | ISC | ISC | `MATCH` | Mode 2 / 3 | `v0.469.0` | `[APP]` | Foundational UI icon library. Permissive ISC license (MIT equivalent). |
 | `OS-ICON-02` | [tailwindlabs/heroicons](https://github.com/tailwindlabs/heroicons)<br>Tailwind Labs | `@heroicons/react` | MIT | MIT | `MATCH` | Mode 2 / 3 | `v2.2.0` | `[APP]` | Official Tailwind icon primitives. Permissive MIT. |
 | `OS-ICON-03` | [tabler/tabler-icons](https://github.com/tabler/tabler-icons)<br>Paweł Kuna | `@tabler/icons-react`| MIT | MIT | `MATCH` | Mode 2 / 3 | `v3.26.0` | `[APP]` | Comprehensive vector icon set. Permissive MIT. |
-| `OS-ICON-04` | [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons)<br>Simple Icons Team | `simple-icons` | CC0-1.0 | CC0-1.0 | `MATCH` | Mode 2 (`[DEP]`) | `v14.1.0` | `[OBL]` | CC0-1.0 code/data, BUT subject to corporate trademark restrictions. |
+| `OS-ICON-04` | [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons)<br>Simple Icons Team | `simple-icons` | CC0-1.0 | CC0-1.0 | `MATCH` | Mode 2 (`[DEP]`) | `v14.1.0` | `[OBL]` | CC0-1.0 code/data, BUT subject to corporate trademark restrictions. Pinned exact `14.1.0` in `pnpm-lock.yaml` to prevent unvetted additions from weekly upstream release cadence. |
 | `OS-ICON-05` | [radix-ui/icons](https://github.com/radix-ui/icons)<br>WorkOS | `@radix-ui/react-icons`| MIT | MIT | `MATCH` | Mode 2 (`[DEP]`) | `v1.3.2` | `[APP]` | 15x15 pixel system icons under MIT. |
 | `OS-ICON-06` | [feathericons/feather](https://github.com/feathericons/feather)<br>Cole Bemis | `feather-icons` | MIT | MIT | `MATCH` | Mode 1 (`[REF]`) | `v4.29.2` | `[REF]` | Upstream baseline for Lucide. Historical reference. |
 | `OS-ICON-07` | [gregberge/svgr](https://github.com/gregberge/svgr)<br>Greg Berge | `@svgr/core` | MIT | MIT | `MATCH` | Mode 2 (`[DEP]`) | `v8.1.0` | `[APP]` | SVG to React JSX compiler. Permissive MIT. |
@@ -218,7 +232,7 @@ In accordance with our independent audit correction pass, the 125 candidates in 
 
 | ID | Repository & Upstream Org | npm Package | Declared Repo License | Declared npm License | Consistency | Mode | Audited Version | Disposition | Compliance Rationale & Obligations |
 | :--- | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :---: | :--- |
-| `OS-A11Y-01` | [dequelabs/axe-core](https://github.com/dequelabs/axe-core)<br>Deque Systems Inc. | `axe-core` | MPL-2.0 | MPL-2.0 | `MATCH` | Mode 2 (`[DEP]`) | `v4.14.1` | `[CND]` | Pinned a11y engine. MPL-2.0 weak copyleft: wrap behind `@uiforge/a11y-engine`; do not modify internal files. |
+| `OS-A11Y-01` | [dequelabs/axe-core](https://github.com/dequelabs/axe-core)<br>Deque Systems Inc. | `axe-core` | MPL-2.0 | MPL-2.0 | `MATCH` | Mode 2 (`[DEP]`) | `v4.14.1` | `[CND]` | Pinned a11y engine. MPL-2.0 weak copyleft: wrap behind `@uiforge/a11y-engine`; do not modify internal files. Reconciled with audited `axe-core@4.10.2` + `@axe-core/playwright@4.10.1` harness; Phase 03 will pair `4.14.1` with compatible adapter or inject via `AxeBuilder.withSource()`. |
 | `OS-A11Y-02` | [pa11y/pa11y](https://github.com/pa11y/pa11y)<br>Pa11y Team | `pa11y` | LGPL-3.0 | LGPL-3.0 | `MATCH` | Mode 4 (`[INF]`) | `v10.0.0` | `[CND]` | Strong copyleft. Strictly isolated as optional CLI subprocess runner (`Mode 4`). NEVER bundle in Core. |
 | `OS-A11Y-03` | [alphagov/govuk-frontend](https://github.com/alphagov/govuk-frontend)<br>UK Government Digital Service| `govuk-frontend` | MIT | MIT | `MATCH` | Mode 1 (`[REF]`) | `v5.8.0` | `[REF]` | Public sector accessibility gold standard. Clean-room reference. |
 | `OS-A11Y-04` | [microsoft/accessibility-insights-web](https://github.com/microsoft/accessibility-insights-web)<br>Microsoft Corp. | `accessibility-insights-web` | MIT | MIT | `MATCH` | Mode 1 (`[REF]`) | `v2.44.0` | `[REF]` | Accessibility testing ruleset reference under MIT. |
@@ -250,7 +264,7 @@ In accordance with our independent audit correction pass, the 125 candidates in 
 
 | ID | Repository & Upstream Org | npm Package | Declared Repo License | Declared npm License | Consistency | Mode | Audited Version | Disposition | Compliance Rationale & Obligations |
 | :--- | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :---: | :--- |
-| `OS-AGNT-01` | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)<br>Anthropic PBC | `@modelcontextprotocol/server`| MIT | MIT | `MATCH` | Mode 2 (`[DEP]`) | `v0.6.2` | `[APP]` | Model Context Protocol TypeScript SDK. Permissive MIT. |
+| `OS-AGNT-01` | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)<br>Anthropic PBC | `@modelcontextprotocol/server`| MIT | MIT | `MATCH` | Mode 2 (`[DEP]`) | `v0.6.2` / `v1.x` | `[APP]` | Model Context Protocol TypeScript SDK. Permissive MIT. Reconciled historical audited `@modelcontextprotocol/sdk@0.6.0` with stable v1 maintenance line (`^1.0.0`) and emerging modular v2 packages behind `@uiforge/mcp-server`. |
 | `OS-AGNT-02` | [run-llama/LlamaIndexTS](https://github.com/run-llama/LlamaIndexTS)<br>LlamaIndex | `llamaindex` | MIT | MIT | `MATCH` | Mode 1 (`[REF]`) | `v0.8.2` | `[REF]` | TypeScript agent memory and tool calling. Reference only. |
 | `OS-AGNT-03` | [langchain-ai/langchainjs](https://github.com/langchain-ai/langchainjs)<br>Harrison Chase | `@langchain/core` | MIT | MIT | `MATCH` | Mode 1 (`[REF]`) | `v0.3.30` | `[REF]` | Orchestration agent patterns under MIT. Clean-room reference. |
 | `OS-AGNT-04` | [browserbase/stagehand](https://github.com/browserbase/stagehand)<br>Browserbase Inc. | `@browserbasehq/stagehand` | MIT | MIT | `MATCH` | Mode 1 (`[REF]`) | `v1.14.0` | `[REF]` | AI browser automation primitives. Clean-room reference. |

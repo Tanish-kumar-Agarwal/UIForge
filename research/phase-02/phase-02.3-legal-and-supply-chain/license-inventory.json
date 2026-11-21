@@ -6,6 +6,25 @@
   "auditor": "Principal Open-Source Licensing and Compliance Architect",
   "statistics": {
     "totalCandidates": 125,
+    "multiAxialBreakdown": {
+      "axis1TargetHosting": {
+        "gitHubRepositories": 119,
+        "webTargetsAndSpecs": 6,
+        "totalAxis1": 125
+      },
+      "axis2FunctionalRoles": {
+        "directNpmRuntimePackages": 45,
+        "multiPackageMonorepos": 8,
+        "componentRegistryTemplates": 16,
+        "typographyAndFontAssets": 6,
+        "vectorIconSystems": 8,
+        "openSpecifications": 1,
+        "commercialProprietaryReferences": 7,
+        "abandonedDeprecatedProjects": 3,
+        "cleanRoomArchitecturalReferences": 31,
+        "note": "Axis 2 roles intersect across targets and must never be summed additively against Axis 1 total"
+      }
+    },
     "dispositions": {
       "APPROVED": 78,
       "APPROVED_WITH_OBLIGATIONS": 24,
@@ -190,7 +209,10 @@
       "consumptionMode": "MODE_2",
       "auditedVersion": "v14.1.0",
       "disposition": "APPROVED_WITH_OBLIGATIONS",
-      "obligations": ["Inject nominative fair use trademark disclaimer into emitted brand components"]
+      "obligations": [
+        "Inject nominative fair use trademark disclaimer and user opt-in prompt into emitted brand components",
+        "Pin exact semver 14.1.0 in pnpm-lock.yaml to prevent unvetted brand marks from weekly upstream release cadence"
+      ]
     },
     {
       "id": "OS-FONT-01",
@@ -246,7 +268,11 @@
       "consumptionMode": "MODE_2",
       "auditedVersion": "v4.14.1",
       "disposition": "CONDITIONAL",
-      "obligations": ["Wrap behind @uiforge/a11y-engine; consume unmodified; do not edit internal source"]
+      "obligations": [
+        "Wrap behind @uiforge/a11y-engine; consume unmodified; do not edit internal source; retain Section 3.1 notice and Section 3.2 source availability",
+        "Reconcile with audited axe-core@4.10.2 + @axe-core/playwright@4.10.1 harness; Phase 03 will pair 4.14.1 with compatible adapter or inject via AxeBuilder.withSource()",
+        "Configure bundlers to externalize axe-core as an engineering recommendation"
+      ]
     },
     {
       "id": "OS-A11Y-02",
@@ -300,9 +326,12 @@
       "npmLicense": "MIT",
       "consistency": "MATCH",
       "consumptionMode": "MODE_2",
-      "auditedVersion": "v0.6.2",
+      "auditedVersion": "v0.6.2 / v1.x",
       "disposition": "APPROVED",
-      "obligations": ["Standard MIT attribution"]
+      "obligations": [
+        "Standard MIT attribution",
+        "Reconcile historical candidate @modelcontextprotocol/sdk@0.6.0 with stable v1 maintenance line (^1.0.0) and emerging modular v2 packages behind @uiforge/mcp-server"
+      ]
     },
     {
       "id": "OS-BROW-01",
