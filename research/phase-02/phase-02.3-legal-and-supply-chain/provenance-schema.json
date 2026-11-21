@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://uiforge.dev/schemas/provenance-v1.json",
+  "title": "UIForgeProvenanceManifest",
+  "description": "Canonical cryptographic provenance and legal attribution manifest for UIForge generated components and assets.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "generatedAt",
+    "generator",
+    "artifacts"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generator": {
+      "type": "object",
+      "required": ["name", "version", "purl"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "purl": { "type": "string" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "targetPath",
+          "purl",
+          "fileSha256",
+          "upstream",
+          "transformations",
+          "compliance"
+        ],
+        "properties": {
+          "targetPath": { "type": "string" },
+          "purl": { "type": "string" },
+          "fileSha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "upstream": {
+            "type": "object",
+            "required": [
+              "repository",
+              "purl",
+              "commitSha",
+              "author",
+              "license"
+            ],
+            "properties": {
+              "repository": { "type": "string", "format": "uri" },
+              "purl": { "type": "string" },
+              "commitSha": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "author": { "type": "string" },
+              "license": { "type": "string" },
+              "licenseUrl": { "type": "string", "format": "uri" }
+            }
+          },
+          "transformations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["engine", "action", "timestamp"],
+              "properties": {
+                "engine": { "type": "string" },
+                "action": { "type": "string" },
+                "timestamp": { "type": "string", "format": "date-time" }
+              }
+            }
+          },
+          "compliance": {
+            "type": "object",
+            "required": [
+              "retainsCopyrightNotice",
+              "containsReciprocalCopyleft",
+              "a11yAuditPassed"
+            ],
+            "properties": {
+              "retainsCopyrightNotice": { "type": "boolean" },
+              "containsReciprocalCopyleft": { "type": "boolean" },
+              "a11yAuditPassed": { "type": "boolean" },
+              "axeCoreVersion": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["keyId", "algorithm", "signature"],
+        "properties": {
+          "keyId": { "type": "string" },
+          "algorithm": { "type": "string", "enum": ["Ed25519", "ECDSA_P256", "RSA_PSS"] },
+          "signature": { "type": "string" }
+        }
+      }
+    }
+  }
+}

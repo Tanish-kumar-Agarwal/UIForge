@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "strategyId": "UIF-PH02.3-JSON-SBOM-STRATEGY-01",
+  "phase": "02.3",
+  "generatedAt": "2026-11-21T18:00:55.000Z",
+  "author": "SBOM and Software Provenance Specialist",
+  "standards": {
+    "primarySecurity": {
+      "standard": "CycloneDX",
+      "version": "1.6",
+      "format": "JSON",
+      "targetUse": "Automated DevSecOps, VEX triage, CI/CD gates, asset modeling",
+      "tooling": "@cyclonedx/cyclonedx-npm",
+      "outputFilename": "bom.cyclonedx.json",
+      "schemaValidationUrl": "https://cyclonedx.org/schema/bom-1.6.schema.json",
+      "capabilities": [
+        "native-vex",
+        "purl-identification",
+        "cryptographic-hashes",
+        "design-token-asset-tracking",
+        "font-asset-tracking"
+      ]
+    },
+    "legalExport": {
+      "standard": "SPDX",
+      "version": "2.3",
+      "format": "JSON",
+      "targetUse": "Enterprise legal audits, OSPO review, M&A due diligence",
+      "tooling": "@spdx/spdx-tools",
+      "outputFilename": "bom.spdx.json",
+      "schemaValidationUrl": "https://spdx.org/schema/2.3/spdx-schema.json",
+      "capabilities": [
+        "spdx-license-expressions",
+        "copyright-text-aggregation",
+        "file-level-snippets",
+        "notice-file-correlation"
+      ]
+    }
+  },
+  "packageUrlRules": {
+    "npm": "pkg:npm/{namespace}/{name}@{version}",
+    "github": "pkg:github/{org}/{repo}@{commitSha}#{subpath}",
+    "uiforgeRegistry": "pkg:uiforge/registry/{componentName}@{version}?source={upstreamSource}",
+    "fontAsset": "pkg:npm/%40fontsource/{fontName}@{version}"
+  },
+  "vexPolicy": {
+    "enabled": true,
+    "allowedStates": [
+      "not_affected",
+      "resolved",
+      "in_triage",
+      "exploitable"
+    ],
+    "mandatoryFieldsForNotAffected": [
+      "justification",
+      "detail"
+    ],
+    "activeVexRecords": [
+      {
+        "vulnerabilityId": "CVE-2026-54639",
+        "targetPurl": "pkg:npm/style-dictionary@5.8.0",
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "impactAnalysis": "UIForge operates Style Dictionary strictly on in-memory DTCG JSON ASTs with no dynamic filesystem path resolution."
+      }
+    ]
+  },
+  "slsaAlignment": {
+    "targetLevel": "SLSA_BUILD_LEVEL_3",
+    "requirements": {
+      "hermeticBuild": true,
+      "isolatedEnvironment": true,
+      "ephemeralRunners": true,
+      "retainedHistory": true,
+      "signedProvenance": true,
+      "signingMethod": "Sigstore Cosign OIDC with GitHub Actions token"
+    }
+  }
+}
