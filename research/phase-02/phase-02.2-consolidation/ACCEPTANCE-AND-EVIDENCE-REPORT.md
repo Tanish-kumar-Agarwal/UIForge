@@ -20,7 +20,7 @@ In strict accordance with the UIForge Research Standard:
 
 ---
 
-## 2. Comprehensive Acceptance Scorecard (25 Criteria)
+## 2. Comprehensive Acceptance Scorecard (28 Criteria)
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -47,7 +47,7 @@ In strict accordance with the UIForge Research Standard:
 │ SEC  │ 15. Agent instructions cannot grant permissions         │ PASS       │ Section 5│
 │ SEC  │ 16. External content & registries untrusted by default  │ PASS       │ Section 5│
 │ SEC  │ 17. Browser isolation & SSRF defense specified          │ PARTIAL    │ Section 5│
-│ SEC  │ 18. Approval replay & TOCTOU stale snapshot prevented   │ PASS       │ Section 5│
+│ SEC  │ 18. Approval replay & TOCTOU stale snapshot prevented   │ PARTIAL    │ Section 5│
 │ SEC  │ 19. Secret redaction & chained audit logging consistent │ PARTIAL    │ Section 5│
 ├──────┼─────────────────────────────────────────────────────────┼────────────┼──────────┤
 │ PROV │ 20. Component & asset provenance schema defined         │ PASS       │ Section 6│
@@ -65,8 +65,8 @@ In strict accordance with the UIForge Research Standard:
 ```
 
 **Final Scorecard Reconciliation:**
-- **PASS:** 26 Criteria (92.9%)
-- **PARTIAL:** 2 Criteria (7.1% — Browser SSRF runtime enforcement and OS-level audit anchoring pending Phase 02.4 / Phase 03)
+- **PASS:** 25 Criteria (89.3%)
+- **PARTIAL:** 3 Criteria (10.7% — Criterion 17 Browser SSRF runtime sandbox, Criterion 18 OS filesystem locking/TOCTOU concurrency, Criterion 19 external PKI audit anchoring)
 - **NOT ESTABLISHED:** 0 Criteria
 - **NOT APPLICABLE:** 0 Criteria
 - **Total Evaluated:** 28 Criteria
@@ -101,7 +101,7 @@ In strict accordance with the UIForge Research Standard:
 
 ### Criterion 6: Shared project identity & snapshot hash defined
 - **Status:** `PASS`
-- **Evidence:** `uiforge.contract.project-intelligence.v1` defines immutable `snapshotId` and `snapshotHash` (SHA-256 Merkle root of all analyzed repository files).
+- **Evidence:** `uiforge.contract.project-intelligence.v1` defines `projectId`, `snapshotId`, `analysisRunId`, `analysisCompleteness`, and `snapshotHash` (SHA-256 Merkle root of tracked source files, package manifests, lockfiles, and configs). Explicitly disclaims that a Merkle root alone eliminates staleness without execution-time revalidation.
 
 ### Criterion 7: Component & registry models compatible & separated
 - **Status:** `PASS`
@@ -109,7 +109,7 @@ In strict accordance with the UIForge Research Standard:
 
 ### Criterion 8: Token contracts preserve original data & semantics
 - **Status:** `PASS`
-- **Evidence:** `uiforge.contract.design-token.v1` adopts W3C DTCG 2025.10 (`components: [r, g, b]`), stores raw and normalized values, preserves `$deprecated` and descriptions, and supports multi-dimensional mode resolution (light/dark, contrast, density).
+- **Evidence:** `uiforge.contract.design-token.v1` adopts DTCG 2025.10 (stable W3C Community Group specification), models colors using `colorSpace` + `components` (`[L, C, H]` for OKLCH, `[r, g, b]` for sRGB), stores raw and normalized values, preserves `$deprecated` and descriptions, and supports multi-dimensional mode resolution (light/dark, contrast, density).
 
 ### Criterion 9: Transformation contracts include loss reporting
 - **Status:** `PASS`
@@ -152,8 +152,8 @@ In strict accordance with the UIForge Research Standard:
 - **Explanation:** Network route interception blocking RFC 1918, cloud metadata, and IPv6 loopback is fully specified in architecture and verified in local mock harnesses (WS-4 Experiment E8). However, live OS kernel containerization / process sandboxing remains a Phase 02.4 / Phase 03 implementation task.
 
 ### Criterion 18: Approval replay & TOCTOU stale snapshot prevented
-- **Status:** `PASS`
-- **Evidence:** Approval tokens are single-use (consumed atomically in SQLite journal upon transaction start) with a 15-minute TTL. Microsecond pre-image SHA-256 checks detect concurrent disk modifications.
+- **Status:** `PARTIAL`
+- **Explanation:** Approval tokens are strictly single-use with a 15-minute TTL bound to `compositeDiffDigest`, `boundTargetPaths`, `boundProjectId`, and `boundSnapshotId`. Microsecond pre-image SHA-256 checks provide point-in-time precondition validation. However, eliminating execution-time filesystem TOCTOU race conditions requires multi-layer defenses (`fs.realpathSync`, staging in `.uiforge/staging/`, atomic rename replacement, OS-level file locking, and crash recovery), which are specified in architecture and proven in in-memory policy harnesses (WS-5 E5) but require live OS-level validation in Phase 02.4 / Phase 03.
 
 ### Criterion 19: Secret redaction & chained audit logging consistent
 - **Status:** `PARTIAL`

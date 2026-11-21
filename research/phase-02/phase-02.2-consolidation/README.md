@@ -49,7 +49,7 @@ research/phase-02/phase-02.2-consolidation/
 ├── CONFLICT-AND-GAP-REGISTER.md                # 12 identified cross-workstream conflicts & formal resolutions
 ├── END-TO-END-WORKFLOWS.md                     # 7 complete end-to-end operational flows with sequence diagrams
 ├── PHASE-03-IMPLEMENTATION-READINESS.md        # Dependency-driven implementation order, complexity & roadmap
-└── ACCEPTANCE-AND-EVIDENCE-REPORT.md           # Formal evaluation against all 25 system acceptance criteria
+└── ACCEPTANCE-AND-EVIDENCE-REPORT.md           # Formal evaluation against all 28 system acceptance criteria
 ```
 
 ### Detailed Document Roles
@@ -66,7 +66,7 @@ research/phase-02/phase-02.2-consolidation/
 | **`CONFLICT-AND-GAP-REGISTER.md`** | Technical Reconciliation | 12 technical conflicts across workstreams (e.g., AST engine capabilities, token color semantics, approval enforcement, hash digests vs signatures) with explicit resolutions. |
 | **`END-TO-END-WORKFLOWS.md`** | Operational Scenarios | Flows A through G: Brownfield analysis, component discovery/reuse, token extraction/generation, controlled transformation, browser verification, MCP agent integration, rollback & crash recovery. |
 | **`PHASE-03-IMPLEMENTATION-READINESS.md`** | Implementation Blueprint | 4-stage implementation order; package prerequisites; complexity classifications; high-risk prototype requirements; Phase 03 milestone roadmap. |
-| **`ACCEPTANCE-AND-EVIDENCE-REPORT.md`** | Quality Gate & Audit | Audit of all 25 prompt acceptance criteria across Architecture, Contracts, Security, Provenance, Evidence, and Implementation Readiness. Overall status determination. |
+| **`ACCEPTANCE-AND-EVIDENCE-REPORT.md`** | Quality Gate & Audit | Audit of all 28 prompt acceptance criteria across Architecture, Contracts, Security, Provenance, Evidence, and Implementation Readiness. Overall status determination. |
 
 ---
 
@@ -120,8 +120,8 @@ UIForge is organized into **11 Canonical Functional Layers** operating under str
 1. **Read-Only by Default (Brownfield Safety):** All project inspection, AST parsing, component scanning, token extraction, and lint audits are strictly read-only. No filesystem mutations, formatting passes, dependency installations, or configuration writes occur without an explicit, diff-bound human approval token.
 2. **Decoupled Agent Boundaries:** UIForge provides deterministic environment intelligence and verified action tools. It does not wrap, bill for, or orchestrate proprietary LLM inference engines. External agents connect via standard MCP or the Agent SDK and bring their own intelligence.
 3. **Evidence-Backed Verification:** Automated testing cannot declare WCAG 2.2 AA conformance; it reports discrete test results across 55 criteria (12 automated, 23 browser-traced, 20 human-audited). Visual regression detects per-pixel perceptual differences via Pixelmatch v8 OKLab/HyAB but requires explicit human golden approval.
-4. **Deterministic Token & Styling Transformations:** Design tokens are modeled strictly under W3C DTCG 2025.10 (`components` property). Cross-paradigm conversions (Tailwind, CSS Modules, Sass) generate explicit conversion loss reports and distinguish *Value Preservation* from *Semantic Preservation*.
-5. **Multi-File Journaled Atomicity:** Filesystem transformations maintain a local write-ahead journal with pre-image SHA-256 snapshots, providing deterministic rollback while honestly disclaiming unmanaged npm lifecycle scripts and external caches.
+4. **Deterministic Token & Styling Transformations:** Design tokens are modeled strictly under DTCG 2025.10 (stable W3C Community Group specification, `colorSpace` + `components` properties, e.g. `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB). Cross-paradigm conversions (Tailwind, CSS Modules, Sass) generate explicit conversion loss reports and distinguish *Value Preservation* from *Semantic Preservation*.
+5. **Multi-File Journaled Atomicity:** Filesystem transformations maintain a local write-ahead journal with pre-image SHA-256 snapshots, atomic file replacement, and multi-layer filesystem protections, providing deterministic rollback while honestly disclaiming unmanaged npm lifecycle scripts and external caches.
 
 ---
 

@@ -77,7 +77,7 @@ research/phase-02/
 │   ├── CONFLICT-AND-GAP-REGISTER.md                   # 12 technical contradictions resolved
 │   ├── END-TO-END-WORKFLOWS.md                        # Flows A–G with complete Mermaid sequence diagrams
 │   ├── PHASE-03-IMPLEMENTATION-READINESS.md           # 4-stage dependency roadmap & complexity matrix
-│   └── ACCEPTANCE-AND-EVIDENCE-REPORT.md              # Quality gate audit (26 PASS, 2 PARTIAL, 0 NOT ESTABLISHED)
+│   └── ACCEPTANCE-AND-EVIDENCE-REPORT.md              # Quality gate audit (25 PASS, 3 PARTIAL, 0 NOT ESTABLISHED)
 │
 └── experiments/                                       # Empirical Experiments, Fixtures & Audit Evidence
     ├── README.md                                      # Experiment catalog and execution instructions
