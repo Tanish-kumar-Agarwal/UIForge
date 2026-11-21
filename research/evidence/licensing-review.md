@@ -71,3 +71,15 @@ UIForge follows strict intellectual property, licensing, and provenance standard
 | **Reference / No Redistribution Without Permission** | React Bits (MIT + Commons Clause) | Study architectural and animation patterns; do not vendor or redistribute source files without explicit permission. |
 | **Exclude from Redistributable Registry** | Aceternity Pro, GPL/AGPL component libraries | Excluded by UIForge product policy to preserve permissive, unencumbered redistribution for end users. |
 | **Build Native Replacement** | AST surgical patching engine, Anti-AI visual scoring heuristics, Multi-agent context adapters | Build in-house; no suitable open-source tool exists that satisfies UIForge's exact architectural requirements. |
+
+
+
+
+
+
+
+
+
+
+
+
