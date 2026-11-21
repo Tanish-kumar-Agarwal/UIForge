@@ -68,24 +68,32 @@ In strict compliance with the **Acceptance Rule** (*"Do not declare 36/36 PASS u
 
 ## 3. Explicit Qualification of Automated Validation vs. Manual Review (Issue 8 Resolution)
 
-The automated validation suite executes deterministic checks over structural data integrity:
-- **Verified by Automated Harness:** JSON syntax, schema conformance, candidate ID preservation, priority census, repository link validation, mode permission enum adherence, dependency arithmetic (111 + 2 + 7 + 1 + 4 = 125), font RFN fields, evidence item counts and claim fields.
-- **Subject to Ongoing Human & Counsel Review:** Substantive legal risk under complex commercial contracts (e.g. Webflow non-compete scope, Remotion employee count thresholds, LGPL-3.0 dynamic linking); cryptographic digital signatures of upstream authors (Cosign/Sigstore); emerging dynamic CVEs.
+The automated validation suite executes deterministic checks over structural data integrity across 46 explicit assertions:
+- **Verified by Automated Harness:**
+  1. *Candidate-ID Preservation (Test 05):* 100% of canonical candidate IDs match directly via immutable `candidateId`.
+  2. *Priority & Selection Precedence (Tests 06, 07, 08, 23, 24):* Canonical distribution (P0: 24, P1: 47, P2: 50, REJ: 4) and strict exclusion of `REJ` candidates from default core runtime selection.
+  3. *License-Entity Completeness (Test 14):* Exactly 12 normalized license entities including `LIC-EVERY-LAYOUT-COMMERCIAL`.
+  4. *Font-Asset Census & RFN Obligations (Tests 16, 17, 18, 19):* Exactly 8 assets including Inter, Geist, and Fontsource-distributed JetBrains Mono and Fira Code.
+  5. *Claim-Level Evidence Quality (Tests 40, 41):* Exactly 625 granular evidence items containing `claimSupported`, `exactSourceArtifact`, `relevantFileOrSection`, and `verificationClassification`.
+  6. *Exact Dependency Arithmetic (Tests 31, 32, 44, 45, 46):* 111 APPROVED + 2 RESTRICTED (113 eligible) + 7 BLOCKED + 1 PENDING + 4 NOT_APPLICABLE = 125 records.
+- **Critical Audit Qualification:** *A passing validator proves only the conditions it actually tests.* Automated tests certify schema adherence, referential consistency, and inventory completeness. They do **not** substitute for legal counsel opinion on complex copyleft or commercial contracts, do not prove upstream author cryptographic identity (Cosign/Sigstore), and do not verify dynamic runtime browser rendering.
 
 ---
 
-## 4. Resolution of the 12 Audit Findings
+## 4. Reconciliation of All 12 Audit Findings
 
-1. **Dependency Arithmetic (Issue 1):** Verified 111 APPROVED + 2 RESTRICTED (113 eligible) + 7 BLOCKED + 1 PENDING + 4 NOT_APPLICABLE (`Every-Layout`, `claude-code`, `cursor`, `windsurf`) = 125 sources without omissions.
-2. **REJ Candidates vs Selection (Issue 2):** Explicitly established that `originalDiscoveryPriority: REJ` excludes candidates from the default core runtime stack in Phase 02.5. Mode permissions define secondary plugin emission boundaries only.
-3. **Every Layout License Census (Issue 3 & 10):** Added `LIC-EVERY-LAYOUT-COMMERCIAL` to `licenses.json` (12 normalized licenses total). Documented paid authored content terms and clean-room CSS algorithm permissions.
-4. **Font Inventory Reconciliation (Issue 4):** Reconciled Inter and Geist as standalone font upstream candidates (`OS-TYPO-04`, `OS-TYPO-05`); traced JetBrains Mono and Fira Code to Fontsource monorepo candidate (`OS-TYPO-03`). Updated `assets.json` to 8 assets.
-5. **Candidate IDs vs Source IDs (Issue 5):** Immutable `candidateId` preserved directly in `sources.json` and validated without alias transformations.
-6. **axe-core Tool Distribution Boundary (Issue 6 & 11):** Set `EXTERNAL_TOOL: ELIGIBLE_WITH_RESTRICTIONS` (`counselReviewRequired: true`). Documented concrete user-managed integration model (invoking user-installed CLI; no binary bundling).
-7. **625 Evidence Items Quality (Issue 7):** Enhanced all 625 items with `claimSupported`, `exactSourceArtifact`, `relevantFileOrSection`, and `verificationClassification`.
-8. **Validator Scope Qualification (Issue 8):** Fully qualified what the 46 assertions prove and what requires ongoing manual/counsel review.
-9. **GSAP Product-Scoped Terms (Issue 9):** Scoped restriction to Webflow’s narrow prohibition (no-code visual animation builders). UIForge’s programmatic React code emission is permitted.
-10. **Terminology Correction (Issue 12):** Standardized on **"71 complete candidate technical evaluations"** and **"54 screened/partial technical evaluations"**, eliminating inappropriate "AST audit" claims.
+1. **Finding 01 — Dependency Arithmetic Incompleteness:** Reconciled all 125 records without omissions: 111 `APPROVED` + 2 `ELIGIBLE_WITH_RESTRICTIONS` (113 eligible) + 7 `BLOCKED` + 1 `PENDING_REVIEW` + 4 `NOT_APPLICABLE` (`Every-Layout`, `claude-code`, `cursor`, `windsurf`) = 125. **Status: RESOLVED.**
+2. **Finding 02 — REJ Candidates Selection Precedence vs Consumption Mode:** Codified in `REGISTRY-ELIGIBILITY-POLICY.md` and `PHASE-02.5-HANDOFF.md` that `originalDiscoveryPriority: REJ` strictly excludes candidates from the default core runtime stack in Phase 02.5. Mode permissions define secondary user-selected plugin emission only. **Status: RESOLVED.**
+3. **Finding 03 — Every Layout License Entity Omission:** Added `LIC-EVERY-LAYOUT-COMMERCIAL` to `data/licenses.json`, bringing the normalized license census to exactly 12 entities and ensuring complete coverage for all 125 candidate sources. **Status: RESOLVED.**
+4. **Finding 04 — Font Inventory Reconciliation:** Reconciled that Inter (`OS-TYPO-04`) and Geist (`OS-TYPO-05`) are standalone upstream candidate sources, while JetBrains Mono and Fira Code are font packages distributed via candidate `OS-TYPO-03` (`fontsource/fontsource`). Added asset records for both to `data/assets.json` (8 assets total), preserving SIL OFL 1.1 Reserved Font Name (RFN) obligations. **Status: RESOLVED.**
+5. **Finding 05 — Candidate IDs vs Source IDs Distinction:** Preserved original canonical IDs (`candidateId`) across all 125 records in `data/sources.json` alongside registry identifiers (`sourceId`), and validated direct matching with zero alias mutations. **Status: RESOLVED.**
+6. **Finding 06 — axe-core External-Tool Distribution Boundary:** Established an architectural isolation boundary for axe-core external tool execution: UIForge invokes a user-installed copy (`@axe-core/cli`) out-of-process and does not bundle, redistribute, or host executable binaries. Classified as `ELIGIBLE_WITH_RESTRICTIONS` with `allowed: true`. **Status: RESOLVED.**
+7. **Finding 07 — Claim-Level Quality Fields across 625 Evidence Items:** Enhanced all 625 items in `data/evidence.json` with `claimSupported`, `exactSourceArtifact`, `evaluatedVersionOrCommit`, `relevantFileOrSection`, and `verificationClassification`. **Status: RESOLVED.**
+8. **Finding 08 — Automated Validator Scope Qualification:** Fully qualified in validation reporting that automated tests certify schema, integrity, and referential constraints, but do not prove substantive legal clearance or upstream authenticity. **Status: RESOLVED.**
+9. **Finding 09 — GSAP Restriction Scoped to UIForge Product Behavior:** Scoped the proprietary restriction to Webflow’s April 30, 2025 Standard License: prohibited use strictly targets competing visual no-code animation keyframe builders. UIForge's programmatic developer-facing React/TypeScript code generation (`import gsap from 'gsap'`) is permitted. **Status: RESOLVED.**
+10. **Finding 10 — Every Layout Authored Content Terms vs Clean-Room Boundaries:** Distinguished permissible study of general, uncopyrightable CSS layout concepts (flexbox wrapping, CSS grid auto-fit/auto-fill, clamp-based fluid spacing) from strictly prohibited copying of protected authored text, explanatory prose, copyrighted diagrams, illustrations, or proprietary implementation code under `LIC-EVERY-LAYOUT-COMMERCIAL`. Qualified that UIForge makes **no unconditional legal guarantee** that every algorithm-related layout implementation is automatically permitted; clean-room engineering verification and legal review remain required. **Status: RESOLVED.**
+11. **Finding 11 — Mandatory Counsel Review Flags (`counselReviewRequired: true`):** Preserved `counselReviewRequired: true` across `axe-core` and `pa11y` in `data/consumption-permissions.json` and governance policies, ensuring architectural isolation models are not misconstrued as unconditional legal clearance. **Status: RESOLVED.**
+12. **Finding 12 — Standardization of Technical Evaluation Terminology:** Standardized terminology across all registry files to **"71 complete candidate technical evaluations"** (all 10 dimensions evaluated) and **"54 screened/partial technical evaluations"**, eliminating inappropriate "AST audit" claims. **Status: RESOLVED.**
 
 ---
 

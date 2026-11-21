@@ -70,9 +70,9 @@ Accounting for all 125 candidate sources in `DEPENDENCY` mode:
 ## 5. Critical Candidates Governance Summary
 
 - **GSAP (`SRC-OS-ANIM-04`):** `DEPENDENCY: ELIGIBLE_WITH_RESTRICTIONS` (emitted user dependency permitted under Webflow April 2025 Standard License; non-compete applies to visual animation builders; UIForge React emission permitted); `SOURCE_COPY: BLOCKED`.
-- **axe-core (`SRC-OS-A11Y-01`):** `DEPENDENCY: ELIGIBLE_WITH_RESTRICTIONS` (MPL-2.0 Section 3 notices); `SOURCE_COPY: ELIGIBLE_WITH_RESTRICTIONS` (modified files under MPL); `EXTERNAL_TOOL: ELIGIBLE_WITH_RESTRICTIONS` (concrete distribution model: invokes user-installed CLI; no binary bundling).
+- **axe-core (`SRC-OS-A11Y-01`):** `DEPENDENCY: ELIGIBLE_WITH_RESTRICTIONS` (MPL-2.0 Section 3 notices); `SOURCE_COPY: ELIGIBLE_WITH_RESTRICTIONS` (modified files under MPL); `EXTERNAL_TOOL: ELIGIBLE_WITH_RESTRICTIONS` (user-managed integration model: invokes user-installed CLI; zero binary bundling; preserves `counselReviewRequired: true`).
 - **pa11y (`SRC-OS-A11Y-05`):** `DEPENDENCY: PENDING_REVIEW`; `SOURCE_COPY: BLOCKED`; `EXTERNAL_TOOL: PENDING_REVIEW` (pending legal counsel review of packaging and distribution model).
-- **Every Layout (`SRC-OS-LAYT-08`):** `DEPENDENCY: NOT_APPLICABLE`; `SOURCE_COPY: BLOCKED`; `REFERENCE_ONLY: ELIGIBLE_WITH_RESTRICTIONS` (licensed under paid authored content terms; clean-room CSS flex/grid layout algorithms permitted).
+- **Every Layout (`SRC-OS-LAYT-08`):** `DEPENDENCY: NOT_APPLICABLE`; `SOURCE_COPY: BLOCKED`; `REFERENCE_ONLY: ELIGIBLE_WITH_RESTRICTIONS` (licensed under paid authored content terms; studying general CSS layout concepts is permissible, while copying authored text/diagrams is strictly prohibited; derived implementations require clean-room verification and counsel review without unconditional guarantees).
 - **Inter (`ASSET-OS-TYPO-04-1`) & Geist (`ASSET-OS-TYPO-05-1`):** SIL OFL 1.1 fonts with explicit Reserved Font Name (RFN) evidence; redistributed unchanged with full license text.
 - **JetBrains Mono & Fira Code:** Traced directly to Fontsource monorepo candidate (`OS-TYPO-03`) with SIL OFL 1.1 RFN preservation.
 - **Aceternity UI & Locofy.ai:** Commercial / proprietary platforms. Strictly `BLOCKED` for dependencies and source copying; restricted to clean-room reference only.
