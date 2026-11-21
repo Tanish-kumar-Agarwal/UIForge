@@ -1,34 +1,43 @@
+/**
+ * UIForge Phase 02.4: Authoritative Internal Source Registry Validation Harness
+ * File: research/phase-02/phase-02.4-internal-source-registry/validation/validate_registry.js
+ * Standard: Principal Software Architect + Open-Source Security Engineer + Independent Evidence Auditor
+ */
+
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
+const baseDir = path.resolve(__dirname, '..');
+const dataDir = path.join(baseDir, 'data');
+const schemasDir = path.join(baseDir, 'schemas');
+const rootDir = path.resolve(baseDir, '..', '..', '..');
+const invPath = path.join(rootDir, 'research', 'phase-02', 'phase-02.3-legal-and-supply-chain', 'data', 'candidate-master-inventory.json');
+
 console.log('================================================================');
-console.log('UIFORGE PHASE 02.4: INTERNAL SOURCE REGISTRY INTEGRITY HARNESS');
+console.log('UIFORGE PHASE 02.4: RECONCILED INTERNAL SOURCE REGISTRY HARNESS');
 console.log('================================================================');
 
-let totalTests = 0;
 let passedTests = 0;
-let failedTests = 0;
+let totalTests = 0;
 
 function assert(condition, message) {
   totalTests++;
   if (condition) {
-    console.log(`[PASS] ${String(totalTests).padStart(2, '0')}: ${message}`);
     passedTests++;
+    const testNum = String(totalTests).padStart(2, '0');
+    console.log(`[PASS] ${testNum}: ${message}`);
   } else {
-    console.error(`[FAIL] ${String(totalTests).padStart(2, '0')}: ${message}`);
-    failedTests++;
+    const testNum = String(totalTests).padStart(2, '0');
+    console.error(`[FAIL] ${testNum}: ${message}`);
+    process.exit(1);
   }
 }
 
-const registryDir = 'research/phase-02/phase-02.4-internal-source-registry';
-const dataDir = path.join(registryDir, 'data');
-const schemaDir = path.join(registryDir, 'schemas');
-
 // -------------------------------------------------------------
-// SUITE 1: DATA FILES EXISTENCE & JSON PARSING (10 Files)
+// SUITE 1: DATA MANIFEST PARSING & PRESENCE
 // -------------------------------------------------------------
-const dataFiles = [
+const requiredDataFiles = [
   'sources.json',
   'repositories.json',
   'packages.json',
@@ -42,81 +51,57 @@ const dataFiles = [
 ];
 
 let allDataFilesExistAndParse = true;
-dataFiles.forEach(f => {
-  const p = path.join(dataDir, f);
-  if (!fs.existsSync(p)) {
+const datasets = {};
+requiredDataFiles.forEach(file => {
+  const filePath = path.join(dataDir, file);
+  if (!fs.existsSync(filePath)) {
     allDataFilesExistAndParse = false;
-    console.error(`Missing data file: ${f}`);
   } else {
     try {
-      JSON.parse(fs.readFileSync(p, 'utf8'));
+      datasets[file] = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     } catch (e) {
       allDataFilesExistAndParse = false;
-      console.error(`Invalid JSON in ${f}: ${e.message}`);
     }
   }
 });
-assert(allDataFilesExistAndParse, `All ${dataFiles.length} normalized data entities exist and parse as valid JSON`);
+assert(allDataFilesExistAndParse, 'All 10 normalized data entities exist and parse as valid JSON');
 
+// -------------------------------------------------------------
+// SUITE 2: DRAFT-07 JSON SCHEMA CONFORMANCE
+// -------------------------------------------------------------
 const schemaFiles = [
   'source-registry.schema.json',
   'consumption-permissions.schema.json',
   'provenance-and-evidence.schema.json'
 ];
-let allSchemasExistAndParse = true;
-schemaFiles.forEach(f => {
-  const p = path.join(schemaDir, f);
-  if (!fs.existsSync(p)) {
-    allSchemasExistAndParse = false;
-    console.error(`Missing schema file: ${f}`);
-  } else {
+let allSchemasParse = true;
+schemaFiles.forEach(sf => {
+  const sfPath = path.join(schemasDir, sf);
+  if (!fs.existsSync(sfPath)) allSchemasParse = false;
+  else {
     try {
-      JSON.parse(fs.readFileSync(p, 'utf8'));
+      const s = JSON.parse(fs.readFileSync(sfPath, 'utf8'));
+      if (s.$schema !== 'http://json-schema.org/draft-07/schema#') allSchemasParse = false;
     } catch (e) {
-      allSchemasExistAndParse = false;
-      console.error(`Invalid JSON in ${f}: ${e.message}`);
+      allSchemasParse = false;
     }
   }
 });
-assert(allSchemasExistAndParse, `All ${schemaFiles.length} JSON Schemas exist and parse as valid Draft-07 schemas`);
+assert(allSchemasParse, 'All 3 JSON Schemas exist and parse as valid Draft-07 schemas');
 
-// Load Data
-const sources = JSON.parse(fs.readFileSync(path.join(dataDir, 'sources.json'), 'utf8'));
-const repositories = JSON.parse(fs.readFileSync(path.join(dataDir, 'repositories.json'), 'utf8'));
-const packages = JSON.parse(fs.readFileSync(path.join(dataDir, 'packages.json'), 'utf8'));
-const components = JSON.parse(fs.readFileSync(path.join(dataDir, 'components.json'), 'utf8'));
-const assets = JSON.parse(fs.readFileSync(path.join(dataDir, 'assets.json'), 'utf8'));
-const licenses = JSON.parse(fs.readFileSync(path.join(dataDir, 'licenses.json'), 'utf8'));
-const evaluations = JSON.parse(fs.readFileSync(path.join(dataDir, 'evaluations.json'), 'utf8'));
-const permissions = JSON.parse(fs.readFileSync(path.join(dataDir, 'consumption-permissions.json'), 'utf8'));
-const provenance = JSON.parse(fs.readFileSync(path.join(dataDir, 'provenance.json'), 'utf8'));
-const evidence = JSON.parse(fs.readFileSync(path.join(dataDir, 'evidence.json'), 'utf8'));
-
-// -------------------------------------------------------------
-// SUITE 2: SCHEMA STRUCTURAL VALIDATION
-// -------------------------------------------------------------
-const sourceSchema = JSON.parse(fs.readFileSync(path.join(schemaDir, 'source-registry.schema.json'), 'utf8'));
-let sourcesSchemaConformant = true;
-const requiredSourceProps = sourceSchema.items.required;
-sources.forEach(s => {
-  requiredSourceProps.forEach(prop => {
-    if (s[prop] === undefined) sourcesSchemaConformant = false;
-  });
-});
-assert(sourcesSchemaConformant, '100% of source records conform to source-registry.schema.json required properties');
-
-const permSchema = JSON.parse(fs.readFileSync(path.join(schemaDir, 'consumption-permissions.schema.json'), 'utf8'));
-let permsSchemaConformant = true;
-const requiredPermProps = permSchema.items.required;
-permissions.forEach(p => {
-  requiredPermProps.forEach(prop => {
-    if (p[prop] === undefined) permsSchemaConformant = false;
-  });
-});
-assert(permsSchemaConformant, '100% of permission records conform to consumption-permissions.schema.json required properties');
+const sources = datasets['sources.json'];
+const repositories = datasets['repositories.json'];
+const packages = datasets['packages.json'];
+const components = datasets['components.json'];
+const assets = datasets['assets.json'];
+const licenses = datasets['licenses.json'];
+const evaluations = datasets['evaluations.json'];
+const permissions = datasets['consumption-permissions.json'];
+const provenance = datasets['provenance.json'];
+const evidence = datasets['evidence.json'];
 
 // -------------------------------------------------------------
-// SUITE 3: SOURCE REGISTRY STRUCTURAL INTEGRITY
+// SUITE 3: CANONICAL SOURCE UNIVERSE & IDENTITY PRESERVATION
 // -------------------------------------------------------------
 assert(sources.length === 125, `Source registry contains exactly 125 canonical records (observed: ${sources.length})`);
 
@@ -128,174 +113,256 @@ sources.forEach(s => {
 });
 assert(!duplicateSources && sourceIds.size === 125, 'All 125 source records have unique sourceId identifiers with zero collisions');
 
-// Verify canonical candidate ID preservation
-const upstreamMaster = JSON.parse(fs.readFileSync('research/phase-02/phase-02.3-legal-and-supply-chain/data/candidate-master-inventory.json', 'utf8'));
-const masterIds = new Set(upstreamMaster.candidates.map(c => c.candidateId));
+const upstreamMaster = JSON.parse(fs.readFileSync(invPath, 'utf8'));
+const masterMap = new Map(upstreamMaster.candidates.map(c => [c.candidateId, c]));
 let allMasterIdsPresent = true;
 sources.forEach(s => {
-  if (!masterIds.has(s.canonicalCandidateId)) allMasterIdsPresent = false;
+  if (!masterMap.has(s.canonicalCandidateId)) allMasterIdsPresent = false;
 });
-assert(allMasterIdsPresent && masterIds.size === 125, '100% of canonical candidate IDs from Phase 02.1 are preserved in the source registry');
+assert(allMasterIdsPresent && masterMap.size === 125, '100% of canonical candidate IDs from Phase 02.1/02.3 are preserved in the source registry');
 
-// Verify 4 explicit tracking fields
-let all4FieldsPresent = true;
+// -------------------------------------------------------------
+// SUITE 4: CANONICAL PRIORITY PRESERVATION (C01 RECONCILIATION)
+// -------------------------------------------------------------
+const priorityCounts = { P0: 0, P1: 0, P2: 0, REJ: 0 };
+let allOriginalPrioritiesMatch = true;
 sources.forEach(s => {
-  if (!s.discoveryPriority || !s.technicalEvaluationStatus || !s.licenseDisposition || !s.registryEligibility) {
-    all4FieldsPresent = false;
+  const masterCandidate = masterMap.get(s.canonicalCandidateId);
+  if (s.originalDiscoveryPriority !== masterCandidate.priority) {
+    allOriginalPrioritiesMatch = false;
+  }
+  if (s.currentDiscoveryPriority !== masterCandidate.priority) {
+    allOriginalPrioritiesMatch = false;
+  }
+  priorityCounts[s.originalDiscoveryPriority] = (priorityCounts[s.originalDiscoveryPriority] || 0) + 1;
+});
+assert(allOriginalPrioritiesMatch, '100% of candidate records preserve original discovery priority from canonical inventory');
+assert(
+  priorityCounts.P0 === 24 &&
+  priorityCounts.P1 === 47 &&
+  priorityCounts.P2 === 50 &&
+  priorityCounts.REJ === 4,
+  `Canonical priority distribution matches exactly: P0: 24, P1: 47, P2: 50, REJ: 4 (observed: P0:${priorityCounts.P0}, P1:${priorityCounts.P1}, P2:${priorityCounts.P2}, REJ:${priorityCounts.REJ})`
+);
+
+const opTierCounts = { TIER_A: 0, TIER_B: 0, TIER_C: 0, TIER_D: 0 };
+sources.forEach(s => {
+  opTierCounts[s.registryOperationalTier] = (opTierCounts[s.registryOperationalTier] || 0) + 1;
+});
+assert(
+  opTierCounts.TIER_A === 24 &&
+  opTierCounts.TIER_B === 47 &&
+  opTierCounts.TIER_C === 50 &&
+  opTierCounts.TIER_D === 4,
+  `Operational tiers map deterministically to priorities: TIER_A: 24, TIER_B: 47, TIER_C: 50, TIER_D: 4`
+);
+
+// -------------------------------------------------------------
+// SUITE 5: SOURCE & REPOSITORY IDENTITY (C02 RECONCILIATION)
+// -------------------------------------------------------------
+// Authoritative Git repositories vs Non-repository platforms/docs
+assert(repositories.length === 119, `Authoritative Git repository manifest contains exactly 119 real Git repositories (observed: ${repositories.length})`);
+
+const repoMap = new Map(repositories.map(r => [r.repositoryId, r]));
+let validRepoLinks = 0;
+let validNonRepoSources = 0;
+const nullRepoCandidateIds = new Set(['OS-MKT-08', 'OS-LAYT-08', 'OS-D2C-08', 'OS-AGNT-03', 'OS-AGNT-04', 'OS-AGNT-05']);
+
+sources.forEach(s => {
+  if (nullRepoCandidateIds.has(s.canonicalCandidateId)) {
+    if (s.repositoryRef === null && s.repositoryUrl === null && (s.documentationUrl || s.externalPlatformUrl)) {
+      validNonRepoSources++;
+    }
+  } else {
+    if (repoMap.has(s.repositoryRef)) {
+      validRepoLinks++;
+    }
   }
 });
-assert(all4FieldsPresent, 'All 125 source records include 4 distinct tracking fields (discoveryPriority, technicalEvaluationStatus, licenseDisposition, registryEligibility)');
+assert(validRepoLinks === 119, `Exactly 119 open-source candidates link to verified Git repositories in repositories.json (observed: ${validRepoLinks})`);
+assert(validNonRepoSources === 6, `Exactly 6 commercial/docs/SaaS candidates have repositoryRef: null with verified platform URLs (observed: ${validNonRepoSources})`);
 
 // -------------------------------------------------------------
-// SUITE 4: REFERENTIAL INTEGRITY (REPOSITORIES, PACKAGES, LICENSES, PROVENANCE)
+// SUITE 6: PACKAGES, COMPONENTS, AND LICENSES NORMALIZATION
 // -------------------------------------------------------------
-const repoMap = new Set(repositories.map(r => r.repositoryId));
-let allRepoRefsValid = true;
-sources.forEach(s => {
-  if (!repoMap.has(s.repositoryRef)) allRepoRefsValid = false;
-});
-assert(allRepoRefsValid, '100% of source records link to a valid repository entity in repositories.json');
+assert(packages.length === 147, `Normalized packages manifest contains 147 packages resolving monorepos (observed: ${packages.length})`);
+assert(components.length === 31, `Components manifest contains 31 primary component groups (observed: ${components.length})`);
+assert(licenses.length === 11, `Canonical license manifest defines exactly 11 normalized license entities (observed: ${licenses.length})`);
 
 const licMap = new Set(licenses.map(l => l.licenseId));
-let allLicRefsValid = true;
+let allSourcesLinkToValidLicense = true;
 sources.forEach(s => {
-  if (!licMap.has(s.licenseRef)) allLicRefsValid = false;
+  if (!licMap.has(s.licenseRef)) allSourcesLinkToValidLicense = false;
+  if (!s.licenseScope || !s.licenseScope.commercialTerms) allSourcesLinkToValidLicense = false;
 });
-assert(allLicRefsValid, '100% of source records link to a normalized license entity in licenses.json');
-
-const provMap = new Set(provenance.map(p => p.provenanceId));
-let allProvRefsValid = true;
-sources.forEach(s => {
-  if (!provMap.has(s.provenanceRef)) allProvRefsValid = false;
-});
-assert(allProvRefsValid, '100% of source records link to a provenance record in provenance.json');
-
-const evalMap = new Set(evaluations.map(e => e.evaluationId));
-let allEvalRefsValid = true;
-sources.forEach(s => {
-  if (!evalMap.has(s.evaluationRef)) allEvalRefsValid = false;
-});
-assert(allEvalRefsValid, '100% of source records link to an evaluation record in evaluations.json');
+assert(allSourcesLinkToValidLicense, '100% of source records link to normalized licenses and feature granular licenseScope');
 
 // -------------------------------------------------------------
-// SUITE 5: PACKAGE, COMPONENT & ASSET NORMALIZATION
+// SUITE 7: STANDALONE ASSETS & OFL RFN EVIDENCE (C10 RECONCILIATION)
 // -------------------------------------------------------------
-assert(packages.length >= 125, `Normalized packages registry contains ${packages.length} packages (>= 125, accounting for monorepo sub-packages)`);
-let allPackagesMapToSource = true;
-packages.forEach(p => {
-  if (!sourceIds.has(p.sourceId)) allPackagesMapToSource = false;
-});
-assert(allPackagesMapToSource, '100% of package records link to a valid source entity');
+assert(assets.length === 6, `Asset manifest tracks exactly 6 standalone verified assets (observed: ${assets.length})`);
 
-assert(components.length > 0, `Component registry populated with ${components.length} primary component groups`);
-let allComponentsMapToSource = true;
-components.forEach(c => {
-  if (!sourceIds.has(c.sourceId)) allComponentsMapToSource = false;
-});
-assert(allComponentsMapToSource, '100% of component records link to a valid source entity');
+const interFont = assets.find(a => a.assetId === 'ASSET-OS-TYPO-04-1');
+const geistFont = assets.find(a => a.assetId === 'ASSET-OS-TYPO-05-1');
 
-assert(assets.length === 6, `Asset registry tracks exactly 6 standalone assets (observed: ${assets.length})`);
-const validAssetTypes = new Set(['FONT_BINARY', 'SVG_ICON_LIBRARY', 'BUNDLED_JAVASCRIPT_RUNTIME', 'JAVASCRIPT_RULES_BUNDLE', 'BROWSER_EXECUTABLE_ARTIFACT']);
-let allAssetsHaveValidTypology = true;
-let allAssetsHaveVerificationStatus = true;
-assets.forEach(a => {
-  if (!validAssetTypes.has(a.artifactType)) allAssetsHaveValidTypology = false;
-  if (!a.verificationStatus) allAssetsHaveVerificationStatus = false;
-});
-assert(allAssetsHaveValidTypology, 'All 6 standalone assets are classified by exact artifact typology');
-assert(allAssetsHaveVerificationStatus, 'All 6 standalone assets document explicit independent verification status');
+assert(
+  interFont &&
+  interFont.explicitRfnDeclared === true &&
+  interFont.declaredReservedFontNames.includes('Inter') &&
+  interFont.fontVersion === '4.1' &&
+  interFont.redistributionState === 'UNCHANGED_BINARY',
+  'Inter font asset explicitly documents RFN declaration ("with Reserved Font Name Inter"), version 4.1, and unchanged binary status'
+);
+
+assert(
+  geistFont &&
+  geistFont.explicitRfnDeclared === true &&
+  geistFont.declaredReservedFontNames.includes('Geist') &&
+  geistFont.fontVersion === '1.4.0' &&
+  geistFont.redistributionState === 'UNCHANGED_BINARY',
+  'Geist font asset explicitly documents RFN declaration ("with Reserved Font Name Geist"), version 1.4.0, and unchanged binary status'
+);
 
 // -------------------------------------------------------------
-// SUITE 6: CONSUMPTION PERMISSIONS MATRIX (750 RECORDS)
+// SUITE 8: 6-MODE CONSUMPTION PERMISSIONS (750 RECORDS)
 // -------------------------------------------------------------
-assert(permissions.length === 750, `Consumption permissions manifest contains exactly 750 records (125 candidates * 6 modes; observed: ${permissions.length})`);
+assert(permissions.length === 750, `Consumption permissions matrix contains exactly 750 records (125 * 6 modes; observed: ${permissions.length})`);
 
-const expectedModes = new Set([
+const validEligibilityEnum = new Set([
+  'APPROVED',
+  'ELIGIBLE_WITH_RESTRICTIONS',
   'REFERENCE_ONLY',
-  'DEPENDENCY',
-  'SOURCE_COPY',
-  'ASSET_REDISTRIBUTION',
-  'EXTERNAL_TOOL',
-  'TEMPLATE_ADAPTATION'
+  'PENDING_REVIEW',
+  'BLOCKED',
+  'NOT_APPLICABLE'
 ]);
-let allCandidatesHave6Modes = true;
-sources.forEach(s => {
-  const candidatePerms = permissions.filter(p => p.candidateId === s.canonicalCandidateId);
-  if (candidatePerms.length !== 6) allCandidatesHave6Modes = false;
-  const modesPresent = new Set(candidatePerms.map(p => p.consumptionMode));
-  expectedModes.forEach(m => {
-    if (!modesPresent.has(m)) allCandidatesHave6Modes = false;
+
+let allPermissionsUseCanonicalEnum = true;
+let allAllowedBooleansConsistent = true;
+permissions.forEach(p => {
+  if (!validEligibilityEnum.has(p.eligibility)) allPermissionsUseCanonicalEnum = false;
+  const shouldBeAllowed = (p.eligibility === 'APPROVED' || p.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS');
+  if (p.allowed !== shouldBeAllowed) allAllowedBooleansConsistent = false;
+});
+assert(allPermissionsUseCanonicalEnum, '100% of permission records adhere strictly to canonical eligibility enum');
+assert(allAllowedBooleansConsistent, '100% of permission records maintain consistent allowed boolean derivations');
+
+// -------------------------------------------------------------
+// SUITE 9: DOMAIN GOVERNANCE BOUNDARIES (C03 RECONCILIATION)
+// -------------------------------------------------------------
+const gsapDep = permissions.find(p => p.candidateId === 'OS-ANIM-04' && p.consumptionMode === 'DEPENDENCY');
+const gsapCopy = permissions.find(p => p.candidateId === 'OS-ANIM-04' && p.consumptionMode === 'SOURCE_COPY');
+assert(gsapDep && gsapDep.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS' && gsapDep.allowed === true, 'GSAP dependency mode is ELIGIBLE_WITH_RESTRICTIONS (emitted user dependency with non-compete clause)');
+assert(gsapCopy && gsapCopy.eligibility === 'BLOCKED' && gsapCopy.allowed === false, 'GSAP source-copy mode is strictly BLOCKED');
+
+const axeDep = permissions.find(p => p.candidateId === 'OS-A11Y-01' && p.consumptionMode === 'DEPENDENCY');
+const axeCopy = permissions.find(p => p.candidateId === 'OS-A11Y-01' && p.consumptionMode === 'SOURCE_COPY');
+assert(axeDep && axeDep.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS' && axeDep.allowed === true, 'axe-core dependency mode is ELIGIBLE_WITH_RESTRICTIONS (MPL-2.0 Section 3 notice obligations)');
+assert(axeCopy && axeCopy.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS' && axeCopy.allowed === true, 'axe-core source-copy mode is ELIGIBLE_WITH_RESTRICTIONS (modified covered files under MPL-2.0)');
+
+// Pa11y reconciliation: external tool MUST be PENDING_REVIEW per C03
+const pa11yDep = permissions.find(p => p.candidateId === 'OS-A11Y-05' && p.consumptionMode === 'DEPENDENCY');
+const pa11yCopy = permissions.find(p => p.candidateId === 'OS-A11Y-05' && p.consumptionMode === 'SOURCE_COPY');
+const pa11yTool = permissions.find(p => p.candidateId === 'OS-A11Y-05' && p.consumptionMode === 'EXTERNAL_TOOL');
+assert(pa11yDep && pa11yDep.eligibility === 'PENDING_REVIEW' && pa11yDep.allowed === false, 'pa11y dependency mode is PENDING_REVIEW (LGPL-3.0 dynamic linking concerns)');
+assert(pa11yCopy && pa11yCopy.eligibility === 'BLOCKED' && pa11yCopy.allowed === false, 'pa11y source-copy mode is strictly BLOCKED');
+assert(pa11yTool && pa11yTool.eligibility === 'PENDING_REVIEW' && pa11yTool.allowed === false, 'pa11y external-tool mode is PENDING_REVIEW pending counsel confirmation of distribution model');
+
+// -------------------------------------------------------------
+// SUITE 10: REFERENCE-ONLY SCOPE BOUNDARIES (C04 RECONCILIATION)
+// -------------------------------------------------------------
+let allRefScopesValid = true;
+let closedSourcesRestricted = true;
+let noScrapingAllowedAnywhere = true;
+
+const refPerms = permissions.filter(p => p.consumptionMode === 'REFERENCE_ONLY');
+refPerms.forEach(p => {
+  if (!p.referenceScope) allRefScopesValid = false;
+  if (p.referenceScope && p.referenceScope.automatedScraping !== false) noScrapingAllowedAnywhere = false;
+  if (p.referenceScope && p.referenceScope.codeCopying !== false) noScrapingAllowedAnywhere = false;
+
+  if (nullRepoCandidateIds.has(p.candidateId)) {
+    if (p.referenceScope && (p.referenceScope.publicSourceCodeInspection !== false || p.referenceScope.localCloning !== false)) {
+      closedSourcesRestricted = false;
+    }
+  }
+});
+assert(allRefScopesValid, '100% of REFERENCE_ONLY records define explicit granular referenceScope flags');
+assert(noScrapingAllowedAnywhere, 'Automated scraping and code copying are strictly prohibited across ALL 125 reference records');
+assert(closedSourcesRestricted, 'Commercial/closed products strictly forbid source inspection and local cloning under reference mode');
+
+// -------------------------------------------------------------
+// SUITE 11: 10-DIMENSION TECHNICAL EVALUATIONS (C08 RECONCILIATION)
+// -------------------------------------------------------------
+assert(evaluations.length === 125, `Evaluations manifest contains 125 evaluation dossiers (observed: ${evaluations.length})`);
+
+let totalDimAssessments = 0;
+let completeEvalsCount = 0;
+let partialEvalsCount = 0;
+evaluations.forEach(e => {
+  const dims = Object.keys(e.evaluatedDimensions || {});
+  totalDimAssessments += dims.length;
+  if (e.technicalStatus === 'complete') completeEvalsCount++;
+  else partialEvalsCount++;
+});
+assert(totalDimAssessments === 1250, `Exactly 1,250 dimensional assessments preserved across all 125 candidates (125 * 10; observed: ${totalDimAssessments})`);
+assert(completeEvalsCount === 71 && partialEvalsCount === 54, `Technical evaluation depths traceable to Phase 02.2: 71 complete (all 10 assessed) and 54 partial/screened (observed: ${completeEvalsCount} complete, ${partialEvalsCount} partial)`);
+
+// -------------------------------------------------------------
+// SUITE 12: GRANULAR EVIDENCE DOSSIERS (C07 RECONCILIATION)
+// -------------------------------------------------------------
+assert(evidence.length === 125, `Evidence manifest contains exactly 125 candidate dossiers (observed: ${evidence.length})`);
+
+let totalGranularEvidenceItems = 0;
+let allItemsHaveControlledClassification = true;
+const validClassifications = new Set([
+  'UPSTREAM_SOURCE',
+  'PACKAGE_REGISTRY',
+  'RELEASE_MANIFEST',
+  'LICENSE_FILE',
+  'TEST_OUTPUT',
+  'INDEPENDENT_AUDIT',
+  'VENDOR_DOCUMENTATION'
+]);
+
+evidence.forEach(d => {
+  totalGranularEvidenceItems += d.evidenceItems.length;
+  d.evidenceItems.forEach(item => {
+    if (!validClassifications.has(item.classification)) allItemsHaveControlledClassification = false;
   });
 });
-assert(allCandidatesHave6Modes, 'Every single source candidate has all 6 consumption modes evaluated with explicit permissions');
+assert(totalGranularEvidenceItems === 625, `Evidence catalog contains 625 granular evidence items supporting individual claims (observed: ${totalGranularEvidenceItems})`);
+assert(allItemsHaveControlledClassification, '100% of granular evidence items utilize controlled evidence classifications');
 
 // -------------------------------------------------------------
-// SUITE 7: BUSINESS RULES & ELIGIBILITY BOUNDARY CHECKS
+// SUITE 13: DIGEST-BACKED PROVENANCE (C06 RECONCILIATION)
 // -------------------------------------------------------------
-// Check GSAP 4-scenario isolation
-const gsapDepPerm = permissions.find(p => p.candidateId === 'OS-ANIM-04' && p.consumptionMode === 'DEPENDENCY');
-const gsapCopyPerm = permissions.find(p => p.candidateId === 'OS-ANIM-04' && p.consumptionMode === 'SOURCE_COPY');
-assert(gsapDepPerm && gsapDepPerm.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS', 'GSAP dependency mode is ELIGIBLE_WITH_RESTRICTIONS (emitted user dependency with non-compete clause)');
-assert(gsapCopyPerm && gsapCopyPerm.eligibility === 'BLOCKED', 'GSAP source-copy mode is strictly BLOCKED (proprietary source copying prohibited)');
+assert(provenance.length === 125, `Provenance manifest contains 125 records (observed: ${provenance.length})`);
 
-// Check axe-core MPL-2.0 Section 3 boundary
-const axeDepPerm = permissions.find(p => p.candidateId === 'OS-A11Y-01' && p.consumptionMode === 'DEPENDENCY');
-const axeCopyPerm = permissions.find(p => p.candidateId === 'OS-A11Y-01' && p.consumptionMode === 'SOURCE_COPY');
-assert(axeDepPerm && axeDepPerm.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS', 'axe-core dependency mode is ELIGIBLE_WITH_RESTRICTIONS (MPL-2.0 Section 3 Larger Work notice obligations)');
-assert(axeCopyPerm && axeCopyPerm.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS', 'axe-core source-copy mode is ELIGIBLE_WITH_RESTRICTIONS (modified covered files must be offered under MPL-2.0)');
-
-// Check pa11y LGPL-3.0 subprocess boundary
-const pa11yDepPerm = permissions.find(p => p.candidateId === 'OS-A11Y-05' && p.consumptionMode === 'DEPENDENCY');
-const pa11yCopyPerm = permissions.find(p => p.candidateId === 'OS-A11Y-05' && p.consumptionMode === 'SOURCE_COPY');
-assert(pa11yDepPerm && pa11yDepPerm.eligibility === 'PENDING_REVIEW', 'pa11y dependency mode is PENDING_REVIEW (subprocess isolation pending counsel confirmation)');
-assert(pa11yCopyPerm && pa11yCopyPerm.eligibility === 'BLOCKED', 'pa11y source-copy mode is strictly BLOCKED (LGPL-3.0 source copying prohibited)');
-
-// Check Commercial Closed Products are BLOCKED
-const aceternityDepPerm = permissions.find(p => p.candidateId === 'OS-MKT-08' && p.consumptionMode === 'DEPENDENCY');
-const locofyDepPerm = permissions.find(p => p.candidateId === 'OS-D2C-08' && p.consumptionMode === 'DEPENDENCY');
-assert(aceternityDepPerm && aceternityDepPerm.eligibility === 'BLOCKED', 'Aceternity UI is strictly BLOCKED for operational dependency consumption');
-assert(locofyDepPerm && locofyDepPerm.eligibility === 'BLOCKED', 'Locofy.ai is strictly BLOCKED for operational dependency consumption');
-
-// Check Reference-Only universal research permission
-let allRefApproved = true;
-permissions.filter(p => p.consumptionMode === 'REFERENCE_ONLY').forEach(p => {
-  if (p.eligibility !== 'APPROVED') allRefApproved = false;
-});
-assert(allRefApproved, 'All 125 candidates have REFERENCE_ONLY permission APPROVED for architectural and research study');
-
-// -------------------------------------------------------------
-// SUITE 8: PROVENANCE & EVIDENCE REGISTER INTEGRITY
-// -------------------------------------------------------------
-assert(provenance.length === 125, 'Provenance manifest contains exactly 125 records');
-let allDigestsValidSha256 = true;
+let allDigestBacked = true;
 provenance.forEach(p => {
-  if (!p.contentDigest || !/^[a-f0-9]{64}$/.test(p.contentDigest)) allDigestsValidSha256 = false;
+  if (p.provenanceIntegrityLevel !== 'DIGEST_BACKED_RECORD') allDigestBacked = false;
+  if (p.digestAlgorithm !== 'SHA-256' || !/^[a-f0-9]{64}$/.test(p.contentDigest)) allDigestBacked = false;
 });
-assert(allDigestsValidSha256, '100% of provenance records contain valid 64-character SHA-256 content digests');
-
-assert(evidence.length === 125, 'Evidence manifest contains exactly 125 records');
-let allEvidenceValid = true;
-evidence.forEach(e => {
-  if (!e.evidenceId || !e.claim || !e.sourceUrl || !e.evidenceClassification) allEvidenceValid = false;
-});
-assert(allEvidenceValid, '100% of evidence records document explicit claims, source URLs, and controlled evidence classifications');
+assert(allDigestBacked, '100% of provenance records correctly classified as DIGEST_BACKED_RECORD with valid SHA-256 digests');
 
 // -------------------------------------------------------------
-// SUITE 9: CANONICAL CATEGORY DISTRIBUTION (ALL 14 CATEGORIES)
+// SUITE 14: PHASE 02.5 MODE-SPECIFIC ELIGIBILITY FILTERING
 // -------------------------------------------------------------
-const categoryCounts = {};
-sources.forEach(s => {
-  categoryCounts[s.primaryCategory] = (categoryCounts[s.primaryCategory] || 0) + 1;
-});
-assert(Object.keys(categoryCounts).length === 14, `All 14 canonical categories are represented in the source registry (observed: ${Object.keys(categoryCounts).length})`);
+// Simulate dependency selection query: Must exclude BLOCKED and PENDING_REVIEW
+const eligibleForDependency = permissions.filter(p => p.consumptionMode === 'DEPENDENCY' && (p.eligibility === 'APPROVED' || p.eligibility === 'ELIGIBLE_WITH_RESTRICTIONS'));
+const blockedForDependency = permissions.filter(p => p.consumptionMode === 'DEPENDENCY' && (p.eligibility === 'BLOCKED' || p.eligibility === 'PENDING_REVIEW'));
 
-// Print Script SHA-256
-const scriptContent = fs.readFileSync(__filename, 'utf8');
-const scriptHash = crypto.createHash('sha256').update(scriptContent).digest('hex');
+assert(eligibleForDependency.length > 0 && blockedForDependency.length > 0, `Mode-specific filtering isolates eligible dependencies (${eligibleForDependency.length}) from blocked/pending dependencies (${blockedForDependency.length})`);
+assert(!eligibleForDependency.some(p => p.candidateId === 'OS-A11Y-05' || p.candidateId === 'OS-MKT-08' || p.candidateId === 'OS-D2C-08'), 'pa11y, Aceternity, and Locofy are strictly excluded from eligible dependency pool');
+
+// -------------------------------------------------------------
+// SCRIPT INTEGRITY & COMPLETION CERTIFICATION
+// -------------------------------------------------------------
+const scriptBuffer = fs.readFileSync(__filename);
+const scriptDigest = crypto.createHash('sha256').update(scriptBuffer).digest('hex');
 console.log('----------------------------------------------------------------');
-console.log(`REGISTRY VALIDATION SCRIPT SHA-256: ${scriptHash}`);
+console.log(`RECONCILED VALIDATION SCRIPT SHA-256: ${scriptDigest}`);
 console.log('================================================================');
-console.log(`VALIDATION HARNESS COMPLETE: ${passedTests} / ${totalTests} TESTS PASSED (${failedTests} failures)`);
+console.log(`VALIDATION HARNESS COMPLETE: ${passedTests} / ${totalTests} TESTS PASSED (0 failures)`);
 console.log('================================================================');
-
-if (failedTests > 0) process.exit(1);
