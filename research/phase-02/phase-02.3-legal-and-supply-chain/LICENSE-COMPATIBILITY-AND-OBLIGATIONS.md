@@ -79,11 +79,16 @@ Governs `dequelabs/axe-core` and `@axe-core/playwright`.
 - **Legal Mechanics of MPL-2.0**:
   - Unlike the GNU GPL, the copyleft scope of MPL-2.0 is strictly **file-scoped** (Section 1.10 "Modifications").
   - Any modification to an existing MPL-2.0 source file remains governed by MPL-2.0 and must be made available under MPL-2.0 terms.
-  - **"Larger Work" Safe Harbor (Section 3.3)**: A licensee may create a "Larger Work" by combining Covered Software with other code in separate files and distribute the Larger Work under a different license (e.g., Apache-2.0 or commercial), provided the MPL-2.0 requirements for the Covered Software files are met.
+  - **"Larger Work" Safe Harbor (Section 3.3)**: A licensee may create a "Larger Work" by combining Covered Software with other code in separate files and distribute the Larger Work under a different license (e.g., Apache-2.0 or commercial). However, this safe harbor is **conditional**:
+    1. *Section 3.1 (Notices)*: All recipients must be informed that the Covered Software is governed by MPL-2.0, with license terms provided.
+    2. *Section 3.2 (Source Availability)*: The distributor must make the Source Code Form of the Covered Software available under MPL-2.0.
+    3. *Bundler Chunking Boundaries*: If JavaScript bundlers inline or blend MPL-2.0 utility functions into a shared chunk with proprietary code, disputes could arise over whether the resulting chunk is a "Modified Version."
 - **UIForge Architectural Conformance**:
-  1. UIForge consumes `axe-core` strictly as an un-modified npm package dependency resolved via package manager.
+  1. UIForge consumes `axe-core` strictly as an unmodified external npm package dependency resolved via package manager.
   2. UIForge writes zero patches or code mutations directly into axe-core source files.
-  3. UIForge wraps axe-core in `@uiforge/a11y-engine`, an isolated adapter module distributed under Apache-2.0. Because the integration occurs via dynamic Node.js module loading across separate files, no copyleft contamination occurs.
+  3. UIForge wraps axe-core in `@uiforge/a11y-engine`, an isolated adapter module distributed under Apache-2.0.
+  4. Build bundlers explicitly configure `axe-core` and `@axe-core/playwright` as external dynamic dependencies (`external`), preventing inlined chunk blending.
+  5. The distribution `NOTICE` file bundles the MPL-2.0 license text and an explicit source code availability notice.
 
 ### 2.4 Strong / Reciprocal Library Copyleft: GNU LGPL-3.0
 
@@ -92,10 +97,11 @@ Governs `pa11y/pa11y` (`v10.0.0`).
 - **Legal Risk Profile of LGPL-3.0**:
   - Section 4 of LGPL-3.0 allows distribution of an "Application" that links with the Library provided the user can modify the Library and re-link the Application (the "re-linking requirement").
   - In JavaScript/Node.js ecosystems, bundling (e.g., via esbuild, Rollup, or Webpack) merges multiple libraries into a single monolithic bundle or byte-code file. Courts and legal commentators have argued that monolithic JS bundles eliminate the boundary between the Library and the Application, potentially subjecting the entire bundle to reciprocal copyleft terms.
-- **UIForge Architectural Isolation Decision (`LDEC-04`)**:
+- **UIForge Unbundled External Runner Architecture (`LDEC-04`)**:
   - **Zero In-Process Linking**: Pa11y is strictly excluded as an in-process runtime dependency or bundled module in `@uiforge/core` or `@uiforge/a11y-engine`.
   - **Subprocess CLI Runner (Mode 4)**: Pa11y is supported strictly as an external, optional CLI execution runner. UIForge invokes `pa11y` via `child_process.spawn()` over operating-system standard input/output (stdio) or JSON stdout streams.
-  - *Legal Doctrine*: Under prevailing copyright jurisprudence and FSF guidelines, communication across a standard operating-system process boundary via pipe/fork/exec with standardized data formats (JSON) constitutes two independent programs, preventing derivative work formation.
+  - **No Bundled Conveyance**: Subprocess execution prevents in-process memory linking, but does **not** extinguish LGPL obligations if Pa11y itself is conveyed or bundled. Therefore, UIForge will NOT vendor, package, or distribute Pa11y binaries or source code in its releases. Pa11y must be independently installed by the end user.
+  - **Mandatory Counsel Review**: A formal external legal opinion is required before any bundled packaging, Docker image distribution, or commercial offering includes Pa11y.
 
 ---
 

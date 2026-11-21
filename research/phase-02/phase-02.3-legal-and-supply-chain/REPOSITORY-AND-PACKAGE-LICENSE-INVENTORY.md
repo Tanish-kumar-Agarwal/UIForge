@@ -24,7 +24,30 @@ Every entry has been cross-examined against three independent sources:
 - **`DUAL`**: The package explicitly offers multiple licensing paths (e.g., Biome under MIT OR Apache-2.0).
 - **`NON-PKG`**: Repository represents documentation, design assets, or specification without a primary published npm runtime package.
 
-### 1.2 Summary Statistics of the 125 Candidates
+### 1.2 Summary Statistics & Reconciled Entity Breakdown (C11)
+
+In accordance with our independent audit correction pass, the 125 candidates in `candidate-inventory.md` represent a heterogeneous mix of repositories, packages, monorepos, font software, icon sets, specifications, and commercial references. **Repository count must never be conflated with package count.**
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│               RECONCILED CANDIDATE ENTITY BREAKDOWN                    │
+├──────────────────────────────────────────────────────┬─────────────────┤
+│ Entity Classification Category                       │ Count           │
+├──────────────────────────────────────────────────────┼─────────────────┤
+│ Public Git Repositories (GitHub)                     │ 119             │
+│ Web Targets, Commercial Sites & Educational Books    │ 6               │
+│ Multi-Package Monorepos (>20 to >100 packages each)  │ 8               │
+│ Primary Direct npm Runtime Packages                  │ 45              │
+│ Component Registry Source Templates                  │ 16              │
+│ Typography & Font Software Assets                    │ 6               │
+│ Vector Icon Systems                                  │ 8               │
+│ Open Specifications (W3C DTCG 2025.10)              │ 1               │
+│ Commercial / Proprietary Products Evaluated          │ 7               │
+│ Abandoned / Deprecated Candidates                    │ 3               │
+├──────────────────────────────────────────────────────┼─────────────────┤
+│ TOTAL EVALUATED CANDIDATE TARGETS                    │ 125             │
+└──────────────────────────────────────────────────────┴─────────────────┘
+```
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
