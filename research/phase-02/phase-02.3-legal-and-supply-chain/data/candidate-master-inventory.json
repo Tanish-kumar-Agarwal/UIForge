@@ -1,0 +1,2755 @@
+{
+  "schemaVersion": "1.0.0",
+  "inventoryId": "UIFORGE-PHASE-02-CANDIDATES",
+  "sourcePhase": "02.1",
+  "candidateCount": 125,
+  "metadata": {
+    "generatedAt": "2026-11-21T17:00:26.663Z",
+    "auditor": "Principal Software Architect & Independent Evidence Auditor",
+    "standard": "UIForge Phase 02.1-02.3 Canonical Harmonization Standard",
+    "equationCheck": "P0 (24) + P1 (47) + P2 (50) + REJ (4) = 125"
+  },
+  "candidates": [
+    {
+      "candidateId": "OS-COMP-01",
+      "originalCandidateId": "OS-COMP-01",
+      "canonicalName": "shadcn-ui/ui",
+      "repositoryUrl": "https://github.com/shadcn-ui/ui",
+      "canonicalUrl": "https://github.com/shadcn-ui/ui",
+      "packageNames": [
+        "shadcn",
+        "shadcn-ui"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P1",
+      "candidateType": "COMPONENT_REGISTRY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-01"
+    },
+    {
+      "candidateId": "OS-COMP-02",
+      "originalCandidateId": "OS-COMP-02",
+      "canonicalName": "radix-ui/primitives",
+      "repositoryUrl": "https://github.com/radix-ui/primitives",
+      "canonicalUrl": "https://github.com/radix-ui/primitives",
+      "packageNames": [
+        "@radix-ui/react-primitive",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-popover"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P0",
+      "candidateType": "MONOREPO",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-02"
+    },
+    {
+      "candidateId": "OS-COMP-03",
+      "originalCandidateId": "OS-COMP-03",
+      "canonicalName": "adobe/react-spectrum",
+      "repositoryUrl": "https://github.com/adobe/react-spectrum",
+      "canonicalUrl": "https://github.com/adobe/react-spectrum",
+      "packageNames": [
+        "@adobe/react-spectrum",
+        "react-aria",
+        "react-stately"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P0",
+      "candidateType": "MONOREPO",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-03"
+    },
+    {
+      "candidateId": "OS-COMP-04",
+      "originalCandidateId": "OS-COMP-04",
+      "canonicalName": "tailwindlabs/headlessui",
+      "repositoryUrl": "https://github.com/tailwindlabs/headlessui",
+      "canonicalUrl": "https://github.com/tailwindlabs/headlessui",
+      "packageNames": [
+        "@headlessui/react"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-04"
+    },
+    {
+      "candidateId": "OS-COMP-05",
+      "originalCandidateId": "OS-COMP-05",
+      "canonicalName": "mantinedev/mantine",
+      "repositoryUrl": "https://github.com/mantinedev/mantine",
+      "canonicalUrl": "https://github.com/mantinedev/mantine",
+      "packageNames": [
+        "@mantine/core",
+        "@mantine/hooks"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-05"
+    },
+    {
+      "candidateId": "OS-COMP-06",
+      "originalCandidateId": "OS-COMP-06",
+      "canonicalName": "chakra-ui/chakra-ui",
+      "repositoryUrl": "https://github.com/chakra-ui/chakra-ui",
+      "canonicalUrl": "https://github.com/chakra-ui/chakra-ui",
+      "packageNames": [
+        "@chakra-ui/react",
+        "@chakra-ui/dom"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-06"
+    },
+    {
+      "candidateId": "OS-COMP-07",
+      "originalCandidateId": "OS-COMP-07",
+      "canonicalName": "mui/material-ui",
+      "repositoryUrl": "https://github.com/mui/material-ui",
+      "canonicalUrl": "https://github.com/mui/material-ui",
+      "packageNames": [
+        "@mui/material"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-07"
+    },
+    {
+      "candidateId": "OS-COMP-08",
+      "originalCandidateId": "OS-COMP-08",
+      "canonicalName": "ant-design/ant-design",
+      "repositoryUrl": "https://github.com/ant-design/ant-design",
+      "canonicalUrl": "https://github.com/ant-design/ant-design",
+      "packageNames": [
+        "antd"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-08"
+    },
+    {
+      "candidateId": "OS-COMP-09",
+      "originalCandidateId": "OS-COMP-09",
+      "canonicalName": "nextui-org/nextui",
+      "repositoryUrl": "https://github.com/nextui-org/nextui",
+      "canonicalUrl": "https://github.com/nextui-org/nextui",
+      "packageNames": [
+        "@heroui/react",
+        "@nextui-org/react"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-09"
+    },
+    {
+      "candidateId": "OS-COMP-10",
+      "originalCandidateId": "OS-COMP-10",
+      "canonicalName": "chakra-ui/ark",
+      "repositoryUrl": "https://github.com/chakra-ui/ark",
+      "canonicalUrl": "https://github.com/chakra-ui/ark",
+      "packageNames": [
+        "@ark-ui/react",
+        "@zag-js/core"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-10"
+    },
+    {
+      "candidateId": "OS-COMP-11",
+      "originalCandidateId": "OS-COMP-11",
+      "canonicalName": "mui/base-ui",
+      "repositoryUrl": "https://github.com/mui/base-ui",
+      "canonicalUrl": "https://github.com/mui/base-ui",
+      "packageNames": [
+        "@mui/base"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-11"
+    },
+    {
+      "candidateId": "OS-COMP-12",
+      "originalCandidateId": "OS-COMP-12",
+      "canonicalName": "chakra-ui/park-ui",
+      "repositoryUrl": "https://github.com/chakra-ui/park-ui",
+      "canonicalUrl": "https://github.com/chakra-ui/park-ui",
+      "packageNames": [
+        "@park-ui/presets"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "COMPONENT_REGISTRY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-12"
+    },
+    {
+      "candidateId": "OS-COMP-13",
+      "originalCandidateId": "OS-COMP-13",
+      "canonicalName": "ariakit/ariakit",
+      "repositoryUrl": "https://github.com/ariakit/ariakit",
+      "canonicalUrl": "https://github.com/ariakit/ariakit",
+      "packageNames": [
+        "@ariakit/react"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-13"
+    },
+    {
+      "candidateId": "OS-COMP-14",
+      "originalCandidateId": "OS-COMP-14",
+      "canonicalName": "palantir/blueprint",
+      "repositoryUrl": "https://github.com/palantir/blueprint",
+      "canonicalUrl": "https://github.com/palantir/blueprint",
+      "packageNames": [
+        "@blueprintjs/core"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-14"
+    },
+    {
+      "candidateId": "OS-COMP-15",
+      "originalCandidateId": "OS-COMP-15",
+      "canonicalName": "saas-js/saas-ui",
+      "repositoryUrl": "https://github.com/saas-js/saas-ui",
+      "canonicalUrl": "https://github.com/saas-js/saas-ui",
+      "packageNames": [
+        "@saas-ui/react"
+      ],
+      "category": "2. Category 01 — UI Component Ecosystems",
+      "priority": "P2",
+      "candidateType": "ABANDONED_PROJECT",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ARCHIVED",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-COMP-15"
+    },
+    {
+      "candidateId": "OS-MKT-01",
+      "originalCandidateId": "OS-MKT-01",
+      "canonicalName": "magicuidesign/magicui",
+      "repositoryUrl": "https://github.com/magicuidesign/magicui",
+      "canonicalUrl": "https://github.com/magicuidesign/magicui",
+      "packageNames": [
+        "magicui"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P1",
+      "candidateType": "COMPONENT_REGISTRY",
+      "aliases": [
+        "OS-LAND-01"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-01"
+    },
+    {
+      "candidateId": "OS-MKT-02",
+      "originalCandidateId": "OS-MKT-02",
+      "canonicalName": "nolly-studio/cult-ui",
+      "repositoryUrl": "https://github.com/nolly-studio/cult-ui",
+      "canonicalUrl": "https://github.com/nolly-studio/cult-ui",
+      "packageNames": [
+        "cult-ui"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P2",
+      "candidateType": "COMPONENT_REGISTRY",
+      "aliases": [
+        "OS-LAND-02"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-02"
+    },
+    {
+      "candidateId": "OS-MKT-03",
+      "originalCandidateId": "OS-MKT-03",
+      "canonicalName": "DavidHDev/react-bits",
+      "repositoryUrl": "https://github.com/DavidHDev/react-bits",
+      "canonicalUrl": "https://github.com/DavidHDev/react-bits",
+      "packageNames": [
+        "react-bits"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-LAND-03"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-03"
+    },
+    {
+      "candidateId": "OS-MKT-04",
+      "originalCandidateId": "OS-MKT-04",
+      "canonicalName": "cosscom/originui",
+      "repositoryUrl": "https://github.com/cosscom/ui",
+      "canonicalUrl": "https://github.com/cosscom/ui",
+      "packageNames": [
+        "originui"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-LAND-04"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-04"
+    },
+    {
+      "candidateId": "OS-MKT-05",
+      "originalCandidateId": "OS-MKT-05",
+      "canonicalName": "htmlstreamofficial/preline",
+      "repositoryUrl": "https://github.com/htmlstreamofficial/preline",
+      "canonicalUrl": "https://github.com/htmlstreamofficial/preline",
+      "packageNames": [
+        "preline"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-LAND-05"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-05"
+    },
+    {
+      "candidateId": "OS-MKT-06",
+      "originalCandidateId": "OS-MKT-06",
+      "canonicalName": "themesberg/flowbite-react",
+      "repositoryUrl": "https://github.com/themesberg/flowbite-react",
+      "canonicalUrl": "https://github.com/themesberg/flowbite-react",
+      "packageNames": [
+        "flowbite-react"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-LAND-06"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-06"
+    },
+    {
+      "candidateId": "OS-MKT-07",
+      "originalCandidateId": "OS-MKT-07",
+      "canonicalName": "markmead/hyperui",
+      "repositoryUrl": "https://github.com/markmead/hyperui",
+      "canonicalUrl": "https://github.com/markmead/hyperui",
+      "packageNames": [
+        "hyperui"
+      ],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-LAND-07"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-07"
+    },
+    {
+      "candidateId": "OS-MKT-08",
+      "originalCandidateId": "OS-MKT-08",
+      "canonicalName": "aceternity/ui",
+      "repositoryUrl": null,
+      "canonicalUrl": "https://ui.aceternity.com",
+      "packageNames": [],
+      "category": "3. Category 02 — Landing Page & Marketing Section Ecosystems",
+      "priority": "REJ",
+      "candidateType": "COMMERCIAL_PRODUCT",
+      "aliases": [
+        "OS-LAND-08"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "REJECTED",
+      "consumptionModes": [
+        "REJ"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-MKT-08"
+    },
+    {
+      "candidateId": "OS-DASH-01",
+      "originalCandidateId": "OS-DASH-01",
+      "canonicalName": "tremorlabs/tremor",
+      "repositoryUrl": "https://github.com/tremorlabs/tremor",
+      "canonicalUrl": "https://github.com/tremorlabs/tremor",
+      "packageNames": [
+        "@tremor/react"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-01"
+    },
+    {
+      "candidateId": "OS-DASH-02",
+      "originalCandidateId": "OS-DASH-02",
+      "canonicalName": "tremorlabs/tremor-raw",
+      "repositoryUrl": "https://github.com/tremorlabs/tremor-raw",
+      "canonicalUrl": "https://github.com/tremorlabs/tremor-raw",
+      "packageNames": [
+        "tremor-raw"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-02"
+    },
+    {
+      "candidateId": "OS-DASH-03",
+      "originalCandidateId": "OS-DASH-03",
+      "canonicalName": "TanStack/table",
+      "repositoryUrl": "https://github.com/TanStack/table",
+      "canonicalUrl": "https://github.com/TanStack/table",
+      "packageNames": [
+        "@tanstack/react-table"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-03"
+    },
+    {
+      "candidateId": "OS-DASH-04",
+      "originalCandidateId": "OS-DASH-04",
+      "canonicalName": "TanStack/virtual",
+      "repositoryUrl": "https://github.com/TanStack/virtual",
+      "canonicalUrl": "https://github.com/TanStack/virtual",
+      "packageNames": [
+        "@tanstack/react-virtual"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-04"
+    },
+    {
+      "candidateId": "OS-DASH-05",
+      "originalCandidateId": "OS-DASH-05",
+      "canonicalName": "react-grid-layout/react-grid-layout",
+      "repositoryUrl": "https://github.com/react-grid-layout/react-grid-layout",
+      "canonicalUrl": "https://github.com/react-grid-layout/react-grid-layout",
+      "packageNames": [
+        "react-grid-layout"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-05"
+    },
+    {
+      "candidateId": "OS-DASH-06",
+      "originalCandidateId": "OS-DASH-06",
+      "canonicalName": "refinedev/refine",
+      "repositoryUrl": "https://github.com/refinedev/refine",
+      "canonicalUrl": "https://github.com/refinedev/refine",
+      "packageNames": [
+        "@refinedev/core"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-06"
+    },
+    {
+      "candidateId": "OS-DASH-07",
+      "originalCandidateId": "OS-DASH-07",
+      "canonicalName": "marmelab/react-admin",
+      "repositoryUrl": "https://github.com/marmelab/react-admin",
+      "canonicalUrl": "https://github.com/marmelab/react-admin",
+      "packageNames": [
+        "react-admin"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-07"
+    },
+    {
+      "candidateId": "OS-DASH-08",
+      "originalCandidateId": "OS-DASH-08",
+      "canonicalName": "tabler/tabler-react",
+      "repositoryUrl": "https://github.com/tabler/tabler-react",
+      "canonicalUrl": "https://github.com/tabler/tabler-react",
+      "packageNames": [
+        "tabler-react"
+      ],
+      "category": "4. Category 03 — Dashboard & Application Components",
+      "priority": "P2",
+      "candidateType": "ABANDONED_PROJECT",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ARCHIVED",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-DASH-08"
+    },
+    {
+      "candidateId": "OS-TOKN-01",
+      "originalCandidateId": "OS-TOKN-01",
+      "canonicalName": "design-tokens/community-group",
+      "repositoryUrl": "https://github.com/design-tokens/community-group",
+      "canonicalUrl": "https://github.com/design-tokens/community-group",
+      "packageNames": [],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P0",
+      "candidateType": "SPECIFICATION",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-01"
+    },
+    {
+      "candidateId": "OS-TOKN-02",
+      "originalCandidateId": "OS-TOKN-02",
+      "canonicalName": "style-dictionary/style-dictionary",
+      "repositoryUrl": "https://github.com/style-dictionary/style-dictionary",
+      "canonicalUrl": "https://github.com/style-dictionary/style-dictionary",
+      "packageNames": [
+        "style-dictionary"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-02"
+    },
+    {
+      "candidateId": "OS-TOKN-03",
+      "originalCandidateId": "OS-TOKN-03",
+      "canonicalName": "argyleink/open-props",
+      "repositoryUrl": "https://github.com/argyleink/open-props",
+      "canonicalUrl": "https://github.com/argyleink/open-props",
+      "packageNames": [
+        "open-props"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-03"
+    },
+    {
+      "candidateId": "OS-TOKN-04",
+      "originalCandidateId": "OS-TOKN-04",
+      "canonicalName": "tailwindlabs/tailwindcss",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss",
+      "canonicalUrl": "https://github.com/tailwindlabs/tailwindcss",
+      "packageNames": [
+        "tailwindcss"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-04"
+    },
+    {
+      "candidateId": "OS-TOKN-05",
+      "originalCandidateId": "OS-TOKN-05",
+      "canonicalName": "radix-ui/colors",
+      "repositoryUrl": "https://github.com/radix-ui/colors",
+      "canonicalUrl": "https://github.com/radix-ui/colors",
+      "packageNames": [
+        "@radix-ui/colors"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-05"
+    },
+    {
+      "candidateId": "OS-TOKN-06",
+      "originalCandidateId": "OS-TOKN-06",
+      "canonicalName": "tokens-studio/sd-transforms",
+      "repositoryUrl": "https://github.com/tokens-studio/sd-transforms",
+      "canonicalUrl": "https://github.com/tokens-studio/sd-transforms",
+      "packageNames": [
+        "@primer/primitives"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-06"
+    },
+    {
+      "candidateId": "OS-TOKN-07",
+      "originalCandidateId": "OS-TOKN-07",
+      "canonicalName": "primer/primitives",
+      "repositoryUrl": "https://github.com/primer/primitives",
+      "canonicalUrl": "https://github.com/primer/primitives",
+      "packageNames": [
+        "theo"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-07"
+    },
+    {
+      "candidateId": "OS-TOKN-08",
+      "originalCandidateId": "OS-TOKN-08",
+      "canonicalName": "carbon-design-system/carbon",
+      "repositoryUrl": "https://github.com/carbon-design-system/carbon",
+      "canonicalUrl": "https://github.com/carbon-design-system/carbon",
+      "packageNames": [
+        "@carbon/design-tokens"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-08"
+    },
+    {
+      "candidateId": "OS-TOKN-09",
+      "originalCandidateId": "OS-TOKN-09",
+      "canonicalName": "material-components/material-web",
+      "repositoryUrl": "https://github.com/material-components/material-web",
+      "canonicalUrl": "https://github.com/material-components/material-web",
+      "packageNames": [
+        "@material/web"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-09"
+    },
+    {
+      "candidateId": "OS-TOKN-10",
+      "originalCandidateId": "OS-TOKN-10",
+      "canonicalName": "adobe/spectrum-tokens",
+      "repositoryUrl": "https://github.com/adobe/spectrum-tokens",
+      "canonicalUrl": "https://github.com/adobe/spectrum-tokens",
+      "packageNames": [
+        "@atlaskit/tokens"
+      ],
+      "category": "5. Category 04 — Design Systems & Design Tokens",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TOKN-10"
+    },
+    {
+      "candidateId": "OS-ANIM-01",
+      "originalCandidateId": "OS-ANIM-01",
+      "canonicalName": "motiondivision/motion",
+      "repositoryUrl": "https://github.com/motiondivision/motion",
+      "canonicalUrl": "https://github.com/motiondivision/motion",
+      "packageNames": [
+        "motion"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-01"
+    },
+    {
+      "candidateId": "OS-ANIM-02",
+      "originalCandidateId": "OS-ANIM-02",
+      "canonicalName": "formkit/auto-animate",
+      "repositoryUrl": "https://github.com/formkit/auto-animate",
+      "canonicalUrl": "https://github.com/formkit/auto-animate",
+      "packageNames": [
+        "@formkit/auto-animate"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-02"
+    },
+    {
+      "candidateId": "OS-ANIM-03",
+      "originalCandidateId": "OS-ANIM-03",
+      "canonicalName": "pmndrs/react-spring",
+      "repositoryUrl": "https://github.com/pmndrs/react-spring",
+      "canonicalUrl": "https://github.com/pmndrs/react-spring",
+      "packageNames": [
+        "@react-spring/web"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-03"
+    },
+    {
+      "candidateId": "OS-ANIM-04",
+      "originalCandidateId": "OS-ANIM-04",
+      "canonicalName": "greensock/gsap",
+      "repositoryUrl": "https://github.com/greensock/gsap",
+      "canonicalUrl": "https://github.com/greensock/gsap",
+      "packageNames": [
+        "gsap"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "REJ",
+      "candidateType": "PROPRIETARY_FREE_COMMERCIAL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-04",
+      "notes": "Acquired by Webflow; April 30, 2025 Standard License grant makes GSAP and plugins free for commercial web/app use. Restricted from competing no-code visual animation builders."
+    },
+    {
+      "candidateId": "OS-ANIM-05",
+      "originalCandidateId": "OS-ANIM-05",
+      "canonicalName": "airbnb/lottie-web",
+      "repositoryUrl": "https://github.com/airbnb/lottie-web",
+      "canonicalUrl": "https://github.com/airbnb/lottie-web",
+      "packageNames": [
+        "animejs"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-05"
+    },
+    {
+      "candidateId": "OS-ANIM-06",
+      "originalCandidateId": "OS-ANIM-06",
+      "canonicalName": "animate-css/animate.css",
+      "repositoryUrl": "https://github.com/animate-css/animate.css",
+      "canonicalUrl": "https://github.com/animate-css/animate.css",
+      "packageNames": [
+        "animate.css"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-06"
+    },
+    {
+      "candidateId": "OS-ANIM-07",
+      "originalCandidateId": "OS-ANIM-07",
+      "canonicalName": "catdad/canvas-confetti",
+      "repositoryUrl": "https://github.com/catdad/canvas-confetti",
+      "canonicalUrl": "https://github.com/catdad/canvas-confetti",
+      "packageNames": [
+        "canvas-confetti"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-07"
+    },
+    {
+      "candidateId": "OS-ANIM-08",
+      "originalCandidateId": "OS-ANIM-08",
+      "canonicalName": "remotion-dev/remotion",
+      "repositoryUrl": "https://github.com/remotion-dev/remotion",
+      "canonicalUrl": "https://github.com/remotion-dev/remotion",
+      "packageNames": [
+        "remotion"
+      ],
+      "category": "6. Category 05 — Animation & Motion Ecosystems",
+      "priority": "REJ",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "REJECTED",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ANIM-08"
+    },
+    {
+      "candidateId": "OS-ICON-01",
+      "originalCandidateId": "OS-ICON-01",
+      "canonicalName": "lucide-icons/lucide",
+      "repositoryUrl": "https://github.com/lucide-icons/lucide",
+      "canonicalUrl": "https://github.com/lucide-icons/lucide",
+      "packageNames": [
+        "lucide-react",
+        "lucide"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P0",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-01"
+    },
+    {
+      "candidateId": "OS-ICON-02",
+      "originalCandidateId": "OS-ICON-02",
+      "canonicalName": "tailwindlabs/heroicons",
+      "repositoryUrl": "https://github.com/tailwindlabs/heroicons",
+      "canonicalUrl": "https://github.com/tailwindlabs/heroicons",
+      "packageNames": [
+        "simple-icons"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P1",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-02"
+    },
+    {
+      "candidateId": "OS-ICON-03",
+      "originalCandidateId": "OS-ICON-03",
+      "canonicalName": "tabler/tabler-icons",
+      "repositoryUrl": "https://github.com/tabler/tabler-icons",
+      "canonicalUrl": "https://github.com/tabler/tabler-icons",
+      "packageNames": [
+        "@heroicons/react"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P1",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-03"
+    },
+    {
+      "candidateId": "OS-ICON-04",
+      "originalCandidateId": "OS-ICON-04",
+      "canonicalName": "phosphor-icons/core",
+      "repositoryUrl": "https://github.com/phosphor-icons/core",
+      "canonicalUrl": "https://github.com/phosphor-icons/core",
+      "packageNames": [
+        "@tabler/icons-react"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P1",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-04"
+    },
+    {
+      "candidateId": "OS-ICON-05",
+      "originalCandidateId": "OS-ICON-05",
+      "canonicalName": "iconify/iconify",
+      "repositoryUrl": "https://github.com/iconify/iconify",
+      "canonicalUrl": "https://github.com/iconify/iconify",
+      "packageNames": [
+        "@radix-ui/react-icons"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P1",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-05"
+    },
+    {
+      "candidateId": "OS-ICON-06",
+      "originalCandidateId": "OS-ICON-06",
+      "canonicalName": "google/material-design-icons",
+      "repositoryUrl": "https://github.com/google/material-design-icons",
+      "canonicalUrl": "https://github.com/google/material-design-icons",
+      "packageNames": [
+        "line-awesome"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P2",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-06"
+    },
+    {
+      "candidateId": "OS-ICON-07",
+      "originalCandidateId": "OS-ICON-07",
+      "canonicalName": "gregberge/svgr",
+      "repositoryUrl": "https://github.com/gregberge/svgr",
+      "canonicalUrl": "https://github.com/gregberge/svgr",
+      "packageNames": [
+        "ionicons"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P1",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-07"
+    },
+    {
+      "candidateId": "OS-ICON-08",
+      "originalCandidateId": "OS-ICON-08",
+      "canonicalName": "simple-icons/simple-icons",
+      "repositoryUrl": "https://github.com/simple-icons/simple-icons",
+      "canonicalUrl": "https://github.com/simple-icons/simple-icons",
+      "packageNames": [
+        "feather-icons"
+      ],
+      "category": "7. Category 06 — Icons, Illustrations & Visual Assets",
+      "priority": "P1",
+      "candidateType": "ICON_ASSET",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-ICON-08"
+    },
+    {
+      "candidateId": "OS-CHRT-01",
+      "originalCandidateId": "OS-CHRT-01",
+      "canonicalName": "recharts/recharts",
+      "repositoryUrl": "https://github.com/recharts/recharts",
+      "canonicalUrl": "https://github.com/recharts/recharts",
+      "packageNames": [
+        "recharts"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-01"
+    },
+    {
+      "candidateId": "OS-CHRT-02",
+      "originalCandidateId": "OS-CHRT-02",
+      "canonicalName": "apache/echarts",
+      "repositoryUrl": "https://github.com/apache/echarts",
+      "canonicalUrl": "https://github.com/apache/echarts",
+      "packageNames": [
+        "@nivo/core"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-02"
+    },
+    {
+      "candidateId": "OS-CHRT-03",
+      "originalCandidateId": "OS-CHRT-03",
+      "canonicalName": "plouc/nivo",
+      "repositoryUrl": "https://github.com/plouc/nivo",
+      "canonicalUrl": "https://github.com/plouc/nivo",
+      "packageNames": [
+        "@visx/visx"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P1",
+      "candidateType": "MONOREPO",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-03"
+    },
+    {
+      "candidateId": "OS-CHRT-04",
+      "originalCandidateId": "OS-CHRT-04",
+      "canonicalName": "airbnb/visx",
+      "repositoryUrl": "https://github.com/airbnb/visx",
+      "canonicalUrl": "https://github.com/airbnb/visx",
+      "packageNames": [
+        "echarts"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-04"
+    },
+    {
+      "candidateId": "OS-CHRT-05",
+      "originalCandidateId": "OS-CHRT-05",
+      "canonicalName": "chartjs/Chart.js",
+      "repositoryUrl": "https://github.com/chartjs/Chart.js",
+      "canonicalUrl": "https://github.com/chartjs/Chart.js",
+      "packageNames": [
+        "chart.js"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-05"
+    },
+    {
+      "candidateId": "OS-CHRT-06",
+      "originalCandidateId": "OS-CHRT-06",
+      "canonicalName": "observablehq/plot",
+      "repositoryUrl": "https://github.com/observablehq/plot",
+      "canonicalUrl": "https://github.com/observablehq/plot",
+      "packageNames": [
+        "victory"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-06"
+    },
+    {
+      "candidateId": "OS-CHRT-07",
+      "originalCandidateId": "OS-CHRT-07",
+      "canonicalName": "d3/d3",
+      "repositoryUrl": "https://github.com/d3/d3",
+      "canonicalUrl": "https://github.com/d3/d3",
+      "packageNames": [
+        "@observablehq/plot"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-07"
+    },
+    {
+      "candidateId": "OS-CHRT-08",
+      "originalCandidateId": "OS-CHRT-08",
+      "canonicalName": "FormidableLabs/victory",
+      "repositoryUrl": "https://github.com/FormidableLabs/victory",
+      "canonicalUrl": "https://github.com/FormidableLabs/victory",
+      "packageNames": [
+        "apexcharts"
+      ],
+      "category": "8. Category 07 — Charts & Data Visualization",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-CHRT-08"
+    },
+    {
+      "candidateId": "OS-TYPO-01",
+      "originalCandidateId": "OS-TYPO-01",
+      "canonicalName": "tailwindlabs/tailwindcss-typography",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss-typography",
+      "canonicalUrl": "https://github.com/tailwindlabs/tailwindcss-typography",
+      "packageNames": [
+        "@fontsource/inter",
+        "inter"
+      ],
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "priority": "P0",
+      "candidateType": "FONT_ASSET",
+      "aliases": [
+        "OS-FONT-01"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-01"
+    },
+    {
+      "candidateId": "OS-TYPO-02",
+      "originalCandidateId": "OS-TYPO-02",
+      "canonicalName": "seek-oss/capsize",
+      "repositoryUrl": "https://github.com/seek-oss/capsize",
+      "canonicalUrl": "https://github.com/seek-oss/capsize",
+      "packageNames": [
+        "@fontsource/geist-sans",
+        "geist"
+      ],
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "priority": "P1",
+      "candidateType": "FONT_ASSET",
+      "aliases": [
+        "OS-FONT-02"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-02"
+    },
+    {
+      "candidateId": "OS-TYPO-03",
+      "originalCandidateId": "OS-TYPO-03",
+      "canonicalName": "fontsource/fontsource",
+      "repositoryUrl": "https://github.com/fontsource/fontsource",
+      "canonicalUrl": "https://github.com/fontsource/fontsource",
+      "packageNames": [
+        "fontsource"
+      ],
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "priority": "P1",
+      "candidateType": "FONT_ASSET",
+      "aliases": [
+        "OS-FONT-03"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-03"
+    },
+    {
+      "candidateId": "OS-TYPO-04",
+      "originalCandidateId": "OS-TYPO-04",
+      "canonicalName": "rsms/inter",
+      "repositoryUrl": "https://github.com/rsms/inter",
+      "canonicalUrl": "https://github.com/rsms/inter",
+      "packageNames": [
+        "@capsizecss/core"
+      ],
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-FONT-04"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-04"
+    },
+    {
+      "candidateId": "OS-TYPO-05",
+      "originalCandidateId": "OS-TYPO-05",
+      "canonicalName": "vercel/geist-font",
+      "repositoryUrl": "https://github.com/vercel/geist-font",
+      "canonicalUrl": "https://github.com/vercel/geist-font",
+      "packageNames": [],
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-FONT-05"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-05"
+    },
+    {
+      "candidateId": "OS-TYPO-06",
+      "originalCandidateId": "OS-TYPO-06",
+      "canonicalName": "opentypejs/opentype.js",
+      "repositoryUrl": "https://github.com/opentypejs/opentype.js",
+      "canonicalUrl": "https://github.com/opentypejs/opentype.js",
+      "packageNames": [
+        "modern-font-stacks"
+      ],
+      "category": "9. Category 08 — Typography & Content Presentation",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-FONT-06"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-TYPO-06"
+    },
+    {
+      "candidateId": "OS-LAYT-01",
+      "originalCandidateId": "OS-LAYT-01",
+      "canonicalName": "bvaughn/react-resizable-panels",
+      "repositoryUrl": "https://github.com/bvaughn/react-resizable-panels",
+      "canonicalUrl": "https://github.com/bvaughn/react-resizable-panels",
+      "packageNames": [
+        "tailwind-merge"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-01"
+    },
+    {
+      "candidateId": "OS-LAYT-02",
+      "originalCandidateId": "OS-LAYT-02",
+      "canonicalName": "tailwindlabs/tailwindcss-container-queries",
+      "repositoryUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries",
+      "canonicalUrl": "https://github.com/tailwindlabs/tailwindcss-container-queries",
+      "packageNames": [
+        "tailwind-variants"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-02"
+    },
+    {
+      "candidateId": "OS-LAYT-03",
+      "originalCandidateId": "OS-LAYT-03",
+      "canonicalName": "radix-ui/primitives (Aspect Ratio)",
+      "repositoryUrl": "https://github.com/radix-ui/primitives",
+      "canonicalUrl": "https://github.com/radix-ui/primitives",
+      "packageNames": [
+        "@radix-ui/react-aspect-ratio",
+        "@radix-ui/react-scroll-area"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": "OS-COMP-02",
+      "duplicateType": "SAME_REPO_DIFFERENT_CAPABILITY",
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-03"
+    },
+    {
+      "candidateId": "OS-LAYT-04",
+      "originalCandidateId": "OS-LAYT-04",
+      "canonicalName": "drcmda/react-spring (Parallax)",
+      "repositoryUrl": "https://github.com/pmndrs/react-spring",
+      "canonicalUrl": "https://github.com/pmndrs/react-spring",
+      "packageNames": [
+        "@react-spring/web"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": "OS-ANIM-03",
+      "duplicateType": "SAME_REPO_DIFFERENT_CAPABILITY",
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-04"
+    },
+    {
+      "candidateId": "OS-LAYT-05",
+      "originalCandidateId": "OS-LAYT-05",
+      "canonicalName": "desandro/masonry",
+      "repositoryUrl": "https://github.com/desandro/masonry",
+      "canonicalUrl": "https://github.com/desandro/masonry",
+      "packageNames": [
+        "@xyflow/react",
+        "reactflow"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-05"
+    },
+    {
+      "candidateId": "OS-LAYT-06",
+      "originalCandidateId": "OS-LAYT-06",
+      "canonicalName": "kristoferbaxter/flexboxgrid",
+      "repositoryUrl": "https://github.com/kristoferbaxter/flexboxgrid",
+      "canonicalUrl": "https://github.com/kristoferbaxter/flexboxgrid",
+      "packageNames": [
+        "@atlaskit/pragmatic-drag-and-drop"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-06"
+    },
+    {
+      "candidateId": "OS-LAYT-07",
+      "originalCandidateId": "OS-LAYT-07",
+      "canonicalName": "yannickcr/eslint-plugin-react",
+      "repositoryUrl": "https://github.com/jsx-eslint/eslint-plugin-react",
+      "canonicalUrl": "https://github.com/jsx-eslint/eslint-plugin-react",
+      "packageNames": [
+        "@dnd-kit/core"
+      ],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-07"
+    },
+    {
+      "candidateId": "OS-LAYT-08",
+      "originalCandidateId": "OS-LAYT-08",
+      "canonicalName": "Every-Layout/every-layout",
+      "repositoryUrl": null,
+      "canonicalUrl": "https://every-layout.dev",
+      "packageNames": [],
+      "category": "10. Category 09 — Layout & Responsive Design Patterns",
+      "priority": "P1",
+      "candidateType": "DOCUMENTATION_RESOURCE",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-LAYT-08"
+    },
+    {
+      "candidateId": "OS-A11Y-01",
+      "originalCandidateId": "OS-A11Y-01",
+      "canonicalName": "dequelabs/axe-core",
+      "repositoryUrl": "https://github.com/dequelabs/axe-core",
+      "canonicalUrl": "https://github.com/dequelabs/axe-core",
+      "packageNames": [
+        "axe-core",
+        "@axe-core/playwright"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-01"
+    },
+    {
+      "candidateId": "OS-A11Y-02",
+      "originalCandidateId": "OS-A11Y-02",
+      "canonicalName": "axe-core/playwright",
+      "repositoryUrl": "https://github.com/dequelabs/axe-core-npm",
+      "canonicalUrl": "https://github.com/dequelabs/axe-core-npm",
+      "packageNames": [
+        "eslint-plugin-jsx-a11y"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-02"
+    },
+    {
+      "candidateId": "OS-A11Y-03",
+      "originalCandidateId": "OS-A11Y-03",
+      "canonicalName": "jsx-eslint/eslint-plugin-jsx-a11y",
+      "repositoryUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y",
+      "canonicalUrl": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y",
+      "packageNames": [
+        "eslint-plugin-jsx-a11y"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-03"
+    },
+    {
+      "candidateId": "OS-A11Y-04",
+      "originalCandidateId": "OS-A11Y-04",
+      "canonicalName": "nickcolley/jest-axe",
+      "repositoryUrl": "https://github.com/nickcolley/jest-axe",
+      "canonicalUrl": "https://github.com/nickcolley/jest-axe",
+      "packageNames": [
+        "lighthouse"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-04"
+    },
+    {
+      "candidateId": "OS-A11Y-05",
+      "originalCandidateId": "OS-A11Y-05",
+      "canonicalName": "pa11y/pa11y",
+      "repositoryUrl": "https://github.com/pa11y/pa11y",
+      "canonicalUrl": "https://github.com/pa11y/pa11y",
+      "packageNames": [
+        "pa11y"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-05"
+    },
+    {
+      "candidateId": "OS-A11Y-06",
+      "originalCandidateId": "OS-A11Y-06",
+      "canonicalName": "GoogleChrome/lighthouse",
+      "repositoryUrl": "https://github.com/GoogleChrome/lighthouse",
+      "canonicalUrl": "https://github.com/GoogleChrome/lighthouse",
+      "packageNames": [
+        "html_codesniffer"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-06"
+    },
+    {
+      "candidateId": "OS-A11Y-07",
+      "originalCandidateId": "OS-A11Y-07",
+      "canonicalName": "microsoft/accessibility-insights-web",
+      "repositoryUrl": "https://github.com/microsoft/accessibility-insights-web",
+      "canonicalUrl": "https://github.com/microsoft/accessibility-insights-web",
+      "packageNames": [
+        "accesslint"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-07"
+    },
+    {
+      "candidateId": "OS-A11Y-08",
+      "originalCandidateId": "OS-A11Y-08",
+      "canonicalName": "w3c/aria-practices",
+      "repositoryUrl": "https://github.com/w3c/aria-practices",
+      "canonicalUrl": "https://github.com/w3c/aria-practices",
+      "packageNames": [
+        "focus-trap",
+        "focus-trap-react"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-08"
+    },
+    {
+      "candidateId": "OS-A11Y-09",
+      "originalCandidateId": "OS-A11Y-09",
+      "canonicalName": "storybookjs/addon-a11y",
+      "repositoryUrl": "https://github.com/storybookjs/storybook",
+      "canonicalUrl": "https://github.com/storybookjs/storybook",
+      "packageNames": [
+        "@testing-library/dom",
+        "@testing-library/react"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-09"
+    },
+    {
+      "candidateId": "OS-A11Y-10",
+      "originalCandidateId": "OS-A11Y-10",
+      "canonicalName": "accesslint/accesslint",
+      "repositoryUrl": "https://github.com/accesslint/accesslint",
+      "canonicalUrl": "https://github.com/accesslint/accesslint",
+      "packageNames": [
+        "ally.js"
+      ],
+      "category": "11. Category 10 — Accessibility Utilities",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-A11Y-10"
+    },
+    {
+      "candidateId": "OS-D2C-01",
+      "originalCandidateId": "OS-D2C-01",
+      "canonicalName": "BuilderIO/mitosis",
+      "repositoryUrl": "https://github.com/BuilderIO/mitosis",
+      "canonicalUrl": "https://github.com/BuilderIO/mitosis",
+      "packageNames": [
+        "zod"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-AST-01"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-01"
+    },
+    {
+      "candidateId": "OS-D2C-02",
+      "originalCandidateId": "OS-D2C-02",
+      "canonicalName": "figma/code-connect",
+      "repositoryUrl": "https://github.com/figma/code-connect",
+      "canonicalUrl": "https://github.com/figma/code-connect",
+      "packageNames": [
+        "valibot"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-AST-02"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-02"
+    },
+    {
+      "candidateId": "OS-D2C-03",
+      "originalCandidateId": "OS-D2C-03",
+      "canonicalName": "abi/screenshot-to-code",
+      "repositoryUrl": "https://github.com/abi/screenshot-to-code",
+      "canonicalUrl": "https://github.com/abi/screenshot-to-code",
+      "packageNames": [
+        "@babel/core",
+        "@babel/parser"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P1",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [
+        "OS-AST-03"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "RES"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-03"
+    },
+    {
+      "candidateId": "OS-D2C-04",
+      "originalCandidateId": "OS-D2C-04",
+      "canonicalName": "figma/plugin-samples",
+      "repositoryUrl": "https://github.com/figma/plugin-samples",
+      "canonicalUrl": "https://github.com/figma/plugin-samples",
+      "packageNames": [
+        "ts-morph"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-AST-04"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-04"
+    },
+    {
+      "candidateId": "OS-D2C-05",
+      "originalCandidateId": "OS-D2C-05",
+      "canonicalName": "WICG/open-ui",
+      "repositoryUrl": "https://github.com/WICG/open-ui",
+      "canonicalUrl": "https://github.com/WICG/open-ui",
+      "packageNames": [
+        "@biomejs/biome"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P1",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [
+        "OS-AST-05"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-05"
+    },
+    {
+      "candidateId": "OS-D2C-06",
+      "originalCandidateId": "OS-D2C-06",
+      "canonicalName": "ast-grep/ast-grep",
+      "repositoryUrl": "https://github.com/ast-grep/ast-grep",
+      "canonicalUrl": "https://github.com/ast-grep/ast-grep",
+      "packageNames": [
+        "@swc/core"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-AST-06"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-06"
+    },
+    {
+      "candidateId": "OS-D2C-07",
+      "originalCandidateId": "OS-D2C-07",
+      "canonicalName": "babel/babel",
+      "repositoryUrl": "https://github.com/babel/babel",
+      "canonicalUrl": "https://github.com/babel/babel",
+      "packageNames": [
+        "@builder.io/mitosis"
+      ],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-AST-07"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-07"
+    },
+    {
+      "candidateId": "OS-D2C-08",
+      "originalCandidateId": "OS-D2C-08",
+      "canonicalName": "locofy/locofy",
+      "repositoryUrl": null,
+      "canonicalUrl": "https://www.locofy.ai",
+      "packageNames": [],
+      "category": "12. Category 11 — Design-to-Code & Design Intelligence",
+      "priority": "REJ",
+      "candidateType": "COMMERCIAL_PRODUCT",
+      "aliases": [
+        "OS-AST-08"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "REJECTED",
+      "consumptionModes": [
+        "REJ"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-D2C-08"
+    },
+    {
+      "candidateId": "OS-AGNT-01",
+      "originalCandidateId": "OS-AGNT-01",
+      "canonicalName": "modelcontextprotocol/typescript-sdk",
+      "repositoryUrl": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "canonicalUrl": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "packageNames": [
+        "@modelcontextprotocol/sdk",
+        "@modelcontextprotocol/server"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P0",
+      "candidateType": "MONOREPO",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-01"
+    },
+    {
+      "candidateId": "OS-AGNT-02",
+      "originalCandidateId": "OS-AGNT-02",
+      "canonicalName": "anomalyco/opencode",
+      "repositoryUrl": "https://github.com/anomalyco/opencode",
+      "canonicalUrl": "https://github.com/anomalyco/opencode",
+      "packageNames": [
+        "opencode"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-02"
+    },
+    {
+      "candidateId": "OS-AGNT-03",
+      "originalCandidateId": "OS-AGNT-03",
+      "canonicalName": "anthropics/claude-code",
+      "repositoryUrl": null,
+      "canonicalUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code",
+      "packageNames": [
+        "claude-code"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-03"
+    },
+    {
+      "candidateId": "OS-AGNT-04",
+      "originalCandidateId": "OS-AGNT-04",
+      "canonicalName": "anysphere/cursor",
+      "repositoryUrl": null,
+      "canonicalUrl": "https://cursor.com",
+      "packageNames": [],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-04"
+    },
+    {
+      "candidateId": "OS-AGNT-05",
+      "originalCandidateId": "OS-AGNT-05",
+      "canonicalName": "codeium/windsurf",
+      "repositoryUrl": null,
+      "canonicalUrl": "https://codeium.com/windsurf",
+      "packageNames": [],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-05"
+    },
+    {
+      "candidateId": "OS-AGNT-06",
+      "originalCandidateId": "OS-AGNT-06",
+      "canonicalName": "continuedev/continue",
+      "repositoryUrl": "https://github.com/continuedev/continue",
+      "canonicalUrl": "https://github.com/continuedev/continue",
+      "packageNames": [
+        "continue"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-06"
+    },
+    {
+      "candidateId": "OS-AGNT-07",
+      "originalCandidateId": "OS-AGNT-07",
+      "canonicalName": "CopilotKit/CopilotKit",
+      "repositoryUrl": "https://github.com/CopilotKit/CopilotKit",
+      "canonicalUrl": "https://github.com/CopilotKit/CopilotKit",
+      "packageNames": [
+        "@copilotkit/react-core"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REG",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-07"
+    },
+    {
+      "candidateId": "OS-AGNT-08",
+      "originalCandidateId": "OS-AGNT-08",
+      "canonicalName": "vercel/ai",
+      "repositoryUrl": "https://github.com/vercel/ai",
+      "canonicalUrl": "https://github.com/vercel/ai",
+      "packageNames": [
+        "ai"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-08"
+    },
+    {
+      "candidateId": "OS-AGNT-09",
+      "originalCandidateId": "OS-AGNT-09",
+      "canonicalName": "langchain-ai/langgraphjs",
+      "repositoryUrl": "https://github.com/langchain-ai/langgraphjs",
+      "canonicalUrl": "https://github.com/langchain-ai/langgraphjs",
+      "packageNames": [
+        "@langchain/langgraph"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-09"
+    },
+    {
+      "candidateId": "OS-AGNT-10",
+      "originalCandidateId": "OS-AGNT-10",
+      "canonicalName": "run-llama/LlamaIndexTS",
+      "repositoryUrl": "https://github.com/run-llama/LlamaIndexTS",
+      "canonicalUrl": "https://github.com/run-llama/LlamaIndexTS",
+      "packageNames": [
+        "llamaindex"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-10"
+    },
+    {
+      "candidateId": "OS-AGNT-11",
+      "originalCandidateId": "OS-AGNT-11",
+      "canonicalName": "cline/cline",
+      "repositoryUrl": "https://github.com/cline/cline",
+      "canonicalUrl": "https://github.com/cline/cline",
+      "packageNames": [
+        "cline"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-11"
+    },
+    {
+      "candidateId": "OS-AGNT-12",
+      "originalCandidateId": "OS-AGNT-12",
+      "canonicalName": "rooveterinaryinc/roo-cline",
+      "repositoryUrl": "https://github.com/RooVetGit/Roo-Code",
+      "canonicalUrl": "https://github.com/RooVetGit/Roo-Code",
+      "packageNames": [
+        "roo-cline",
+        "roo-code"
+      ],
+      "category": "13. Category 12 — AI Agent Skills, MCP & Developer Ecosystem",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INT"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-AGNT-12"
+    },
+    {
+      "candidateId": "OS-BROW-01",
+      "originalCandidateId": "OS-BROW-01",
+      "canonicalName": "microsoft/playwright",
+      "repositoryUrl": "https://github.com/microsoft/playwright",
+      "canonicalUrl": "https://github.com/microsoft/playwright",
+      "packageNames": [
+        "playwright",
+        "playwright-core"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P0",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-01"
+    },
+    {
+      "candidateId": "OS-BROW-02",
+      "originalCandidateId": "OS-BROW-02",
+      "canonicalName": "puppeteer/puppeteer",
+      "repositoryUrl": "https://github.com/puppeteer/puppeteer",
+      "canonicalUrl": "https://github.com/puppeteer/puppeteer",
+      "packageNames": [
+        "puppeteer",
+        "puppeteer-core"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P1",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-02"
+    },
+    {
+      "candidateId": "OS-BROW-03",
+      "originalCandidateId": "OS-BROW-03",
+      "canonicalName": "webdriverio/webdriverio",
+      "repositoryUrl": "https://github.com/webdriverio/webdriverio",
+      "canonicalUrl": "https://github.com/webdriverio/webdriverio",
+      "packageNames": [
+        "webdriverio"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P2",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-03"
+    },
+    {
+      "candidateId": "OS-BROW-04",
+      "originalCandidateId": "OS-BROW-04",
+      "canonicalName": "testcontainers/testcontainers-node",
+      "repositoryUrl": "https://github.com/testcontainers/testcontainers-node",
+      "canonicalUrl": "https://github.com/testcontainers/testcontainers-node",
+      "packageNames": [
+        "testcontainers"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P1",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-04"
+    },
+    {
+      "candidateId": "OS-BROW-05",
+      "originalCandidateId": "OS-BROW-05",
+      "canonicalName": "browserless/chrome",
+      "repositoryUrl": "https://github.com/browserless/chrome",
+      "canonicalUrl": "https://github.com/browserless/chrome",
+      "packageNames": [
+        "chrome-remote-interface"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P2",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-05"
+    },
+    {
+      "candidateId": "OS-BROW-06",
+      "originalCandidateId": "OS-BROW-06",
+      "canonicalName": "browser-use/browser-use",
+      "repositoryUrl": "https://github.com/browser-use/browser-use",
+      "canonicalUrl": "https://github.com/browser-use/browser-use",
+      "packageNames": [
+        "browser-use"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P2",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "RES"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-06"
+    },
+    {
+      "candidateId": "OS-BROW-07",
+      "originalCandidateId": "OS-BROW-07",
+      "canonicalName": "SeleniumHQ/selenium",
+      "repositoryUrl": "https://github.com/SeleniumHQ/selenium",
+      "canonicalUrl": "https://github.com/SeleniumHQ/selenium",
+      "packageNames": [
+        "selenium-webdriver"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P2",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-07"
+    },
+    {
+      "candidateId": "OS-BROW-08",
+      "originalCandidateId": "OS-BROW-08",
+      "canonicalName": "cypress-io/cypress",
+      "repositoryUrl": "https://github.com/cypress-io/cypress",
+      "canonicalUrl": "https://github.com/cypress-io/cypress",
+      "packageNames": [
+        "cypress"
+      ],
+      "category": "14. Category 13 — Browser Testing & Execution Infrastructure",
+      "priority": "P2",
+      "candidateType": "INFRASTRUCTURE_TOOL",
+      "aliases": [],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-BROW-08"
+    },
+    {
+      "candidateId": "OS-VREG-01",
+      "originalCandidateId": "OS-VREG-01",
+      "canonicalName": "mapbox/pixelmatch",
+      "repositoryUrl": "https://github.com/mapbox/pixelmatch",
+      "canonicalUrl": "https://github.com/mapbox/pixelmatch",
+      "packageNames": [
+        "pixelmatch"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P0",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-VIS-01"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-01"
+    },
+    {
+      "candidateId": "OS-VREG-02",
+      "originalCandidateId": "OS-VREG-02",
+      "canonicalName": "gemini-testing/looks-same",
+      "repositoryUrl": "https://github.com/gemini-testing/looks-same",
+      "canonicalUrl": "https://github.com/gemini-testing/looks-same",
+      "packageNames": [
+        "looks-same"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-VIS-02"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "DEP",
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-02"
+    },
+    {
+      "candidateId": "OS-VREG-03",
+      "originalCandidateId": "OS-VREG-03",
+      "canonicalName": "argos-ci/argos",
+      "repositoryUrl": "https://github.com/argos-ci/argos",
+      "canonicalUrl": "https://github.com/argos-ci/argos",
+      "packageNames": [
+        "@argos-ci/cli"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-VIS-03"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF",
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-03"
+    },
+    {
+      "candidateId": "OS-VREG-04",
+      "originalCandidateId": "OS-VREG-04",
+      "canonicalName": "oblador/loki",
+      "repositoryUrl": "https://github.com/oblador/loki",
+      "canonicalUrl": "https://github.com/oblador/loki",
+      "packageNames": [
+        "loki"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P2",
+      "candidateType": "ABANDONED_PROJECT",
+      "aliases": [
+        "OS-VIS-04"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ARCHIVED",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-04"
+    },
+    {
+      "candidateId": "OS-VREG-05",
+      "originalCandidateId": "OS-VREG-05",
+      "canonicalName": "garris/BackstopJS",
+      "repositoryUrl": "https://github.com/garris/BackstopJS",
+      "canonicalUrl": "https://github.com/garris/BackstopJS",
+      "packageNames": [
+        "backstopjs"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P2",
+      "candidateType": "ABANDONED_PROJECT",
+      "aliases": [
+        "OS-VIS-05"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ARCHIVED",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-05"
+    },
+    {
+      "candidateId": "OS-VREG-06",
+      "originalCandidateId": "OS-VREG-06",
+      "canonicalName": "lost-pixel/lost-pixel",
+      "repositoryUrl": "https://github.com/lost-pixel/lost-pixel",
+      "canonicalUrl": "https://github.com/lost-pixel/lost-pixel",
+      "packageNames": [
+        "lost-pixel"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-VIS-06"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-06"
+    },
+    {
+      "candidateId": "OS-VREG-07",
+      "originalCandidateId": "OS-VREG-07",
+      "canonicalName": "rsmbl/Resemble.js",
+      "repositoryUrl": "https://github.com/rsmbl/Resemble.js",
+      "canonicalUrl": "https://github.com/rsmbl/Resemble.js",
+      "packageNames": [
+        "resemblejs"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P2",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-VIS-07"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "REF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-07"
+    },
+    {
+      "candidateId": "OS-VREG-08",
+      "originalCandidateId": "OS-VREG-08",
+      "canonicalName": "storybookjs/test-runner",
+      "repositoryUrl": "https://github.com/storybookjs/test-runner",
+      "canonicalUrl": "https://github.com/storybookjs/test-runner",
+      "packageNames": [
+        "@storybook/test-runner"
+      ],
+      "category": "15. Category 14 — Visual Regression & Frontend Quality",
+      "priority": "P1",
+      "candidateType": "OPEN_SOURCE_REPOSITORY",
+      "aliases": [
+        "OS-VIS-08"
+      ],
+      "duplicateOf": null,
+      "duplicateType": null,
+      "status": "ACTIVE",
+      "consumptionModes": [
+        "INF"
+      ],
+      "sourceInventoryReference": "research/ecosystem-discovery/candidate-inventory.md#OS-VREG-08"
+    }
+  ]
+}
