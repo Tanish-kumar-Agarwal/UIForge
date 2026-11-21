@@ -209,3 +209,15 @@ The GNU Affero General Public License (AGPL-3.0) contains Section 13, which trig
 1. **Permissive Foundation**: UIForge is built on a 100% legally verified permissive (MIT/Apache-2.0/ISC) base.
 2. **Strict Copyleft Isolation**: MPL-2.0 is isolated to dynamic library calls; LGPL-3.0 is isolated to standalone CLI subprocesses.
 3. **Mandatory Header Injection**: The CLI component generator must never emit source code without preserving upstream copyright and license notices.
+
+
+---
+
+## 8. Master Inventory Reconciliation & 125-Candidate Coverage
+
+In accordance with Master Remediation Directive REM-01 and REM-03:
+- The legal obligations, copyleft boundaries, and compatibility matrices documented above apply across the complete **125 canonical candidate universe** catalogued in [candidate-master-inventory.json](data/candidate-master-inventory.json) and [license-inventory.json](license-inventory.json).
+- **Reciprocal Boundaries Formally Re-Affirmed**:
+  - `axe-core` (`OS-A11Y-01`): Governed by MPL-2.0 Section 3.3 (Larger Work). Source code files of axe-core must retain notices; surrounding UIForge code remains under UIForge's primary license.
+  - `pa11y` (`OS-A11Y-05`): Governed by LGPL-3.0. Maintained strictly across a subprocess / external CLI execution boundary.
+  - `rsms/inter` (`OS-TYPO-01`) and `vercel/geist-font` (`OS-TYPO-02`): Governed by OFL-1.1 with strict Reserved Font Name protections. Distributed unmodified via `@fontsource` packages.

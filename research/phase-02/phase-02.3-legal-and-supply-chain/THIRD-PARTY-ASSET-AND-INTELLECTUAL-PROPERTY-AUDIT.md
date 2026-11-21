@@ -155,3 +155,13 @@ UIForge interacts with an extensive developer ecosystem. To avoid trademark infr
 2. **Icons**: Permit Lucide, Heroicons, and Tabler unconditionally; inject trademark notices when emitting Simple Icons brand marks.
 3. **Commercial Kits**: Absolute prohibition against scraping or copying Aceternity UI or Tailwind UI; enforce clean-room engineering.
 4. **Design Tokens**: Implement DTCG 2025.10 freely under W3C CLA.
+
+
+---
+
+## 8. Master 125-Candidate Asset & Component IP Reconciliation
+
+In accordance with Master Remediation Directive REM-04:
+- The intellectual property and asset review has been formally extended across all 71 Foundational (P0) and High-Value (P1) integration candidates in [P0-P1-IP-CLEARANCE-REPORT.md](P0-P1-IP-CLEARANCE-REPORT.md).
+- **Component-Level Asset Registry**: Detailed file-level asset declarations (including vector icons, font binaries, and embedded third-party libraries) are tracked in [COMPONENT-ASSET-LICENSE-REGISTER.json](COMPONENT-ASSET-LICENSE-REGISTER.json).
+- **Commercial Boundary Enforced**: Aceternity UI (`OS-MKT-08`), GSAP (`OS-ANIM-04`), Remotion (`OS-ANIM-08`), and Locofy (`OS-D2C-08`) remain strictly excluded from distribution registries and source code bundling.

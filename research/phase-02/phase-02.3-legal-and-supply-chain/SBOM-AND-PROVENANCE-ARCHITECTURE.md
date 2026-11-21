@@ -210,3 +210,12 @@ When components, design tokens, or templates are added to a customer project via
 2. **Universal PURL Referencing**: All assets, packages, and components must use unambiguous Package URLs.
 3. **Automated VEX Processing**: Triaged CVEs must carry machine-readable VEX justification records before passing release gates.
 4. **SLSA Level 3 Compliance**: All distributed packages must be built on ephemeral, isolated runners with signed provenance.
+
+
+---
+
+## 7. Master Inventory Reconciliation & 125-Candidate SBOM Mapping
+
+In accordance with Master Remediation Directive REM-01 and REM-05:
+- The SBOM and Software Provenance architecture maps all 125 canonical components established in [candidate-master-inventory.json](data/candidate-master-inventory.json).
+- Every component consumed directly (`[DEP]` or `[REG]`) must generate CycloneDX 1.6 and SPDX 2.3 software bill of materials entries with SHA-256 package hashes and verified SPDX license expressions matching [license-inventory.json](license-inventory.json).
