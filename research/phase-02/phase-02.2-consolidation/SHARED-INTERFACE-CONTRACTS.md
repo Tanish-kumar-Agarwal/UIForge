@@ -58,10 +58,12 @@ To ensure seamless interoperability between UIForge subsystems without tight cou
 export interface ProjectIntelligenceContractV1 {
   readonly contractId: 'uiforge.contract.project-intelligence.v1';
   readonly schemaVersion: '1.0.0';
-  readonly snapshotId: string; // UUID v4
+  readonly projectId: string; // Canonical persistent repository UUID (derived from initial repo init)
+  readonly snapshotId: string; // Deterministic snapshot identifier (SHA-256 Merkle root)
+  readonly analysisRunId: string; // Ephemeral analysis execution ID (UUID v4)
   readonly repositoryRoot: string; // Absolute canonical path
   readonly scannedAt: string; // ISO 8601 UTC
-  readonly snapshotHash: string; // SHA-256 Merkle root of analyzed files
+  readonly snapshotHash: string; // SHA-256 Merkle root of tracked source files, package manifests, and configs
 
   readonly environment: {
     readonly nodeVersion: string;
@@ -112,14 +114,16 @@ export interface ProjectIntelligenceContractV1 {
       readonly message: string;
       readonly severity: 'warning' | 'error';
     }>;
-    readonly completeness: 'complete' | 'partial-syntax-errors' | 'partial-size-limit';
+    readonly completeness: 'complete' | 'partial-syntax-errors' | 'partial-size-limit' | 'in-progress';
   };
 }
 ```
 
-- **Required Fields:** `contractId`, `schemaVersion`, `snapshotId`, `repositoryRoot`, `scannedAt`, `snapshotHash`, `environment`, `dependencies`, `styling`, `routes`, `analysisMetadata`.
+- **Required Fields:** `contractId`, `schemaVersion`, `projectId`, `snapshotId`, `analysisRunId`, `repositoryRoot`, `scannedAt`, `snapshotHash`, `environment`, `dependencies`, `styling`, `routes`, `analysisMetadata`.
 - **Optional Fields:** `typescript.tsconfigPath`, `typescript.compilerVersion`.
-- **Validation Rules:** `repositoryRoot` must be an absolute path existing on the local host. `snapshotHash` must equal the SHA-256 of all analyzed file digests combined in lexicographical order.
+- **Merkle Root Definition & Invalidation Rules:**
+  - `snapshotHash` is computed as the SHA-256 Merkle root across lexicographically sorted relative file paths and SHA-256 contents of all tracked application source files (`.ts`, `.tsx`, `.js`, `.jsx`, `.css`), package manifests (`package.json`, lockfiles), and project configuration files (`tsconfig.json`, `next.config.*`, `tailwind.config.*`).
+  - **Crucial Invalidation Guarantee:** A Merkle root records the state at scan time; **a Merkle root alone does NOT prevent stale analysis or scanner desynchronization** if disk files are modified concurrently or outside UIForge. Invalidation is triggered when filesystem `mtime` or file SHA-256 digests change. Downstream consumers planning mutations must revalidate current disk file digests against `snapshotHash` before authorizing changes.
 - **Error Model:** Emits `PROJECT_SCAN_ERROR`, `SYNTAX_PARSE_ERROR`, or `REPO_ROOT_NOT_FOUND`.
 - **Security Requirements:** Excludes `.git`, `node_modules`, `.env*`, and ignored paths from content scanning. Read-only access enforced.
 - **Compatibility Guarantees:** Forward-compatible; additional environment details will be added as optional fields.
@@ -206,7 +210,7 @@ export interface ComponentIntelligenceContractV1 {
 - **Contract Name:** Component Registry Resource & Provenance Contract
 - **Contract Identifier:** `uiforge.contract.registry-resource.v1`
 - **Owning Subsystem:** WS-3 (Registry, Tokens & Styling Architecture)
-- **Consuming Subsystems:** WS-2 (Component Architecture), WS-1 (Transforms), WS-9 (Provenance)
+- **Consuming Subsystems:** WS-2 (Component Architecture), WS-1 (Transforms), Core (Provenance Subsystem)
 - **Purpose:** Standardize the representation of ingested external component registry resources (e.g., shadcn registry items), validating file integrity, dependency declarations, and licensing provenance before code reaches local files.
 
 #### Schema Definition (TypeScript)
@@ -278,7 +282,7 @@ export interface RegistryResourceContractV1 {
 - **Contract Identifier:** `uiforge.contract.design-token.v1`
 - **Owning Subsystem:** WS-3 (Registry, Tokens & Styling Architecture)
 - **Consuming Subsystems:** WS-1 (Transforms), WS-2 (Components), WS-4 (Browser Verification), Orchestration
-- **Purpose:** Represent design tokens in full compliance with W3C DTCG 2025.10, supporting exact multi-dimensional resolution (light/dark, contrast, density), group-level inheritance, and complete color component math without lossy downcasting.
+- **Purpose:** Represent design tokens in full compliance with the stable **W3C Design Tokens Community Group (DTCG) 2025.10 specification** (published under the W3C Community Group process, not a formal W3C Standards Track Recommendation). Supports exact multi-dimensional resolution (light/dark, contrast, density), group-level inheritance, and color-space-specific component mathematics without lossy downcasting.
 
 #### Schema Definition (TypeScript)
 ```typescript
@@ -287,9 +291,12 @@ export type DTCGTokenType =
   | 'number' | 'strokeStyle' | 'border' | 'transition' | 'shadow' | 'gradient' | 'typography';
 
 export interface DTCGColorValue {
-  readonly colorSpace: 'srgb' | 'oklch' | 'srgb-linear' | 'display-p3';
-  readonly components: [number, number, number]; // Non-negotiable DTCG 2025.10 spec property
-  readonly alpha?: number;
+  readonly colorSpace: 'srgb' | 'oklch' | 'srgb-linear' | 'display-p3' | string;
+  // Components strictly defined by colorSpace:
+  // - For 'oklch': [L, C, H] where L in [0, 1] (perceived lightness), C in [0, 0.4+] (chroma), H in [0, 360] (hue angle)
+  // - For 'srgb' / 'display-p3': [r, g, b] normalized in [0, 1]
+  readonly components: [number, number, number];
+  readonly alpha?: number; // Normalized in [0, 1]
   readonly hex?: string; // Optional resolved preview string
 }
 
@@ -335,7 +342,8 @@ export interface DesignTokenContractV1 {
 ```
 
 - **Required Fields:** `contractId`, `schemaVersion`, `tokenSetId`, `projectSnapshotId`, `sourceFormat`, `sourceDigest`, `tokens`, `resolutionContexts`, `conversionDiagnostics`.
-- **Validation Rules:** Color tokens must use `components: [number, number, number]`. Circular references detected during alias traversal must cause `cyclicReferencesFound` to be populated and abort resolution.
+- **Validation Rules:** Color tokens must specify `colorSpace` and a 3-element `components` array matching that color space's dimension definitions (e.g., `[L, C, H]` for OKLCH, `[r, g, b]` for sRGB). Circular references detected during alias traversal must cause `cyclicReferencesFound` to be populated and abort resolution.
+- **Specification Status:** Stable W3C Community Group Specification (October 2025). Adopts Color Module canonical `components` syntax (not legacy `"channels"`).
 - **Error Model:** Emits `CYCLIC_TOKEN_REFERENCE`, `INVALID_DTCG_SYNTAX`, or `UNRESOLVED_TOKEN_ALIAS`.
 - **Security Requirements:** Disallows `$value` expressions attempting JavaScript code evaluation or prototype manipulation.
 - **Compatibility Guarantees:** Guarantees lossless round-tripping of all 13 official DTCG 2025.10 token types.
@@ -404,8 +412,8 @@ export interface StylingTransformationContractV1 {
 - **Contract Name:** Change Proposal, Transaction Journal & Approval Contract
 - **Contract Identifier:** `uiforge.contract.change-approval.v1`
 - **Owning Subsystem:** WS-1 (Transforms) & WS-5 (Security & Approval Gate)
-- **Consuming Subsystems:** WS-7 (Execution), CLI, Studio, Agent Ingress
-- **Purpose:** Serve as the inviolable authorization boundary for any codebase mutation. Enforces single-use, time-bounded, diff-bound human approval cryptographically linked to exact pre-image file digests.
+- **Consuming Subsystems:** Core (Execution Engine), CLI, Studio, Agent Ingress
+- **Purpose:** Serve as the inviolable authorization boundary for any codebase mutation. Enforces single-use, time-bounded, diff-bound human approval cryptographically linked to exact pre-image file digests and project snapshot identifiers.
 
 #### Schema Definition (TypeScript)
 ```typescript
@@ -414,7 +422,9 @@ export interface ChangeProposalAndApprovalContractV1 {
   readonly schemaVersion: '1.0.0';
   readonly proposalId: string; // UUID v4
   readonly transactionId: string; // Local SQLite journal transaction ID
+  readonly projectId: string; // Canonical persistent repository UUID
   readonly projectSnapshotId: string; // Must match current ProjectIntelligenceContractV1.snapshotId
+  readonly taskId: string; // Distinct task/run identifier
   readonly targetRepoRoot: string;
   readonly createdAt: string; // ISO 8601 UTC
 
@@ -438,13 +448,17 @@ export interface ChangeProposalAndApprovalContractV1 {
   readonly compositeDiffDigest: string; // SHA-256 of all plannedChanges diffDigests concatenated
 
   readonly approvalRecord?: {
-    readonly approvalToken: string; // Cryptographic single-use token
+    readonly approvalTokenId: string; // Cryptographic single-use token UUID
     readonly approvedBy: 'human-user' | 'policy-bypass-preauthorized';
     readonly approvedAt: string; // ISO 8601 UTC
     readonly expiresAt: string; // Maximum TTL: 15 minutes from approvedAt
-    readonly boundCompositeDiffDigest: string; // Must match compositeDiffDigest
+    readonly boundProjectId: string; // Must match projectId
     readonly boundSnapshotId: string; // Must match projectSnapshotId
-    readonly isConsumed: boolean; // Marked true atomically on execution
+    readonly boundTaskId: string; // Must match taskId
+    readonly boundCompositeDiffDigest: string; // Must match compositeDiffDigest
+    readonly boundTargetPaths: string[]; // Explicit list of authorized paths
+    readonly isConsumed: boolean; // Marked true atomically on execution entry
+    readonly isRevoked: boolean; // Marked true if user or policy cancels token
   };
 
   readonly executionState: {
@@ -456,12 +470,14 @@ export interface ChangeProposalAndApprovalContractV1 {
 }
 ```
 
-- **Required Fields:** `contractId`, `schemaVersion`, `proposalId`, `transactionId`, `projectSnapshotId`, `targetRepoRoot`, `createdAt`, `requestedBy`, `permissionLevel`, `plannedChanges`, `compositeDiffDigest`, `executionState`.
-- **Validation Rules:** Execution is strictly rejected if `permissionLevel >= 2` and `approvalRecord` is missing, expired, consumed, or if `boundCompositeDiffDigest !== compositeDiffDigest`.
+- **Required Fields:** `contractId`, `schemaVersion`, `proposalId`, `transactionId`, `projectId`, `projectSnapshotId`, `taskId`, `targetRepoRoot`, `createdAt`, `requestedBy`, `permissionLevel`, `plannedChanges`, `compositeDiffDigest`, `executionState`.
+- **Validation Rules:** Execution is strictly rejected if `permissionLevel >= 2` and `approvalRecord` is missing, expired, consumed, revoked, or if any bound property (`boundProjectId`, `boundSnapshotId`, `boundCompositeDiffDigest`, `boundTargetPaths`) fails exact match.
 - **Error Model:** Emits `APPROVAL_REQUIRED`, `APPROVAL_EXPIRED`, `DIFF_DIGEST_MISMATCH`, or `TOCTOU_DISK_MODIFICATION_DETECTED`.
-- **Security Requirements:** Single-use execution token. Pre-image hashes must match current disk state at the exact microsecond of execution.
+- **Security & Filesystem Guarantees:**
+  - Pre-image SHA-256 verification acts as a necessary **precondition check** immediately before disk writing.
+  - A hash check alone does NOT eliminate filesystem race conditions; execution requires a multi-layer defense: path canonicalization (`fs.realpathSync`), staging in a private temporary directory (`.uiforge/staging/`), atomic rename/swap operations where supported by the host OS/filesystem, and persistent write-ahead journal pre-image backups (`.uiforge/journal.db`) to allow deterministic recovery if execution terminates mid-write.
 - **Compatibility Guarantees:** Compatible with standard Git unified diff format.
-- **Known Limitations:** Does not rollback external `node_modules` modifications; dependency changes are isolated and documented.
+- **Known Limitations:** Rollback restores tracked repository files recorded in pre-image logs; external package manager caches (`node_modules`) are unmanaged and require lockfile inspection.
 
 ---
 
@@ -527,7 +543,7 @@ export interface BrowserVerificationContractV1 {
       readonly candidateAstFile?: string; // Localized TSX file path
       readonly candidateAstLine?: number;
     }>;
-    readonly wcagOverallStatus: 'clean-automated' | 'violations-found' | 'requires-human-audit';
+    readonly wcagOverallStatus: 'automated-checks-pass' | 'violations-found' | 'requires-human-audit';
   };
 
   readonly layoutGeometry: {
@@ -552,10 +568,13 @@ export interface BrowserVerificationContractV1 {
 
 - **Required Fields:** `contractId`, `schemaVersion`, `verificationRunId`, `targetUrl`, `executionTimestamp`, `environment`, `functionalStatus`, `visualQuality`, `accessibilityAssessment`, `layoutGeometry`, `recordDigest`.
 - **Validation Rules:** `recordDigest` must match the SHA-256 digest of the canonical JSON string of all other fields in the contract.
+- **Verification Scope & Accessibility Realism:**
+  - The classification of accessibility criteria (12 automated / 23 browser-assisted / 20 human audit) represents **UIForge's internal verification methodology**, not an official W3C demarcation.
+  - Passing automated checks (`automated-checks-pass`) evaluates only candidate DOM attributes and programmatic contrast; it **must NEVER be represented as complete WCAG 2.2 AA conformance**. Full conformance requires human evaluation of meaningful sequences, assistive technology interactions, and cognitive criteria.
 - **Error Model:** Emits `DEV_SERVER_UNREACHABLE`, `BROWSER_CRASH`, or `TEST_TIMEOUT`.
 - **Security Requirements:** Target URL must reside on localhost/127.0.0.1 or an authorized local dev server port. Prohibits SSRF to external or private corporate IPs.
 - **Compatibility Guarantees:** Uses Playwright `page.ariaSnapshot()` for stable accessibility regression assertions.
-- **Known Limitations:** In headless Linux CI, subtle sub-pixel font rendering differences across Chromium builds may report small perceptual diffs; threshold must be calibrated.
+- **Known Limitations:** In headless Linux CI, subtle sub-pixel font rendering differences across Chromium builds may report small perceptual diffs; threshold must be calibrated per project.
 
 ---
 
@@ -563,9 +582,9 @@ export interface BrowserVerificationContractV1 {
 
 - **Contract Name:** Universal Evidence Envelope & Provenance Contract
 - **Contract Identifier:** `uiforge.contract.evidence-provenance.v1`
-- **Owning Subsystem:** Cross-Cutting Evidence Architecture (Layer 9)
+- **Owning Subsystem:** `@uiforge/core` (Evidence & Provenance Subsystem)
 - **Consuming Subsystems:** All Subsystems, CLI, CI/CD, Audit Inspectors
-- **Purpose:** Provide a universal, tamper-evident envelope for any empirical observation, benchmark, test result, or license compliance finding generated across UIForge.
+- **Purpose:** Provide a universal, tamper-evident envelope for any empirical observation, benchmark, test result, or license compliance finding generated across UIForge subsystems (WS-1 through WS-5).
 
 #### Schema Definition (TypeScript)
 ```typescript
@@ -583,7 +602,7 @@ export interface EvidenceAndProvenanceContractV1 {
   readonly contractId: 'uiforge.contract.evidence-provenance.v1';
   readonly schemaVersion: '1.0.0';
   readonly evidenceId: string; // UUID v4
-  readonly parentWorkstream: 'WS-1' | 'WS-2' | 'WS-3' | 'WS-4' | 'WS-5' | 'CROSS-WORKSTREAM';
+  readonly parentWorkstream: 'WS-1' | 'WS-2' | 'WS-3' | 'WS-4' | 'WS-5' | 'CORE';
   readonly requirementId: string; // e.g., 'REQ-A11Y-01', 'REQ-RSC-TIER'
   readonly experimentId?: string; // e.g., 'E1', 'E5', 'E8'
 
