@@ -11,7 +11,13 @@
 
 ## 1. Executive Mission & Engineering Readiness Assessment
 
-This document transitions UIForge from **Phase 02 (Research & Architecture Consolidation)** into **Phase 03 (Production Implementation)**.
+This document establishes the **implementation blueprint, monorepo package dependency DAG, and engineering sequencing** for UIForge.
+
+### Phased Lifecycle Status & Authorization Boundary
+- **Phase 02.2 (Technical Research & Architecture Consolidation):** **CONDITIONALLY COMPLETE** (Unified architecture, shared contracts, threat models, and interface designs reconciled).
+- **Phase 02.3 (Software Supply-Chain, Licensing & Legal Audit):** **SCHEDULED / PENDING** (Evaluation of external package dependencies, SPDX license compatibility, and supply-chain vulnerabilities based on [PROVENANCE-AND-REGISTRY-GOVERNANCE.md](PROVENANCE-AND-REGISTRY-GOVERNANCE.md)).
+- **Phase 02.4 (Technical Feasibility Prototypes & Decision Gates):** **SCHEDULED / PENDING** (Empirical validation of high-risk capabilities through Decision Gates 1, 2, and 3 before committing Phase 03 package architectures).
+- **Phase 03 (Production Implementation):** **ARCHITECTURE PREPARED — IMPLEMENTATION AUTHORIZATION PENDING GATE RESULTS**. Implementation of production packages begins only after explicit authorization following successful clearance of Phase 02.3 and Phase 02.4 Decision Gates.
 
 To prevent premature or unstructured coding, Phase 03 execution is strictly organized around **topological dependency relationships**. We do not build modules in arbitrary workstream order (WS-1 to WS-5). Instead, engineering progresses in four distinct, dependency-gated stages:
 
@@ -159,11 +165,18 @@ Before full production implementation begins in Phase 03, the following three hi
 - **Confirmation Outcome:** If TypeScript 7.1 stable executes cleanly without native crashes, confirm migration for `@uiforge/project-intelligence`.
 - **Fallback / Revisit Outcome:** If TypeScript 7.1 programmatic APIs exhibit instability or memory regressions, retain `@typescript/typescript6@6.0.2` + `ts-morph@28.0.0` as the primary production engine (reconfirming ADR-002).
 
-### Decision Gate 2: SQLite Write-Ahead Journal Crash Recovery & Filesystem Consistency (Phase 02.4 Gate)
-- **Problem & Risk:** Arbitrary multi-file filesystem operations are not ACID. Process termination (`SIGKILL`, power loss) mid-write can corrupt target repositories unless the write-ahead journal and rollback handler reliably restore pre-images.
-- **Prototype Evaluation:** Execute multi-file mutations across 5+ files while simulating sudden process aborts (`process.exit(1)`) at random write intervals on both Windows and POSIX environments. Test startup recovery.
-- **Confirmation Outcome:** If startup recovery detects `PENDING` transactions, compares disk state with pre-image hashes, and restores 100% of modified files, confirm Stage 3 implementation of `@uiforge/transforms` (reconfirming ADR-008).
-- **Fallback / Revisit Outcome:** If SQLite journal locks persist or OS file replacement fails, redesign execution to stage changes into isolated Git shadow worktrees or dedicated staging directories prior to committing Stage 3.
+### Decision Gate 2: Recoverable Multi-File Mutation Protocol & Journal Crash Recovery (Phase 02.4 Gate)
+- **Problem & Risk:** Arbitrary multi-file filesystem operations are not ACID, and POSIX / Windows operating systems provide no native multi-file transactional atomicity. Process termination (`SIGKILL`, power loss) mid-write can corrupt target repositories unless the recoverable mutation protocol reliably restores pre-images.
+- **Prototype Evaluation:** Build a standalone harness to execute multi-file mutations across 5+ files and evaluate the following seven mandatory failure scenarios:
+  1. *Termination after journal entry logged, before staging.*
+  2. *Termination during staging in `.uiforge/staging/<txId>/`.*
+  3. *Termination after replacing only a subset of files (partial write recovery).*
+  4. *Concurrent external user or tool edits to a target file during the transaction.*
+  5. *Rollback failure (disk write error during pre-image restoration).*
+  6. *Disk-full conditions (`ENOSPC`).*
+  7. *Windows NTFS file-handle locking (VS Code / language servers holding handles open) vs POSIX atomic rename behavior.*
+- **Confirmation Outcome:** If startup recovery detects `PENDING` transactions, compares disk state with pre-image hashes, and restores 100% of modified files cleanly across both Windows NTFS and POSIX, confirm Stage 3 implementation of `@uiforge/transforms` (reconfirming ADR-008).
+- **Fallback / Revisit Outcome:** If OS file-locking conflicts or replacement failures persist on Windows, redesign the mutation engine to stage changes into isolated Git shadow worktrees or dedicated patch staging branches prior to committing Stage 3.
 
 ### Decision Gate 3: Cross-Platform Headless Playwright Rendering Calibration (Phase 02.4 Gate)
 - **Problem & Risk:** Sub-pixel antialiasing differences across Linux CI (e.g. FreeType) and Windows desktop (DirectWrite) can produce false-positive visual regressions in Pixelmatch v8 on identical TSX code.
