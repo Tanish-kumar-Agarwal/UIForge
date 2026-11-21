@@ -11,7 +11,7 @@
 
 A monolithic "approved / rejected" binary classification is legally and architecturally hazardous. A library may be ideal as an emitted user dependency but illegal to copy into proprietary source code; an accessibility engine may be licensed under a copyleft regime (MPL-2.0 or LGPL-3.0) that permits isolated external execution but imposes strict notice or distribution obligations if linked at runtime.
 
-This policy defines the **Six Consumption Modes** of UIForge, the canonical decision enum, the granular activities governed under `REFERENCE_ONLY`, and the specific governance boundaries for critical candidates.
+This policy defines the **Six Consumption Modes** of UIForge, the canonical decision enum, the granular activities governed under `REFERENCE_ONLY`, and the concrete product-scoped boundaries for critical candidates.
 
 ---
 
@@ -51,7 +51,7 @@ UIForge evaluates every source candidate across six independent consumption mode
 
 ## 3. Canonical Decision Enum & Precedence
 
-To eliminate conflicting terminology and ensure semantic consistency, all 750 permission records in [`data/consumption-permissions.json`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.4-internal-source-registry/data/consumption-permissions.json) strictly adhere to a single canonical eligibility enum:
+All 750 permission records in [`data/consumption-permissions.json`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.4-internal-source-registry/data/consumption-permissions.json) strictly adhere to a single canonical eligibility enum:
 
 | Canonical Eligibility State | Semantic Definition & Legal Impact | `allowed` Boolean |
 | :--- | :--- | :---: |
@@ -67,9 +67,55 @@ $$\text{BLOCKED} > \text{PENDING\_REVIEW} > \text{REFERENCE\_ONLY} > \text{ELIGI
 
 ---
 
-## 4. Reference-Only Scope & Activity Boundaries (Finding C04 Resolution)
+## 4. REJ Candidates vs. Mode-Level Permissions (Issue 2 Resolution)
 
-Approval under `REFERENCE_ONLY` does **NOT** grant unrestricted inspection, cloning, or extraction rights. The registry distinguishes six discrete activities:
+To prevent mode-level permissions from silently overriding terminal exclusions, UIForge establishes an explicit rule:
+
+1. **Meaning of `REJ`:** `originalDiscoveryPriority: REJ` signifies exclusion from UIForge’s default core runtime stack during Phase 02.1 screening.
+2. **Disqualification from Default Core Stack:** No `REJ` candidate can ever be selected by UIForge as the default core runtime component or animation engine in Phase 02.5.
+3. **Scope of Mode-Level `ELIGIBLE_WITH_RESTRICTIONS` (e.g. GSAP):** Mode-level permission defines legal emission boundaries for **optional, user-selected, secondary plugins only**. It does NOT elevate a candidate to the default stack.
+4. **Terminal Exclusion for Closed Platforms:** For `Aceternity UI` and `Locofy.ai`, their commercial terms result in `BLOCKED` across all runtime modes (`DEPENDENCY`, `SOURCE_COPY`, `ASSET_REDISTRIBUTION`), enforcing an absolute runtime exclusion.
+
+---
+
+## 5. Domain Governance Boundaries for Critical Candidates
+
+### 5.1 GSAP (`SRC-OS-ANIM-04`) — Scoped to UIForge Product Behavior (Issue 9 Resolution)
+- **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **License Context:** Webflow’s April 30, 2025 Standard Commercial License makes GSAP and its core plugins free for commercial use in websites, web applications, and digital interfaces, even for products competing with Webflow in other domains.
+  - **Prohibited Use Definition:** The license strictly prohibits incorporating GSAP into *no-code visual animation-building tools that compete with Webflow's animation authoring capabilities*.
+  - **UIForge Product Boundary:** UIForge is a developer-facing code generation CLI and component scaffolding platform emitting clean React/TypeScript code (`import gsap from 'gsap'`) where animations are written programmatically in code. UIForge is **NOT** a drag-and-drop visual keyframe timeline animation builder. Therefore, emitting GSAP as a user dependency is permitted.
+  - **Prohibition:** UIForge must NOT construct or bundle a visual no-code timeline animation editor powered by GSAP. Flagged `counselReviewRequired: true`.
+- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
+  - **Condition:** Copying GSAP source code into UIForge or user project repositories is strictly prohibited under proprietary license terms.
+
+### 5.2 axe-core (`SRC-OS-A11Y-01`) — Concrete Distribution Model (Issue 6 & 11 Resolution)
+- **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Condition:** Governed by Mozilla Public License 2.0 (MPL-2.0). Section 3.3 "Larger Works" notice obligations require retaining MPL-2.0 copyright notices in generated distributions.
+- **`SOURCE_COPY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Condition:** Any modified covered files must be offered under MPL-2.0 and source made available.
+- **`EXTERNAL_TOOL`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Concrete Distribution Model:** UIForge supports axe-core execution strictly as a **user-managed external integration**. UIForge invokes a user-installed copy or devDependency (`@axe-core/cli`, MPL-2.0) via an out-of-process CLI runner. UIForge does **NOT** bundle, redistribute, or host executable axe-core binaries.
+  - **Legal Gate:** If pre-compiled enterprise test bundles containing axe-core binaries are ever distributed, MPL-2.0 Section 3 notices and source availability obligations must be fulfilled. Flagged `counselReviewRequired: true`.
+
+### 5.3 pa11y (`SRC-OS-A11Y-05`) — Prudent Legal Review Gating
+- **`DEPENDENCY`: `PENDING_REVIEW` (`allowed: false`)**
+  - **Condition:** Governed by GNU Lesser General Public License v3.0 (LGPL-3.0). Direct runtime dynamic linking into compiled JavaScript bundles carries viral copyleft risk. Gated pending formal legal counsel review.
+- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
+  - **Condition:** Copying LGPL-3.0 source code into user project trees is strictly prohibited.
+- **`EXTERNAL_TOOL`: `PENDING_REVIEW` (`allowed: false`)**
+  - **Condition:** A proposed subprocess architecture does not itself establish that distribution and execution satisfy every applicable LGPL obligation. External tool execution remains `PENDING_REVIEW` pending formal counsel review of the packaging and distribution model. Flagged `counselReviewRequired: true`.
+
+### 5.4 Every Layout (`SRC-OS-LAYT-08`) — Authoritative License Basis (Issue 3 & 10 Resolution)
+- **`DEPENDENCY`: `NOT_APPLICABLE` (`allowed: false`)** (No installable npm package).
+- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)** (Authored component code copying prohibited).
+- **`REFERENCE_ONLY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
+  - **Reviewed Scope:** Free public articles on `every-layout.dev` were reviewed for algorithmic layout patterns (The Stack, The Cluster, The Reel). The authored book and component library are paid content published under commercial terms prohibiting redistribution.
+  - **Permitted Use:** Clean-room implementation of underlying CSS flex/grid layout concepts in UIForge's own TypeScript/CSS primitives is permitted. Direct copying of authored book text, diagrams, or component code is strictly prohibited.
+
+---
+
+## 6. Reference-Only Scope & Activity Boundaries
 
 | Activity | Open-Source Repositories (119 Sources) | Commercial / Closed Portals (6 Sources) |
 | :--- | :---: | :---: |
@@ -79,54 +125,3 @@ Approval under `REFERENCE_ONLY` does **NOT** grant unrestricted inspection, clon
 | **4. Local Repository Cloning** | **AUTHORIZED** | **PROHIBITED** (No public Git repository) |
 | **5. Automated Mass Scraping** | **STRICTLY PROHIBITED** | **STRICTLY PROHIBITED** |
 | **6. Source Code Copying** | **PROHIBITED** (Governed by Mode 3) | **PROHIBITED** (Governed by Mode 3) |
-
-Every `REFERENCE_ONLY` record in `consumption-permissions.json` encodes this granular breakdown in its `referenceScope` object:
-```json
-{
-  "publicDocumentationInspection": true,
-  "factualResearch": true,
-  "publicSourceCodeInspection": false,
-  "localCloning": false,
-  "automatedScraping": false,
-  "codeCopying": false
-}
-```
-
----
-
-## 5. Domain Governance Boundaries for Critical Candidates (Finding C03 Resolution)
-
-### 5.1 GSAP (`SRC-OS-ANIM-04`)
-- **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
-  - **Condition:** Emitted user dependency allowed under Webflow April 2025 commercial free terms (`npm install gsap`).
-  - **Restriction:** Non-compete clause strictly prohibits inclusion in competing visual no-code animation builders. Flagged `counselReviewRequired: true`.
-- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
-  - **Condition:** Copying GSAP source code into user templates or UIForge core is strictly illegal under proprietary terms.
-
-### 5.2 axe-core (`SRC-OS-A11Y-01`)
-- **`DEPENDENCY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
-  - **Condition:** Governed by Mozilla Public License 2.0 (MPL-2.0). Section 3.3 "Larger Works" notice obligations require retaining MPL-2.0 copyright notices in generated distributions.
-- **`SOURCE_COPY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
-  - **Condition:** If any axe-core source file is modified, the modified covered file must be made available under MPL-2.0.
-- **`EXTERNAL_TOOL`: `APPROVED` (`allowed: true`)**
-  - **Condition:** Execution as an isolated out-of-process CLI tool across a process boundary.
-
-### 5.3 pa11y (`SRC-OS-A11Y-05`)
-- **`DEPENDENCY`: `PENDING_REVIEW` (`allowed: false`)**
-  - **Condition:** Governed by GNU Lesser General Public License v3.0 (LGPL-3.0). Direct dynamic linking into compiled JavaScript runtime bundles carries viral copyleft risk. Suspended pending formal legal counsel review.
-- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
-  - **Condition:** Copying LGPL-3.0 source code into user project trees is strictly prohibited.
-- **`EXTERNAL_TOOL`: `PENDING_REVIEW` (`allowed: false`)**
-  - **Condition:** A proposed subprocess architecture does not itself establish that distribution and execution satisfy every applicable LGPL obligation. External tool execution remains `PENDING_REVIEW` pending formal counsel review of the packaging and distribution model. Flagged `counselReviewRequired: true`.
-
-### 5.4 LiquidJS (`SRC-OS-UTIL-01`)
-- **`DEPENDENCY`: `APPROVED` (`allowed: true`)**
-- **`SOURCE_COPY`: `APPROVED` (`allowed: true`)**
-- **`TEMPLATE_ADAPTATION`: `APPROVED` (`allowed: true`)**
-  - **Condition:** Fully verified MIT license. Historical MulanPSL references reconciled and confirmed non-applicable to audited v10.x line.
-
-### 5.5 Commercial Closed Platforms (Aceternity UI, Locofy.ai)
-- **`DEPENDENCY`: `BLOCKED` (`allowed: false`)**
-- **`SOURCE_COPY`: `BLOCKED` (`allowed: false`)**
-- **`REFERENCE_ONLY`: `ELIGIBLE_WITH_RESTRICTIONS` (`allowed: true`)**
-  - **Condition:** Commercial Terms of Service strictly forbid redistribution, copying, or embedding. Reference access is restricted strictly to public documentation inspection.

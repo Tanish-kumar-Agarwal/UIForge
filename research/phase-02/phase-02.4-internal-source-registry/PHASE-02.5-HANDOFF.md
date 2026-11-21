@@ -9,15 +9,15 @@
 
 ## 1. Executive Summary & Purpose
 
-This handoff document formally transitions the outputs of **Phase 02.4 (Internal Source Registry)** to **Phase 02.5 (Source Selection and Scoring Matrix)**.
+This handoff document formally transitions the reconciled outputs of **Phase 02.4 (Internal Source Registry)** to **Phase 02.5 (Source Selection and Scoring Matrix)**.
 
-Phase 02.4 has established the immutable truth of UIForge’s open-source universe: exactly **125 canonical candidates** (24 P0, 47 P1, 50 P2, 4 REJ), normalized into **119 authoritative Git repositories**, **147 packages**, **31 component groups**, and **6 standalone assets**, governed across **6 consumption modes** ($125 \times 6 = 750$ permission records) with **625 granular evidence items** and digest-backed provenance.
+Phase 02.4 has established the immutable truth of UIForge’s open-source universe: exactly **125 canonical candidates** (24 P0, 47 P1, 50 P2, 4 REJ), normalized into **119 authoritative Git repositories**, **147 packages**, **31 component groups**, **8 standalone assets**, and **12 canonical license entities**, governed across **6 consumption modes** ($125 \times 6 = 750$ permission records) with **625 granular evidence items** and digest-backed provenance.
 
 Phase 02.5 researchers must utilize this registry dataset to conduct quantitative scoring, category-by-category stack trade-off analyses, and final component selection.
 
 ---
 
-## 2. Mode-Specific Eligibility Pre-Filtering (Crucial Governance Gate)
+## 2. Mode-Specific Eligibility Pre-Filtering & REJ Rules (Issue 1 & 2 Resolution)
 
 A universal eligibility filter is architecturally invalid. In accordance with the Phase 02.4 Governance Directive, **Phase 02.5 scoring must apply consumption-mode-specific eligibility gates** before evaluating any candidate:
 
@@ -40,38 +40,35 @@ A universal eligibility filter is architecturally invalid. In accordance with th
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.1 Mode-Specific Pool Isolation Matrix:
+### 2.1 Reconciled Dependency Mode Arithmetic (125 Sources)
+- **Eligible Dependency Pool:** Exactly **113 candidates** (111 `APPROVED` + 2 `ELIGIBLE_WITH_RESTRICTIONS`).
+- **Ineligible Dependency Pool:** Exactly **12 candidates**:
+  - **7 `BLOCKED`:** `aceternity/ui`, `locofy/locofy`, `remotion`, `rebass`, `react-grid-layout`, `loki`, `backstopjs`.
+  - **1 `PENDING_REVIEW`:** `pa11y` (LGPL-3.0 dynamic linking concerns).
+  - **4 `NOT_APPLICABLE`:** `Every-Layout` (documentation/book), `claude-code`, `cursor`, `windsurf` (closed desktop/CLI tools).
+- **Total Accounting:** $113 \text{ eligible} + 12 \text{ ineligible} = 125 \text{ sources}$ (100% exact).
 
-| Candidate ID & Name | Mode 2: `DEPENDENCY` Selection Pool | Mode 3: `SOURCE_COPY` Selection Pool | Mode 1: `REFERENCE_ONLY` Pool | Phase 02.5 Scoring Action |
-| :--- | :---: | :---: | :---: | :--- |
-| **`SRC-OS-COMP-01` (shadcn/ui)** | **QUALIFIED** | **QUALIFIED** | **QUALIFIED** | Score for template copying & component CLI scaffolding. |
-| **`SRC-OS-COMP-02` (Radix UI)** | **QUALIFIED** | **QUALIFIED** | **QUALIFIED** | Score as foundational headless UI dependency. |
-| **`SRC-OS-ANIM-04` (GSAP)** | **QUALIFIED (Restricted)** | **DISQUALIFIED (BLOCKED)** | **QUALIFIED** | Score strictly as an optional emitted dependency (`npm i gsap`). Strictly forbidden from source-code copying. |
-| **`SRC-OS-A11Y-01` (axe-core)** | **QUALIFIED (Notice)** | **QUALIFIED (MPL)** | **QUALIFIED** | Score for testing engine with automated notice injection. |
-| **`SRC-OS-A11Y-05` (pa11y)** | **DISQUALIFIED (PENDING)** | **DISQUALIFIED (BLOCKED)** | **QUALIFIED** | Excluded from runtime dependencies and source-copying pending legal counsel review. External tool mode is also PENDING_REVIEW. |
-| **`SRC-OS-MKT-08` (Aceternity UI)** | **DISQUALIFIED (BLOCKED)** | **DISQUALIFIED (BLOCKED)** | **QUALIFIED** | Excluded from generation dependencies and code emission. Reference-only for clean-room pattern benchmarks. |
-| **`SRC-OS-D2C-08` (Locofy.ai)** | **DISQUALIFIED (BLOCKED)** | **DISQUALIFIED (BLOCKED)** | **QUALIFIED** | Excluded from generation dependencies. Reference-only for prompt engineering and design-to-code research. |
-
-> [!CRITICAL]
-> **Reference-Only Exclusion Principle:** A candidate approved under `REFERENCE_ONLY` does **NOT** qualify for selection as an emitted dependency or copied template. Selecting an external package for UIForge code generation requires explicit clearance in `DEPENDENCY` or `SOURCE_COPY` mode.
+### 2.2 REJ Candidates Disqualification from Default Stack (Issue 2 Resolution)
+1. **Default Core Disqualification:** All 4 candidates with `originalDiscoveryPriority: REJ` (`aceternity/ui`, `greensock/gsap`, `remotion`, `locofy/locofy`) are **strictly excluded from selection as UIForge's default core runtime stack**.
+2. **GSAP Secondary Plugin Role:** GSAP’s `ELIGIBLE_WITH_RESTRICTIONS` permission permits emission only as an **optional, user-requested secondary animation plugin**, subject to Webflow’s non-compete clause. GSAP will never be selected as UIForge's default core animation engine (Framer Motion / Motion One retain default status).
+3. **Aceternity & Locofy Terminal Exclusion:** Both candidates remain `BLOCKED` across all operational emission modes (`DEPENDENCY`, `SOURCE_COPY`, `ASSET_REDISTRIBUTION`).
 
 ---
 
 ## 3. Transferred Assets and Inputs
 
-The following Phase 02.4 deliverables serve as primary inputs for Phase 02.5:
-
 | Transferred Asset | Path | Description & Downstream Purpose |
 | :--- | :--- | :--- |
-| **Master Source Index** | `data/sources.json` | 125 canonical candidate records with preserved original priorities (P0: 24, P1: 47, P2: 50, REJ: 4) and operational tiers. |
+| **Master Source Index** | `data/sources.json` | 125 canonical candidate records with immutable `candidateId`, preserved priorities, and operational tiers. |
 | **Authoritative Repositories**| `data/repositories.json`| 119 verified Git repositories with canonical URLs and branch tracking. |
 | **Normalized Packages** | `data/packages.json` | 147 installable npm packages with versioning and monorepo mapping. |
 | **Component Primitives** | `data/components.json` | 31 primary component groups for atomic UI template mapping. |
-| **Asset Register** | `data/assets.json` | 6 independently verified font, icon, script, and testing assets with explicit RFN evidence. |
-| **Technical Evaluations** | `data/evaluations.json` | 1,250 dimensional assessments across 10 dimensions (71 complete, 54 partial). |
+| **Asset Register** | `data/assets.json` | 8 assets (6 core assets + JetBrains Mono and Fira Code traced to Fontsource `OS-TYPO-03`). |
+| **License Entities** | `data/licenses.json` | 12 canonical licenses including `LIC-EVERY-LAYOUT-COMMERCIAL`. |
+| **Technical Evaluations** | `data/evaluations.json` | 1,250 dimensional assessments (71 complete candidate technical evaluations, 54 screened/partial). |
 | **Permissions Matrix** | `data/consumption-permissions.json`| 750 mode permissions defining what can be imported, copied, or bundled with canonical enums. |
 | **Digest-Backed Provenance**| `data/provenance.json` | Pinned Git commits and SHA-256 digests ensuring tamper-evident baseline. |
-| **Granular Evidence Dossiers**| `data/evidence.json` | 125 candidate dossiers containing 625 granular evidence items supporting individual claims. |
+| **Granular Evidence Dossiers**| `data/evidence.json` | 125 candidate dossiers containing 625 granular evidence items with claim-level quality checks. |
 | **Gaps & Legal Escalations**| `REGISTRY-GAP-AND-LIMITATION-REGISTER.md` | Active constraints (LEG-01 to LEG-10, GAP-01 to GAP-08). |
 
 ---
@@ -95,13 +92,6 @@ Phase 02.5 evaluates candidates within their specific category to select UIForge
 │  TOTAL COMPOSITE WEIGHT:                 100%          │
 └────────────────────────────────────────────────────────┘
 ```
-
-### 4.1 Scoring Formula
-For each candidate $i$ in category $C$:
-$$\text{Composite Score}_i = \sum_{k=1}^{7} (W_k \times S_{i,k})$$
-Where:
-- $W_k$ is the weight of dimension $k$ ($\sum W_k = 1.0$).
-- $S_{i,k}$ is the normalized score ($0.0 - 10.0$) evaluated for candidate $i$ on dimension $k$.
 
 ---
 
