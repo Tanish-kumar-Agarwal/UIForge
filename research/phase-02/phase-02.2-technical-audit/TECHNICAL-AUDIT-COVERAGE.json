@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditDate": "2026-11-21",
+  "totalCandidates": 125,
+  "dimensionCoverage": {
+    "maintenance": {
+      "verified": 74,
+      "partial": 47,
+      "notApplicable": 0,
+      "failed": 4,
+      "notVerified": 0
+    },
+    "adoption": {
+      "verified": 121,
+      "partial": 4,
+      "notApplicable": 0,
+      "failed": 0,
+      "notVerified": 0
+    },
+    "codeQuality": {
+      "verified": 118,
+      "partial": 4,
+      "notApplicable": 3,
+      "failed": 0,
+      "notVerified": 0
+    },
+    "compatibility": {
+      "verified": 118,
+      "partial": 3,
+      "notApplicable": 0,
+      "failed": 4,
+      "notVerified": 0
+    },
+    "accessibility": {
+      "verified": 50,
+      "partial": 7,
+      "notApplicable": 68,
+      "failed": 0,
+      "notVerified": 0
+    },
+    "responsiveness": {
+      "verified": 50,
+      "partial": 4,
+      "notApplicable": 71,
+      "failed": 0,
+      "notVerified": 0
+    },
+    "dependencies": {
+      "verified": 116,
+      "partial": 3,
+      "notApplicable": 2,
+      "failed": 4,
+      "notVerified": 0
+    },
+    "licensing": {
+      "verified": 119,
+      "partial": 4,
+      "notApplicable": 0,
+      "failed": 2,
+      "notVerified": 0
+    },
+    "installation": {
+      "verified": 118,
+      "partial": 4,
+      "notApplicable": 1,
+      "failed": 2,
+      "notVerified": 0
+    },
+    "customization": {
+      "verified": 118,
+      "partial": 7,
+      "notApplicable": 0,
+      "failed": 0,
+      "notVerified": 0
+    }
+  },
+  "statusTotals": {
+    "verified": 1002,
+    "partial": 87,
+    "notApplicable": 145,
+    "failed": 16,
+    "notVerified": 0
+  },
+  "candidatesFullyAudited": 71,
+  "candidatesPartiallyAudited": 48,
+  "candidatesWithFailures": 6
+}
