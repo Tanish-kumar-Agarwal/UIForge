@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UIForge Synthetic Dashboard Fixture</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: transparent;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #3b82f6;
+      --success: #10b981;
+      --danger: #ef4444;
+      --gap: 16px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--primary);
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--gap);
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      
+      
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+    th {
+      background: #f1f5f9;
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    /* Modal Dialog for Interaction Verification */
+    .dialog-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+    }
+    .dialog-backdrop.active {
+      display: flex;
+    }
+    .dialog {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .dialog-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="title">Production Analytics Overview</h1>
+    <button class="btn" id="open-dialog-btn" aria-haspopup="dialog" aria-expanded="false">Open Export Dialog</button>
+  </div>
+
+  <div class="grid">
+    <div class="card" id="card-revenue">
+      <div class="card-title">
+        <span>Total Net Revenue</span>
+        <span class="icon" aria-label="Status Good"></span>
+      </div>
+      <div class="card-value">$428,950.00</div>
+    </div>
+    <div class="card" id="card-subscriptions">
+      <div class="card-title">
+        <span>Active Subscriptions</span>
+        <span class="icon" aria-label="Status Good"></span>
+      </div>
+      <div class="card-value">14,280</div>
+    </div>
+    <div class="card" id="card-latency">
+      <div class="card-title">
+        <span>p99 API Latency</span>
+        <span class="icon" aria-label="Status Good"></span>
+      </div>
+      <div class="card-value">48ms</div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Endpoint</th>
+          <th scope="col">Status</th>
+          <th scope="col">Throughput (req/s)</th>
+          <th scope="col">Error Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>/api/v1/auth</code></td>
+          <td><span style="color: var(--success); font-weight: 600;">200 OK</span></td>
+          <td>1,240</td>
+          <td>0.01%</td>
+        </tr>
+        <tr>
+          <td><code>/api/v1/projects</code></td>
+          <td><span style="color: var(--success); font-weight: 600;">200 OK</span></td>
+          <td>890</td>
+          <td>0.00%</td>
+        </tr>
+        <tr>
+          <td><code>/api/v1/tokens</code></td>
+          <td><span style="color: var(--success); font-weight: 600;">200 OK</span></td>
+          <td>3,450</td>
+          <td>0.02%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dialog-backdrop" id="export-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+    <div class="dialog">
+      <h2 class="dialog-title" id="dialog-title">Confirm Export</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Exporting full metrics audit log to CSV format.</p>
+      <div style="display: flex; gap: 8px; justify-content: flex-end;">
+        <button class="btn" style="background: transparent; color: var(--text-main);" id="close-dialog-btn">Cancel</button>
+        <button class="btn" id="confirm-dialog-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('open-dialog-btn');
+    const closeBtn = document.getElementById('close-dialog-btn');
+    const dialog = document.getElementById('export-dialog');
+
+    openBtn.addEventListener('click', () => {
+      dialog.classList.add('active');
+      openBtn.setAttribute('aria-expanded', 'true');
+      closeBtn.focus();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      dialog.classList.remove('active');
+      openBtn.setAttribute('aria-expanded', 'false');
+      openBtn.focus();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dialog.classList.contains('active')) {
+        dialog.classList.remove('active');
+        openBtn.setAttribute('aria-expanded', 'false');
+        openBtn.focus();
+      }
+    });
+  </script>
+</body>
+</html>
