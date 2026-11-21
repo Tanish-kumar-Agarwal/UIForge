@@ -7,44 +7,29 @@
 
 ---
 
+## [1.1.0] — 2026-11-22
+
+### Final Independent Reconciliation & Acceptance Correction (C01–C10 Resolution)
+
+#### Canonical Priority & Entity Model Corrections
+- **C01 (Priority Distribution Reconciliation):** Preserved canonical Phase 02.1 / Phase 02.3 priority census in `data/sources.json`: **P0: 24, P1: 47, P2: 50, REJ: 4**. Added `originalDiscoveryPriority`, `currentDiscoveryPriority`, and `registryOperationalTier` (`TIER_A`: 24, `TIER_B`: 47, `TIER_C`: 50, `TIER_D`: 4). Zero silent conversions of P2/REJ to P3.
+- **C02 (Repository Identity & Placeholder Removal):** Reconciled `data/repositories.json` to exactly **119 authoritative Git repositories**. Removed 6 placeholder repositories for commercial products and documentation portals (`aceternity/ui`, `Every-Layout/every-layout`, `locofy/locofy`, `anthropics/claude-code`, `anysphere/cursor`, `codeium/windsurf`). Updated sources to set `repositoryRef: null` and track verified platform URLs.
+- **C03 (Consumption Permissions Consistency):** Unified all 750 permission records under a single canonical eligibility enum (`APPROVED`, `ELIGIBLE_WITH_RESTRICTIONS`, `REFERENCE_ONLY`, `PENDING_REVIEW`, `BLOCKED`, `NOT_APPLICABLE`). Set `pa11y` external tool mode to `PENDING_REVIEW` pending formal counsel confirmation of distribution model.
+- **C04 (Reference-Only Scope Clarification):** Defined explicit 6-activity scope flags in `consumption-permissions.json`. Prohibited mass automated scraping and code copying across all 125 sources. Prohibited source code inspection and local cloning for commercial/closed products.
+- **C05 (Multi-Level License Scoping):** Added granular `licenseScope` to all source records, linking repository, package, component, and asset licenses, along with trademark policies and commercial terms.
+- **C06 (Digest-Backed Provenance Records):** Re-classified provenance from "cryptographically verified" to `DIGEST_BACKED_RECORD`. Documented SHA-256 calculation over RFC 8785 JSON Canonicalization Scheme (JCS) and explicitly distinguished content digests from digital signatures.
+- **C07 (Granular Evidence Dossiers):** Restructured `data/evidence.json` into 125 candidate dossiers containing **625 granular evidence items** ($125 \times 5$), each supporting discrete technical and legal claims.
+- **C08 (10-Dimension Technical Evaluations):** Preserved all **1,250 dimensional assessments** across 10 dimensions in `data/evaluations.json`, traceable to 71 complete (P0/P1) and 54 partial/screened evaluations.
+- **C09 (Canonical License Reconciliation):** Documented explicit mapping from 11 canonical license entities in `data/licenses.json` to the 125 candidate records.
+- **C10 (Font Asset RFN Evidence):** Verified explicit Reserved Font Name (RFN) declarations for Inter ("with Reserved Font Name Inter", v4.1) and Geist ("with Reserved Font Name Geist", v1.4.0) in `data/assets.json`.
+- **Phase 02.5 Filter Correction:** Formulated mode-specific pre-filtering in `PHASE-02.5-HANDOFF.md`, strictly excluding `BLOCKED`, `PENDING_REVIEW`, `STALE`, `EXPIRED`, `NOT_ESTABLISHED`, and reference-only sources from dependency and source-copy selection pools.
+- **Validation Harness Expansion:** Expanded `validation/validate_registry.js` from 35 to **41 comprehensive assertions** (all 41 passing cleanly, 0 failures; Script SHA-256: `502067519829c38183122f6332e3b096083aa2a983b8ca0a12ce0cb1641a2d28`).
+
+---
+
 ## [1.0.0] — 2026-11-22
 
 ### Initial Authoritative Release of the UIForge Internal Source Registry
-
-#### Architectural Foundations & Policies
-- **`README.md` (D01):** Established master directory overview, navigation index, entity statistics, and governance principles.
-- **`REGISTRY-ARCHITECTURE.md` (D02):** Established layered architecture (Discovery $\to$ Validation $\to$ Registry Core $\to$ Consumption $\to$ Governance) with pessimistic precedence and boundary definitions.
-- **`REGISTRY-DATA-MODEL.md` (D03):** Defined relational entity specifications and entity relationship diagram covering all 10 normalized entities.
-- **`REGISTRY-SCHEMA.md` (D04):** Defined Draft-07 formal JSON Schema specifications for source registry, consumption permissions, and provenance manifests.
-- **`CONSUMPTION-MODE-POLICY.md` (D06):** Formalized the 6 consumption modes (`REFERENCE_ONLY`, `DEPENDENCY`, `SOURCE_COPY`, `ASSET_REDISTRIBUTION`, `EXTERNAL_TOOL`, `TEMPLATE_ADAPTATION`), permission state machine, notice generation, and domain boundaries (GSAP, axe-core, pa11y, closed platforms).
-- **`REGISTRY-ELIGIBILITY-POLICY.md` (D07):** Formalized 6-tier eligibility states (`APPROVED`, `ELIGIBLE_WITH_RESTRICTIONS`, `REFERENCE_ONLY`, `PENDING_REVIEW`, `BLOCKED`, `NOT_APPLICABLE`), pessimistic precedence, and Evaluation Gates G01 through G10.
-- **`PROVENANCE-AND-EVIDENCE-POLICY.md` (D08):** Established source identity standards, cryptographic SHA-256 digest mandates, and 7-tier controlled evidence typology.
-- **`SECURITY-AND-TRUST-MODEL.md` (D09):** Documented complete 30-threat supply-chain threat model (`THREAT-01` to `THREAT-30`), 4-tier trust boundaries, and quarantine protocol.
-- **`REGISTRY-FRESHNESS-POLICY.md` (D10):** Defined priority-calibrated freshness tiers (P0: 30d, P1: 60d, P2: 90d, P3: 180d) and 4-state freshness lifecycle (`FRESH`, `STALE`, `EXPIRED`, `PENDING_REEVALUATION`).
-- **`REGISTRY-OPERATING-MODEL.md` (D11):** Documented Standard Operating Procedures for Workflows A through G.
-- **`ARCHITECTURE-INTEGRATION-MAP.md` (D12):** Created conceptual TypeScript integration interfaces (`ISourceRegistry`, `IPackageResolver`, `IComponentResolver`, etc.) and downstream phase integration mappings.
-- **`REGISTRY-GAP-AND-LIMITATION-REGISTER.md` (D15):** Cataloged GAPs 01 through 08 and reconciled open Legal Escalations LEG-01 through LEG-10.
-- **`REGISTRY-DECISION-REGISTER.md` (D16):** Documented Architecture Decision Records RDEC-01 through RDEC-10.
-- **`PHASE-02.4-ACCEPTANCE-REPORT.md` (D17):** Conducted independent evaluation certifying 36 / 36 Acceptance Criteria satisfied.
-- **`PHASE-02.5-HANDOFF.md` (D18):** Formulated downstream handoff package and weighted scoring matrix rubric for Phase 02.5.
-
-#### Normalized Datasets (`data/`)
-- **`sources.json`:** 125 canonical candidate source records with 4 distinct tracking fields.
-- **`repositories.json`:** 125 upstream repository entities with canonical URLs and owners.
-- **`packages.json`:** 147 normalized installable packages resolving monorepo sub-packages.
-- **`components.json`:** 31 primary component groups.
-- **`assets.json`:** 6 standalone assets with explicit artifact typologies and verification records.
-- **`licenses.json`:** 11 canonical license entities.
-- **`evaluations.json`:** 125 technical evaluations summarizing Phase 02.2 findings.
-- **`consumption-permissions.json`:** Exactly 750 mode permission records ($125 \times 6$).
-- **`provenance.json`:** 125 provenance records with valid 64-character SHA-256 digests.
-- **`evidence.json`:** 125 linked evidence dossiers with controlled evidence classifications.
-
-#### Formal JSON Schemas (`schemas/`)
-- **`source-registry.schema.json`:** JSON Schema Draft-07 for source registry manifest.
-- **`consumption-permissions.schema.json`:** JSON Schema Draft-07 for consumption permissions.
-- **`provenance-and-evidence.schema.json`:** JSON Schema Draft-07 for provenance and evidence.
-
-#### Validation & Quality Assurance (`validation/`)
-- **`validate_registry.js` (D13):** Automated test harness executing 35 independent assertions.
-- **`REGISTRY-VALIDATION-REPORT.md` (D14):** Test execution transcript recording 35 / 35 PASS (0 failures) and script digest `efbd06c7b9fdfe18af4c93621dbfe2d48b6b71c51db7ba09c1a4101e357a21ba`.
+- Established multi-entity normalized model (sources, repositories, packages, components, assets, licenses, evaluations, permissions, provenance, evidence).
+- Defined formal JSON Schema Draft-07 contracts.
+- Documented 6 consumption modes, 30-threat security model, freshness tiers, operating model, and platform integration contracts.
