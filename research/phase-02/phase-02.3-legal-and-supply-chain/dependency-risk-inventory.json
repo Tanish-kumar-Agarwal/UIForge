@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "inventoryId": "UIF-PH02.3-JSON-DEP-RISK-01",
+  "phase": "02.3",
+  "generatedAt": "2026-11-21T18:00:30.000Z",
+  "auditor": "Application Security and Vulnerability Researcher & OSS Governance Analyst",
+  "assessmentPolicy": {
+    "cvssThreshold": 7.0,
+    "vexRequiredForCvssGte": 7.0,
+    "busFactorAlertThreshold": 1,
+    "frozenLockfileMandatory": true
+  },
+  "dependencies": [
+    {
+      "purl": "pkg:npm/style-dictionary@5.8.0",
+      "package": "style-dictionary",
+      "pinnedVersion": "5.8.0",
+      "maintainerOrg": "Amazon Web Services (AWS)",
+      "stewardship": "Corporate Open Source",
+      "busFactor": 5,
+      "commitVelocity": "High",
+      "releaseIntegrity": {
+        "npmProvenance": "In-Progress",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [
+        {
+          "cveId": "CVE-2026-54639",
+          "cvssScore": 7.5,
+          "severity": "HIGH",
+          "description": "Path traversal in custom transform file resolution in versions < 5.4.4",
+          "reachability": "UNREACHABLE",
+          "mitigation": "Upgraded to 5.8.0 (>= 5.4.4); UIForge operates Style Dictionary exclusively with in-memory DTCG JSON ASTs",
+          "vexStatus": "not_affected"
+        }
+      ],
+      "riskLevel": "LOW"
+    },
+    {
+      "purl": "pkg:npm/playwright@1.65.1",
+      "package": "playwright",
+      "pinnedVersion": "1.65.1",
+      "maintainerOrg": "Microsoft Corp.",
+      "stewardship": "Corporate Tech Leader",
+      "busFactor": 12,
+      "commitVelocity": "Very High",
+      "releaseIntegrity": {
+        "npmProvenance": "Verified (GitHub OIDC)",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [],
+      "riskLevel": "LOW"
+    },
+    {
+      "purl": "pkg:npm/axe-core@4.14.1",
+      "package": "axe-core",
+      "pinnedVersion": "4.14.1",
+      "maintainerOrg": "Deque Systems Inc.",
+      "stewardship": "Commercial A11y Leader",
+      "busFactor": 8,
+      "commitVelocity": "High",
+      "releaseIntegrity": {
+        "npmProvenance": "Verified (Sigstore)",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [],
+      "riskLevel": "LOW"
+    },
+    {
+      "purl": "pkg:npm/ts-morph@28.0.0",
+      "package": "ts-morph",
+      "pinnedVersion": "28.0.0",
+      "maintainerOrg": "David Sherret",
+      "stewardship": "Independent Indie Developer",
+      "busFactor": 1,
+      "commitVelocity": "Medium",
+      "releaseIntegrity": {
+        "npmProvenance": "Standard npm",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [],
+      "riskLevel": "MEDIUM",
+      "governanceAction": "Decoupled behind @uiforge/ast-engine internal interface contract; fallback to native typescript compiler if needed"
+    },
+    {
+      "purl": "pkg:npm/%40biomejs/biome@2.6.8",
+      "package": "@biomejs/biome",
+      "pinnedVersion": "2.6.8",
+      "maintainerOrg": "Biome Core Team",
+      "stewardship": "Community Open Collective",
+      "busFactor": 5,
+      "commitVelocity": "High",
+      "releaseIntegrity": {
+        "npmProvenance": "Verified (Sigstore)",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [],
+      "riskLevel": "LOW"
+    },
+    {
+      "purl": "pkg:npm/pixelmatch@8.0.0",
+      "package": "pixelmatch",
+      "pinnedVersion": "8.0.0",
+      "maintainerOrg": "Mapbox Inc.",
+      "stewardship": "Corporate Open Source",
+      "busFactor": 3,
+      "commitVelocity": "Low (Mature / Complete)",
+      "releaseIntegrity": {
+        "npmProvenance": "Standard npm",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [],
+      "riskLevel": "LOW"
+    },
+    {
+      "purl": "pkg:npm/pa11y@10.0.0",
+      "package": "pa11y",
+      "pinnedVersion": "10.0.0",
+      "maintainerOrg": "Pa11y Team",
+      "stewardship": "Community Open Source",
+      "busFactor": 3,
+      "commitVelocity": "Low",
+      "releaseIntegrity": {
+        "npmProvenance": "Standard npm",
+        "signedGitReleases": true,
+        "shasumVerified": true
+      },
+      "vulnerabilities": [
+        {
+          "cveId": "TRANSITIVE-PUPPETEER-SANDBOX",
+          "cvssScore": 6.8,
+          "severity": "MEDIUM",
+          "description": "Puppeteer headless sandbox flags in unpinned transitive runners",
+          "reachability": "ISOLATED",
+          "mitigation": "Mode 4 standalone CLI process execution only. Never links into in-process runtime.",
+          "vexStatus": "not_affected"
+        }
+      ],
+      "riskLevel": "MEDIUM"
+    }
+  ]
+}
