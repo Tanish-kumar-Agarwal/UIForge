@@ -69,9 +69,9 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 - **Original Positions:** Early drafts in WS-2 assumed shadcn tokens were raw HSL number tuples (`--primary: 222.2 47.4% 11.2%`). WS-3 evaluated DTCG with obsolete `"channels"` syntax before correcting to the Color Module with `"components"`.
 - **Technical Contradiction:** Downstream components could not parse OKLCH colors, while token generators emitted non-standard properties.
 - **Resolution:** **Canonicalize on the stable W3C Design Tokens Community Group (DTCG) 2025.10 specification** (published under the W3C Community Group process, not a formal W3C Standards Track Recommendation). Use the Color Module's `components` property with exact color-space-specific semantics:
-  - For `oklch`: `[L, C, H]` where L is perceived lightness (0..1), C is chroma (0..0.4+), and H is hue angle (0..360).
-  - For `srgb`: `[r, g, b]` normalized in [0, 1].
-  Clarify that shadcn's modern `cssVars` supports full CSS color strings (`oklch(0.65 0.24 258.2)`). UIForge converts DTCG color tokens to appropriate target CSS syntax based on the target project's styling paradigm.
+  - For `oklch`: `[L, C, H]` where L is perceived lightness (0..1), C is chroma (0..0.4+), and H is hue angle (0..360), permitting numeric values or `'none'` for missing interpolation components.
+  - For `srgb`: `[r, g, b]` normalized in [0, 1] or `'none'`.
+  Clarify that listed color spaces represent supported baseline implementations, not an exhaustive definition of all future color values. Shadcn's modern `cssVars` supports full CSS color strings (`oklch(0.65 0.24 258.2)`). UIForge converts DTCG color tokens to appropriate target CSS syntax based on the target project's styling paradigm.
 - **Affected Contracts:** `uiforge.contract.design-token.v1`, `uiforge.contract.styling-transformation.v1`.
 - **ADR Reference:** ADR-006, ADR-007.
 
@@ -120,8 +120,8 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 ### CF-08: Multi-File Rollback Atomicity vs. Filesystem Consistency
 - **Workstreams Involved:** WS-1 (Transforms) and WS-3 (Registry & Dependencies).
 - **Original Positions:** WS-1 asserted "guaranteed rollback restores repository state as an ACID transaction". WS-3 noted that adding registry resources often runs `npm install`, modifying `node_modules` and external caches.
-- **Technical Contradiction:** SQLite guarantees ACID transactions for `.uiforge/journal.db`, but arbitrary multi-file filesystem operations are NOT inherently ACID. Furthermore, file rollbacks cannot restore unmanaged external npm caches without running unmanaged package scripts.
-- **Resolution:** **Bound rollback guarantees to a 4-phase recoverable journal workflow.** SQLite guarantees ACID for the journal, which records pre-images before disk writes. Multi-file filesystem consistency is restored upon crash/restart by comparing disk state with journal pre-images. External package manager state changes are isolated: automated dependency operations enforce `--ignore-scripts`, and package restoration requires explicit lockfile inspection.
+- **Technical Contradiction:** SQLite guarantees ACID transactions for `.uiforge/journal.db`, but arbitrary multi-file filesystem operations are NOT inherently ACID, as neither POSIX nor Windows filesystems provide native multi-file transactional atomicity. Furthermore, file rollbacks cannot restore unmanaged external npm caches without running unmanaged package scripts.
+- **Resolution:** **Classify the system as a recoverable multi-file mutation protocol, not an atomic multi-file transaction.** SQLite guarantees ACID strictly for the `.uiforge/journal.db` database, which records pre-images before disk writes. Multi-file filesystem consistency is restored upon crash/restart by comparing disk state with journal pre-images. External package manager state changes are isolated: automated dependency operations enforce `--ignore-scripts`, and package restoration requires explicit lockfile inspection.
 - **Affected Contracts:** Contract F.
 - **ADR Reference:** ADR-008.
 
@@ -140,8 +140,8 @@ This document identifies, analyzes, and formally reconciles **twelve cross-works
 ### CF-10: In-Memory Policy Testing vs. Operating System Enforcement & TOCTOU
 - **Workstreams Involved:** WS-5 (Agent Security) and WS-1 (File Transforms).
 - **Original Positions:** WS-5 Experiment E5 passed in-memory policy checks for path boundaries, symlinks, and TOCTOU races, leading to claims that security enforcement and race elimination were established.
-- **Technical Contradiction:** In-memory policy tests evaluate JavaScript logic, but do not prove operating-system filesystem enforcement against concurrent processes, OS symlink dereferencing, or disk write timing windows.
-- **Resolution:** **Formally reclassify E5 as `LOCAL-HARNESS-TESTED`.** Pre-image SHA-256 checking is classified as a precondition check, not complete race elimination. Full filesystem protection is specified as a multi-layer defense: path canonicalization (`fs.realpathSync`), isolated staging (`.uiforge/staging/`), atomic file replacement, OS-level file locking, and crash recovery via write-ahead journal. Implementation-level OS tests are scheduled for Phase 02.4 and Phase 03.
+- **Technical Contradiction:** In-memory policy tests evaluate JavaScript logic, but do not prove operating-system filesystem enforcement against concurrent processes, OS symlink dereferencing, or disk write timing windows. Furthermore, `fs.realpathSync` resolves at the instant of calling and does not eliminate symlink races between validation and write, and `fs.renameSync` can fail on Windows NTFS due to open file handles in IDEs or language servers.
+- **Resolution:** **Formally reclassify E5 as `LOCAL-HARNESS-TESTED`.** Pre-image SHA-256 checking is classified as a point-in-time precondition check, not complete race elimination. Full filesystem protection is specified as a multi-layer defense: closest-existing-ancestor path canonicalization (`fs.realpathSync`) with trailing path separator, isolated staging (`.uiforge/staging/<txId>/`), atomic file replacement where supported, OS-level file locking, and crash recovery via write-ahead journal. Implementation-level OS tests covering 7 explicit failure scenarios are scheduled for Phase 02.4 Gate 2 and Phase 03.
 - **Affected Subsystems:** Security & Execution Layers.
 - **ADR Reference:** ADR-015.
 

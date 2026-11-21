@@ -117,8 +117,9 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 - **Status:** `ACCEPTED`
 - **Context:** Early drafts mischaracterized DTCG as a formal W3C Standards Track Recommendation and used obsolete `"channels"` syntax or conflated OKLCH components with RGB.
 - **Decision:** Adopt the **stable W3C Design Tokens Community Group (DTCG) 2025.10 specification** (published under the W3C Community Group process, not a formal W3C Standards Track Recommendation). Model color tokens using the canonical Color Module property: `"$value": { "colorSpace": "oklch", "components": [0.65, 0.24, 258.2], "alpha": 1 }`. Components are interpreted strictly according to `colorSpace`:
-  - For `oklch`: `[L, C, H]` where L is perceived lightness, C is chroma, and H is hue angle (0..360).
-  - For `srgb`: `[r, g, b]` normalized in [0, 1].
+  - For `oklch`: `[L, C, H]` where L is perceived lightness, C is chroma, and H is hue angle (0..360), permitting numeric values or `'none'` for missing interpolation components.
+  - For `srgb`: `[r, g, b]` normalized in [0, 1] or `'none'`.
+- **Extensibility & Schema Refinement:** Treat the listed color spaces as supported baseline implementations, not an exhaustive definition of every color value UIForge may encounter. Account for permitted `none` component values, alpha, and original source-value preservation. Validate against official DTCG 2025.10 test suites before freezing production schemas.
 - **Rationale:** Aligns with modern design tool exports (Figma, Style Dictionary v5) and wide-gamut OKLCH CSS.
 - **Evidence:** WS-3 Experiment E2; verified JSON validation in `run_ws3_unified_suite.cjs`.
 
@@ -133,22 +134,25 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 
 ---
 
-### ADR-008: Recoverable Write-Ahead Journal & Multi-File Consistency
+### ADR-008: Recoverable Multi-File Mutation Protocol via Private Staging & SQLite Write-Ahead Pre-Images
 - **Status:** `ACCEPTED_WITH_CONDITIONS`
 - **Context:** Multi-file codebase mutations can fail mid-write due to syntax errors, disk full, or process crash (`SIGKILL`), leaving repositories half-modified and uncompilable.
-- **Decision:** Implement a **Recoverable Write-Ahead Journal & Backup Engine**:
-  1. *SQLite ACID Boundary:* SQLite (`.uiforge/journal.db`) guarantees ACID for the journal itself. It does **not** make arbitrary filesystem operations ACID. Multi-file consistency is achieved via a 4-phase recoverable workflow:
+- **Decision:** Implement a **Recoverable Multi-File Mutation Protocol**:
+  1. *SQLite ACID Boundary vs Filesystem Reality:* SQLite (`.uiforge/journal.db`) guarantees ACID for the journal itself. It does **not** make arbitrary multi-file filesystem operations ACID, as neither POSIX nor Windows filesystems provide native multi-file transactional atomicity. Multi-file consistency is achieved via a 4-phase recoverable workflow:
      - Phase 1 (Intent & Pre-Image Logging): Commit target file paths, pre-image hashes, pre-image contents, and expected post-image hashes to SQLite journal within an ACID transaction (`PENDING`).
-     - Phase 2 (Staged Execution): Render files to private staging (`.uiforge/staging/`) and execute atomic replacements.
+     - Phase 2 (Staged Execution): Render files to private staging (`.uiforge/staging/<txId>/`) and execute atomic replacements where supported.
      - Phase 3 (Post-Write Verification): Verify each modified file matches its expected post-image SHA-256 digest.
      - Phase 4 (Commit): Commit transaction in SQLite journal (`COMMITTED`).
-  2. *Failure Handling:*
-     - *Partial Write / Process Kill:* Startup recovery inspects `.uiforge/journal.db` for uncommitted transactions (`PENDING`), compares disk state, and restores pre-images.
-     - *Concurrent External Edit:* Precondition hash verification detects modification and halts with `SOURCE_CHANGED`.
-     - *Rollback Failure:* If disk restore fails, emit emergency recovery script and log `ROLLBACK_FAILURE`.
-     - *Disk Full:* Pre-allocation checks in `.uiforge/staging/` prevent partial writes.
-- **Conditions:** Build and validate Phase 02.4 crash recovery prototype simulating mid-transaction `SIGKILL`. Disclaim unmanaged external npm cache state.
-- **Evidence:** WS-1 Experiment E7, WS-3 Experiment E8, WS-5 Experiment E7.
+  2. *Failure Handling & Seven Phase 02.4 Scenarios:*
+     - Scenario 1: Termination after journal entry logged, before staging.
+     - Scenario 2: Termination during staging in `.uiforge/staging/`.
+     - Scenario 3: Termination after replacing only a subset of files (partial write recovery).
+     - Scenario 4: Concurrent external user or tool edits to a target file during transaction (detected via pre-image check, halting with `SOURCE_CHANGED`).
+     - Scenario 5: Rollback failure (disk write error during pre-image restoration; log `ROLLBACK_FAILURE` and emit emergency recovery script).
+     - Scenario 6: Disk full conditions (`ENOSPC`).
+     - Scenario 7: Windows NTFS file-handle locking vs POSIX atomic rename behavior.
+- **Conditions:** Build and validate Phase 02.4 Gate 2 crash recovery prototype simulating mid-transaction `SIGKILL` and locked file handles. Disclaim unmanaged external npm cache state.
+- **Evidence:** WS-1 Experiment E5 (in-memory hash conflict detection), WS-3 Experiment E8 (multi-file rollback in local test).
 
 ---
 
@@ -214,6 +218,7 @@ This Architecture Decision Register reconciles, formalizes, and unifies all tech
 - **Status:** `ACCEPTED_WITH_CONDITIONS`
 - **Context:** AI coding agents must never be granted autonomous permission to modify files, install dependencies, or delete code in brownfield repositories.
 - **Decision:** Enforce the 5-level security ladder. Level 2+ mutations require single-use, diff-bound, time-bounded (15m TTL) human approval tokens cryptographically bound to `projectId`, `projectSnapshotId`, `taskId`, exact `targetPaths`, and `compositeDiffDigest`.
-- **Filesystem Protections:** Pre-image hash verification acts as a necessary precondition check. Execution combines path canonicalization (`fs.realpathSync`), isolated staging, atomic replacement, and write-ahead journal logging to mitigate race conditions and crash failures.
-- **Conditions:** Implement and test OS-level filesystem locks and symlink traversal barriers in Phase 03.
-- **Evidence:** WS-5 Experiments E5, E6, E7, E9.
+- **Filesystem Protections:** Pre-image hash verification acts as a necessary point-in-time precondition check. Execution combines path canonicalization on the closest existing ancestor (`fs.realpathSync`), isolated staging (`.uiforge/staging/`), atomic replacement, and write-ahead journal logging to mitigate race conditions and crash failures.
+- **Policy vs Kernel Enforcement Distinction:** Approval tokens and SHA-256 pre-checks enforce application-level policy authorization. They do not constitute operating-system-level access enforcement or eliminate kernel-level TOCTOU races.
+- **Conditions:** Implement and test OS-level filesystem locks and symlink traversal barriers in Phase 02.4 Gate 2 and Phase 03.
+- **Evidence:** WS-5 Experiments E5 (in-memory policy harness), E6 (comment sanitization), E9 (secret masking & hash chaining).
