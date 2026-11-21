@@ -1,0 +1,222 @@
+{
+  "E1": {
+    "methodology": "Specification inspection and protocol feature comparison",
+    "comparison": {
+      "playwrightDispatcher": {
+        "pinnedVersion": "v1.65.1 (Nov 13, 2026)",
+        "multiBrowser": [
+          "Chromium",
+          "Firefox",
+          "WebKit (derived, not branded Safari)"
+        ],
+        "tracing": "Native binary trace (.zip with screencast, DOM snapshots, console, network)",
+        "harRecording": "Independent capability via tracing.startHar() (v1.60+)",
+        "isolation": "BrowserContext (independent storage, cookies, cache per test)",
+        "networkMocking": "Full bidirectional route interception",
+        "a11yApi": "page.ariaSnapshot() (replaces removed page.accessibility.snapshot())",
+        "suitabilityScore": "Qualitative High (9.8/10 based on feature parity)"
+      },
+      "puppeteerCDP": {
+        "pinnedVersion": "v24.2.0",
+        "multiBrowser": [
+          "Chromium",
+          "Firefox (experimental BiDi)"
+        ],
+        "tracing": "Chromium DevTools timeline trace",
+        "harRecording": "Plugin/CDP network domain capture",
+        "isolation": "BrowserContext (Chromium only)",
+        "networkMocking": "CDP Fetch domain interception",
+        "a11yApi": "CDP Accessibility domain",
+        "suitabilityScore": "Qualitative Moderate (7.2/10)"
+      },
+      "webDriverBiDi": {
+        "status": "W3C Standard Specification Level 1",
+        "multiBrowser": [
+          "Chromium",
+          "Firefox",
+          "Safari (partial specification)"
+        ],
+        "tracing": "Standardized events (Level 1 spec; partial vendor implementations)",
+        "harRecording": "Specification in progress",
+        "isolation": "User contexts",
+        "networkMocking": "network.beforeRequestSent / continueRequest",
+        "a11yApi": "Not standardized in BiDi Level 1",
+        "suitabilityScore": "Qualitative Emerging (6.5/10)"
+      }
+    },
+    "recommendation": "Adopt Playwright Dispatcher architecture; treat WebKit as derived engine, not branded Safari"
+  },
+  "E2": {
+    "simulationType": "Synthetic RGBA Buffer Math (Simulating Pixelmatch v8 HyAB/OKLab and ignoreMask)",
+    "perPixelThresholdSetting": 0.1,
+    "unmaskedDiffPixels": 600,
+    "maskedDiffPixels": 400,
+    "maskedPixelCount": 200,
+    "defectIsolatedCleanly": true
+  },
+  "E3": {
+    "simulationType": "Synthetic DOM Geometry & Multi-Point Intersection",
+    "detectedCount": 4,
+    "findings": [
+      {
+        "type": "DOCUMENT_HORIZONTAL_OVERFLOW",
+        "target": "HTML",
+        "scrollWidth": 420,
+        "viewportWidth": 375,
+        "severity": "HIGH"
+      },
+      {
+        "type": "ELEMENT_EXTENDS_BEYOND_VIEWPORT",
+        "target": "offscreen-card",
+        "bounds": {
+          "left": 390,
+          "right": 550,
+          "top": 100,
+          "bottom": 250,
+          "width": 160,
+          "height": 150
+        },
+        "severity": "HIGH"
+      },
+      {
+        "type": "CANDIDATE_INTERACTIVE_OCCLUSION",
+        "target": "submit-btn",
+        "occludedBy": "overlay-banner",
+        "occludedPointsCount": 3,
+        "totalPointsTested": 5,
+        "severity": "HIGH"
+      },
+      {
+        "type": "CANDIDATE_TOUCH_TARGET_FINDING",
+        "target": "icon-action-btn",
+        "measuredSize": "20x20px",
+        "effectiveDiameterWithSpacing": "22px",
+        "passesSpacingException": false,
+        "requiresHumanReview": true,
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  "E4": {
+    "contrastHarnessResults": [
+      {
+        "label": "Normal text: Slate on white",
+        "fg": [
+          30,
+          41,
+          59
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "target": 4.5,
+        "isNonText": false,
+        "measuredRatio": 14.63,
+        "passes": true
+      },
+      {
+        "label": "Normal text: Defective gray on white",
+        "fg": [
+          156,
+          163,
+          175
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "target": 4.5,
+        "isNonText": false,
+        "measuredRatio": 2.54,
+        "passes": false
+      },
+      {
+        "label": "UI Component boundary (SC 1.4.11): Active border",
+        "fg": [
+          148,
+          163,
+          184
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "target": 3,
+        "isNonText": true,
+        "measuredRatio": 2.56,
+        "passes": false
+      }
+    ],
+    "wcagScopeBreakdown": {
+      "totalWcag22_A_AA_Criteria": 55,
+      "fullyAutomatableStaticCriteria": 12,
+      "partiallyAutomatableCriteria": 23,
+      "strictlyHumanJudgmentRequired": 20,
+      "noteOnAxeCoreClaim": "Deque reports axe finds ~57% of digital accessibility ISSUES in practice; this measures issue frequency, NOT that 57% of WCAG criteria are fully automated without human audit."
+    }
+  },
+  "E5": {
+    "simulationType": "Synthetic Dialog State Transition Model",
+    "transitionLog": [
+      {
+        "step": "Initial",
+        "state": "CLOSED",
+        "focus": "open-btn",
+        "inert": false
+      },
+      {
+        "step": "After Open",
+        "state": "OPEN",
+        "focus": "dialog-input-1",
+        "inert": true
+      },
+      {
+        "step": "After Escape Key",
+        "state": "CLOSED",
+        "focus": "open-btn",
+        "inert": false
+      }
+    ],
+    "ariaFocusRestored": true,
+    "backgroundInertCleared": true
+  },
+  "E6": {
+    "source": "Engine specification audit (Blink, Gecko, WebKit)",
+    "note": "Evaluated via documented font rasterizer behavior; not local multi-browser binary run",
+    "findings": {
+      "subpixelShiftRisk": "Small 0.2-0.5px text shifts are NOT always harmless. In constrained headers or tight flex containers, a 0.5px line-height expansion can trigger line wraps, button overflow, or container clipping.",
+      "colorRendering": "OKLab & OKLCH are supported in Blink 111+, Gecko 113+, and WebKit (Safari 15.4+). Minor gamut-mapping clamping discrepancies can alter contrast by ±0.15:1.",
+      "browserSpecificBaselinesMandatory": "Cross-engine pixel diffing is architecturally invalid. Visual regression MUST compare a branch build against the same browser engine golden baseline."
+    }
+  },
+  "E7": {
+    "harnessTest": "SHA-256 Canonical Record Digest & Tamper Failure Verification",
+    "recordDigest": "sha256-1e3f2afd8c55fa90e5f0538add2376da2e9ba42f3649574457dce3eeddde6336",
+    "tamperedDigest": "sha256-37cf5fd44df7014bdbe094789541cf5e12edd1e2150d2ae927ea58525f8ba194",
+    "tamperDetectedSuccessfully": true,
+    "terminologyCorrection": "Identified as recordDigest (SHA-256 cryptographic digest), NOT a digital signature"
+  },
+  "E8": {
+    "simulationType": "Diagnostic Envelope Generation",
+    "envelopeGenerated": true,
+    "sourceMappingNotice": "DOM-to-TSX file mapping is heuristic unless verified via source maps or data-slot AST annotations",
+    "payload": {
+      "diagnosticCode": "UIF-A11Y-CONTRAST-001",
+      "confidenceScore": 0.85,
+      "sourceMapping": {
+        "targetFile": "components/dashboard/kpi-card.tsx",
+        "approximateLine": 24,
+        "astSelector": "JsxElement[name=\"KpiCard\"] JsxAttribute[name=\"className\"]",
+        "mappingConfidence": "HEURISTIC_DATA_SLOT_MATCH"
+      },
+      "currentMeasuredValue": "text-gray-400 (contrast 2.54:1)",
+      "suggestedReplacement": "text-gray-600 (contrast 5.8:1)",
+      "reverificationCommand": "uiforge verify --target components/dashboard/kpi-card.tsx --rule contrast"
+    }
+  },
+  "executionDurationMs": 5.667
+}
