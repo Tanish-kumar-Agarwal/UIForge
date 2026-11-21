@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "UIForgeSourceRegistrySchema",
+  "title": "UIForge Source Registry Schema",
+  "description": "Authoritative Draft-07 JSON Schema for the UIForge Phase 02.4 Internal Source Registry Dataset",
   "type": "array",
   "items": {
     "type": "object",
@@ -12,11 +13,13 @@
       "sourceType",
       "primaryCategory",
       "identityStatus",
+      "originalDiscoveryPriority",
+      "currentDiscoveryPriority",
+      "registryOperationalTier",
       "discoveryPriority",
       "technicalEvaluationStatus",
       "licenseDisposition",
       "registryEligibility",
-      "repositoryRef",
       "packageRefs",
       "licenseRef",
       "provenanceRef",
@@ -24,106 +27,99 @@
     ],
     "properties": {
       "sourceId": {
-        "type": "string"
+        "type": "string",
+        "pattern": "^SRC-[A-Z0-9-]+$"
       },
       "canonicalCandidateId": {
-        "type": "string"
+        "type": "string",
+        "pattern": "^[A-Z0-9-]+$"
       },
       "name": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "slug": {
-        "type": "string"
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
       },
       "sourceType": {
         "type": "string",
         "enum": [
-          "GITHUB_REPOSITORY",
-          "GITLAB_REPOSITORY",
-          "OTHER_GIT_REPOSITORY",
-          "NPM_PACKAGE",
-          "OTHER_PACKAGE",
+          "OPEN_SOURCE_REPOSITORY",
           "COMPONENT_REGISTRY",
-          "DESIGN_SYSTEM",
+          "MONOREPO",
+          "ABANDONED_PROJECT",
           "COMMERCIAL_PRODUCT",
-          "SAAS_PLATFORM",
-          "DOCUMENTATION",
-          "TECHNICAL_SPECIFICATION",
-          "FONT_ASSET",
+          "SPECIFICATION",
+          "PROPRIETARY_FREE_COMMERCIAL",
           "ICON_ASSET",
-          "BINARY_ARTIFACT",
-          "OTHER"
+          "FONT_ASSET",
+          "DOCUMENTATION_RESOURCE",
+          "INFRASTRUCTURE_TOOL"
         ]
       },
       "description": {
         "type": "string"
       },
       "homepage": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": ["string", "null"]
       },
       "repositoryUrl": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": ["string", "null"]
       },
       "documentationUrl": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": ["string", "null"]
+      },
+      "externalPlatformUrl": {
+        "type": ["string", "null"]
       },
       "primaryCategory": {
         "type": "string"
       },
       "secondaryCategories": {
         "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "items": { "type": "string" }
       },
       "aliases": {
         "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "items": { "type": "string" }
       },
       "identityStatus": {
         "type": "string",
-        "enum": [
-          "CANONICAL",
-          "ALIAS",
-          "DEPRECATED",
-          "SUPERSEDED"
-        ]
+        "enum": ["CANONICAL", "ALIASED", "DEPRECATED", "HISTORICAL"]
+      },
+      "originalDiscoveryPriority": {
+        "type": "string",
+        "enum": ["P0", "P1", "P2", "REJ"]
+      },
+      "currentDiscoveryPriority": {
+        "type": "string",
+        "enum": ["P0", "P1", "P2", "REJ"]
+      },
+      "registryOperationalTier": {
+        "type": "string",
+        "enum": ["TIER_A", "TIER_B", "TIER_C", "TIER_D"]
       },
       "discoveryPriority": {
         "type": "string",
-        "enum": [
-          "P0",
-          "P1",
-          "P2",
-          "REJ"
-        ]
+        "enum": ["P0", "P1", "P2", "REJ"]
       },
       "technicalEvaluationStatus": {
         "type": "string",
-        "enum": [
-          "complete",
-          "partial",
-          "failed"
-        ]
+        "enum": ["complete", "partial", "not_evaluated", "EVALUATED", "PARTIALLY_EVALUATED"]
       },
       "licenseDisposition": {
         "type": "string",
         "enum": [
           "eligible",
-          "eligible_with_restrictions",
-          "pending",
-          "ineligible"
+          "conditional",
+          "blocked",
+          "PERMISSIVE",
+          "PERMISSIVE_WITH_NOTICE",
+          "CONDITIONAL",
+          "COPYLEFT_RESTRICTED",
+          "PROPRIETARY_CLOSED",
+          "BLOCKED"
         ]
       },
       "registryEligibility": {
@@ -131,33 +127,36 @@
         "enum": [
           "approved",
           "conditional",
+          "blocked",
           "reference_only",
-          "blocked"
+          "APPROVED",
+          "ELIGIBLE_WITH_RESTRICTIONS",
+          "REFERENCE_ONLY",
+          "PENDING_REVIEW",
+          "BLOCKED",
+          "NOT_APPLICABLE"
         ]
       },
       "repositoryRef": {
-        "type": "string"
+        "type": ["string", "null"]
       },
       "packageRefs": {
         "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "items": { "type": "string" }
       },
       "componentRefs": {
         "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "items": { "type": "string" }
       },
       "assetRefs": {
         "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "items": { "type": "string" }
       },
       "licenseRef": {
         "type": "string"
+      },
+      "licenseScope": {
+        "type": "object"
       },
       "provenanceRef": {
         "type": "string"
