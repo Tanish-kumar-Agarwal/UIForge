@@ -38,18 +38,21 @@
       "required": [
         "evidenceItemId",
         "claimType",
-        "claim",
-        "sourceUrl",
+        "claimSupported",
+        "exactSourceArtifact",
         "classification",
-        "retrievedAt",
-        "verificationMethod",
+        "retrievalDate",
+        "verificationClassification",
         "confidence"
       ],
       "properties": {
         "evidenceItemId": { "type": "string" },
         "claimType": { "type": "string" },
-        "claim": { "type": "string" },
-        "sourceUrl": { "type": ["string", "null"] },
+        "claimSupported": { "type": "string" },
+        "exactSourceArtifact": { "type": ["string", "null"] },
+        "evaluatedVersionOrCommit": { "type": "string" },
+        "relevantFileOrSection": { "type": "string" },
+        "retrievalDate": { "type": "string" },
         "classification": {
           "type": "string",
           "enum": [
@@ -62,8 +65,15 @@
             "VENDOR_DOCUMENTATION"
           ]
         },
-        "retrievedAt": { "type": "string" },
-        "verificationMethod": { "type": "string" },
+        "verificationClassification": {
+          "type": "string",
+          "enum": [
+            "VERIFIED_FROM_SOURCE",
+            "VERIFIED_FROM_PACKAGE_METADATA",
+            "VERIFIED_BY_LOCAL_TEST",
+            "MANUALLY_INSPECTED"
+          ]
+        },
         "confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
         "limitations": { "type": "string" }
       }
@@ -73,6 +83,7 @@
       "required": [
         "dossierId",
         "sourceId",
+        "candidateId",
         "canonicalCandidateId",
         "dossierType",
         "compiledAt",
@@ -82,6 +93,7 @@
       "properties": {
         "dossierId": { "type": "string" },
         "sourceId": { "type": "string" },
+        "candidateId": { "type": "string" },
         "canonicalCandidateId": { "type": "string" },
         "dossierType": { "type": "string" },
         "compiledAt": { "type": "string" },
