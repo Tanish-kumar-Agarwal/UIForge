@@ -23,7 +23,7 @@ Rather than maximizing the number of external dependencies, Phase 02.5 adheres t
 
 | Adoption Tier | Purpose & Description | Candidate Count | Percentage | Primary Recommendation |
 | :--- | :--- | :---: | :---: | :---: |
-| **TIER 0** | **Core Foundation:** Essential technologies forming the core UIForge platform | **24** | 19.2% | `ADOPT` / `CONDITIONALLY ADOPT` |
+| **TIER 0** | **Core Foundation:** Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility | **24** | 19.2% | `ADOPT` / `CONDITIONALLY ADOPT` |
 | **TIER 1** | **Recommended Core-Adjacent:** High-value extensions and component registries | **34** | 27.2% | `ADOPT` |
 | **TIER 2** | **Optional Integrations:** Modular plugins, dashboard grids, and secondary adapters | **40** | 32.0% | `OPTIONAL` |
 | **TIER 3** | **Reference & Research:** Architectural patterns, layout concepts, and design systems | **16** | 12.8% | `REFERENCE` |

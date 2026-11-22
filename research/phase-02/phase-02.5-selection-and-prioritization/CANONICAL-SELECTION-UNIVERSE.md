@@ -15,7 +15,7 @@ The canonical selection universe consists of exactly **125 candidates** originat
 
 | Adoption Tier | Count | Percentage | Primary Recommendation | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **TIER 0 (Core Foundation)** | 24 | 19.2% | `ADOPT` / `CONDITIONALLY ADOPT` | Essential architectural pillars forming core UIForge platform |
+| **TIER 0 (Core Foundation)** | 24 | 19.2% | `ADOPT` / `CONDITIONALLY ADOPT` | Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility |
 | **TIER 1 (Recommended Core-Adjacent)** | 34 | 27.2% | `ADOPT` | Curated registries, component blocks, and standard extensions |
 | **TIER 2 (Optional Integrations)** | 40 | 32.0% | `OPTIONAL` | Modular plugins, secondary adapters, and optional integrations |
 | **TIER 3 (Reference & Research)** | 16 | 12.8% | `REFERENCE` | Architectural patterns, layout concepts, and monolithic frameworks |

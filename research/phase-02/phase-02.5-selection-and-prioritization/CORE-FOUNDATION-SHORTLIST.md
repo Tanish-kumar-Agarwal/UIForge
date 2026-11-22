@@ -7,9 +7,21 @@
 
 ---
 
-## 1. Core Foundation Selection Rationale
+## 1. Core Foundation Selection Rationale & Architectural Decoupling
 
-The **24 Tier 0 Core Foundation candidates** represent the indispensable architectural pillars of UIForge. Each candidate satisfies the following criteria:
+> **Tier 0 — Core Foundation:** Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility.
+
+Tier 0 candidates do not represent an undifferentiated bundle of mandatory runtime dependencies. Instead, they are partitioned across seven distinct architectural and consumption layers:
+
+1. **Core Runtime Dependencies (8 candidates):** Directly integrated into production application bundles (`@radix-ui/react-*`, `@ariakit/react`, `motion`, `lucide-react`, `recharts`, `@tanstack/react-table`, `react-resizable-panels`, `@tailwindcss/container-queries`).
+2. **Development & Build Tooling (7 candidates):** Compiler, generator, and test execution harnesses (`style-dictionary`, `tailwindcss`, `@axe-core/playwright`, `eslint-plugin-jsx-a11y`, `ast-grep`, `playwright`, `pixelmatch`).
+3. **External CLI Tools (1 candidate):** Isolated CLI subprocesses with deferred release gates (`@axe-core/cli` — release blocked pending legal counsel clearance).
+4. **Source-Copy Component Blueprints (1 candidate):** Zero-runtime scaffolding templates (`shadcn-ui/ui`).
+5. **Open Design & Accessibility Standards (2 candidates):** Non-executable governance specifications (`W3C Design Tokens Community Group Format`, `W3C ARIA Authoring Practices Guide 1.2`).
+6. **Design System Assets (2 candidates):** Static typefaces with RFN compliance obligations (`Inter`, `Geist`).
+7. **Architectural Blueprints & Reference Infrastructure (3 candidates):** SDK foundations and reference patterns (`Model Context Protocol TypeScript SDK`, `OpenDevin / OpenHands reference architecture`, `Babel 6-Stage AST & WAL Pipeline`).
+
+Each Tier 0 candidate satisfies the following baseline criteria:
 1. Exceptional technical score ($ge 92.0$ weighted score).
 2. Unconditional or restricted pass on all six mandatory hard gates (G1–G6).
 3. Zero unresolved legal copyleft or commercial non-compete contamination.
