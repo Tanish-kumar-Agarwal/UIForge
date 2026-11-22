@@ -25,10 +25,10 @@ Rather than maximizing the number of external dependencies, Phase 02.5 adheres t
 | :--- | :--- | :---: | :---: | :---: |
 | **TIER 0** | **Core Foundation:** Essential technologies forming the core UIForge platform | **24** | 19.2% | `ADOPT` |
 | **TIER 1** | **Recommended Core-Adjacent:** High-value extensions and component registries | **34** | 27.2% | `ADOPT` |
-| **TIER 2** | **Optional Integrations:** Modular plugins and secondary adapters | **39** | 31.2% | `OPTIONAL` |
+| **TIER 2** | **Optional Integrations:** Modular plugins, dashboard grids, and secondary adapters | **40** | 32.0% | `OPTIONAL` |
 | **TIER 3** | **Reference & Research:** Architectural patterns, layout concepts, and design systems | **16** | 12.8% | `REFERENCE` |
 | **TIER 4** | **Deferred:** Candidates gated pending legal counsel review or future roadmap gates | **4** | 3.2% | `DEFER` |
-| **TIER 5** | **Rejected / Excluded:** Proprietary closed terms, abandoned repos, or license violations | **8** | 6.4% | `REJECT` |
+| **TIER 5** | **Rejected / Excluded:** Closed proprietary terms, mission misfit, or redundant tools | **7** | 5.6% | `REJECT` |
 | **TOTAL** | **Canonical Candidate Universe Accounted For** | **125** | **100.0%** | — |
 
 ---
@@ -64,9 +64,9 @@ research/phase-02/phase-02.5-selection-and-prioritization/
 ├── DEPENDENCY-AND-ARCHITECTURAL-COST-REPORT.md  # Core dependency budget and bloat mitigations
 ├── LICENSE-AND-CONSUMPTION-MODE-DECISIONS.md    # Consumption modes, notice, and legal gates
 ├── CORE-FOUNDATION-SHORTLIST.md                 # Tier 0 Core Foundation candidates (24)
-├── OPTIONAL-INTEGRATION-SHORTLIST.md            # Tier 1 & Tier 2 candidate specifications (73)
+├── OPTIONAL-INTEGRATION-SHORTLIST.md            # Tier 1 & Tier 2 candidate specifications (74)
 ├── REFERENCE-ONLY-AND-DEFERRED-SHORTLIST.md     # Tier 3 (16) and Tier 4 (4) candidate dossiers
-├── REJECTED-CANDIDATE-REGISTER.md               # Tier 5 Rejected candidate register (8)
+├── REJECTED-CANDIDATE-REGISTER.md               # Tier 5 Rejected candidate register (7)
 ├── EXPERIMENTAL-VALIDATION-PLAN.md              # Proposed experiments E1 through E6
 ├── PHASE-02.5-ACCEPTANCE-REPORT.md              # Acceptance scorecard (AC01–AC28)
 ├── PHASE-03-HANDOFF.md                          # Phase 03 readiness, prerequisites, and roadmap
@@ -88,5 +88,5 @@ research/phase-02/phase-02.5-selection-and-prioritization/
 
 The automated test suite certifies all 50 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, and category coverage:
 - **Harness Script:** [`validation/validate_selection.js`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js)
-- **Harness Result:** **50 / 50 PASS (0 failures)**
-- **Script SHA-256 Digest:** `fd4c86ad6a5d681311b92fb5cb55992891d1828c232d757bb9be03546576d32d`
+- **Harness Result:** **53 / 53 PASS (0 failures)**
+- **Script SHA-256 Digest:** `83d2a76a2c9f4e8dfdd56b703102aa6297403e1cd1a17d57abdd252c364016f9`

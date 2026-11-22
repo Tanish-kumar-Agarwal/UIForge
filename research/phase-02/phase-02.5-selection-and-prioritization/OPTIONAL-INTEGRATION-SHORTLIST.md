@@ -1,7 +1,7 @@
 # UIForge Phase 02.5: Optional Integration Shortlist (Tiers 1 & 2)
 
 **Document ID:** `UIF-PH02.5-OPTIONAL-INTEGRATION-SHORTLIST`  
-**Classification:** Modular Extensions, Registry Blocks & Adapters (73 Candidates)  
+**Classification:** Modular Extensions, Registry Blocks & Adapters (74 Candidates)  
 **Status:** Certified / Complete  
 **Date:** November 2026  
 
@@ -10,7 +10,7 @@
 ## 1. Overview of Tiers 1 & 2
 
 - **TIER 1 (Recommended Core-Adjacent - 34 Candidates):** High-value libraries, curated component blocks, and specialized testing utilities recommended as standard extensions.
-- **TIER 2 (Optional Integrations - 39 Candidates):** Modular plugins, alternative charting libraries, secondary icon sets, and specialized UI snippets enabled on demand.
+- **TIER 2 (Optional Integrations - 40 Candidates):** Modular plugins, alternative charting libraries, secondary icon sets, and specialized UI snippets enabled on demand (including interactive dashboard grid layouts).
 
 ---
 
@@ -24,7 +24,7 @@
 | **OS-MKT-04** | `cosscom/originui` | CAT_C | PASS | **84.2** | `SOURCE_COPY` | Modern Tailwind/React micro-components and application building blocks |
 | **OS-DASH-04** | `TanStack/virtual` | CAT_H | PASS | **84.2** | `DEPENDENCY` | High-performance headless virtualization engine for infinite lists and massive tables |
 | **OS-ICON-04** | `phosphor-icons/core` | CAT_H | PASS | **84.2** | `DEPENDENCY` | Flexible icon family with multiple weights (thin, light, regular, bold, fill) |
-| **OS-CHRT-04** | `airbnb/visx` | CAT_H | PASS | **84.2** | `DEPENDENCY` | Low-level visualization primitives combining D3 math with React DOM management |
+| **OS-CHRT-04** | `airbnb/visx` | CAT_H | PASS | **84.2** | `DEPENDENCY` | Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management |
 | **OS-BROW-04** | `testcontainers/testcontainers-node` | CAT_F | PASS | **84.2** | `DEPENDENCY` | Isolated containerized browser environments for sandboxed execution of untrusted code |
 | **OS-COMP-13** | `ariakit/ariakit` | CAT_B | PASS | **84** | `DEPENDENCY` | High-quality accessible unstyled dialog, composite, and menu primitives |
 | **OS-TOKN-03** | `argyleink/open-props` | CAT_E | PASS | **83.6** | `DEPENDENCY` | Pre-configured modern CSS custom properties for color, animation, and fluid scaling |
@@ -55,7 +55,7 @@
 
 ---
 
-## 3. Tier 2 Optional Integration Candidates (39 Sources)
+## 3. Tier 2 Optional Integration Candidates (40 Sources)
 
 | Candidate ID | Name | Category | Hard Gate | Score | Proposed Mode | Role & Integration Rationale |
 | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
@@ -75,6 +75,7 @@
 | **OS-BROW-03** | `webdriverio/webdriverio` | CAT_F | PASS | **75.9** | `DEPENDENCY` | WebdriverIO cross-browser automation framework for WebDriver-compliant runners |
 | **OS-COMP-12** | `chakra-ui/park-ui` | CAT_C | PASS | **75.1** | `SOURCE_COPY` | Park UI Tailwind/CSS-in-JS component theme for Ark UI |
 | **OS-MKT-02** | `nolly-studio/cult-ui` | CAT_C | PASS | **74.7** | `SOURCE_COPY` | Specialized brutalist and retro interactive components for landing pages |
+| **OS-DASH-05** | `react-grid-layout/react-grid-layout` | CAT_H | PASS_WITH_RESTRICTIONS | **74.7** | `DEPENDENCY` | Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets |
 | **OS-ANIM-02** | `formkit/auto-animate` | CAT_H | PASS | **74.7** | `DEPENDENCY` | Zero-config DOM auto-animation utility for dynamic list reordering |
 | **OS-CHRT-02** | `apache/echarts` | CAT_H | PASS | **74.7** | `DEPENDENCY` | Enterprise-grade canvas/WebGL charting engine for high-density streaming telemetry |
 | **OS-CHRT-08** | `FormidableLabs/victory` | CAT_H | PASS | **74.7** | `DEPENDENCY` | Cross-platform charting components supporting React Native and web |

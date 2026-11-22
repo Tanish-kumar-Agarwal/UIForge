@@ -40,11 +40,11 @@ Phase 02.5 has completed all required selection methodologies, hard-gate evaluat
 | **AC18** | Pending legal candidates remain gated | **PASS** | pa11y kept PENDING in Tier 4 Deferred; counselReviewRequired: true preserved (Test 19). |
 | **AC19** | Core and optional dependencies distinguished | **PASS** | Tier 0 Core separated from Tier 1 Core-Adjacent and Tier 2 Optional Plugins. |
 | **AC20** | Reference-only sources not promoted | **PASS** | Every Layout and closed AI agents preserved as Tier 3 Reference Only (Test 36). |
-| **AC21** | Complete shortlists created | **PASS** | Tier 0 (24), Tier 1 (34), Tier 2 (39), Tier 3 (16), Tier 4 (4), Tier 5 (8) documented. |
+| **AC21** | Complete shortlists created | **PASS** | Tier 0 (24), Tier 1 (34), Tier 2 (40), Tier 3 (16), Tier 4 (4), Tier 5 (7) documented (Total: 125). |
 | **AC22** | Experimental gaps documented | **PASS** | Experiments E1 through E6 specified (`EXPERIMENTAL-VALIDATION-PLAN.md`). |
 | **AC23** | Research claims independently traceable | **PASS** | Exactly 125 claim dossiers tracked in `data/evidence-and-claim-register.json` (Test 40, 41). |
 | **AC24** | Datasets reconcile with Markdown reports | **PASS** | Markdown tables generated directly from canonical JSON datasets. |
-| **AC25** | Automated validation reproducible | **PASS** | `validate_selection.js` executes 50 assertions cleanly (50 / 50 PASS). |
+| **AC25** | Automated validation reproducible | **PASS** | `validate_selection.js` executes 53 assertions cleanly (53 / 53 PASS, SHA-256: `83d2a76a...`). |
 | **AC26** | No production implementation performed | **PASS** | Strict Phase 1 research discipline maintained; zero application code written. |
 | **AC27** | No unrequested Git operation performed | **PASS** | Zero git add, commit, or push operations executed during Phase 1. |
 | **AC28** | Phase 03 readiness documented | **PASS** | Clear roadmap handoff and prerequisites established (`PHASE-03-HANDOFF.md`). |
