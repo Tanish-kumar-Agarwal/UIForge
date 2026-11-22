@@ -48,17 +48,17 @@ const TIER_DEFINITIONS = {
   'OS-ICON-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Consistent, accessible, modern SVG icon primitives with tree-shakeable exports' },
   'OS-CHRT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Declarative React SVG data visualization standard with composable chart primitives' },
   'OS-DASH-03': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Headless, robust table state machine with sorting, filtering, and grouping primitives' },
-  'OS-TYPO-04': { tier: 'TIER 0', rec: 'ADOPT', mode: 'ASSET_REDISTRIBUTION', cat: 'CAT_H', reason: 'Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability; custom subsetting defaults to font-family rename (UIForgeInter) unless SIL functional-equivalence exception or copyright permission applies' },
-  'OS-TYPO-05': { tier: 'TIER 0', rec: 'ADOPT', mode: 'ASSET_REDISTRIBUTION', cat: 'CAT_H', reason: 'Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display; custom subsetting defaults to font-family rename (UIForgeGeist) unless SIL functional-equivalence exception or copyright permission applies' },
+  'OS-TYPO-04': { tier: 'TIER 0', rec: 'ADOPT', mode: 'ASSET_REDISTRIBUTION', cat: 'CAT_H', reason: 'Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability; custom subsetting defaults to font-family rename (UIForgeInter) unless SIL functional-equivalence exception (SIL OFL FAQ Q5.3) or copyright permission applies; pyftsubset flags --layout-features=* --desubroutinize --flavor=woff2 --name-IDs=*' },
+  'OS-TYPO-05': { tier: 'TIER 0', rec: 'ADOPT', mode: 'ASSET_REDISTRIBUTION', cat: 'CAT_H', reason: 'Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display; custom subsetting defaults to font-family rename (UIForgeGeist) unless SIL functional-equivalence exception (SIL OFL FAQ Q5.3) or copyright permission applies; pyftsubset flags --layout-features=* --desubroutinize --flavor=woff2 --name-IDs=*' },
   'OS-LAYT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Accessible, persistent resizable panel layouts for UIForge Studio and workspace sidebars' },
   'OS-LAYT-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_E', reason: 'Standard Tailwind container query plugin enabling component-level responsive reflow' },
-  'OS-A11Y-01': { tier: 'TIER 0', rec: 'CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE', mode: 'EXTERNAL_TOOL', cat: 'CAT_F', reason: 'Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries' },
+  'OS-A11Y-01': { tier: 'TIER 0', rec: 'CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE', mode: 'EXTERNAL_TOOL', cat: 'CAT_F', reason: 'Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries (counselReviewRequired: true)' },
   'OS-A11Y-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Official Playwright axe integration runner for end-to-end DOM accessibility assertion' },
   'OS-A11Y-03': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_A', reason: 'Static JSX accessibility linting rules enforcing ARIA and semantic HTML at build time' },
   'OS-A11Y-08': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_F', reason: 'W3C ARIA Authoring Practices Guide (APG) specification and keyboard interaction reference' },
   'OS-D2C-06': { tier: 'TIER 0', rec: 'ADOPT', mode: 'EXTERNAL_TOOL', cat: 'CAT_A', reason: 'High-performance tree-sitter based AST structural search and code-rewriting tool' },
-  'OS-D2C-07': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_A', reason: 'Babel AST infrastructure (@babel/parser, @babel/traverse, @babel/types, @babel/generator) providing 6-stage AST manipulation with errorRecovery: true for streaming JSX, coupled with WAL token buffering and TS baseline diagnostic regression checks' },
-  'OS-AGNT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_G', reason: 'Model Context Protocol (MCP) TypeScript SDKs (declared semver ranges: @modelcontextprotocol/server ^2.1.0, evaluated v2.1.1; @modelcontextprotocol/client ^2.1.0) establishing agent connectivity via modern 2026-07-28 discovery (server/discover, _meta headers) with versionNegotiation: { mode: "auto" } fallback to legacy revisions 2025-11-25 and 2024-11-05' },
+  'OS-D2C-07': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_A', reason: 'Babel AST infrastructure (@babel/parser, @babel/traverse, @babel/types, @babel/generator) providing 6-stage AST manipulation with errorRecovery: true for streaming JSX, decoupled from UIForge WAL token buffering (specified architecturally & simulated), coordinate-based slice patching, and TS baseline diagnostic regression checks' },
+  'OS-AGNT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_G', reason: 'Model Context Protocol (MCP) TypeScript SDKs (declared semver ranges: @modelcontextprotocol/server ^2.1.0, evaluated v2.1.1; @modelcontextprotocol/client ^2.1.0) establishing agent connectivity via modern 2026-07-28 discovery (server/discover, _meta headers) with versionNegotiation: { mode: "auto" } fallback to legacy revisions 2025-11-25 and 2024-11-05; live socket runtime tests classified NOT-EXECUTED pending Phase 03' },
   'OS-AGNT-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_G', reason: 'Open-source autonomous AI coding agent reference architecture and execution harness' },
   'OS-BROW-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Multi-browser headless automation, tracing, visual screenshotting, and event replay platform' },
   'OS-VREG-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Deterministic, zero-dependency, pure JS pixel difference engine for screenshot regression' },
@@ -421,7 +421,22 @@ sources.forEach(source => {
   candidateScorecard.push(record);
   categoryDecisions[def.cat].candidates.push(record);
 
-  // Generate evidence claim entry
+  // Generate evidence claim entry conforming strictly to C28 12-enum standard
+  let verificationClass = 'SOURCE-VERIFIED';
+  if (overallGateResult === 'PENDING' || def.rec.includes('CONDITIONALLY') || def.rec.includes('COUNSEL') || cId === 'OS-A11Y-01' || cId === 'OS-A11Y-05') {
+    verificationClass = 'COUNSEL-REVIEW-PENDING';
+  } else if (['OS-AST-01', 'OS-BROW-01', 'OS-VREG-01', 'OS-COMP-01'].includes(cId)) {
+    verificationClass = 'LOCALLY-EXECUTED';
+  } else if (cId === 'OS-D2C-07') {
+    verificationClass = 'SIMULATED';
+  } else if (['OS-TOKN-01', 'OS-A11Y-08', 'OS-AGNT-02', 'OS-LAYT-08', 'OS-D2C-05', 'OS-AGNT-11', 'OS-AGNT-12'].includes(cId)) {
+    verificationClass = 'DOC-VERIFIED';
+  } else if (source.sourceType === 'COMMERCIAL_PRODUCT' || source.sourceType === 'CLOSED_SOURCE_SAAS' || source.sourceType === 'SPECIFICATION') {
+    verificationClass = 'DOC-VERIFIED';
+  } else {
+    verificationClass = 'SOURCE-VERIFIED';
+  }
+
   claimRegister.push({
     claimId: `CLM-PH02.5-${String(claimSeq++).padStart(4, '0')}`,
     candidateId: cId,
@@ -429,7 +444,7 @@ sources.forEach(source => {
     claim: `Technical adoption evaluation for ${source.name}: assigned ${def.tier} (${def.rec}) under ${def.mode} with final weighted score ${finalScore}. Rationale: ${def.reason}`,
     sourceType: source.sourceType,
     evidenceType: 'ARCHITECTURAL_AUDIT_SYNTHESIS',
-    verificationClassification: confidence === 'HIGH' ? 'PACKAGE-VERIFIED' : (confidence === 'MEDIUM' ? 'DOC-VERIFIED' : 'GATED-REVIEW'),
+    verificationClassification: verificationClass,
     hardGateResult: overallGateResult,
     lastVerifiedDate: '2026-11-22'
   });

@@ -285,7 +285,7 @@
     "proposedConsumptionMode": "ASSET_REDISTRIBUTION",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display; custom subsetting defaults to font-family rename (UIForgeGeist) unless SIL functional-equivalence exception or copyright permission applies",
+    "decisionRationale": "Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display; custom subsetting defaults to font-family rename (UIForgeGeist) unless SIL functional-equivalence exception (SIL OFL FAQ Q5.3) or copyright permission applies; pyftsubset flags --layout-features=* --desubroutinize --flavor=woff2 --name-IDs=*",
     "selectionEligibility": "RESTRICTED",
     "selectionExclusionReasons": []
   },
@@ -384,7 +384,7 @@
     "proposedConsumptionMode": "EXTERNAL_TOOL",
     "adoptionTier": "TIER 0",
     "recommendation": "CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE",
-    "decisionRationale": "Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries",
+    "decisionRationale": "Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries (counselReviewRequired: true)",
     "selectionEligibility": "RESTRICTED",
     "selectionExclusionReasons": [
       "Adoption conditioned on formal IP legal counsel clearance before production distribution"
@@ -434,7 +434,7 @@
     "proposedConsumptionMode": "DEPENDENCY",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Model Context Protocol (MCP) TypeScript SDKs (declared semver ranges: @modelcontextprotocol/server ^2.1.0, evaluated v2.1.1; @modelcontextprotocol/client ^2.1.0) establishing agent connectivity via modern 2026-07-28 discovery (server/discover, _meta headers) with versionNegotiation: { mode: \"auto\" } fallback to legacy revisions 2025-11-25 and 2024-11-05",
+    "decisionRationale": "Model Context Protocol (MCP) TypeScript SDKs (declared semver ranges: @modelcontextprotocol/server ^2.1.0, evaluated v2.1.1; @modelcontextprotocol/client ^2.1.0) establishing agent connectivity via modern 2026-07-28 discovery (server/discover, _meta headers) with versionNegotiation: { mode: \"auto\" } fallback to legacy revisions 2025-11-25 and 2024-11-05; live socket runtime tests classified NOT-EXECUTED pending Phase 03",
     "selectionEligibility": "ELIGIBLE",
     "selectionExclusionReasons": []
   },
@@ -674,7 +674,7 @@
     "proposedConsumptionMode": "ASSET_REDISTRIBUTION",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability; custom subsetting defaults to font-family rename (UIForgeInter) unless SIL functional-equivalence exception or copyright permission applies",
+    "decisionRationale": "Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability; custom subsetting defaults to font-family rename (UIForgeInter) unless SIL functional-equivalence exception (SIL OFL FAQ Q5.3) or copyright permission applies; pyftsubset flags --layout-features=* --desubroutinize --flavor=woff2 --name-IDs=*",
     "selectionEligibility": "RESTRICTED",
     "selectionExclusionReasons": []
   },
@@ -1157,7 +1157,7 @@
     "proposedConsumptionMode": "DEPENDENCY",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Babel AST infrastructure (@babel/parser, @babel/traverse, @babel/types, @babel/generator) providing 6-stage AST manipulation with errorRecovery: true for streaming JSX, coupled with WAL token buffering and TS baseline diagnostic regression checks",
+    "decisionRationale": "Babel AST infrastructure (@babel/parser, @babel/traverse, @babel/types, @babel/generator) providing 6-stage AST manipulation with errorRecovery: true for streaming JSX, decoupled from UIForge WAL token buffering (specified architecturally & simulated), coordinate-based slice patching, and TS baseline diagnostic regression checks",
     "selectionEligibility": "ELIGIBLE",
     "selectionExclusionReasons": []
   },
