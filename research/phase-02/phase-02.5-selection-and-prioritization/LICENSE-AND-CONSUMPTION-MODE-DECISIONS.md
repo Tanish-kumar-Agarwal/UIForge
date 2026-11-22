@@ -24,14 +24,18 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 
 ## 2. Special Governance Cases
 
-### 2.1 axe-core (`OS-A11Y-01`) — User-Managed External Tool Boundary
-- **Consumption Mode:** `EXTERNAL_TOOL` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`).
-- **Architectural Isolation:** UIForge invokes user-installed `@axe-core/cli` or `@axe-core/playwright` via out-of-process test runners. UIForge does **not** bundle, redistribute, or host executable binaries.
-- **Legal Caveat:** This architectural boundary isolates binary redistribution risks but does not constitute unconditional legal clearance. The flag `counselReviewRequired: true` is preserved pending formal sign-off from IP counsel.
+### 2.1 axe-core (`OS-A11Y-01`) — User-Managed External Tool Boundary & Legal Clearance Gate (C05)
+- **Consumption Mode:** `EXTERNAL_TOOL` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, `counselReviewRequired: true`).
+- **Architectural Isolation Strategy:** UIForge invokes user-installed `@axe-core/cli` via out-of-process subprocess execution over standard stdio JSON streams. UIForge does **not** bundle, vendor, or redistribute executable axe-core binaries.
+- **Legal Compliance Boundary:** While the subprocess boundary provides strong architectural decoupling, it does **not** automatically eliminate MPL-2.0 copyleft obligations in every hypothetical distribution or hosted architecture. Legal clearance from qualified IP counsel remains an **explicit release gate** before shipping any bundled, hosted, SaaS, or redistributed delivery model.
+- **Package & Integration Separation:**
+  1. `axe-core`: Core rule engine script / npm library (governed by MPL-2.0).
+  2. `@axe-core/playwright`: Headless browser test runner adapter for CI/local verification (MPL-2.0).
+  3. `@axe-core/cli`: Out-of-process command-line executable invoked via user environment.
 
 ### 2.2 pa11y (`OS-A11Y-05`) — Prudent Copyleft Gating
 - **Consumption Mode:** `EXTERNAL_TOOL` (`PENDING_REVIEW`, `allowed: false`, Tier 4 Deferred).
-- **Reason:** Governed by LGPL-3.0. Direct dynamic linking carries copyleft risk. Gated pending legal counsel review (`LEG-02`).
+- **Reason:** Governed by LGPL-3.0. Direct dynamic linking carries copyleft risk. Gated pending legal counsel review (`LEG-02`, `counselReviewRequired: true`).
 
 ### 2.3 GSAP (`OS-ANIM-04`) — Webflow Commercial License Scoping
 - **Consumption Mode:** `DEPENDENCY` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 2 Optional Plugin Emission).
@@ -44,3 +48,8 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 ### 2.5 SIL OFL 1.1 Fonts (Inter `OS-TYPO-04`, Geist `OS-TYPO-05`)
 - **Consumption Mode:** `ASSET_REDISTRIBUTION` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 0).
 - **Condition:** Both typefaces carry Reserved Font Name declarations ("with Reserved Font Name Inter", "with Reserved Font Name Geist"). Distributed unchanged as unmodified font binaries accompanied by the full OFL 1.1 license text.
+
+### 2.6 Remotion (`OS-ANIM-08`) — Tiered Headcount Commercial Licensing (C02)
+- **Consumption Mode:** `DEPENDENCY` (`RESTRICTED`, Tier 5 Excluded).
+- **License Terms:** Remotion's license is not a blanket commercial prohibition. It permits free, unlimited commercial use for individuals and small entities of up to 3 people. Entities with >3 employees must purchase a paid commercial Company License.
+- **Architectural Scope Misfit:** Remotion is excluded based on Gate G5 (Product and Architectural Fit): it is a specialized programmatic video rendering and composition engine (HTML/CSS to MP4 via headless Chromium/FFmpeg), whereas UIForge's mission is web UI design-to-code generation.

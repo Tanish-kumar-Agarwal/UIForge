@@ -119,6 +119,7 @@ The canonical selection universe consists of exactly **125 candidates** originat
 | OS-BROW-03 | SRC-OS-BROW-03 | webdriverio/webdriverio | CAT_F | P2 | TIER_C | PASS | 75.9 | DEPENDENCY | **TIER 2** | `OPTIONAL` |
 | OS-COMP-12 | SRC-OS-COMP-12 | chakra-ui/park-ui | CAT_C | P2 | TIER_C | PASS | 75.1 | SOURCE_COPY | **TIER 2** | `OPTIONAL` |
 | OS-MKT-02 | SRC-OS-MKT-02 | nolly-studio/cult-ui | CAT_C | P2 | TIER_C | PASS | 74.7 | SOURCE_COPY | **TIER 2** | `OPTIONAL` |
+| OS-DASH-05 | SRC-OS-DASH-05 | react-grid-layout/react-grid-layout | CAT_H | P2 | TIER_C | PASS_WITH_RESTRICTIONS | 74.7 | DEPENDENCY | **TIER 2** | `OPTIONAL` |
 | OS-ANIM-02 | SRC-OS-ANIM-02 | formkit/auto-animate | CAT_H | P1 | TIER_B | PASS | 74.7 | DEPENDENCY | **TIER 2** | `OPTIONAL` |
 | OS-CHRT-02 | SRC-OS-CHRT-02 | apache/echarts | CAT_H | P1 | TIER_B | PASS | 74.7 | DEPENDENCY | **TIER 2** | `OPTIONAL` |
 | OS-CHRT-08 | SRC-OS-CHRT-08 | FormidableLabs/victory | CAT_H | P2 | TIER_C | PASS | 74.7 | DEPENDENCY | **TIER 2** | `OPTIONAL` |
@@ -147,9 +148,8 @@ The canonical selection universe consists of exactly **125 candidates** originat
 | OS-A11Y-05 | SRC-OS-A11Y-05 | pa11y/pa11y | CAT_F | P2 | TIER_C | PENDING | 68.2 | EXTERNAL_TOOL | **TIER 4** | `DEFER` |
 | OS-D2C-01 | SRC-OS-D2C-01 | BuilderIO/mitosis | CAT_H | P1 | TIER_B | PENDING | 68.2 | DEPENDENCY | **TIER 4** | `DEFER` |
 | OS-COMP-15 | SRC-OS-COMP-15 | saas-js/saas-ui | CAT_D | P2 | TIER_C | FAIL | 50.6 | DEPENDENCY | **TIER 5** | `REJECT` |
-| OS-DASH-05 | SRC-OS-DASH-05 | react-grid-layout/react-grid-layout | CAT_H | P2 | TIER_C | FAIL | 50.2 | DEPENDENCY | **TIER 5** | `REJECT` |
-| OS-VREG-05 | SRC-OS-VREG-05 | garris/BackstopJS | CAT_F | P2 | TIER_C | FAIL | 50.2 | DEPENDENCY | **TIER 5** | `REJECT` |
-| OS-VREG-04 | SRC-OS-VREG-04 | oblador/loki | CAT_F | P2 | TIER_C | FAIL | 49 | DEPENDENCY | **TIER 5** | `REJECT` |
+| OS-VREG-05 | SRC-OS-VREG-05 | garris/BackstopJS | CAT_F | P2 | TIER_C | PASS_WITH_RESTRICTIONS | 50.2 | DEPENDENCY | **TIER 5** | `REJECT` |
+| OS-VREG-04 | SRC-OS-VREG-04 | oblador/loki | CAT_F | P2 | TIER_C | PASS_WITH_RESTRICTIONS | 49 | DEPENDENCY | **TIER 5** | `REJECT` |
 | OS-MKT-08 | SRC-OS-MKT-08 | aceternity/ui | CAT_H | REJ | TIER_D | FAIL | 48.4 | SOURCE_COPY | **TIER 5** | `REJECT` |
 | OS-DASH-08 | SRC-OS-DASH-08 | tabler/tabler-react | CAT_H | P2 | TIER_C | FAIL | 48.4 | DEPENDENCY | **TIER 5** | `REJECT` |
 | OS-ANIM-08 | SRC-OS-ANIM-08 | remotion-dev/remotion | CAT_H | REJ | TIER_D | FAIL | 48.4 | DEPENDENCY | **TIER 5** | `REJECT` |

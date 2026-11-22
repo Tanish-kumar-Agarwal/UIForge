@@ -80,9 +80,9 @@
   - *Playwright (`OS-BROW-01`, Score: 96.0, Tier 0):* Multi-engine headless automation, deterministic network waiting, trace recording, and screenshot capture.
   - *axe-core (`OS-A11Y-01`, Score: 94.7, Tier 0):* The industry standard for deterministic WCAG 2.2 AA rule evaluation, integrated out-of-process.
   - *Pixelmatch (`OS-VREG-01`, Score: 94.8, Tier 0):* Lightweight pure-JavaScript pixel comparison engine without native binary dependencies.
-  - *pa11y (`OS-A11Y-05`, Score: 68.6, Tier 4):* Deferred pending legal review of LGPL-3.0 copyleft dynamic linking.
-  - *Loki (`OS-VREG-04`, Tier 5) & BackstopJS (`OS-VREG-05`, Tier 5):* Rejected due to maintenance abandonment and fragile Puppeteer wrappers.
-- **Decision:** Core verification pipeline couples Playwright + axe-core + Pixelmatch into an isolated browser verification harness.
+  - *pa11y (`OS-A11Y-05`, Score: 68.6, Tier 4):* Deferred pending legal review of LGPL-3.0 copyleft dynamic linking (`counselReviewRequired: true`).
+  - *Loki (`OS-VREG-04`, Tier 5) & BackstopJS (`OS-VREG-05`, Tier 5):* Functional testing tools (BackstopJS v6.3.25; Loki Storybook integration), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch and legacy runner / Storybook coupling.
+- **Decision:** Core verification pipeline couples Playwright + axe-core (out-of-process CLI) + Pixelmatch into an isolated browser verification harness.
 
 ---
 
@@ -91,18 +91,18 @@
 - **Primary Challenge:** Standardizing how autonomous AI coding agents (Claude Code, OpenCode, Cursor, Antigravity) discover UIForge's design intelligence and invoke frontend mutations safely.
 - **Candidate Universe:** Model Context Protocol SDK (`OS-AGNT-01`), OpenCode (`OS-AGNT-02`), Vercel AI SDK (`OS-AGNT-08`), Cline (`OS-AGNT-11`), Roo-Cline (`OS-AGNT-12`), Continue (`OS-AGNT-06`), CopilotKit (`OS-AGNT-07`), LangGraph (`OS-AGNT-09`), LlamaIndex (`OS-AGNT-10`), Claude Code (`OS-AGNT-03`), Cursor (`OS-AGNT-04`), Windsurf (`OS-AGNT-05`).
 - **Comparative Evaluation:**
-  - *MCP TypeScript SDK (`OS-AGNT-01`, Score: 94.8, Tier 0):* Open, standardized client/server protocol backed by Anthropic and the open-source ecosystem. Decouples agent tools from proprietary LLM providers.
+  - *MCP TypeScript SDK (`OS-AGNT-01`, Score: 95.0, Tier 0):* Open, standardized client/server protocol backed by the open-source ecosystem. UIForge implements `@modelcontextprotocol/server` (v2.x, implementing the 2026-07-28 protocol specification) to expose design-to-code tools, and provides `@modelcontextprotocol/client` (v2.x) as an optional client adapter.
   - *OpenCode (`OS-AGNT-02`, Score: 95.8, Tier 0):* Open-source autonomous coding agent architecture; reference implementation for tool loops and context injection.
   - *Vercel AI SDK (`OS-AGNT-08`, Score: 85.9, Tier 1):* Streaming UI and multi-modal generative UI primitives for Studio frontends.
   - *Closed Agents (`OS-AGNT-03` through `05`, Tier 3):* Reference-only resources for developer experience and context protocols.
-- **Decision:** Adopt Model Context Protocol (MCP) TypeScript SDK as UIForge's primary interoperability standard. Build dedicated UIForge MCP servers exposing AST inspection, component search, and visual evaluation tools.
+- **Decision:** Adopt Model Context Protocol (MCP) server SDK (`@modelcontextprotocol/server` v2.x) as UIForge's primary interoperability standard. Build dedicated UIForge MCP servers exposing AST inspection, component search, and visual evaluation tools.
 
 ---
 
 ## 8. Category H — Supporting UI Libraries
 
-- **Motion & Animation:** `motion` (`OS-ANIM-01`, Score: 94.8, Tier 0) adopted as standard. GSAP (`OS-ANIM-04`, Score: 78.4, Tier 2) supported as optional emission plugin under Webflow April 2025 license. Remotion (`OS-ANIM-08`, Tier 5) rejected.
-- **Data Tables & Virtualization:** `TanStack/table` (`OS-DASH-03`, Score: 95.8, Tier 0) adopted as headless table foundation. `TanStack/virtual` (`OS-DASH-04`, Score: 85.8, Tier 1) adopted for large list virtualization. React-Grid-Layout (`OS-DASH-05`, Tier 5) rejected.
-- **Charts & Data Visualization:** `recharts` (`OS-CHRT-01`, Score: 94.8, Tier 0) adopted as primary declarative SVG chart library. `nivo` (`OS-CHRT-03`, Tier 1) and `visx` (`OS-CHRT-04`, Tier 1) provide core-adjacent D3 extensions.
+- **Motion & Animation:** `motion` (`OS-ANIM-01`, Score: 94.8, Tier 0) adopted as standard. GSAP (`OS-ANIM-04`, Score: 78.4, Tier 2) supported as optional emission plugin under Webflow April 2025 license. Remotion (`OS-ANIM-08`, Tier 5) excluded due to architectural & mission scope misfit (programmatic video composition vs web UI design-to-code) and license headcount cap (<=3 employees for free commercial use).
+- **Data Tables & Virtualization:** `TanStack/table` (`OS-DASH-03`, Score: 95.8, Tier 0) adopted as headless table foundation. `TanStack/virtual` (`OS-DASH-04`, Score: 85.8, Tier 1) adopted for large list virtualization. `react-grid-layout` (`OS-DASH-05`, Score: 74.7, Tier 2) admitted as an optional integration adapter for drag-and-drop dashboard grid layouts (v2.3.0 with React 18/19 and Playwright E2E harness).
+- **Charts & Data Visualization:** `recharts` (`OS-CHRT-01`, Score: 94.8, Tier 0) adopted as primary declarative SVG chart library. `nivo` (`OS-CHRT-03`, Tier 1) provides D3 chart components. `visx` (`OS-CHRT-04`, Tier 1) provides low-level unstyled SVG visualization primitives (v4.0.0 with React 19 support, modular per-package installation, and tree-shaking).
 - **Icons & Visual Assets:** `lucide-icons` (`OS-ICON-01`, Score: 94.9, Tier 0) adopted as primary icon set. `svgr` (`OS-ICON-07`, Tier 1) adopted as SVG-to-React compiler.
-- **Typography & Layout:** `Inter` (`OS-TYPO-04`, Score: 95.9, Tier 0) and `Geist` (`OS-TYPO-05`, Score: 94.9, Tier 0) adopted under SIL OFL 1.1 RFN preservation. `react-resizable-panels` (`OS-LAYT-01`, Score: 94.7, Tier 0) adopted for studio panel layouts.
+- **Typography & Layout:** `Inter` (`OS-TYPO-04`, Score: 95.9, Tier 0) and `Geist` (`OS-TYPO-05`, Score: 94.9, Tier 0) adopted under SIL OFL 1.1 RFN preservation. `react-resizable-panels` (`OS-LAYT-01`, Score: 94.7, Tier 0) adopted for studio panel layouts. Distinct candidate IDs preserved: `OS-DASH-05` is React-Grid-Layout; `OS-LAYT-03` is Radix Aspect Ratio.
