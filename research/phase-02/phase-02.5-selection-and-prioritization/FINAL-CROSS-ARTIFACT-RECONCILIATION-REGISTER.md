@@ -84,10 +84,28 @@ Every candidate is traced from its original Phase 02.1 discovery through Phase 0
 ---
 
 ### 1.3 Tier 2 through Tier 5 Summary
-- **Tier 2 (Optional Integrations — 40 Candidates):** Includes GSAP (`OS-ANIM-02`, admitted for secondary plugin export only), React-Grid-Layout (`OS-DASH-05`, optional drag-and-drop dashboard adapter), tremor, mantine-core, park-ui, etc.
+- **Tier 2 (Optional Integrations — 40 Candidates):** Includes GSAP (`OS-ANIM-02`, admitted for secondary plugin export only), React-Grid-Layout (`OS-DASH-05`, optional drag-and-drop dashboard adapter), FormidableLabs Victory (`OS-CHRT-08`, cross-platform charting components, Score: 74.7), xyflow / react-flow (`OS-DASH-06`, node graph engine, Score: 78.4), Apache ECharts (`OS-CHRT-02`, Score: 74.7), Chart.js (`OS-CHRT-05`, Score: 77.1), Observable Plot (`OS-CHRT-06`, Score: 73.5), tremor, mantine-core, park-ui, etc.
 - **Tier 3 (Reference & Research — 16 Candidates):** Includes Every Layout (`OS-LAYT-08`, clean-room reference under commercial license), storybook, excalidraw, tldraw, etc.
 - **Tier 4 (Deferred — 4 Candidates):** pa11y (`OS-A11Y-05`, LGPL-3.0 dynamic linking review), OpenCode, AutoCode, Supervibe.
-- **Tier 5 (Rejected / Excluded — 7 Candidates):** Aceternity UI (`OS-MKT-02`, proprietary resale prohibition), Remotion (`OS-ANIM-08`, company license & mission misfit), Locofy (`OS-D2C-08`, closed proprietary SaaS), BackstopJS (`OS-VREG-05`, redundant with Playwright), react-flow (`OS-DASH-06`, restrictive commercial terms), Recharts (`OS-CHRT-02`, React 19 maintenance lag), Victory (`OS-CHRT-06`, bundle bloat).
+- **Tier 5 (Rejected / Excluded — 7 Candidates):**
+  1. `OS-COMP-15` (`saas-js/saas-ui`, Score: 50.6) — Commercial Pro lock-in / crippled community edition.
+  2. `OS-VREG-05` (`garris/BackstopJS`, Score: 50.2) — Redundant with Playwright + Pixelmatch core.
+  3. `OS-VREG-04` (`oblador/loki`, Score: 49.0) — Redundant with Playwright + Pixelmatch core; heavy Storybook coupling.
+  4. `OS-MKT-08` (`aceternity/ui`, Score: 48.4) — G2 licensing failure: proprietary terms prohibit redistribution/reselling.
+  5. `OS-DASH-08` (`tabler/tabler-react`, Score: 48.4) — Abandoned React 16 legacy wrapper; RSC incompatible.
+  6. `OS-ANIM-08` (`remotion-dev/remotion`, Score: 48.4) — G5 mission misfit: video composition rendering rather than UI design-to-code; restrictive company license terms.
+  7. `OS-D2C-08` (`locofy/locofy`, Score: 48.4) — G1 identity / G5 fit failure: closed proprietary SaaS platform.
+
+### 1.4 Recharts & Victory Tier Reconciliation (Finding C29)
+To resolve discrepancy C29, the canonical status of Recharts and Victory across all Phase 02.4 and Phase 02.5 deliverables is confirmed:
+- **`OS-CHRT-01` (`recharts/recharts`):** Canonical **TIER 0 (Core Foundation)** (Score: 95.0, `DEPENDENCY`, `ADOPT`). Recharts is UIForge's primary declarative SVG chart library, dynamically imported during dashboard analytics rendering.
+- **`OS-CHRT-08` (`FormidableLabs/victory`):** Canonical **TIER 2 (Optional Integrations)** (Score: 74.7, `DEPENDENCY`, `OPTIONAL`). Victory provides cross-platform charting primitives (React Native + web).
+- **Audit Root Cause:** An earlier draft narrative erroneously listed Recharts and Victory under Tier 5. The canonical scorecard, category decisions, and operational shortlists have consistently maintained Recharts in Tier 0 and Victory in Tier 2 without deviation.
+
+### 1.5 Tier 0 Architectural Decoupling (Finding C30)
+Per C30, Tier 0 candidates are **not** a monolithic bundle of mandatory runtime dependencies:
+> *"Tier 0 — Core Foundation: Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility."*
+Tier 0 is explicitly partitioned into runtime dependencies (8), development tools (7), external CLI tools (1), source copy templates (1), specifications (2), asset redistribution (2), and infrastructure protocol frameworks (3).
 
 ---
 

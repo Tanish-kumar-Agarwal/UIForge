@@ -101,6 +101,22 @@ Every finding raised across Phase 02.5 audit cycles has been investigated, resol
 ├─────┼──────────────────────┼──────────────────────────────────────────────────────────┼──────────┤
 │ C28 │ Standardized 12-Enum │ Replaced generic PACKAGE-VERIFIED with 12 canonical enum │ RESOLVED │
 │     │ Classification System│ taxonomy; applied consistently across all 125 claims.    │          │
+├─────┼──────────────────────┼──────────────────────────────────────────────────────────┼──────────┤
+│ C29 │ Recharts & Victory   │ Traced canonical scorecards: Recharts (OS-CHRT-01) is    │ RESOLVED │
+│     │ Tier Reconciliation  │ Tier 0 Core Foundation (95.0); Victory (OS-CHRT-08) is   │          │
+│     │                      │ Tier 2 Optional (74.7). Corrected erroneous prose lists. │          │
+├─────┼──────────────────────┼──────────────────────────────────────────────────────────┼──────────┤
+│ C30 │ Correct Tier 0       │ Replaced "mandatory production foundation" with canonical│ RESOLVED │
+│     │ Adoption Language    │ definition. Explicitly partitioned 24 Tier 0 candidates  │          │
+│     │                      │ into runtime deps, dev tools, external tools, specs, etc.│          │
+├─────┼──────────────────────┼──────────────────────────────────────────────────────────┼──────────┤
+│ C31 │ Test & Regression    │ Preserved exact results (67/67, 46/46, 10/10; arithmetic │ RESOLVED │
+│     │ Claims Honesty       │ total: 123 assertions). Qualified structural checks vs   │          │
+│     │                      │ independent tests. Baseline zero regressions confirmed.  │          │
+├─────┼──────────────────────┼──────────────────────────────────────────────────────────┼──────────┤
+│ C32 │ Final Completion &   │ Separated selection completion from external legal       │ RESOLVED │
+│     │ Closure Language     │ clearances and live Phase 03 integrations. Adopted exact │          │
+│     │                      │ mandated Phase 02.5 closure statement.                   │          │
 └─────┴──────────────────────┴──────────────────────────────────────────────────────────┴──────────┘
 ```
 
@@ -174,3 +190,52 @@ Every finding raised across Phase 02.5 audit cycles has been investigated, resol
    - Semantic regression check calculates:
      $$\text{newRegressions} = \text{postDiagnostics} \setminus \text{baselineDiagnostics}$$
    - Keying diagnostics on `file + code + messageText` tolerates cosmetic line/column shifts without generating false regressions.
+
+---
+
+### 2.4 C29: Recharts & Victory Tier Reconciliation
+1. **Canonical Source Inspection:**
+   - Traced `sources.json`: `OS-CHRT-01` (`recharts/recharts`, Discovery Priority `P0`, Operational Tier `TIER_A`).
+   - Traced `sources.json`: `OS-CHRT-08` (`FormidableLabs/victory`, Discovery Priority `P2`, Operational Tier `TIER_C`).
+2. **Canonical Scorecard Reconciliation:**
+   - Recharts (`OS-CHRT-01`): Final Score 95.0, G1–G6 All PASS. Canonical Adoption: **TIER 0 (Core Foundation)** under `DEPENDENCY` mode (`ADOPT`). Recharts is UIForge's primary declarative SVG chart library, dynamically lazy-loaded for dashboard analytics.
+   - Victory (`OS-CHRT-08`): Final Score 74.7, G1–G6 All PASS. Canonical Adoption: **TIER 2 (Optional Integrations)** under `DEPENDENCY` mode (`OPTIONAL`). Victory provides cross-platform charting primitives (React Native + web).
+3. **Discrepancy Remediation:**
+   - An earlier working draft narrative erroneously listed Recharts and Victory under Tier 5. The canonical 7 Tier 5 candidates are: `saas-ui` (`OS-COMP-15`), `BackstopJS` (`OS-VREG-05`), `loki` (`OS-VREG-04`), `aceternity/ui` (`OS-MKT-08`), `tabler-react` (`OS-DASH-08`), `remotion` (`OS-ANIM-08`), `locofy` (`OS-D2C-08`). All markdown reports have been synchronized.
+
+---
+
+### 2.5 C30: Tier 0 Decoupling & Architectural Layering
+1. **Elimination of Monolithic Runtime Coupling:**
+   - Replaced all wording implying that all 24 Tier 0 candidates are mandatory runtime dependencies.
+2. **Canonical Tier 0 Definition:**
+   > *"Tier 0 — Core Foundation: Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility."*
+3. **Architectural Partitioning:**
+   - **Runtime Library Dependencies (8):** `@radix-ui/react-*`, `@ariakit/react`, `motion`, `lucide-react`, `recharts`, `@tanstack/react-table`, `react-resizable-panels`, `@tailwindcss/container-queries`.
+   - **Development & Build-Time Tools (7):** `style-dictionary`, `tailwindcss`, `@axe-core/playwright`, `eslint-plugin-jsx-a11y`, `ast-grep`, `playwright`, `pixelmatch`.
+   - **External Tools (1):** `@axe-core/cli` (external subprocess; release blocked pending counsel clearance).
+   - **Source Copy / Code Registry Templates (1):** `shadcn-ui/ui`.
+   - **Standards & Specifications (2):** W3C DTCG Format, W3C ARIA APG.
+   - **Asset Redistribution (2):** Inter font, Geist font.
+   - **Infrastructure & Protocol Frameworks (3):** MCP TypeScript SDK, OpenDevin reference architecture, Babel AST infrastructure.
+
+---
+
+### 2.6 C31: Test Result Reporting Honesty & Regression Claims
+1. **Preservation of Actual Execution Results:**
+   - `validate_selection.js`: 67 / 67 PASS (SHA-256: `800cc130725785275c808ef56a2a3082acfd1758725253e52d2f3324b6d8b016`)
+   - `validate_registry.js`: 46 / 46 PASS (SHA-256: `a96bfe007c3f57c12c0f365a677131de795cb8d38598b1524b2a635bef67916c`)
+   - `verify_babel_recovery.js`: 10 / 10 PASS (SHA-256: `e2171ce0c13e9bd5512cba4e49a9e1e5a29c6afda90a40fd5c2e35f298546155`)
+2. **Arithmetic Total & Scope Qualification:**
+   - Total of 123 automated assertions across 3 verification test scripts (including data integrity checks, schema validations, structural assertions, and empirical behavioral fixtures).
+   - Zero regressions is claimed strictly in the context of verified baseline test assertions.
+   - Model Context Protocol runtime socket tests remain honestly classified as `NOT-EXECUTED`.
+   - UIForge Write-Ahead Logging (WAL) functionality remains classified as `SPECIFIED_ARCHITECTURALLY` and `SIMULATED`.
+
+---
+
+### 2.7 C32: Final Completion & Phase Closure Language
+1. **Separation of Concerns:**
+   - Phase 02.5 research, selection, reconciliation, and documentation completion is strictly decoupled from external legal clearances (axe-core, pa11y), live MCP wire integration, production WAL runtime implementation, and Phase 03 bundle-size benchmarking.
+2. **Authoritative Phase Closure Decision:**
+   > **"PHASE 02.5 — RESEARCH, SELECTION, RECONCILIATION AND DOCUMENTATION COMPLETE. EXTERNAL LEGAL AND OPERATIONAL DEPENDENCIES TRACKED FOR PHASE 03."**
