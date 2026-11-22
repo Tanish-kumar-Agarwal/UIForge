@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "categories": [
+    {
+      "id": "visual-fundamentals",
+      "name": "Visual Design Fundamentals",
+      "subcategories": [
+        "visual-hierarchy",
+        "contrast-and-salience",
+        "balance-and-alignment",
+        "rhythm-and-repetition",
+        "proximity-and-grouping",
+        "gestalt-principles",
+        "whitespace-and-density",
+        "cognitive-load-and-scanning"
+      ]
+    },
+    {
+      "id": "layout-engineering",
+      "name": "Layout Engineering Intelligence",
+      "subcategories": [
+        "grid-systems",
+        "spatial-scales",
+        "container-widths",
+        "responsive-adaptation",
+        "container-queries",
+        "overflow-management",
+        "section-composition"
+      ]
+    },
+    {
+      "id": "typography-intelligence",
+      "name": "Typography Intelligence",
+      "subcategories": [
+        "type-scales",
+        "font-pairing",
+        "line-length-and-measure",
+        "leading-and-vertical-rhythm",
+        "heading-hierarchies",
+        "numeric-and-tabular-typography",
+        "font-performance-and-loading"
+      ]
+    },
+    {
+      "id": "color-intelligence",
+      "name": "Color Intelligence",
+      "subcategories": [
+        "perceptual-color-spaces",
+        "accessible-contrast",
+        "semantic-palette-mapping",
+        "surface-and-elevation-hierarchy",
+        "light-and-dark-theming",
+        "data-visualization-palettes"
+      ]
+    },
+    {
+      "id": "interaction-and-motion",
+      "name": "Interaction & Motion Intelligence",
+      "subcategories": [
+        "interaction-state-models",
+        "focus-management",
+        "touch-and-pointer-ergonomics",
+        "functional-motion-and-easing",
+        "reduced-motion-accessibility",
+        "feedback-and-optimistic-ui"
+      ]
+    },
+    {
+      "id": "ux-information-architecture",
+      "name": "UX Architecture & Information Architecture",
+      "subcategories": [
+        "navigation-models",
+        "information-chunking",
+        "transactional-forms",
+        "error-recovery-systems",
+        "search-and-filtering",
+        "empty-and-loading-states",
+        "confirmation-and-safety-flows"
+      ]
+    },
+    {
+      "id": "design-systems",
+      "name": "Design Systems Intelligence",
+      "subcategories": [
+        "dtcg-token-architecture",
+        "component-composition-contracts",
+        "theme-modes-and-variants",
+        "system-governance-and-versioning",
+        "productive-vs-expressive-modes"
+      ]
+    }
+  ],
+  "domains": [
+    "editorial",
+    "enterprise-saas",
+    "fintech",
+    "ecommerce",
+    "developer-tools",
+    "healthcare",
+    "education",
+    "dashboards",
+    "administration",
+    "consumer-applications"
+  ],
+  "severities": [
+    "CRITICAL",
+    "HIGH",
+    "MEDIUM",
+    "LOW",
+    "INFORMATIONAL"
+  ],
+  "confidenceTiers": [
+    "MANDATORY",
+    "VERY_HIGH",
+    "HIGH",
+    "MEDIUM",
+    "LOW"
+  ],
+  "evaluationMethods": [
+    "AUTOMATED_STATIC",
+    "AUTOMATED_BROWSER",
+    "HEURISTIC_AGENT",
+    "HUMAN_REVIEW"
+  ]
+}
