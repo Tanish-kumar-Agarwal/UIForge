@@ -32,15 +32,15 @@ All **18 Phase 03 Acceptance Deliverables (`PH03-01` through `PH03-18`)** have b
 | **PH03-07** | Master System Architecture Specification | `MASTER-SYSTEM-ARCHITECTURE.md`, `ARCHITECTURE-PRINCIPLES.md` | 11 layers, 12 non-negotiable principles, process isolation, IPC | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
 | **PH03-08** | Architecture Decision Records (ADRs) | `docs/architecture/ADR-001.md` through `ADR-011.md` | All 11 RFC-standard ADRs accepted with context, decisions, and consequences | **VERIFIED** | `[PHASE-02-DECIDED]` | **APPROVED** |
 | **PH03-09** | Package Boundaries & Dependency Graph | `PACKAGE-BOUNDARIES.md`, `PACKAGE-DEPENDENCY-GRAPH.md` | 16 monorepo packages, strict 7-level DAG (Levels 0–6), 0 circularities | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
-| **PH03-10** | Shared Contracts & API Specifications | `CONTRACT-CATALOGUE.md`, `DATA-SCHEMAS.md`, `API-SPECIFICATION.md` | 28 versioned contracts (`uiforge.contract.*.v1`), complete Zod schemas & TS types | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
+| **PH03-10** | Shared Contracts & API Specifications | `CONTRACT-CATALOGUE.md`, `DATA-SCHEMAS.md`, `API-SPECIFICATION.md` | 28 designed & schema-specified contracts (`uiforge.contract.*.v1`), Zod schemas & TS types | **VERIFIED (Designed)** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
 | **PH03-11** | Security Architecture & Threat Model | `SECURITY-ARCHITECTURE.md`, `THREAT-MODEL.md`, `TRUST-BOUNDARIES.md` | STRIDE analysis of 20 threat scenarios (`T01`–`T20`), 5-level HMAC auth ladder | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
-| **PH03-12** | Data & Storage Architecture | `DATA-ARCHITECTURE.md`, `ADR-009-storage.md` | Local-first `.uiforge/` topology, SQLite `state.db`, pre-image WAL, hash chain | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
-| **PH03-13** | Open-Core Boundary Specification | `OPEN-CORE-BOUNDARIES.md`, `ADR-010-open-core.md` | Permissive Apache-2.0 Core vs Studio, 0 GPL/AGPL dependencies in Core | **VERIFIED** | `[PHASE-02-DECIDED]` | **APPROVED** |
+| **PH03-12** | Data & Storage Architecture | `DATA-ARCHITECTURE.md`, `ADR-009-storage.md` | Local-first `.uiforge/` topology, SQLite `state.db` WAL, two-phase filesystem journal, hash chain | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
+| **PH03-13** | Open-Core Boundary Specification | `OPEN-CORE-BOUNDARIES.md`, `ADR-010-open-core.md` | Permissive Apache-2.0 Core vs Studio; MPL-2.0 axe-core isolated; pa11y quarantined | **VERIFIED (Qualified)** | `[PHASE-02-DECIDED]` | **APPROVED** |
 | **PH03-14** | MVP Scope & Delivery Phasing | `MVP-SCOPE.md`, `MVP-IMPLEMENTATION-PLAN.md` | Brownfield-first MVP (Level A), Greenfield expansion (Level B), Studio (Level C) | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
 | **PH03-15** | Implementation Roadmap & Gates | `PHASE-04-ENGINEERING-FOUNDATION.md`, `IMPLEMENTATION-ACCEPTANCE-GATES.md` | 4 execution waves, Phase 04–07 gates, critical path analysis | **VERIFIED** | `[ARCHITECTURE-DECISION]` | **APPROVED** |
 | **PH03-16** | Phase 02 Traceability Matrix | `PHASE-02-TO-PHASE-03-TRACEABILITY.md` | 100% of 125 candidates traced, 24 Tier 0 technologies mapped to packages | **VERIFIED** | `[PHASE-02-DECIDED]` | **APPROVED** |
 | **PH03-17** | Cross-Phase Consistency Report | `FINAL-RECONCILIATION-REPORT.md`, `OPEN-QUESTIONS-AND-RISKS.md` | Zero contradictions across Phase 01, Phase 02, and Phase 03 baselines | **VERIFIED** | `[SOURCE-VERIFIED]` | **APPROVED** |
-| **PH03-18** | Acceptance & Architecture Freeze | `validate_phase03.js`, `VALIDATION-RESULTS.md`, `PHASE-03-ACCEPTANCE-REPORT.md` | 197/197 Phase 03 automated assertions passed; 320/320 full test suite passed | **VERIFIED** | `[REPO-VERIFIED]` | **APPROVED** |
+| **PH03-18** | Acceptance & Architecture Freeze | `validate_phase03.js`, `VALIDATION-RESULTS.md`, `PHASE-03-ACCEPTANCE-REPORT.md` | 197/197 Phase 03 specification assertions; 320/320 total structural/census assertions | **VERIFIED** | `[REPO-VERIFIED]` | **APPROVED** |
 
 ---
 
@@ -50,11 +50,13 @@ All **18 Phase 03 Acceptance Deliverables (`PH03-01` through `PH03-18`)** have b
   - **Total Assertions:** 197
   - **Passed:** 197 (100.0%)
   - **Failed:** 0 (0.0%)
+  - **Scope:** Verifies document existence, schema URI presence, ADR RFC sections, requirement definitions, and risk cataloging.
 - **Pre-Existing Phase 02 Test Suites:**
-  - `validate_selection.js`: 67 / 67 Passed
-  - `validate_registry.js`: 46 / 46 Passed
-  - `verify_babel_recovery.js`: 10 / 10 Passed
+  - `validate_selection.js`: 67 / 67 Passed (Candidate scorecard and census verification)
+  - `validate_registry.js`: 46 / 46 Passed (Source registry and permissions matrix)
+  - `verify_babel_recovery.js`: 10 / 10 Passed (Empirical Babel recovery reason codes & TS delta comparator)
 - **Grand Repository Verification Total:** **320 / 320 Passed (100.0%)**
+- **Crucial Qualification:** These 320 assertions establish **specification completeness, schema coverage, and structural census integrity**. They do **not** represent production runtime reliability, live agent socket communication, or browser end-to-end execution, which are scheduled for Phase 04 through Phase 07.
 
 ---
 
@@ -67,8 +69,8 @@ $$\mathbf{ARCHITECTURE\ FREEZE\ STATUS:\ FROZEN}$$
 ### Freeze Invariants:
 1. **Contract Invariance:** No modifications to the 28 Canonical Contract URIs or required Zod schemas without a formal SemVer bump and ADR approval.
 2. **Topological Invariance:** The 16 packages across 7 topological levels (Levels 0–6) form a permanent Directed Acyclic Graph (DAG). No circular dependencies or bypasses allowed.
-3. **Safety Invariance:** The Coordinate Slice Patching, Pre-image WAL, TypeScript Compiler API regression checks, and HMAC Diff-Bound Authorization Token requirements are non-negotiable architectural mandates.
-4. **Licensing Invariance:** UIForge Core remains 100% permissively licensed under Apache-2.0 with zero copyleft contaminations.
+3. **Safety Invariance:** Coordinate Slice Patching, Two-Phase Filesystem Pre-Image Journaling with TOCTOU hash verification, TypeScript Semantic Conformance checks (syntax & type only; not behavioral proof), and HMAC Diff-Bound Authorization Token requirements are non-negotiable architectural mandates.
+4. **Licensing Invariance:** UIForge Core authored source code remains 100% permissively licensed under Apache-2.0. Third-party MPL-2.0 copyleft obligations for `axe-core` are isolated at the file level; LGPL-3.0 dependencies (`pa11y`) remain quarantined.
 
 ---
 
