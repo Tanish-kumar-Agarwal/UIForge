@@ -11,7 +11,8 @@
 
 A design system is not a component library, nor is it a Figma sticker sheet. It is an agreed-upon system of **shared visual and architectural contracts** that coordinate designers, engineers, and autonomous AI agents across platforms.
 
-UIForge implements the authoritative **W3C Design Tokens Community Group (DTCG Draft 2025.10)** specification (`OS-TOKN-01`), freezing compatibility with ADR-005 and `@uiforge/contracts`.
+UIForge implements the **Design Tokens Community Group (DTCG Draft 2025.10)** specification (`OS-TOKN-01`), developed within the W3C Design Tokens Community Group. *(Note: As a Community Group Report, this represents cross-industry tooling consensus rather than a formal W3C Recommendation)*, freezing compatibility with ADR-005 and `@uiforge/contracts`.
+
 
 ---
 
