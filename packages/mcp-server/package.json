@@ -1,0 +1,34 @@
+{
+  "name": "@uiforge/mcp-server",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Model Context Protocol 2026-07-28 compliant server exposing UIForge capabilities over stdio and HTTP",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "uiforge-mcp": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.5.0",
+    "@uiforge/config": "workspace:*",
+    "@uiforge/contracts": "workspace:*",
+    "@uiforge/core": "workspace:*",
+    "@uiforge/project-analyzer": "workspace:*",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
