@@ -15,15 +15,15 @@
 Phase 02.5 has completed all required selection methodologies, hard-gate evaluations, 7-dimension weighted technical scoring, pairwise redundancy analyses, build-vs-adopt matrices, and deliverable reports. The results are mathematically verified, fully evidenced, and synchronized across Markdown reports and JSON data files.
 
 > [!NOTE]
-> **Independent Verification & Digest Qualification (Finding C23):**
-> Automated test harness results (61 / 61 tests passed) and script SHA-256 digests establish the empirical execution results of the specific assertions executed under the local Node.js environment, and certify the cryptographic byte integrity of the test harness scripts. They do not constitute an external third-party certification. Any independent reviewer can reproduce and verify all 61 assertions by running the harness script directly:
+> **Independent Verification & Digest Qualification (Finding C23/C28):**
+> Automated test harness results (67 / 67 tests passed) and script SHA-256 digests establish the empirical execution results of the specific assertions executed under the local Node.js environment, and certify the cryptographic byte integrity of the test harness scripts. They do not constitute an external third-party certification. Any independent reviewer can reproduce and verify all 67 assertions by running the harness script directly:
 > ```bash
 > node research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js
 > ```
 
 ---
 
-## 2. Audit Remediation Reconciliation (Findings C11 – C24)
+## 2. Audit Remediation Reconciliation (Findings C11 – C28)
 
 | Finding ID | Audit Finding Topic | Status | Implemented Resolution & Verifiable Traceability |
 | :---: | :--- | :---: | :--- |
@@ -41,6 +41,10 @@ Phase 02.5 has completed all required selection methodologies, hard-gate evaluat
 | **C22** | Babel Recovery Claims & Guarantees | **RESOLVED** | Tested streaming cases in `verify_babel_recovery.js`. Distinguished five guarantees: AST generation, recoverable syntax errors via `ast.errors`, fatal unrecoverable throws requiring WAL buffering, comment retention vs detached trivia, coordinate slice patching formatting preservation, and TS baseline diagnostic regression comparator. |
 | **C23** | Test Result Independence & Qualification | **RESOLVED** | Formally qualified automated test results: SHA-256 digest certifies byte identity and local execution conditions, not external third-party certification. |
 | **C24** | MCP Declared Semver Ranges vs Pins | **RESOLVED** | Formally classified `@modelcontextprotocol/server@^2.1.0` and client as declared semver ranges (evaluated on `v2.1.1`), specifying exact lockfile pinning requirements for reproducible builds. |
+| **C25** | Complete SIL OFL 1.1 Font Compliance Audit | **RESOLVED** | Constructed complete 16-column Font Compliance Matrix for Inter v4.1 and Geist v1.4.0. Documented SIL OFL FAQ Q5.3 functional-equivalence requirements. Specified `pyftsubset` flags (`--layout-features=* --desubroutinize --flavor=woff2 --name-IDs=*`) and OpenType Name table IDs 1, 4, 6. |
+| **C26** | Babel AST vs UIForge WAL Strict Separation | **RESOLVED** | Strictly decoupled 9 Babel parser capabilities from 8 UIForge WAL capabilities. Formally classified WAL as `SPECIFIED_ARCHITECTURALLY & SIMULATED`. Verified exact parser reason codes (`JSXMissingClosingTag`, `MissingPropertySeparator`, `MissingSemicolon`, `UnterminatedTemplate`, `UnexpectedToken`, `UnterminatedComment`). Verified 9 AST preservation dimensions and multi-file TS baseline comparator. |
+| **C27** | MCP Protocol Eras & Honest Test Status | **RESOLVED** | Formally distinguished modern stateless 2026-07-28 discovery (`server/discover`, request `_meta` headers) from legacy stateful handshakes (`2025-11-25`, `2024-11-05`). Classified live socket runtime tests as `NOT-EXECUTED` pending Phase 03 integration test harness. |
+| **C28** | Standardized 12-Enum Evidence Taxonomy | **RESOLVED** | Replaced generic labels with standardized 12-enum taxonomy (`DOC-VERIFIED`, `SOURCE-VERIFIED`, `SCHEMA-VALIDATED`, `STRUCTURALLY-VALIDATED`, `LOCALLY-EXECUTED`, `HARNESS-ASSERTED`, `SIMULATED`, `INTEGRATION-TESTED`, `INDEPENDENTLY-REPRODUCED`, `NOT-ESTABLISHED`, `NOT-EXECUTED`, `COUNSEL-REVIEW-PENDING`). Applied consistently across all 125 claims in `evidence-and-claim-register.json`. |
 
 ---
 
@@ -72,7 +76,7 @@ Phase 02.5 has completed all required selection methodologies, hard-gate evaluat
 | **AC22** | Experimental gaps documented | **PASS** | Experiments E1 through E8 specified (`EXPERIMENTAL-VALIDATION-PLAN.md`). |
 | **AC23** | Research claims independently traceable | **PASS** | Exactly 125 claim dossiers tracked in `data/evidence-and-claim-register.json` (Test 49, 50). |
 | **AC24** | Datasets reconcile with Markdown reports | **PASS** | Markdown tables generated directly from canonical JSON datasets. |
-| **AC25** | Automated validation reproducible | **PASS** | `validate_selection.js` executes 61 assertions cleanly (61 / 61 PASS, SHA-256: `b333731ad7bf4596d0f9a96a5270935483f48ce049ee5f9bdc6ee2d9cf04b14b`). |
+| **AC25** | Automated validation reproducible | **PASS** | `validate_selection.js` executes 67 assertions cleanly (67 / 67 PASS, SHA-256: `800cc130725785275c808ef56a2a3082acfd1758725253e52d2f3324b6d8b016`). |
 | **AC26** | No production implementation performed | **PASS** | Strict Phase 1 research discipline maintained; zero application code written. |
 | **AC27** | No unrequested Git operation performed | **PASS** | Zero premature git actions executed during Phase 1. |
 | **AC28** | Phase 03 readiness documented | **PASS** | Clear roadmap handoff and prerequisites established (`PHASE-03-HANDOFF.md`). |

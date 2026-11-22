@@ -82,16 +82,22 @@ research/phase-02/phase-02.5-selection-and-prioritization/
 │   ├── build_reports.js                         # Automated report builder
 │   ├── generate_selection_data.js               # Structured dataset generator
 │   └── verify_babel_recovery.js                 # Empirical fixture parser recovery verification
-└── validation/
-    └── validate_selection.js                    # Automated integrity validation harness (61/61 PASS)
+│   ├── FINAL-COMPLETION-AND-ACCEPTANCE-REPORT.md# Master completion dossier & closure verdict
+│   ├── FINAL-CROSS-ARTIFACT-RECONCILIATION-REGISTER.md # Master 125-candidate alignment register
+│   ├── FINAL-EVIDENCE-INTEGRITY-REGISTER.md     # 12-enum evidence taxonomy & claim limits
+│   ├── FINAL-TECHNICAL-CORRECTION-REGISTER.md   # Complete C01–C28 audit findings register
+│   ├── FINAL-VALIDATION-RESULTS.md              # Multi-suite test execution logs (117 assertions)
+│   └── FINAL-PHASE-03-READINESS-HANDOFF.md      # Authoritative Phase 03 transition roadmap
+├── validation/
+│   └── validate_selection.js                    # Automated integrity validation harness (67/67 PASS)
 ```
 
 ---
 
 ## 5. Automated Validation & Script Digest
 
-The automated test suite certifies all 61 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, category coverage, and finding remediations (C11–C24):
+The automated test suite certifies all 67 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, category coverage, and finding remediations (C11–C28):
 - **Harness Script:** [`validation/validate_selection.js`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js)
-- **Harness Result:** **61 / 61 PASS (0 failures)**
-- **Script SHA-256 Digest:** `b333731ad7bf4596d0f9a96a5270935483f48ce049ee5f9bdc6ee2d9cf04b14b`
+- **Harness Result:** **67 / 67 PASS (0 failures)**
+- **Script SHA-256 Digest:** `800cc130725785275c808ef56a2a3082acfd1758725253e52d2f3324b6d8b016`
 - **Digest Qualification:** Test execution certifies conditions tested under the local test environment; SHA-256 digest validates byte identity of the test script, not external third-party certification.
