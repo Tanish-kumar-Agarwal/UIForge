@@ -579,3 +579,246 @@ export const WorkflowSchema = z.object({
   startedAt: z.string().datetime(),
 });
 export type Workflow = z.infer<typeof WorkflowSchema>;
+
+// ============================================================================
+// 29. PROJECT ANALYSIS RESULT SCHEMA (uiforge.contract.project-analysis.v1)
+// ============================================================================
+
+export const FrameworkConfidenceSchema = z.enum(['CONFIRMED', 'PROBABLE', 'UNKNOWN']);
+export type FrameworkConfidence = z.infer<typeof FrameworkConfidenceSchema>;
+
+export const FrameworkDetectionResultSchema = z.object({
+  name: z.enum(['next', 'react-vite', 'react', 'vue-vite', 'vue', 'sveltekit', 'svelte', 'unknown']),
+  version: z.string(),
+  router: z.enum(['app-router', 'pages-router', 'file-system', 'spa-hash', 'react-router', 'none']),
+  confidence: FrameworkConfidenceSchema,
+  evidence: z.array(z.string()),
+  limitations: z.string().optional(),
+});
+export type FrameworkDetectionResult = z.infer<typeof FrameworkDetectionResultSchema>;
+
+export const LanguageMetadataSchema = z.object({
+  primary: z.enum(['typescript', 'javascript', 'mixed']),
+  hasTsConfig: z.boolean(),
+  strictMode: z.boolean().optional(),
+  target: z.string().optional(),
+});
+export type LanguageMetadata = z.infer<typeof LanguageMetadataSchema>;
+
+export const RuntimeMetadataSchema = z.object({
+  detected: z.enum(['node', 'bun', 'deno', 'browser-only', 'unknown']),
+  versionConstraint: z.string().optional(),
+  confidence: FrameworkConfidenceSchema,
+});
+export type RuntimeMetadata = z.infer<typeof RuntimeMetadataSchema>;
+
+export const PackageManagerMetadataSchema = z.object({
+  name: z.enum(['pnpm', 'npm', 'yarn', 'bun', 'unknown']),
+  lockfilePresent: z.boolean(),
+  lockfilePath: z.string().optional(),
+});
+export type PackageManagerMetadata = z.infer<typeof PackageManagerMetadataSchema>;
+
+export const WorkspaceMetadataSchema = z.object({
+  isMonorepo: z.boolean(),
+  type: z.enum(['pnpm-workspace', 'npm-workspaces', 'yarn-workspaces', 'turborepo', 'lerna', 'none']),
+  rootPath: z.string(),
+  packagesCount: z.number().int().nonnegative(),
+  applications: z.array(z.string()).optional(),
+  targetApplication: z.string().optional(),
+});
+export type WorkspaceMetadata = z.infer<typeof WorkspaceMetadataSchema>;
+
+export const DiscoveredRouteSchema = z.object({
+  routePath: z.string(),
+  filePath: z.string(),
+  type: z.enum(['page', 'layout', 'api', 'route-handler', 'static']),
+  routerType: z.enum(['app-router', 'pages-router', 'react-router', 'custom']),
+  hasDynamicSegments: z.boolean(),
+  application: z.string().optional(),
+});
+export type DiscoveredRoute = z.infer<typeof DiscoveredRouteSchema>;
+
+export const DiscoveredComponentSchema = z.object({
+  name: z.string(),
+  filePath: z.string(),
+  exportType: z.enum(['default', 'named', 'internal']),
+  propsInterface: z.string().optional(),
+  renderedComponents: z.array(z.string()),
+  importedModules: z.array(z.string()),
+  hasInlineStyles: z.boolean(),
+  usesCssClasses: z.boolean(),
+  application: z.string().optional(),
+});
+export type DiscoveredComponent = z.infer<typeof DiscoveredComponentSchema>;
+
+export const StylingArchitectureSchema = z.object({
+  primaryEngine: z.enum(['tailwind', 'css-modules', 'sass', 'styled-components', 'vanilla-css', 'unknown']),
+  tailwindVersion: z.enum(['v3', 'v4', 'none']).optional(),
+  cssVariablesCount: z.number().int().nonnegative(),
+  cssFiles: z.array(z.string()),
+  hasDesignTokens: z.boolean(),
+  tokenFiles: z.array(z.string()),
+  iconLibraries: z.array(z.string()),
+  detectedDesignSystems: z.array(z.string()),
+});
+export type StylingArchitecture = z.infer<typeof StylingArchitectureSchema>;
+
+export const ResponsiveSignalsSchema = z.object({
+  hasViewportMeta: z.boolean(),
+  mediaQueriesCount: z.number().int().nonnegative(),
+  responsiveUtilityClassesCount: z.number().int().nonnegative(),
+});
+export type ResponsiveSignals = z.infer<typeof ResponsiveSignalsSchema>;
+
+export const AccessibilitySignalsSchema = z.object({
+  ariaAttributesCount: z.number().int().nonnegative(),
+  explicitRolesCount: z.number().int().nonnegative(),
+  semanticElementsCount: z.number().int().nonnegative(),
+  buttonsWithoutTypeCount: z.number().int().nonnegative(),
+  imagesWithoutAltCount: z.number().int().nonnegative(),
+  divButtonsCount: z.number().int().nonnegative(),
+});
+export type AccessibilitySignals = z.infer<typeof AccessibilitySignalsSchema>;
+
+export const HardcodedDesignValuesSchema = z.object({
+  colorLiteralsCount: z.number().int().nonnegative(),
+  spacingLiteralsCount: z.number().int().nonnegative(),
+  samples: z.array(z.string()),
+});
+export type HardcodedDesignValues = z.infer<typeof HardcodedDesignValuesSchema>;
+
+export const SkippedFileReasonSchema = z.enum([
+  'GITIGNORE',
+  'SENSITIVE_SECRET',
+  'BINARY_FILE',
+  'EXCEEDS_FILE_SIZE',
+  'SYMLINK_OUTSIDE_ROOT',
+  'SYMLINK_LOOP',
+  'PERMISSION_DENIED',
+  'PARSE_FAILURE',
+  'NOT_FOUND',
+]);
+export type SkippedFileReason = z.infer<typeof SkippedFileReasonSchema>;
+
+export const SkippedFileSchema = z.object({
+  filePath: z.string(),
+  reason: SkippedFileReasonSchema,
+  detail: z.string().optional(),
+});
+export type SkippedFile = z.infer<typeof SkippedFileSchema>;
+
+export const ScanCoverageSchema = z.object({
+  totalFilesFound: z.number().int().nonnegative(),
+  totalFilesScanned: z.number().int().nonnegative(),
+  totalDirectoriesScanned: z.number().int().nonnegative(),
+  skippedFiles: z.array(SkippedFileSchema),
+  limitsHit: z.array(z.string()),
+});
+export type ScanCoverage = z.infer<typeof ScanCoverageSchema>;
+
+export const GitIntelligenceSchema = z.object({
+  isGitRepository: z.boolean(),
+  currentBranch: z.string().optional(),
+  headCommit: z.string().optional(),
+  isWorktreeDirty: z.boolean().optional(),
+  modifiedFilesCount: z.number().int().nonnegative().optional(),
+  untrackedFilesCount: z.number().int().nonnegative().optional(),
+});
+export type GitIntelligence = z.infer<typeof GitIntelligenceSchema>;
+
+export const FindingNatureSchema = z.enum(['DETECTED_FACT', 'INFERRED_SIGNAL', 'OBSERVATION']);
+export type FindingNature = z.infer<typeof FindingNatureSchema>;
+
+export const AnalysisFindingSchema = z.object({
+  id: z.string(),
+  detector: z.string(),
+  nature: FindingNatureSchema,
+  category: z.enum(['SECURITY', 'ACCESSIBILITY', 'RESPONSIVE', 'DESIGN_TOKENS', 'STRUCTURE']),
+  severity: z.enum(['CRITICAL', 'SERIOUS', 'MODERATE', 'MINOR', 'INFO']),
+  title: z.string(),
+  description: z.string(),
+  location: z.object({
+    filePath: z.string(),
+    line: z.number().int().positive().optional(),
+    column: z.number().int().positive().optional(),
+  }),
+  antiPatternId: z.string().optional(),
+  evidence: z.array(z.string()),
+  confidence: FrameworkConfidenceSchema,
+  limitations: z.string().optional(),
+});
+export type AnalysisFinding = z.infer<typeof AnalysisFindingSchema>;
+
+export const AnalysisRecommendationSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string(),
+  suggestedAction: z.string(),
+  relatedFindingIds: z.array(z.string()),
+  antiPatternId: z.string().optional(),
+});
+export type AnalysisRecommendation = z.infer<typeof AnalysisRecommendationSchema>;
+
+export const ExecutionMetadataSchema = z.object({
+  analysisId: z.string().uuid(),
+  timestamp: z.string().datetime(),
+  durationMs: z.number().nonnegative(),
+  analyzerVersion: z.string(),
+  environment: z
+    .object({
+      nodeVersion: z.string().optional(),
+      platform: z.string().optional(),
+    })
+    .optional(),
+});
+export type ExecutionMetadata = z.infer<typeof ExecutionMetadataSchema>;
+
+export const ProjectAnalysisContentSchema = z.object({
+  projectIdentity: z.object({
+    name: z.string(),
+    framework: FrameworkDetectionResultSchema,
+    language: LanguageMetadataSchema,
+    runtime: RuntimeMetadataSchema,
+    packageManager: PackageManagerMetadataSchema,
+    workspace: WorkspaceMetadataSchema,
+    monorepoApp: z.string().optional(),
+  }),
+  dependencies: z.object({
+    direct: z.record(z.string()),
+    devDependencies: z.record(z.string()),
+    scripts: z.record(z.string()),
+    tools: z.object({
+      buildTools: z.array(z.string()),
+      testFrameworks: z.array(z.string()),
+      linters: z.array(z.string()),
+    }),
+  }),
+  architecture: z.object({
+    routes: z.array(DiscoveredRouteSchema),
+    components: z.array(DiscoveredComponentSchema),
+    styling: StylingArchitectureSchema,
+  }),
+  signals: z.object({
+    responsive: ResponsiveSignalsSchema,
+    accessibility: AccessibilitySignalsSchema,
+    designTokens: HardcodedDesignValuesSchema,
+  }),
+  git: GitIntelligenceSchema,
+  coverage: ScanCoverageSchema,
+  findings: z.array(AnalysisFindingSchema),
+  recommendations: z.array(AnalysisRecommendationSchema),
+  warnings: z.array(z.string()),
+  status: z.enum(['SUCCESS', 'PARTIAL', 'FAILED']),
+});
+export type ProjectAnalysisContent = z.infer<typeof ProjectAnalysisContentSchema>;
+
+export const ProjectAnalysisResultSchema = z.object({
+  $schema: z
+    .literal('https://schemas.uiforge.dev/v1/project-analysis.json')
+    .default('https://schemas.uiforge.dev/v1/project-analysis.json'),
+  execution: ExecutionMetadataSchema,
+  analysis: ProjectAnalysisContentSchema,
+});
+export type ProjectAnalysisResult = z.infer<typeof ProjectAnalysisResultSchema>;
+
