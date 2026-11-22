@@ -25,7 +25,7 @@ Commercial extensions (UIForge Studio Hosted, Enterprise Compliance Vault, Organ
 │ - @uiforge/project-intelligence (AST Parser, Route Tree Generator)                     │
 │ - @uiforge/tokens (W3C DTCG Token Engine, Style Dictionary v5.8 Compiler)              │
 │ - @uiforge/component-registry (shadcn Source-Copy Registry Engine)                     │
-│ - @uiforge/safe-modifier (Coordinate Slice Patcher, WAL Engine, TS Diagnostic Check)   │
+│ - @uiforge/safe-modifier (Coordinate Slice Patcher, Two-Phase WAL, TS Check)            │
 │ - @uiforge/browser-eval (Playwright Headless Runner, Pixelmatch Visual Diffing)        │
 │ - @uiforge/eval & @uiforge/reporting (Finding Scorer, HTML & Markdown Dossier Builder) │
 │ - @uiforge/mcp-server (Official Model Context Protocol 2026-07-28 Ingress Server)      │
@@ -98,3 +98,44 @@ Commercial extensions (UIForge Studio Hosted, Enterprise Compliance Vault, Organ
 - **Licensing:** Proprietary Commercial SaaS.
 - **Optionality:** Completely Optional (Targeted strictly at enterprise teams; individual developers never need an account).
 - **Deployment:** Multi-region cloud infrastructure (AWS/GCP, PostgreSQL, Redis, S3).
+
+---
+
+## 3. Third-Party Dependency Licensing & Copyleft Qualification
+
+To maintain corporate legal clearance and preserve the integrity of UIForge's Apache-2.0 core, third-party dependency licenses are rigorously classified, isolated, and audited:
+
+### 3.1 Permissive Open-Source Dependencies (Apache-2.0 / MIT / BSD-3-Clause)
+- **Examples:** `@babel/parser` (MIT), `better-sqlite3` (MIT), `style-dictionary` (Apache-2.0), `tailwindcss` (MIT), `radix-ui` (MIT), `lucide-react` (ISC), `playwright` (Apache-2.0), `pixelmatch` (ISC).
+- **Legal Posture:** Fully compatible with Apache-2.0 distribution. Attribution and license notices are aggregated and distributed in `THIRD-PARTY-LICENSES.md`.
+
+### 3.2 Weak File-Level Copyleft Dependency (`axe-core`, `@axe-core/playwright` — MPL-2.0)
+- **License:** Mozilla Public License 2.0 (MPL-2.0).
+- **Scope & Obligations:** MPL-2.0 is a file-level copyleft license. If covered files are directly modified, those modifications must remain available under MPL-2.0. It does **not** contaminate larger combined works or independent files.
+- **UIForge Isolation Strategy:**
+  1. UIForge consumes `@axe-core/playwright` and `axe-core` strictly as unmodified external packages via standard npm dependencies.
+  2. UIForge source files never embed or inline `axe-core` source code.
+  3. All distribution packages carry explicit MPL-2.0 copyright notices and offer source availability for the unmodified library as required by Section 3 of MPL-2.0.
+
+### 3.3 Strong / Restrictive Copyleft Quarantine (`pa11y` — LGPL-3.0)
+- **License:** GNU Lesser General Public License 3.0 (LGPL-3.0).
+- **Legal Conflict:** In JavaScript/Node.js environments, dynamic linking boundaries under LGPL-3.0 present corporate legal ambiguity (whether `import` constitutes dynamic linking or a derivative work).
+- **UIForge Quarantine Strategy:**
+  1. In accordance with Phase 02.4 and Phase 02.5 findings (`C14`), `pa11y` is strictly **quarantined in Tier 4 (DEFER)**.
+  2. `pa11y` is **100% excluded** from the Phase 03 and Phase 04 Core runtime dependency graph.
+  3. UIForge relies exclusively on `axe-core` for accessibility auditing, eliminating LGPL-3.0 exposure.
+
+### 3.4 Open Font License Asset Boundary (`Inter`, `Geist` — SIL OFL 1.1)
+- **License:** SIL Open Font License 1.1.
+- **Reserved Font Name (RFN) Rule:** Both fonts carry Reserved Font Name declarations. Under OFL 1.1 Clause 3, custom modified or subsetted versions of the fonts cannot use the reserved names unless a functional-equivalence exception applies or written permission is granted.
+- **UIForge Asset Strategy:**
+  1. Standard font distribution uses unmodified official release binaries (`UIForgeInter`, `UIForgeGeist`).
+  2. Automated subsetting tools in `@uiforge/tokens` enforce a default font-family renaming rule for custom subsets.
+
+---
+
+## 4. Software Bill of Materials (SBOM) & Verification Gates
+
+Under `Gate 07-C` (Open-Core Boundary & License Compliance Verification), UIForge enforces automated pipeline checks:
+1. `pnpm run verify:licenses`: Executes `license-checker-rseidelsohn` to verify that 100% of runtime dependencies belong to an approved license whitelist (`MIT`, `Apache-2.0`, `BSD-2-Clause`, `BSD-3-Clause`, `ISC`, `MPL-2.0`).
+2. Automated CycloneDX / SPDX SBOM generation records all package hashes, licenses, and supply-chain origins prior to release.
