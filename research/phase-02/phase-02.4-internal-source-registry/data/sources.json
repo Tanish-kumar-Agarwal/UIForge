@@ -3578,7 +3578,7 @@
     ],
     "componentRefs": [],
     "assetRefs": [],
-    "licenseRef": "LIC-MIT",
+    "licenseRef": "LIC-MPL-2.0",
     "provenanceRef": "PROV-OS-A11Y-02",
     "evaluationRef": "EVAL-OS-A11Y-02",
     "createdAt": "2026-11-21",
@@ -3587,11 +3587,11 @@
     "currentDiscoveryPriority": "P0",
     "registryOperationalTier": "TIER_A",
     "licenseScope": {
-      "repositoryLicenseRef": "LIC-MIT",
-      "packageLicenseRef": "LIC-MIT",
+      "repositoryLicenseRef": "LIC-MPL-2.0",
+      "packageLicenseRef": "LIC-MPL-2.0",
       "componentLicenseRef": null,
       "assetLicenseRef": null,
-      "transitiveCopyleftRisk": "NONE",
+      "transitiveCopyleftRisk": "WEAK_FILE_LEVEL",
       "trademarkPolicy": "STANDARD",
       "commercialTerms": "FREE_COMMERCIAL"
     },

@@ -1038,7 +1038,7 @@
     "registryOperationalTier": "TIER_A",
     "technicalEvaluationStatus": "complete",
     "licenseDisposition": "eligible",
-    "licenseRef": "LIC-MIT",
+    "licenseRef": "LIC-MPL-2.0",
     "hardGates": {
       "G1_identity": "PASS",
       "G2_licensing": "PASS",
