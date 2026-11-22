@@ -58,8 +58,8 @@ UIForge adopts **58 candidates** across Tier 0 (24 Core Foundation) and Tier 1 (
 
 ### Q3. Which candidates should be integrated as dependencies?
 Dependencies are partitioned strictly into **Core Runtime Dependencies** and **Development / Testing Dependencies**:
-- **Core Runtime Dependencies (UIForge Platform & Studio):** `@modelcontextprotocol/server` (^2.1.0), `@radix-ui/react-*`, `@tanstack/react-table`, `lucide-react`, `motion`, `recharts`, `react-resizable-panels`, `tailwindcss` (v4 compiler).
-- **Core Build & Test Dependencies:** `style-dictionary` (v5.8.0), `pixelmatch`, `playwright`, `@axe-core/playwright`, `eslint-plugin-jsx-a11y`, `@babel/parser`, `@babel/traverse`, `@babel/types`, `@babel/generator`.
+- **Core Runtime Dependencies (UIForge Platform & Studio):** `@radix-ui/react-*` (`OS-COMP-02`), `@react-aria/*` (`OS-COMP-03`), `motion` (`OS-ANIM-01`), `lucide-react` (`OS-ICON-01`), `recharts` (`OS-CHRT-01`, dynamically lazy-loaded), `@tanstack/react-table` (`OS-DASH-03`), `react-resizable-panels` (`OS-LAYT-01`), `@modelcontextprotocol/typescript-sdk` (`OS-AGNT-01`).
+- **Core Build & Test Dependencies:** `style-dictionary` (v5.8.0, `OS-TOKN-02`), `tailwindcss` (v4 compiler, `OS-TOKN-04`), `@tailwindcss/container-queries` (`OS-LAYT-02`, legacy v3 build plugin), `@babel/parser`, `@babel/traverse`, `@babel/types`, `@babel/generator` (`OS-D2C-07`), `eslint-plugin-jsx-a11y` (`OS-A11Y-03`), `playwright` (`OS-BROW-01`), `@axe-core/playwright` (`OS-A11Y-02`), `pixelmatch` (`OS-VREG-01`).
 
 ### Q4. Which candidates should be used through source adaptation or registry consumption?
 UIForge adopts the **shadcn/ui registry model** (`OS-COMP-01`) as its canonical component emission architecture:

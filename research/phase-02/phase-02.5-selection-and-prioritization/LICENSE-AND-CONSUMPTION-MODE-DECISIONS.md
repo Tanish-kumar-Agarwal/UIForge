@@ -59,3 +59,8 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 - **Consumption Mode:** `DEPENDENCY` (`RESTRICTED`, Tier 5 Excluded).
 - **License Terms:** Remotion's license is not a blanket commercial prohibition. It permits free, unlimited commercial use for individuals and small entities of up to 3 people. Entities with >3 employees must purchase a paid commercial Company License.
 - **Architectural Scope Misfit:** Remotion is excluded based on Gate G5 (Product Scope and Mission Fit): it is a specialized programmatic video rendering and composition engine (HTML/CSS to MP4 via headless Chromium/FFmpeg), whereas UIForge's mission is web UI design-to-code generation.
+
+### 2.7 @axe-core/playwright (`OS-A11Y-02`) — MPL-2.0 Testing Dependency Compliance (Finding C37)
+- **Consumption Mode:** `DEPENDENCY` (`ELIGIBLE`, `allowed: true`, Tier 0 Core Foundation).
+- **Authoritative License:** Mozilla Public License 2.0 (MPL-2.0).
+- **Compliance Boundary:** MPL-2.0 provides weak, file-level copyleft (Section 3). Because UIForge consumes `@axe-core/playwright` strictly as an unmodified test runner within `devDependencies` for automated CI/CD Playwright testing, it creates zero copyleft contamination of UIForge production runtime code. Deque copyright and MPL-2.0 notices are preserved in testing documentation.

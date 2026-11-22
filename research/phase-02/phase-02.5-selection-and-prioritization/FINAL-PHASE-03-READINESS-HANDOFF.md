@@ -16,13 +16,13 @@
 The 24 Tier 0 candidates are explicitly distinguished across seven distinct architectural layers to prevent treating all candidates as monolithic runtime dependencies:
 
 ### 1.1 Architectural Categorization of Tier 0 Candidates
-- **Runtime Library Dependencies (8 Candidates):** `@radix-ui/react-*` (`OS-COMP-02`), `@ariakit/react` (`OS-COMP-03`), `motion` (`OS-ANIM-01`), `lucide-react` (`OS-ICON-01`), `recharts` (`OS-CHRT-01`), `@tanstack/react-table` (`OS-DASH-03`), `react-resizable-panels` (`OS-LAYT-01`), `@tailwindcss/container-queries` (`OS-LAYT-02`).
-- **Development & Build-Time Tools (7 Candidates):** `style-dictionary` (`OS-TOKN-02`), `tailwindcss` (`OS-TOKN-04`), `@axe-core/playwright` (`OS-A11Y-02`), `eslint-plugin-jsx-a11y` (`OS-A11Y-03`), `ast-grep` (`OS-D2C-06`), `playwright` (`OS-BROW-01`), `pixelmatch` (`OS-VREG-01`).
-- **External Tools (1 Candidate):** `@axe-core/cli` (`OS-A11Y-01`, conditional on legal counsel clearance; external subprocess invocation only; no binary bundling).
+- **Core Runtime Library Dependencies (8 Candidates):** `@radix-ui/react-*` (`OS-COMP-02`), `@react-aria/*` (`OS-COMP-03`), `motion` (`OS-ANIM-01`), `lucide-react` (`OS-ICON-01`), `recharts` (`OS-CHRT-01`, dynamically lazy-loaded), `@tanstack/react-table` (`OS-DASH-03`), `react-resizable-panels` (`OS-LAYT-01`), `@modelcontextprotocol/typescript-sdk` (`OS-AGNT-01`).
+- **Development, Build & Testing Tooling (8 Candidates):** `style-dictionary` (`OS-TOKN-02`), `tailwindcss` v4 (`OS-TOKN-04`), `@tailwindcss/container-queries` (`OS-LAYT-02`, Tailwind v3 compatibility build plugin; native container queries in v4), `babel/babel` (`OS-D2C-07`), `eslint-plugin-jsx-a11y` (`OS-A11Y-03`), `playwright` (`OS-BROW-01`), `@axe-core/playwright` (`OS-A11Y-02`), `pixelmatch` (`OS-VREG-01`).
+- **External CLI Subprocesses (2 Candidates):** `@axe-core/cli` (`OS-A11Y-01`, release blocked pending legal counsel clearance), `ast-grep` (`OS-D2C-06`).
 - **Source Copy / Code Registry Templates (1 Candidate):** `shadcn-ui/ui` (`OS-COMP-01`, CLI-driven component registry without mandatory runtime framework coupling).
 - **Standards & Specifications (2 Candidates):** W3C DTCG Format (`OS-TOKN-01`), W3C ARIA Authoring Practices Guide (APG) (`OS-A11Y-08`).
 - **Asset Redistribution (2 Candidates):** Inter font (`OS-TYPO-04`), Geist font (`OS-TYPO-05`) (SIL OFL 1.1 font binaries).
-- **Infrastructure & Protocol Frameworks (3 Candidates):** Model Context Protocol TypeScript SDK (`OS-AGNT-01`, agent connectivity protocol), OpenDevin reference architecture (`OS-AGNT-02`, agent loop spec), Babel AST infrastructure (`OS-D2C-07`, code transform infrastructure).
+- **Agent Reference Architectures & Execution Patterns (1 Candidate):** `anomalyco/opencode` (`OS-AGNT-02`, autonomous coding agent reference architecture & shadow-workspace patterns).
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -32,28 +32,28 @@ The 24 Tier 0 candidates are explicitly distinguished across seven distinct arch
 ├─────┼─────────────┼───────────────────────────────┼──────────────────────┼───────────────────────┤
 │ 1   │ OS-COMP-01  │ shadcn-ui/ui                  │ SOURCE_COPY          │ Component Registry CLI│
 │ 2   │ OS-COMP-02  │ @radix-ui/react-* primitives  │ DEPENDENCY           │ ^1.1.0                │
-│ 3   │ OS-COMP-03  │ @ariakit/react                │ DEPENDENCY           │ ^0.4.0                │
+│ 3   │ OS-COMP-03  │ adobe/react-spectrum (Aria)   │ DEPENDENCY           │ ^3.37.0 / @react-aria │
 │ 4   │ OS-TOKN-01  │ design-tokens/community-group │ REFERENCE_ONLY       │ W3C DTCG Format Spec  │
 │ 5   │ OS-TOKN-02  │ style-dictionary              │ DEPENDENCY           │ ^5.8.0 (Node 22 LTS)  │
-│ 6   │ OS-TOKN-04  │ tailwindcss (v4)              │ DEPENDENCY           │ ^4.0.0                │
-│ 7   │ OS-ANIM-01  │ motion (framer-motion)        │ DEPENDENCY           │ ^12.0.0               │
-│ 8   │ OS-ICON-01  │ lucide-react                  │ DEPENDENCY           │ ^0.470.0              │
-│ 9   │ OS-CHRT-01  │ recharts (Legacy SVG Wrapper) │ DEPENDENCY           │ ^2.15.0               │
-│ 10  │ OS-DASH-03  │ @tanstack/react-table         │ DEPENDENCY           │ ^8.20.0               │
+│ 6   │ OS-TOKN-04  │ tailwindlabs/tailwindcss (v4) │ DEPENDENCY           │ ^4.0.0 (Build Engine) │
+│ 7   │ OS-ANIM-01  │ motiondivision/motion         │ DEPENDENCY           │ ^12.0.0               │
+│ 8   │ OS-ICON-01  │ lucide-icons/lucide           │ DEPENDENCY           │ ^0.470.0              │
+│ 9   │ OS-CHRT-01  │ recharts/recharts             │ DEPENDENCY           │ ^2.15.0 (Lazy Loaded) │
+│ 10  │ OS-DASH-03  │ TanStack/table                │ DEPENDENCY           │ ^8.20.0               │
 │ 11  │ OS-TYPO-04  │ rsms/inter (UIForgeInter)     │ ASSET_REDISTRIBUTION │ v4.1 (SIL OFL 1.1)    │
 │ 12  │ OS-TYPO-05  │ vercel/geist-font             │ ASSET_REDISTRIBUTION │ v1.4.0 (SIL OFL 1.1)  │
-│ 13  │ OS-LAYT-01  │ react-resizable-panels        │ DEPENDENCY           │ ^2.1.0                │
-│ 14  │ OS-LAYT-02  │ @tailwindcss/container-queries│ DEPENDENCY           │ ^0.1.1                │
-│ 15  │ OS-A11Y-01  │ @axe-core/cli                 │ EXTERNAL_TOOL (Gated)│ ^4.10.0 (Counsel Block│
-│ 16  │ OS-A11Y-02  │ @axe-core/playwright          │ DEPENDENCY           │ ^4.10.0               │
-│ 17  │ OS-A11Y-03  │ eslint-plugin-jsx-a11y        │ DEPENDENCY           │ ^6.10.0               │
+│ 13  │ OS-LAYT-01  │ bvaughn/react-resizable-panels│ DEPENDENCY           │ ^2.1.0                │
+│ 14  │ OS-LAYT-02  │ tailwindlabs/container-queries│ DEPENDENCY           │ ^0.1.1 (Legacy v3 Opt)│
+│ 15  │ OS-A11Y-01  │ dequelabs/axe-core            │ EXTERNAL_TOOL (Gated)│ ^4.10.0 (Counsel Block│
+│ 16  │ OS-A11Y-02  │ axe-core/playwright (MPL-2.0) │ DEPENDENCY           │ ^4.10.0 (Test Runner) │
+│ 17  │ OS-A11Y-03  │ eslint-plugin-jsx-a11y        │ DEPENDENCY           │ ^6.10.0 (Build Linter)│
 │ 18  │ OS-A11Y-08  │ w3c/aria-practices (APG)      │ REFERENCE_ONLY       │ W3C APG Standard Spec │
-│ 19  │ OS-D2C-06   │ ast-grep                      │ EXTERNAL_TOOL        │ ^0.30.0               │
-│ 20  │ OS-D2C-07   │ @babel/parser, @babel/traverse│ DEPENDENCY           │ ^7.26.0 (WAL Decoupled│
-│ 21  │ OS-AGNT-01  │ @modelcontextprotocol/server  │ DEPENDENCY           │ ^2.1.0 (2026-07-28)   │
-│ 22  │ OS-AGNT-02  │ OpenDevin/OpenDevin           │ REFERENCE_ONLY       │ Agent Spec Reference  │
-│ 23  │ OS-BROW-01  │ playwright                    │ DEPENDENCY           │ ^1.50.0               │
-│ 24  │ OS-VREG-01  │ pixelmatch                    │ DEPENDENCY           │ ^7.1.0                │
+│ 19  │ OS-D2C-06   │ ast-grep/ast-grep             │ EXTERNAL_TOOL        │ ^0.30.0 (Native CLI)  │
+│ 20  │ OS-D2C-07   │ babel/babel (AST Pipeline)    │ DEPENDENCY           │ ^7.26.0 (WAL Decoupled│
+│ 21  │ OS-AGNT-01  │ modelcontextprotocol/ts-sdk   │ DEPENDENCY           │ ^2.1.0 (2026-07-28)   │
+│ 22  │ OS-AGNT-02  │ anomalyco/opencode            │ REFERENCE_ONLY       │ Agent Spec Reference  │
+│ 23  │ OS-BROW-01  │ microsoft/playwright          │ DEPENDENCY           │ ^1.50.0 (Test Runner) │
+│ 24  │ OS-VREG-01  │ mapbox/pixelmatch             │ DEPENDENCY           │ ^7.1.0 (Diff Engine)  │
 └─────┴─────────────┴───────────────────────────────┴──────────────────────┴───────────────────────┘
 ```
 
@@ -90,3 +90,8 @@ The Phase 03 implementation team must enforce the following gates prior to produ
   - Multi-file transaction commit and rollback engine.
   - Coordinate-based slice patcher replacing character spans `[start, end]`.
   - TypeScript Compiler API diagnostic baseline regression comparator ($\text{newRegressions} = \text{post} \setminus \text{baseline}$).
+
+### 2.6 @axe-core/playwright MPL-2.0 Testing Dependency Compliance (`OS-A11Y-02`)
+- **Status:** `ADOPT (DEPENDENCY)` under `devDependencies` for automated CI/CD Playwright testing.
+- **License Boundary:** Governed by Mozilla Public License 2.0 (MPL-2.0), providing weak file-level copyleft protection.
+- **Phase 03 Requirement:** Ensure that `@axe-core/playwright` is strictly restricted to `devDependencies` and test execution harnesses (never bundled into production runtime distributions), and preserve upstream Deque copyright and MPL-2.0 notices in testing documentation and third-party notices.
