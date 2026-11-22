@@ -35,7 +35,8 @@ This glossary establishes the **immutable definitions** enforced across all UIFo
 
 ### D
 - **Design Token:** A machine-readable key-value pair storing design attributes (color, typography, spacing) with a designated type, name, and semantic intent.
-- **DTCG:** Design Tokens Community Group under the W3C, author of the authoritative standard design token exchange format.
+- **DTCG:** Design Tokens Community Group, a community group hosted by the W3C authoring the cross-vendor draft design token exchange format (Community Group Report).
+
 
 ### E
 - **Elevated Surface:** A UI surface that appears physically higher than the canvas, communicated via drop shadow (light mode) or lighter surface tint (dark mode).
