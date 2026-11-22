@@ -106,7 +106,7 @@ assert(allGatesValid, '100% of candidate records have fully populated, valid G1-
 // Verify that failed hard gates prevent Tier 0 / Tier 1 adoption
 const failedGateCandidates = scorecard.filter(c => c.hardGates.overallGateResult === 'FAIL');
 const allFailedInTier5 = failedGateCandidates.every(c => c.adoptionTier === 'TIER 5' && c.recommendation === 'REJECT');
-assert(failedGateCandidates.length === 8 && allFailedInTier5, `All ${failedGateCandidates.length} failed-gate candidates are strictly quarantined to TIER 5 (REJECT)`);
+assert(failedGateCandidates.length === 5 && allFailedInTier5, `All ${failedGateCandidates.length} failed-gate candidates are strictly quarantined to TIER 5 (REJECT)`);
 
 // Verify that pending hard gates are strictly deferred to Tier 4
 const pendingGateCandidates = scorecard.filter(c => c.hardGates.overallGateResult === 'PENDING');
@@ -125,8 +125,8 @@ assert(aceternity && aceternity.hardGates.G2_licensing === 'FAIL' && aceternity.
 );
 
 const remotion = scorecard.find(c => c.candidateId === 'OS-ANIM-08');
-assert(remotion && remotion.hardGates.G2_licensing === 'FAIL' && remotion.adoptionTier === 'TIER 5' && remotion.recommendation === 'REJECT',
-  'Remotion is strictly failed under G2_licensing and rejected in TIER 5 due to commercial company license restrictions'
+assert(remotion && remotion.hardGates.G2_licensing === 'PASS_WITH_RESTRICTIONS' && remotion.hardGates.G5_fit === 'FAIL' && remotion.adoptionTier === 'TIER 5' && remotion.recommendation === 'REJECT',
+  'Remotion is evaluated with G2 restricted licensing, failed under G5 mission misfit, and rejected in TIER 5'
 );
 
 const locofy = scorecard.find(c => c.candidateId === 'OS-D2C-08');
@@ -135,8 +135,23 @@ assert(locofy && locofy.hardGates.G1_identity === 'FAIL' && locofy.adoptionTier 
 );
 
 const rgl = scorecard.find(c => c.candidateId === 'OS-DASH-05');
-assert(rgl && rgl.hardGates.G3_security === 'FAIL' && rgl.hardGates.G6_viability === 'FAIL' && rgl.adoptionTier === 'TIER 5',
-  'React-Grid-Layout is strictly failed under G3/G6 and rejected in TIER 5 due to maintenance abandonment and React 18/19 regressions'
+assert(rgl && rgl.hardGates.G3_security === 'PASS' && rgl.adoptionTier === 'TIER 2' && rgl.recommendation === 'OPTIONAL' && rgl.scores.finalScore === 74.7,
+  'React-Grid-Layout (OS-DASH-05) passes G3 maintenance (v2.3.0) and is admitted to TIER 2 as an optional dashboard grid adapter'
+);
+
+const aspect = scorecard.find(c => c.candidateId === 'OS-LAYT-03');
+assert(aspect && aspect.name.includes('Aspect Ratio'),
+  'Candidate ID OS-LAYT-03 is immutable Radix Aspect Ratio primitive, strictly distinct from OS-DASH-05'
+);
+
+const dtcg = scorecard.find(c => c.candidateId === 'OS-TOKN-01');
+assert(dtcg && dtcg.hardGates.G3_security === 'NOT_APPLICABLE' && dtcg.hardGates.G6_viability === 'NOT_APPLICABLE',
+  'Specification sources (DTCG OS-TOKN-01) evaluate G3 maintenance and G6 viability as NOT_APPLICABLE under the Gate-Applicability Matrix'
+);
+
+const backstop = scorecard.find(c => c.candidateId === 'OS-VREG-05');
+assert(backstop && backstop.hardGates.G3_security === 'PASS' && backstop.adoptionTier === 'TIER 5' && backstop.recommendation === 'REJECT',
+  'BackstopJS passes G3 maintenance (v6.3.25) and is excluded in TIER 5 due to capability redundancy with Playwright'
 );
 
 // -------------------------------------------------------------
@@ -195,13 +210,13 @@ scorecard.forEach(c => {
 
 assert(tierCounts['TIER 0'] === 24, `TIER 0 (Core Foundation) contains exactly 24 candidates (observed: ${tierCounts['TIER 0']})`);
 assert(tierCounts['TIER 1'] === 34, `TIER 1 (Core-Adjacent) contains exactly 34 candidates (observed: ${tierCounts['TIER 1']})`);
-assert(tierCounts['TIER 2'] === 39, `TIER 2 (Optional Integrations) contains exactly 39 candidates (observed: ${tierCounts['TIER 2']})`);
+assert(tierCounts['TIER 2'] === 40, `TIER 2 (Optional Integrations) contains exactly 40 candidates (observed: ${tierCounts['TIER 2']})`);
 assert(tierCounts['TIER 3'] === 16, `TIER 3 (Reference & Research) contains exactly 16 candidates (observed: ${tierCounts['TIER 3']})`);
 assert(tierCounts['TIER 4'] === 4, `TIER 4 (Deferred) contains exactly 4 candidates (observed: ${tierCounts['TIER 4']})`);
-assert(tierCounts['TIER 5'] === 8, `TIER 5 (Rejected / Excluded) contains exactly 8 candidates (observed: ${tierCounts['TIER 5']})`);
+assert(tierCounts['TIER 5'] === 7, `TIER 5 (Rejected / Excluded) contains exactly 7 candidates (observed: ${tierCounts['TIER 5']})`);
 
 const totalTierCount = Object.values(tierCounts).reduce((a, b) => a + b, 0);
-assert(totalTierCount === 125, `Total tier census equals exactly 125 candidates ($24 + 34 + 39 + 16 + 4 + 8 = 125$; observed: ${totalTierCount})`);
+assert(totalTierCount === 125, `Total tier census equals exactly 125 candidates ($24 + 34 + 40 + 16 + 4 + 7 = 125$; observed: ${totalTierCount})`);
 
 // REJ candidates exclusion rule (Section 4.1)
 const rejCandidates = scorecard.filter(c => c.originalDiscoveryPriority === 'REJ');
