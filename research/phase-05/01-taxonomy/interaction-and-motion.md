@@ -40,10 +40,11 @@ Every interactive component in UIForge must deterministically implement 9 distin
 
 ## 3. Keyboard Ergonomics & Focus Management
 
-### 3.1 Unbroken Focus Ring Invariant (WCAG 2.2 SC 2.4.7 & 2.4.13)
-* `outline: none` without an immediate high-contrast replacement is a **CRITICAL** defect.
-* Use `:focus-visible` to display the focus ring exclusively during keyboard navigation (Tab/arrow keys), suppressing it during clean mouse clicks to maintain clean aesthetics.
-* Focus ring contract: `outline: 2px solid var(--focus-ring); outline-offset: 2px;`.
+### 3.1 Unbroken Focus Ring Invariant (WCAG 2.2 SC 2.4.7 Level AA & SC 2.4.13 Level AAA Enhanced)
+* `outline: none` without an immediate high-contrast replacement is a **CRITICAL** accessibility violation of WCAG 2.2 Level AA SC 2.4.7 (Focus Visible) and SC 2.4.11 (Focus Not Obscured).
+* Use `:focus-visible` to display the focus ring exclusively during keyboard navigation (Tab/arrow keys), suppressing it during mouse clicks to maintain clean visual aesthetics while guaranteeing keyboard accessibility.
+* UIForge focus ring contract: `outline: 2px solid var(--focus-ring); outline-offset: 2px;` achieving $\ge 3:1$ contrast against adjacent surfaces (satisfying enhanced Level AAA SC 2.4.13).
+
 
 ### 3.2 Modal Focus Trapping (W3C WAI-ARIA APG)
 When an overlay dialog, slide-over drawer, or modal opens (`EVID-DOM-003`):
