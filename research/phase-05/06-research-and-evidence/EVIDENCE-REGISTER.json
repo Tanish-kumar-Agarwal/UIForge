@@ -36,12 +36,12 @@
     {
       "id": "EVID-A11Y-004",
       "sourceId": "SRC-STD-001",
-      "citation": "WCAG 2.2 SC 2.4.13 Focus Appearance",
+      "citation": "WCAG 2.2 SC 2.4.7 Focus Visible (Level AA) & SC 2.4.13 Focus Appearance (Level AAA Enhanced)",
       "authorityTier": 1,
-      "claim": "Focus indicators must achieve at least 3:1 contrast against adjacent background colors and cover an area of at least a 2px perimeter line around the component.",
+      "claim": "Any keyboard-operable interface must provide a visible focus indicator (Level AA SC 2.4.7); enhanced focus appearance achieves at least 3:1 contrast against adjacent colors with an area equivalent to a 2px perimeter line (Level AAA SC 2.4.13).",
       "empiricalBasis": "Usability testing with low-vision and motor-impaired keyboard navigators who lose visual tracking during rapid tab navigation.",
       "confidence": "MANDATORY",
-      "limitations": "Applies to keyboard-focused states; does not mandate mouse focus indicator appearance."
+      "limitations": "Level AA legally mandates visible focus (SC 2.4.7); the 3:1 contrast and 2px perimeter metrics reflect Level AAA SC 2.4.13 adopted by UIForge for high-reliability navigation."
     },
     {
       "id": "EVID-TYP-001",
@@ -116,12 +116,12 @@
     {
       "id": "EVID-TOK-001",
       "sourceId": "SRC-STD-003",
-      "citation": "W3C Design Tokens Community Group Specification 2025.10",
+      "citation": "Design Tokens Community Group (DTCG) Draft Community Group Report 2025.10 (OS-TOKN-01)",
       "authorityTier": 1,
       "claim": "Tokens must be structured into three distinct abstraction tiers: primitive tokens (raw values), semantic tokens (intent/context values), and component tokens (scoped values).",
       "empiricalBasis": "Multi-organization consensus across Figma, Adobe, Salesforce, Google, and independent tooling maintainers.",
       "confidence": "MANDATORY",
-      "limitations": "Small design systems (<20 components) can operate with primitive and semantic tiers, omitting component tokens to avoid over-abstraction."
+      "limitations": "Community Group Draft Report developed within W3C DTCG; not a formal W3C Recommendation. Small design systems (<20 components) can operate with primitive and semantic tiers, omitting component tokens to avoid over-abstraction."
     },
     {
       "id": "EVID-COL-001",
