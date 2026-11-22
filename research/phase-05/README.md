@@ -30,7 +30,7 @@ research/phase-05/
 │   ├── color-intelligence.md          # OKLCH perceptual space, 6 functional tiers
 │   ├── interaction-and-motion.md      # 9 canonical states, focus rings, reduced motion
 │   ├── ux-information-architecture.md # Form flows, error summaries, destructive guards
-│   ├── design-systems-intelligence.md # W3C DTCG 2025.10 3-tier token architecture
+│   ├── design-systems-intelligence.md # DTCG 2025.10 Draft Report 3-tier token architecture
 │   └── terminology-glossary.md        # Authoritative definitions & disambiguation
 │
 ├── 02-anti-patterns/                  # Anti-Generic-AI UI Master Rulebook
