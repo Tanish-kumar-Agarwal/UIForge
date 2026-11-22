@@ -17,10 +17,13 @@ UIForge enforces WCAG 2.2 Level AA as the non-negotiable floor for all generated
    * Large text ($\ge 18\text{pt} / 24\text{px}$ regular, or $\ge 14\text{pt} / 18.66\text{px}$ bold): Contrast ratio $\ge 3:1$.
 2. **SC 1.4.11 Non-text Contrast — Level AA:**
    * UI components (borders of form inputs, buttons, sliders) & graphical objects: Contrast ratio $\ge 3:1$ against adjacent colors.
-3. **SC 2.4.7 Focus Visible & SC 2.4.13 Focus Appearance — Level AA:**
-   * Focus indicator must have a contrast ratio of at least $3:1$ between the focused and unfocused state, and at least $3:1$ against the background. Minimum area must equal a 2 CSS pixel perimeter line.
+3. **SC 2.4.7 Focus Visible & SC 2.4.11 Focus Not Obscured (Minimum) — Level AA:**
+   * Any keyboard operable UI must have a clearly visible focus indicator (SC 2.4.7).
+   * Focused components must not be entirely hidden behind sticky banners, toolbars, or overlays (SC 2.4.11).
+   * *(Enhanced Guidance — Level AAA SC 2.4.13 Focus Appearance)*: UIForge targets a 2px solid perimeter outline achieving at least $3:1$ contrast against adjacent background colors, treating SC 2.4.13 as an engineering excellence benchmark while maintaining SC 2.4.7 as the mandatory AA gate.
 4. **SC 2.5.8 Target Size (Minimum) — Level AA:**
    * Pointer target size must be at least $24 \times 24$ CSS pixels, unless spacing offsets prevent overlap with adjacent targets.
+   * *(Enhanced Guidance — Level AAA SC 2.5.5 Target Size & Apple HIG)*: On touchscreens (`@media (pointer: coarse)`), UIForge expands interactive targets to $44 \times 44$ CSS pixels ($44 \times 44\text{ pt}$ per Apple HIG) to optimize human motor control ergonomics.
 5. **SC 2.5.7 Dragging Movements — Level AA:**
    * Any feature using a dragging movement can be operated by a single pointer without dragging (e.g. keyboard accessible sliders, reordering buttons).
 6. **SC 3.2.6 Consistent Help — Level AA:**
@@ -28,9 +31,9 @@ UIForge enforces WCAG 2.2 Level AA as the non-negotiable floor for all generated
 
 ---
 
-## 2. W3C Design Tokens Community Group (DTCG) 2025.10 Specification
+## 2. Design Tokens Community Group (DTCG) Draft Specification (October 2025)
 
-UIForge token systems strictly implement the DTCG 2025.10 format (`OS-TOKN-01`):
+UIForge implements the Design Tokens Community Group Draft Report (October 2025, `OS-TOKN-01`). Note: As a W3C Community Group deliverable, this is a Community Group Report rather than a formal W3C Recommendation, but it represents the authoritative cross-vendor consensus standard among modern token compilers:
 * All tokens are declared as JSON objects with explicit `$value` and `$type`.
 * Supported `$type` primitives:
   * `color` (hex, rgb, oklch)
@@ -41,6 +44,7 @@ UIForge token systems strictly implement the DTCG 2025.10 format (`OS-TOKN-01`):
   * `cubicBezier` (array of four floats: `[x1, y1, x2, y2]`)
   * `shadow` (composite token: color, offsetX, offsetY, blur, spread)
 * Aliasing is expressed via `{group.token.name}` braces and resolved recursively with cycle detection.
+
 
 ---
 
