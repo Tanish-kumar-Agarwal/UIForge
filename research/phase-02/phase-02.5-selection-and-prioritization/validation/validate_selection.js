@@ -86,6 +86,32 @@ assert(counts.P0 === 24 && counts.P1 === 47 && counts.P2 === 50 && counts.REJ ==
 const allPrioritiesMatch = scorecard.every(c => c.originalDiscoveryPriority === sourceMap.get(c.candidateId).originalDiscoveryPriority);
 assert(allPrioritiesMatch, '100% of candidate records preserve original discovery priority from canonical master inventory');
 
+// Canonical ID Supersession Verification (C11)
+const supersessionVerifications = [
+  { candidateId: 'OS-ANIM-08', sourceId: 'SRC-OS-ANIM-08', expectedNameSubstring: 'remotion' },
+  { candidateId: 'OS-ANIM-05', sourceId: 'SRC-OS-ANIM-05', expectedNameSubstring: 'lottie' },
+  { candidateId: 'OS-D2C-08', sourceId: 'SRC-OS-D2C-08', expectedNameSubstring: 'locofy' },
+  { candidateId: 'OS-D2C-05', sourceId: 'SRC-OS-D2C-05', expectedNameSubstring: 'open-ui' },
+  { candidateId: 'OS-LAYT-08', sourceId: 'SRC-OS-LAYT-08', expectedNameSubstring: 'Every-Layout' },
+  { candidateId: 'OS-LAYT-06', sourceId: 'SRC-OS-LAYT-06', expectedNameSubstring: 'flexboxgrid' },
+  { candidateId: 'OS-VREG-04', sourceId: 'SRC-OS-VREG-04', expectedNameSubstring: 'loki' },
+  { candidateId: 'OS-VREG-03', sourceId: 'SRC-OS-VREG-03', expectedNameSubstring: 'argos' },
+  { candidateId: 'OS-VREG-05', sourceId: 'SRC-OS-VREG-05', expectedNameSubstring: 'BackstopJS' },
+  { candidateId: 'OS-DASH-05', sourceId: 'SRC-OS-DASH-05', expectedNameSubstring: 'react-grid-layout' },
+  { candidateId: 'OS-LAYT-03', sourceId: 'SRC-OS-LAYT-03', expectedNameSubstring: 'Aspect Ratio' }
+];
+
+const allSupersessionsVerified = supersessionVerifications.every(item => {
+  const p4Rec = sourceMap.get(item.candidateId);
+  const scRec = scorecard.find(c => c.candidateId === item.candidateId);
+  return p4Rec && scRec &&
+    p4Rec.sourceId === item.sourceId &&
+    scRec.sourceId === item.sourceId &&
+    p4Rec.name.toLowerCase().includes(item.expectedNameSubstring.toLowerCase()) &&
+    scRec.name.toLowerCase().includes(item.expectedNameSubstring.toLowerCase());
+});
+assert(allSupersessionsVerified, 'Canonical Identity & Supersession Table: all 11 scrutinized candidate IDs strictly match Phase 02.4 canonical source registry without alias corruption (C11)');
+
 // -------------------------------------------------------------
 // SUITE 3: HARD GATES ELIGIBILITY ENGINE (G1 - G6)
 // -------------------------------------------------------------
@@ -95,13 +121,13 @@ const allGatesValid = scorecard.every(c => {
   return g &&
     validGateResults.has(g.G1_identity) &&
     validGateResults.has(g.G2_licensing) &&
-    validGateResults.has(g.G3_security) &&
-    validGateResults.has(g.G4_evidence) &&
+    validGateResults.has(g.G3_maintenance) &&
+    validGateResults.has(g.G4_architecture) &&
     validGateResults.has(g.G5_fit) &&
-    validGateResults.has(g.G6_viability) &&
+    validGateResults.has(g.G6_security) &&
     validGateResults.has(g.overallGateResult);
 });
-assert(allGatesValid, '100% of candidate records have fully populated, valid G1-G6 hard-gate results');
+assert(allGatesValid, '100% of candidate records have fully populated, valid G1-G6 hard-gate results (G1_identity, G2_licensing, G3_maintenance, G4_architecture, G5_fit, G6_security)');
 
 // Verify that failed hard gates prevent Tier 0 / Tier 1 adoption
 const failedGateCandidates = scorecard.filter(c => c.hardGates.overallGateResult === 'FAIL');
@@ -135,7 +161,7 @@ assert(locofy && locofy.hardGates.G1_identity === 'FAIL' && locofy.adoptionTier 
 );
 
 const rgl = scorecard.find(c => c.candidateId === 'OS-DASH-05');
-assert(rgl && rgl.hardGates.G3_security === 'PASS' && rgl.adoptionTier === 'TIER 2' && rgl.recommendation === 'OPTIONAL' && rgl.scores.finalScore === 74.7,
+assert(rgl && rgl.hardGates.G3_maintenance === 'PASS' && rgl.adoptionTier === 'TIER 2' && rgl.recommendation === 'OPTIONAL' && rgl.scores.finalScore === 74.7,
   'React-Grid-Layout (OS-DASH-05) passes G3 maintenance (v2.3.0) and is admitted to TIER 2 as an optional dashboard grid adapter'
 );
 
@@ -145,12 +171,12 @@ assert(aspect && aspect.name.includes('Aspect Ratio'),
 );
 
 const dtcg = scorecard.find(c => c.candidateId === 'OS-TOKN-01');
-assert(dtcg && dtcg.hardGates.G3_security === 'NOT_APPLICABLE' && dtcg.hardGates.G6_viability === 'NOT_APPLICABLE',
-  'Specification sources (DTCG OS-TOKN-01) evaluate G3 maintenance and G6 viability as NOT_APPLICABLE under the Gate-Applicability Matrix'
+assert(dtcg && dtcg.hardGates.G3_maintenance === 'NOT_APPLICABLE' && dtcg.hardGates.G6_security === 'NOT_APPLICABLE',
+  'Specification sources (DTCG OS-TOKN-01) evaluate G3 maintenance and G6 security as NOT_APPLICABLE under the Gate-Applicability Matrix'
 );
 
 const backstop = scorecard.find(c => c.candidateId === 'OS-VREG-05');
-assert(backstop && backstop.hardGates.G3_security === 'PASS' && backstop.adoptionTier === 'TIER 5' && backstop.recommendation === 'REJECT',
+assert(backstop && backstop.hardGates.G3_maintenance === 'PASS' && backstop.adoptionTier === 'TIER 5' && backstop.recommendation === 'REJECT',
   'BackstopJS passes G3 maintenance (v6.3.25) and is excluded in TIER 5 due to capability redundancy with Playwright'
 );
 
@@ -236,10 +262,34 @@ assert(everyLayout && everyLayout.adoptionTier === 'TIER 3' && everyLayout.recom
   'Every Layout is classified as TIER 3 (REFERENCE) under REFERENCE_ONLY mode, preserving clean-room boundaries under LIC-EVERY-LAYOUT-COMMERCIAL'
 );
 
-// axe-core external tool boundary verification
+// axe-core external tool boundary verification (C17)
 const axeCore = scorecard.find(c => c.candidateId === 'OS-A11Y-01');
-assert(axeCore && axeCore.adoptionTier === 'TIER 0' && axeCore.proposedConsumptionMode === 'EXTERNAL_TOOL' && axeCore.hardGates.G2_licensing === 'PASS_WITH_RESTRICTIONS',
-  'axe-core is classified as TIER 0 under EXTERNAL_TOOL mode with PASS_WITH_RESTRICTIONS (invokes user-installed CLI; no binary bundling)'
+assert(axeCore && axeCore.adoptionTier === 'TIER 0' && axeCore.proposedConsumptionMode === 'EXTERNAL_TOOL' && axeCore.hardGates.G2_licensing === 'PASS_WITH_RESTRICTIONS' && axeCore.recommendation === 'CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE',
+  'axe-core is classified as TIER 0 under EXTERNAL_TOOL mode with CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE (invokes user-installed CLI; no binary bundling)'
+);
+
+// Style Dictionary v5.8.0 verification (C14)
+const styleDict = scorecard.find(c => c.candidateId === 'OS-TOKN-02');
+assert(styleDict && styleDict.decisionRationale.includes('v5.8.0') && styleDict.decisionRationale.includes('DTCG') && styleDict.decisionRationale.includes('Node.js 22 LTS'),
+  'Style Dictionary is upgraded to v5.8.0 supporting native DTCG format on Node.js 22 LTS'
+);
+
+// MCP TypeScript SDK v2.1.0 and wire protocol negotiation verification (C13)
+const mcpSdk = scorecard.find(c => c.candidateId === 'OS-AGNT-01');
+assert(mcpSdk && mcpSdk.decisionRationale.includes('^2.1.0') && mcpSdk.decisionRationale.includes('2026-07-28') && mcpSdk.decisionRationale.includes('2024-11-05'),
+  'Model Context Protocol SDK pins @modelcontextprotocol/server and client (^2.1.0) with 2026-07-28 negotiation and 2024-11-05 fallback'
+);
+
+// Visx bundle size qualification verification (C16)
+const visx = scorecard.find(c => c.candidateId === 'OS-CHRT-04');
+assert(visx && visx.decisionRationale.includes('preliminary tree-shaken estimate') && visx.decisionRationale.includes('Phase 03 benchmark'),
+  'Visx bundle size claims are qualified as preliminary tree-shaken estimates pending Phase 03 benchmark'
+);
+
+// React-Grid-Layout accessibility qualification verification (C19)
+const rglA11y = scorecard.find(c => c.candidateId === 'OS-DASH-05');
+assert(rglA11y && rglA11y.decisionRationale.includes('5.5/10 accessibility is a preliminary estimate subject to 6-test verification matrix'),
+  'React-Grid-Layout accessibility score (5.5/10) is qualified as preliminary estimate subject to 6-test verification matrix'
 );
 
 // -------------------------------------------------------------
@@ -282,6 +332,15 @@ assert(inter && inter.adoptionTier === 'TIER 0' && inter.proposedConsumptionMode
 const geist = scorecard.find(c => c.candidateId === 'OS-TYPO-05');
 assert(geist && geist.adoptionTier === 'TIER 0' && geist.proposedConsumptionMode === 'ASSET_REDISTRIBUTION',
   'Geist font is classified as TIER 0 under ASSET_REDISTRIBUTION mode with SIL OFL 1.1 RFN notice preservation'
+);
+
+// SIL OFL 1.1 Clause 3 RFN Subsetting Rule Verification (C18)
+const oflFonts = scorecard.filter(c => c.candidateId === 'OS-TYPO-04' || c.candidateId === 'OS-TYPO-05');
+const oflNoticeVerified = oflFonts.every(f =>
+  f.decisionRationale.includes('OFL 1.1') && f.proposedConsumptionMode === 'ASSET_REDISTRIBUTION' && f.hardGates.G2_licensing === 'PASS_WITH_RESTRICTIONS'
+);
+assert(oflNoticeVerified && oflFonts.length === 2,
+  'SIL OFL 1.1 Clause 3 RFN rule verified for Inter (OS-TYPO-04) and Geist (OS-TYPO-05): custom subsetting requires font-family rename (C18)'
 );
 
 const lucide = scorecard.find(c => c.candidateId === 'OS-ICON-01');
