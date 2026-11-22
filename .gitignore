@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs & artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Turborepo cache
+.turbo/
+
+# Testing & Coverage
+coverage/
+test-results/
+playwright-report/
+blob-report/
+
+# UIForge runtime data
+.uiforge/
+*.log
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# IDE & Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
