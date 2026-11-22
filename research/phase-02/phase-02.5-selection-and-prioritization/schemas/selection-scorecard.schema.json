@@ -87,19 +87,19 @@
         "required": [
           "G1_identity",
           "G2_licensing",
-          "G3_security",
-          "G4_evidence",
+          "G3_maintenance",
+          "G4_architecture",
           "G5_fit",
-          "G6_viability",
+          "G6_security",
           "overallGateResult"
         ],
         "properties": {
           "G1_identity": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
           "G2_licensing": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
-          "G3_security": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
-          "G4_evidence": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G3_maintenance": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G4_architecture": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
           "G5_fit": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
-          "G6_viability": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G6_security": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
           "overallGateResult": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] }
         }
       },
@@ -142,7 +142,14 @@
       },
       "recommendation": {
         "type": "string",
-        "enum": ["ADOPT", "OPTIONAL", "REFERENCE", "DEFER", "REJECT"]
+        "enum": [
+          "ADOPT",
+          "CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE",
+          "OPTIONAL",
+          "REFERENCE",
+          "DEFER",
+          "REJECT"
+        ]
       },
       "decisionRationale": {
         "type": "string",
