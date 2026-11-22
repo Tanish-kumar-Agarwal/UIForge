@@ -17,6 +17,18 @@ The validation script executed **197 independent programmatic assertions** acros
 
 Combined with pre-existing Phase 02 validation suites (123 assertions across `validate_selection.js`, `validate_registry.js`, and `verify_babel_recovery.js`), the total verified test suite for UIForge comprises **320 automated assertions** with a 100% pass rate.
 
+### Essential Evidence Qualification:
+- **What These 320 Assertions Establish:**
+  1. **Specification & Document Completeness:** 100% of required architecture documents, ADRs, PRD sections, and schemas exist with required RFC structures.
+  2. **Schema & Contract Consistency:** All 28 canonical contract URIs (`uiforge.contract.*.v1`) and all 20 STRIDE threat scenarios (`T01`–`T20`) are cataloged and cross-referenced.
+  3. **Dataset & Census Integrity:** All 125 evaluated candidates, 24 Tier 0 technologies, 14 categories, and scoring formulas match canonical census data.
+  4. **Empirical AST & Semantic Comparator Fixtures:** Simulated Babel error-recovery reason codes and TypeScript diagnostic baseline delta filtering pass mock regression scenarios (`verify_babel_recovery.js`).
+- **What These 320 Assertions DO NOT Claim:**
+  1. They do **not** represent production software runtime execution (production packages are scheduled for implementation in Phase 04).
+  2. They do **not** prove live socket compatibility with external AI agent runtimes (MCP live socket tests are explicitly categorized as `[NOT-EXECUTED]`).
+  3. They do **not** prove that application business logic or visual layout is preserved (TypeScript diagnostics evaluate semantic type and syntax conformance only).
+  4. They do **not** replace Phase 07 penetration testing or production performance benchmarks.
+
 ---
 
 ## 2. Test Execution Breakdown by Domain
