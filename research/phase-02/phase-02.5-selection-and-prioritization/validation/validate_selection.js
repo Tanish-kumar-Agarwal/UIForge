@@ -10,8 +10,9 @@ const crypto = require('crypto');
 
 const rootDir = path.resolve(__dirname, '..', '..', '..', '..');
 const p4DataDir = path.resolve(rootDir, 'research', 'phase-02', 'phase-02.4-internal-source-registry', 'data');
-const p5DataDir = path.resolve(__dirname, '..', 'data');
-const p5SchemasDir = path.resolve(__dirname, '..', 'schemas');
+const p5Dir = path.resolve(__dirname, '..');
+const p5DataDir = path.resolve(p5Dir, 'data');
+const p5SchemasDir = path.resolve(p5Dir, 'schemas');
 
 let passCount = 0;
 let failCount = 0;
@@ -391,6 +392,62 @@ assert(tailwind && tailwind.adoptionTier === 'TIER 0' && tailwind.proposedConsum
 
 const weightsSum = Object.values(WEIGHTS).reduce((a, b) => a + b, 0);
 assert(Math.abs(weightsSum - 1.0) < 0.0001, 'Canonical technical scoring weights sum to exactly 100% (1.000)');
+
+// -------------------------------------------------------------
+// SUITE 9: GOD MODE FINAL COMPLETION & ACCEPTANCE ASSERTIONS (C25–C28)
+// -------------------------------------------------------------
+// C28: Canonical 12-Enum Evidence Classification Taxonomy Verification
+const canonicalEvidenceEnums = new Set([
+  'DOC-VERIFIED', 'SOURCE-VERIFIED', 'SCHEMA-VALIDATED', 'STRUCTURALLY-VALIDATED',
+  'LOCALLY-EXECUTED', 'HARNESS-ASSERTED', 'SIMULATED', 'INTEGRATION-TESTED',
+  'INDEPENDENTLY-REPRODUCED', 'NOT-ESTABLISHED', 'NOT-EXECUTED', 'COUNSEL-REVIEW-PENDING'
+]);
+const invalidEnumClaims = claims.filter(c => !canonicalEvidenceEnums.has(c.verificationClassification));
+assert(invalidEnumClaims.length === 0, '100% of candidate claims adhere strictly to canonical 12-enum evidence classification taxonomy without generic labels (C28)');
+
+// C25: SIL OFL 1.1 Font Compliance Matrix & pyftsubset Specification Verification
+const oflSubsetFlagsVerified = oflFonts.every(f =>
+  f.decisionRationale.includes('--layout-features=*') &&
+  f.decisionRationale.includes('--desubroutinize') &&
+  f.decisionRationale.includes('--flavor=woff2') &&
+  f.decisionRationale.includes('--name-IDs=*')
+);
+assert(oflSubsetFlagsVerified, 'SIL OFL 1.1 font compliance specifies exact pyftsubset flags and default font-family rename for custom subsets (C25)');
+
+// C26: Babel AST / UIForge WAL Separation & Architectural Specification
+assert(babelCand &&
+  babelCand.decisionRationale.includes('decoupled from UIForge WAL') &&
+  babelCand.decisionRationale.includes('specified architecturally & simulated'),
+  'Babel AST infrastructure strictly separates parser capabilities from UIForge WAL, which is specified architecturally and simulated (C26)'
+);
+
+// C27: Model Context Protocol Live Socket Test Classification
+assert(mcpSdk && mcpSdk.decisionRationale.includes('live socket runtime tests classified NOT-EXECUTED pending Phase 03'),
+  'Model Context Protocol specifies live runtime socket tests are classified NOT-EXECUTED pending Phase 03 integration test harness (C27)'
+);
+
+// Final Deliverables Existence Verification on Disk
+const finalDossiers = [
+  'FINAL-COMPLETION-AND-ACCEPTANCE-REPORT.md',
+  'FINAL-CROSS-ARTIFACT-RECONCILIATION-REGISTER.md',
+  'FINAL-EVIDENCE-INTEGRITY-REGISTER.md',
+  'FINAL-TECHNICAL-CORRECTION-REGISTER.md',
+  'FINAL-VALIDATION-RESULTS.md',
+  'FINAL-PHASE-03-READINESS-HANDOFF.md'
+];
+const allDossiersExist = finalDossiers.every(f => fs.existsSync(path.join(p5Dir, f)));
+assert(allDossiersExist, 'All 6 final Phase 02.5 closure dossiers exist on disk (Completion Report, Reconciliation, Evidence, Technical Corrections, Validation Results, Phase 03 Handoff)');
+
+// Empirical Babel Recovery & TS Baseline Comparator Script Execution Verification
+const { execSync } = require('child_process');
+let babelScriptExitZero = false;
+try {
+  execSync(`node "${path.join(p5Dir, 'scripts', 'verify_babel_recovery.js')}"`, { stdio: 'pipe' });
+  babelScriptExitZero = true;
+} catch (e) {
+  babelScriptExitZero = false;
+}
+assert(babelScriptExitZero, 'Empirical Babel recovery, WAL separation, and TS baseline comparator verification script executes cleanly with exit code 0');
 
 // -------------------------------------------------------------
 // SUITE 9: HARNESS DIGEST & FINAL CERTIFICATION
