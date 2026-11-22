@@ -178,7 +178,41 @@ assert(evidenceJson?.evidence.length >= 20, `Evidence register contains ${eviden
 const antiPatternJson = readJsonSafe('02-anti-patterns/anti-pattern-catalogue.json');
 assert(antiPatternJson !== null, 'anti-pattern-catalogue.json parses cleanly as valid JSON');
 assert(Array.isArray(antiPatternJson?.antiPatterns), 'anti-pattern-catalogue defines antiPatterns array');
-assert(antiPatternJson?.antiPatterns.length >= 15, `Anti-pattern catalog contains ${antiPatternJson?.antiPatterns.length} entries (>= 15)`);
+assert(antiPatternJson?.antiPatterns.length === 32, `Anti-pattern catalog contains exactly 32 entries (found: ${antiPatternJson?.antiPatterns.length})`);
+
+const apIds = antiPatternJson?.antiPatterns.map(ap => ap.id) || [];
+assert(new Set(apIds).size === 32, `Anti-pattern catalog contains 32 unique IDs (found: ${new Set(apIds).size})`);
+
+const expectedTaxonomies = ['LAY', 'TYP', 'COL', 'INT', 'COM', 'CNT', 'RSP', 'A11Y'];
+for (const tax of expectedTaxonomies) {
+  const count = apIds.filter(id => id.startsWith(`ANTI-${tax}-`)).length;
+  assert(count === 4, `Taxonomy group 'ANTI-${tax}-' contains exactly 4 entries (found: ${count})`);
+}
+
+// Verify 1-to-1 parity between JSON catalogue and Markdown specifications
+const apMarkdownFiles = [
+  'layout-anti-patterns.md',
+  'typography-anti-patterns.md',
+  'color-anti-patterns.md',
+  'interaction-anti-patterns.md',
+  'composition-anti-patterns.md',
+  'content-anti-patterns.md',
+  'responsive-anti-patterns.md',
+  'accessibility-anti-patterns.md'
+];
+const markdownApIds = new Set();
+for (const mf of apMarkdownFiles) {
+  const content = readFileSafe(`02-anti-patterns/${mf}`) || '';
+  const matches = content.match(/ANTI-[A-Z0-9]+-\d{3}/g) || [];
+  for (const m of matches) {
+    markdownApIds.add(m);
+  }
+}
+assert(markdownApIds.size === 32, `Markdown specifications define exactly 32 unique anti-pattern IDs (found: ${markdownApIds.size})`);
+const missingInMarkdown = apIds.filter(id => !markdownApIds.has(id));
+assert(missingInMarkdown.length === 0, `All 32 JSON anti-patterns exist in Markdown specifications (missing: ${missingInMarkdown.join(', ') || 'none'})`);
+const missingInJson = Array.from(markdownApIds).filter(id => !apIds.includes(id));
+assert(missingInJson.length === 0, `All 32 Markdown anti-patterns exist in JSON catalogue (missing: ${missingInJson.join(', ') || 'none'})`);
 
 // -------------------------------------------------------------
 // STAGE 3: REFERENTIAL CLOSURE & GRAPH TRACEABILITY
@@ -268,8 +302,10 @@ console.log('\nStage 5: Mandatory Acceptance Gates (Gate 1 - Gate 10)');
 assert(taxonomyJson?.categories.length === 7, 'Gate 1 Passed: Master Taxonomy covers all 7 primary categories');
 
 // Gate 2: Anti-pattern completeness
+assert(antiPatternJson?.antiPatterns.length === 32, 'Gate 2 Passed: Exactly 32 canonical anti-patterns defined');
+assert(markdownApIds.size === 32, 'Gate 2 Passed: 1-to-1 parity between Markdown specifications and JSON catalogue');
 const antiPatternCategories = new Set(antiPatternJson?.antiPatterns.map(ap => ap.category));
-assert(antiPatternCategories.size >= 5, `Gate 2 Passed: Anti-pattern catalogue spans ${antiPatternCategories.size} categories with complete remediations`);
+assert(antiPatternCategories.size >= 5, `Gate 2 Passed: Anti-pattern catalogue spans ${antiPatternCategories.size} taxonomy categories with complete remediations`);
 
 // Gate 3: Positive pattern domain completeness
 const domainFiles = [
