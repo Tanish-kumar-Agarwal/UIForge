@@ -1,0 +1,27 @@
+{
+  "name": "@uiforge/project-analyzer",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Non-destructive AST-based project analysis and route discovery for UIForge",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@uiforge/contracts": "workspace:*",
+    "@uiforge/config": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
