@@ -220,5 +220,350 @@ export const ErrorSchema = z.object({
 });
 
 export type ErrorPayload = z.infer<typeof ErrorSchema>;
+
+// ============================================================================
+// 10. ANALYSIS RUN SCHEMA (uiforge.contract.analysis-run.v1)
+// ============================================================================
+
+export const AnalysisRunSchema = z.object({
+  analysisId: z.string().uuid(),
+  projectId: z.string().uuid(),
+  timestamp: z.string().datetime(),
+  analyzerVersion: z.string().min(1),
+  detectedFramework: z.string(),
+  detectedRouter: z.string(),
+  stylingStrategy: z.string(),
+  componentCount: z.number().int().nonnegative(),
+  routeCount: z.number().int().nonnegative(),
+  durationMs: z.number().nonnegative(),
+  status: z.enum(["SUCCESS", "PARTIAL", "FAILED"]),
+  warnings: z.array(z.string()),
+});
+
+export type AnalysisRun = z.infer<typeof AnalysisRunSchema>;
+
+// ============================================================================
+// 11. DESIGN BRIEF SCHEMA (uiforge.contract.design-brief.v1)
+// ============================================================================
+
+export const DesignBriefSchema = z.object({
+  briefId: z.string().uuid(),
+  projectId: z.string().uuid(),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  targetAudience: z.string().optional(),
+  brandValues: z.array(z.string()),
+  aestheticKeywords: z.array(z.string()),
+  colorPreferences: z.object({
+    dominantHue: z.string().optional(),
+    mode: z.enum(["LIGHT", "DARK", "SYSTEM", "DUAL"]),
+    contrastTarget: z.enum(["WCAG_AA", "WCAG_AAA"]),
+  }),
+  createdAt: z.string().datetime(),
+});
+
+export type DesignBrief = z.infer<typeof DesignBriefSchema>;
+
+// ============================================================================
+// 12. VISUAL DIRECTION SCHEMA (uiforge.contract.visual-direction.v1)
+// ============================================================================
+
+export const VisualDirectionSchema = z.object({
+  directionId: z.string().uuid(),
+  briefId: z.string().uuid(),
+  name: z.string().min(1),
+  moodboardKeywords: z.array(z.string()),
+  fontPairing: z.object({
+    heading: z.string(),
+    body: z.string(),
+    code: z.string().optional(),
+  }),
+  primaryPalette: z.array(z.string()),
+  radiusScale: z.string(),
+  elevationStyle: z.enum(["FLAT", "SUBTLE", "LAYERED", "NEUMORPHIC"]),
+  status: z.enum(["PROPOSED", "SELECTED", "REJECTED"]),
+});
+
+export type VisualDirection = z.infer<typeof VisualDirectionSchema>;
+
+// ============================================================================
+// 13. DESIGN SYSTEM SCHEMA (uiforge.contract.design-system.v1)
+// ============================================================================
+
+export const DesignSystemSchema = z.object({
+  systemId: z.string().uuid(),
+  projectId: z.string().uuid(),
+  name: z.string().min(1),
+  version: z.string().regex(/^\d+\.\d+\.\d+$/),
+  tokenCollectionCount: z.number().int().nonnegative(),
+  componentCount: z.number().int().nonnegative(),
+  supportedThemes: z.array(z.string()),
+  w3cCompliant: z.boolean(),
+  lastUpdated: z.string().datetime(),
+});
+
+export type DesignSystem = z.infer<typeof DesignSystemSchema>;
+
+// ============================================================================
+// 14. COMPONENT DEFINITION SCHEMA (uiforge.contract.component-def.v1)
+// ============================================================================
+
+export const ComponentDefinitionSchema = z.object({
+  componentId: z.string().uuid(),
+  name: z.string().min(1),
+  category: z.enum(["PRIMITIVE", "COMPOSITE", "LAYOUT", "TEMPLATE"]),
+  description: z.string(),
+  propsInterface: z.record(z.object({
+    type: z.string(),
+    required: z.boolean(),
+    defaultValue: z.any().optional(),
+    description: z.string().optional(),
+  })),
+  accessibilityRoles: z.array(z.string()),
+  sourceRegistry: z.string().optional(),
+});
+
+export type ComponentDefinition = z.infer<typeof ComponentDefinitionSchema>;
+
+// ============================================================================
+// 15. COMPONENT IMPLEMENTATION SCHEMA (uiforge.contract.component-impl.v1)
+// ============================================================================
+
+export const ComponentImplementationSchema = z.object({
+  implementationId: z.string().uuid(),
+  componentId: z.string().uuid(),
+  filePath: z.string(),
+  language: z.enum(["TSX", "JSX", "VUE", "SVELTE"]),
+  sourceCode: z.string(),
+  dependencies: z.array(z.string()),
+  internalTokensUsed: z.array(z.string()),
+  astSpanCoordinates: z.object({
+    startOffset: z.number().int().nonnegative(),
+    endOffset: z.number().int().nonnegative(),
+  }).optional(),
+});
+
+export type ComponentImplementation = z.infer<typeof ComponentImplementationSchema>;
+
+// ============================================================================
+// 16. COMPONENT VERIFICATION SCHEMA (uiforge.contract.component-verif.v1)
+// ============================================================================
+
+export const ComponentVerificationSchema = z.object({
+  verificationId: z.string().uuid(),
+  componentId: z.string().uuid(),
+  typeCheckPass: z.boolean(),
+  diagnosticCount: z.number().int().nonnegative(),
+  a11yScore: z.number().min(0).max(100),
+  wcagCompliant: z.boolean(),
+  renderTestPass: z.boolean(),
+  verifiedAt: z.string().datetime(),
+});
+
+export type ComponentVerification = z.infer<typeof ComponentVerificationSchema>;
+
+// ============================================================================
+// 17. REGISTRY SOURCE SCHEMA (uiforge.contract.registry-source.v1)
+// ============================================================================
+
+export const RegistrySourceSchema = z.object({
+  registryId: z.string(),
+  name: z.string().min(1),
+  version: z.string(),
+  baseUrl: z.string().url().optional(),
+  license: z.string(),
+  componentCount: z.number().int().nonnegative(),
+  verifiedCompatibility: z.array(z.string()),
+});
+
+export type RegistrySource = z.infer<typeof RegistrySourceSchema>;
+
+// ============================================================================
+// 18. PROVENANCE SCHEMA (uiforge.contract.provenance.v1)
+// ============================================================================
+
+export const ProvenanceSchema = z.object({
+  recordId: z.string().uuid(),
+  targetEntityId: z.string().uuid(),
+  entityType: z.enum(["COMPONENT", "TOKEN", "MUTATION", "SNAPSHOT"]),
+  origin: z.enum(["AUTHOR_HUMAN", "AGENT_GENERATED", "REGISTRY_ADOPTED", "MIGRATED"]),
+  authorIdentifier: z.string(),
+  parentCommitSha: z.string().optional(),
+  signatureHmac: z.string(),
+  timestamp: z.string().datetime(),
+});
+
+export type ProvenanceRecord = z.infer<typeof ProvenanceSchema>;
+
+// ============================================================================
+// 19. EVIDENCE SCHEMA (uiforge.contract.evidence.v1)
+// ============================================================================
+
+export const EvidenceSchema = z.object({
+  evidenceId: z.string().uuid(),
+  evaluationId: z.string().uuid(),
+  classification: z.enum([
+    "PHASE_02_DECIDED",
+    "SOURCE_VERIFIED",
+    "REPO_VERIFIED",
+    "ARCHITECTURE_DECISION",
+    "PROPOSED",
+    "ASSUMPTION",
+    "NOT_ESTABLISHED"
+  ]),
+  claim: z.string().min(1),
+  sourceArtifact: z.string(),
+  sha256Digest: z.string(),
+  timestamp: z.string().datetime(),
+});
+
+export type Evidence = z.infer<typeof EvidenceSchema>;
+
+// ============================================================================
+// 20. AGENT SCHEMA (uiforge.contract.agent.v1)
+// ============================================================================
+
+export const AgentSchema = z.object({
+  agentId: z.string(),
+  name: z.string().min(1),
+  protocolVersion: z.string(),
+  clientType: z.enum(["CLAUDE_CODE", "CURSOR", "OPENCODE", "WINDSURF", "GENERIC_MCP"]),
+  supportedTools: z.array(z.string()),
+  authenticated: z.boolean(),
+  connectedAt: z.string().datetime(),
+});
+
+export type Agent = z.infer<typeof AgentSchema>;
+
+// ============================================================================
+// 21. AGENT SESSION SCHEMA (uiforge.contract.agent-session.v1)
+// ============================================================================
+
+export const AgentSessionSchema = z.object({
+  sessionId: z.string().uuid(),
+  agentId: z.string(),
+  projectId: z.string().uuid(),
+  activePermissions: z.array(z.string()),
+  allocatedMemoryMb: z.number().nonnegative(),
+  startedAt: z.string().datetime(),
+  expiresAt: z.string().datetime(),
+});
+
+export type AgentSession = z.infer<typeof AgentSessionSchema>;
+
+// ============================================================================
+// 22. TASK SCHEMA (uiforge.contract.task.v1)
+// ============================================================================
+
+export const TaskSchema = z.object({
+  taskId: z.string().uuid(),
+  sessionId: z.string().uuid().optional(),
+  type: z.enum(["ANALYZE", "DESIGN", "GENERATE", "AUDIT", "IMPROVE", "COMPARE", "VALIDATE", "EXPORT"]),
+  status: z.enum(["IDLE", "INITIALIZING", "EXECUTING", "AWAITING_APPROVAL", "COMMITTING", "COMPLETED", "FAILED"]),
+  progressPercentage: z.number().min(0).max(100),
+  error: ErrorSchema.optional(),
+  createdAt: z.string().datetime(),
+  completedAt: z.string().datetime().optional(),
+});
+
+export type Task = z.infer<typeof TaskSchema>;
+
+// ============================================================================
+// 23. TOOL EXECUTION SCHEMA (uiforge.contract.tool-execution.v1)
+// ============================================================================
+
+export const ToolExecutionSchema = z.object({
+  executionId: z.string().uuid(),
+  toolName: z.string().min(1),
+  agentId: z.string(),
+  parameters: z.record(z.any()),
+  result: z.any().optional(),
+  durationMs: z.number().nonnegative(),
+  requiresAuth: z.boolean(),
+  authToken: z.string().optional(),
+  status: z.enum(["SUCCESS", "DENIED", "ERROR"]),
+});
+
+export type ToolExecution = z.infer<typeof ToolExecutionSchema>;
+
+// ============================================================================
+// 24. PERMISSION SCHEMA (uiforge.contract.permission.v1)
+// ============================================================================
+
+export const PermissionSchema = z.object({
+  permissionLevel: z.enum(["LEVEL_1_READ", "LEVEL_2_EVAL", "LEVEL_3_STAGED", "LEVEL_4_APPLY", "LEVEL_5_DANGEROUS"]),
+  targetResource: z.string(),
+  grantedTo: z.string(),
+  expiresAt: z.string().datetime(),
+  singleUse: z.boolean(),
+});
+
+export type Permission = z.infer<typeof PermissionSchema>;
+
+// ============================================================================
+// 25. VALIDATION RUN SCHEMA (uiforge.contract.validation-run.v1)
+// ============================================================================
+
+export const ValidationRunSchema = z.object({
+  runId: z.string().uuid(),
+  projectId: z.string().uuid(),
+  typecheckPassed: z.boolean(),
+  lintPassed: z.boolean(),
+  unitTestsPassed: z.boolean(),
+  a11yPassed: z.boolean(),
+  visualPassed: z.boolean(),
+  exitCode: z.number().int(),
+  executedAt: z.string().datetime(),
+});
+
+export type ValidationRun = z.infer<typeof ValidationRunSchema>;
+
+// ============================================================================
+// 26. COMPARISON SCHEMA (uiforge.contract.comparison.v1)
+// ============================================================================
+
+export const ComparisonSchema = z.object({
+  comparisonId: z.string().uuid(),
+  baselineSnapshotId: z.string().uuid(),
+  candidateSnapshotId: z.string().uuid(),
+  changedComponentCount: z.number().int().nonnegative(),
+  visualDiffPercentage: z.number().min(0).max(100),
+  a11yScoreDelta: z.number(),
+  breakingChangesDetected: z.boolean(),
+  comparedAt: z.string().datetime(),
+});
+
+export type Comparison = z.infer<typeof ComparisonSchema>;
+
+// ============================================================================
+// 27. EXPORT ARTIFACT SCHEMA (uiforge.contract.export-artifact.v1)
+// ============================================================================
+
+export const ExportArtifactSchema = z.object({
+  artifactId: z.string().uuid(),
+  format: z.enum(["HTML_REPORT", "JSON_DATASET", "DTCG_TOKENS", "TAILWIND_CONFIG", "CSS_VARS"]),
+  destinationPath: z.string(),
+  fileSizeBufferBytes: z.number().int().nonnegative(),
+  sha256Hash: z.string(),
+  generatedAt: z.string().datetime(),
+});
+
+export type ExportArtifact = z.infer<typeof ExportArtifactSchema>;
+
+// ============================================================================
+// 28. WORKFLOW SCHEMA (uiforge.contract.workflow.v1)
+// ============================================================================
+
+export const WorkflowSchema = z.object({
+  workflowId: z.string().uuid(),
+  type: z.enum(["GREENFIELD_CREATION", "BROWNFIELD_IMPROVEMENT", "MCP_TOOL_LOOP", "CI_QUALITY_GATE"]),
+  activeStep: z.number().int().positive(),
+  totalSteps: z.number().int().positive(),
+  stateMachineStatus: z.string(),
+  walTransactionActive: z.boolean(),
+  startedAt: z.string().datetime(),
+});
+
+export type Workflow = z.infer<typeof WorkflowSchema>;
 ```
 
