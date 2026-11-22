@@ -285,7 +285,7 @@
     "proposedConsumptionMode": "ASSET_REDISTRIBUTION",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display",
+    "decisionRationale": "Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display; custom subsetting defaults to font-family rename (UIForgeGeist) unless SIL functional-equivalence exception or copyright permission applies",
     "selectionEligibility": "RESTRICTED",
     "selectionExclusionReasons": []
   },
@@ -434,7 +434,7 @@
     "proposedConsumptionMode": "DEPENDENCY",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Model Context Protocol (MCP) TypeScript SDKs (@modelcontextprotocol/server ^2.1.0; @modelcontextprotocol/client ^2.1.0) establishing agent tool/resource connectivity via 2026-07-28 wire protocol with fallback negotiation to 2024-11-05",
+    "decisionRationale": "Model Context Protocol (MCP) TypeScript SDKs (declared semver ranges: @modelcontextprotocol/server ^2.1.0, evaluated v2.1.1; @modelcontextprotocol/client ^2.1.0) establishing agent connectivity via modern 2026-07-28 discovery (server/discover, _meta headers) with versionNegotiation: { mode: \"auto\" } fallback to legacy revisions 2025-11-25 and 2024-11-05",
     "selectionEligibility": "ELIGIBLE",
     "selectionExclusionReasons": []
   },
@@ -674,7 +674,7 @@
     "proposedConsumptionMode": "ASSET_REDISTRIBUTION",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability",
+    "decisionRationale": "Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability; custom subsetting defaults to font-family rename (UIForgeInter) unless SIL functional-equivalence exception or copyright permission applies",
     "selectionEligibility": "RESTRICTED",
     "selectionExclusionReasons": []
   },
@@ -1157,7 +1157,7 @@
     "proposedConsumptionMode": "DEPENDENCY",
     "adoptionTier": "TIER 0",
     "recommendation": "ADOPT",
-    "decisionRationale": "Standard JavaScript/JSX parsing and AST traversal infrastructure for code transformations",
+    "decisionRationale": "Babel AST infrastructure (@babel/parser, @babel/traverse, @babel/types, @babel/generator) providing 6-stage AST manipulation with errorRecovery: true for streaming JSX, coupled with WAL token buffering and TS baseline diagnostic regression checks",
     "selectionEligibility": "ELIGIBLE",
     "selectionExclusionReasons": []
   },
