@@ -30,8 +30,9 @@
 - **Typography Anti-Patterns:** 4 rules (`ANTI-TYP-001` through `004`), covering measure, hierarchy, tabular figures, pairings.
 - **Color Anti-Patterns:** 4 rules (`ANTI-COL-001` through `004`), covering low-contrast placeholders, gradients, dark mode glare.
 - **Interaction Anti-Patterns:** 4 rules (`ANTI-INT-001` through `004`), covering focus rings, animation lag, empty states, deletion safety.
-- **Composition Anti-Patterns:** 3 rules (`ANTI-COM-001` through `003`), covering floating blobs, glassmorphism, pill overload.
-- **Content Anti-Patterns:** 2 rules (`ANTI-CNT-001` through `002`), covering placeholder copy, fake metrics, stock avatars.
-- **Responsive Anti-Patterns:** 3 rules (`ANTI-RSP-001` through `003`), covering mobile squeezing, touch target size, text truncation.
-- **Accessibility Anti-Patterns:** 4 rules (`ANTI-A11Y-001` through `004`), covering color-only status, div buttons, missing labels, traps.
-- **Total Cataloged Anti-Patterns:** Exactly **32 canonical entries** in `anti-pattern-catalogue.json` with 100% referential closure.
+- **Composition Anti-Patterns:** 4 rules (`ANTI-COM-001` through `004`), covering floating blobs, glassmorphism, pill overload, muddy shadows.
+- **Content Anti-Patterns:** 4 rules (`ANTI-CNT-001` through `004`), covering placeholder copy, fake testimonials, empty visual sections, tone dissonance.
+- **Responsive Anti-Patterns:** 4 rules (`ANTI-RSP-001` through `004`), covering mobile squeezing, touch target size, text truncation, hover dependency.
+- **Accessibility Anti-Patterns:** 4 rules (`ANTI-A11Y-001` through `004`), covering color-only status, div buttons, missing labels, keyboard traps.
+- **Total Cataloged Anti-Patterns:** Exactly **32 canonical entries** across all 8 categories (4 per category), 100% synchronized with `anti-pattern-catalogue.json` with full referential closure.
+
