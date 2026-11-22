@@ -42,7 +42,7 @@ const TIER_DEFINITIONS = {
   'OS-COMP-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_B', reason: 'Industry-standard unstyled accessible primitives; clean React 18/19 server component boundaries' },
   'OS-COMP-03': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_B', reason: 'Comprehensive accessible interaction hooks, state management, and mobile touch primitives' },
   'OS-TOKN-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_E', reason: 'Canonical W3C Community Group Design Token exchange specification (DTCG 2025.10)' },
-  'OS-TOKN-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_E', reason: 'Battle-tested token transformation build engine converting DTCG tokens to CSS/Tailwind' },
+  'OS-TOKN-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_E', reason: 'Battle-tested token transformation build engine (style-dictionary v5.8.0) natively converting W3C DTCG tokens to CSS custom properties and Tailwind themes on Node.js 22 LTS' },
   'OS-TOKN-04': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_E', reason: 'Foundational utility CSS engine v4 with native CSS variable cascade and container queries' },
   'OS-ANIM-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Production-grade declarative React spring/physics animation engine with zero layout thrash' },
   'OS-ICON-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Consistent, accessible, modern SVG icon primitives with tree-shakeable exports' },
@@ -52,13 +52,13 @@ const TIER_DEFINITIONS = {
   'OS-TYPO-05': { tier: 'TIER 0', rec: 'ADOPT', mode: 'ASSET_REDISTRIBUTION', cat: 'CAT_H', reason: 'Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display' },
   'OS-LAYT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Accessible, persistent resizable panel layouts for UIForge Studio and workspace sidebars' },
   'OS-LAYT-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_E', reason: 'Standard Tailwind container query plugin enabling component-level responsive reflow' },
-  'OS-A11Y-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'EXTERNAL_TOOL', cat: 'CAT_F', reason: 'Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI' },
+  'OS-A11Y-01': { tier: 'TIER 0', rec: 'CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE', mode: 'EXTERNAL_TOOL', cat: 'CAT_F', reason: 'Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries' },
   'OS-A11Y-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Official Playwright axe integration runner for end-to-end DOM accessibility assertion' },
   'OS-A11Y-03': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_A', reason: 'Static JSX accessibility linting rules enforcing ARIA and semantic HTML at build time' },
   'OS-A11Y-08': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_F', reason: 'W3C ARIA Authoring Practices Guide (APG) specification and keyboard interaction reference' },
   'OS-D2C-06': { tier: 'TIER 0', rec: 'ADOPT', mode: 'EXTERNAL_TOOL', cat: 'CAT_A', reason: 'High-performance tree-sitter based AST structural search and code-rewriting tool' },
   'OS-D2C-07': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_A', reason: 'Standard JavaScript/JSX parsing and AST traversal infrastructure for code transformations' },
-  'OS-AGNT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_G', reason: 'Model Context Protocol (MCP) server & client SDKs (@modelcontextprotocol/server v2.x implementing 2026-07-28 spec; @modelcontextprotocol/client) establishing standard agent tool/resource connectivity' },
+  'OS-AGNT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_G', reason: 'Model Context Protocol (MCP) TypeScript SDKs (@modelcontextprotocol/server ^2.1.0; @modelcontextprotocol/client ^2.1.0) establishing agent tool/resource connectivity via 2026-07-28 wire protocol with fallback negotiation to 2024-11-05' },
   'OS-AGNT-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_G', reason: 'Open-source autonomous AI coding agent reference architecture and execution harness' },
   'OS-BROW-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Multi-browser headless automation, tracing, visual screenshotting, and event replay platform' },
   'OS-VREG-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Deterministic, zero-dependency, pure JS pixel difference engine for screenshot regression' },
@@ -81,7 +81,7 @@ const TIER_DEFINITIONS = {
   'OS-ICON-07': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Standard SVG to React component compiler for custom user asset pipelines' },
   'OS-ICON-08': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Authoritative SVG icon set for popular developer brands and SaaS tools' },
   'OS-CHRT-03': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Specialized D3-based React components for heatmaps, sankey, and tree diagrams' },
-  'OS-CHRT-04': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management' },
+  'OS-CHRT-04': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management (~15-20 KB preliminary tree-shaken estimate subject to Phase 03 benchmark)' },
   'OS-CHRT-07': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Foundational data transformation, scaling, and mathematical visualization utilities' },
   'OS-TYPO-02': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Mathematical font geometry tooling eliminating leading and ensuring baseline alignment' },
   'OS-TYPO-03': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Self-hosted npm font package ecosystem enabling offline font bundling' },
@@ -118,7 +118,7 @@ const TIER_DEFINITIONS = {
   'OS-MKT-06': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_C', reason: 'Flowbite React component library based on Tailwind CSS' },
   'OS-MKT-07': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'SOURCE_COPY', cat: 'CAT_C', reason: 'HyperUI open-source Tailwind CSS components and page blocks' },
   'OS-DASH-01': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Original Tremor dashboard component package (legacy runtime dependency model)' },
-  'OS-DASH-05': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets' },
+  'OS-DASH-05': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets (5.5/10 accessibility is a preliminary estimate subject to 6-test verification matrix)' },
   'OS-DASH-06': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Refine enterprise meta-framework for internal tools, admin panels, and CRUD apps' },
   'OS-DASH-07': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'React Admin enterprise B2B application framework' },
   'OS-AGNT-06': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'REFERENCE_ONLY', cat: 'CAT_G', reason: 'Continue IDE AI assistant protocol and custom command integration' },
@@ -230,9 +230,10 @@ sources.forEach(source => {
     g6 = 'NOT_APPLICABLE';
   }
 
-  // Gate G1 (Identity & Provenance)
+  // Gate G1 (Identity & Provenance) & Gate G4 (Architectural Independence)
   if (cId === 'OS-D2C-08') { // Locofy.ai: Closed proprietary SaaS, no open repository/SDK
     g1 = 'FAIL';
+    g4 = 'FAIL';
     g5 = 'FAIL';
   }
 
@@ -247,16 +248,17 @@ sources.forEach(source => {
     g2 = 'PASS_WITH_RESTRICTIONS';
   }
 
-  // Gate G3 (Maintenance & Quality) & Gate G6 (Viability & Supply Chain)
+  // Gate G3 (Maintenance & Lifecycle Health) & Gate G6 (Security & Supply Chain)
   if (cId === 'OS-DASH-08') { // Tabler React: Abandoned React 16 wrapper
     g3 = 'FAIL';
     g6 = 'FAIL';
   }
 
-  // Gate G5 (Architectural Fit & Mission Fit)
+  // Gate G4 (Architectural Independence) & Gate G5 (Product Scope & Mission Fit)
   if (cId === 'OS-ANIM-08') { // Remotion: Mission misfit (programmatic video rendering vs web UI design-to-code)
     g5 = 'FAIL';
-  } else if (cId === 'OS-COMP-15') { // SaaS UI: Commercial Pro upsell lock-in
+  } else if (cId === 'OS-COMP-15') { // SaaS UI: Commercial Pro upsell lock-in & architectural coupling
+    g4 = 'FAIL';
     g5 = 'FAIL';
     g6 = 'FAIL';
   } else if (cId === 'OS-DASH-05' || cId === 'OS-VREG-04' || cId === 'OS-VREG-05') {
@@ -390,10 +392,10 @@ sources.forEach(source => {
     hardGates: {
       G1_identity: g1,
       G2_licensing: g2,
-      G3_security: g3,
-      G4_evidence: g4,
+      G3_maintenance: g3,
+      G4_architecture: g4,
       G5_fit: g5,
-      G6_viability: g6,
+      G6_security: g6,
       overallGateResult: overallGateResult
     },
     scores: {
@@ -412,8 +414,8 @@ sources.forEach(source => {
     adoptionTier: def.tier,
     recommendation: def.rec,
     decisionRationale: def.reason,
-    selectionEligibility: (def.rec === 'REJECT' || overallGateResult === 'FAIL') ? 'INELIGIBLE' : (overallGateResult === 'PENDING' ? 'DEFERRED' : (overallGateResult === 'PASS_WITH_RESTRICTIONS' ? 'RESTRICTED' : 'ELIGIBLE')),
-    selectionExclusionReasons: (def.rec === 'REJECT' || overallGateResult === 'FAIL') ? [def.reason] : (overallGateResult === 'PENDING' ? ['Gated pending resolution of technical/legal uncertainty'] : [])
+    selectionEligibility: (def.rec === 'REJECT' || overallGateResult === 'FAIL') ? 'INELIGIBLE' : (overallGateResult === 'PENDING' ? 'DEFERRED' : ((overallGateResult === 'PASS_WITH_RESTRICTIONS' || def.rec.includes('CONDITIONALLY') || def.rec.includes('RESTRICTIONS')) ? 'RESTRICTED' : 'ELIGIBLE')),
+    selectionExclusionReasons: (def.rec === 'REJECT' || overallGateResult === 'FAIL') ? [def.reason] : (overallGateResult === 'PENDING' ? ['Gated pending resolution of technical/legal uncertainty'] : (def.rec.includes('CONDITIONALLY') ? ['Adoption conditioned on formal IP legal counsel clearance before production distribution'] : []))
   };
 
   candidateScorecard.push(record);

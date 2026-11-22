@@ -28,10 +28,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -75,10 +75,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -122,10 +122,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -169,10 +169,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -227,10 +227,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -278,10 +278,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -327,10 +327,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -377,10 +377,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -426,10 +426,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -475,10 +475,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -522,10 +522,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -579,10 +579,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -628,10 +628,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -675,10 +675,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -722,10 +722,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -769,10 +769,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -816,10 +816,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -863,10 +863,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -910,10 +910,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -957,10 +957,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1006,10 +1006,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1063,10 +1063,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1113,10 +1113,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1162,10 +1162,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1211,10 +1211,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1261,10 +1261,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1310,10 +1310,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1359,10 +1359,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "FAIL",
           "G5_fit": "FAIL",
-          "G6_viability": "FAIL",
+          "G6_security": "FAIL",
           "overallGateResult": "FAIL"
         },
         "scores": {
@@ -1415,10 +1415,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "NOT_APPLICABLE",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "NOT_APPLICABLE",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "NOT_APPLICABLE",
+          "G6_security": "NOT_APPLICABLE",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1462,10 +1462,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1483,7 +1483,7 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 0",
         "recommendation": "ADOPT",
-        "decisionRationale": "Battle-tested token transformation build engine converting DTCG tokens to CSS/Tailwind",
+        "decisionRationale": "Battle-tested token transformation build engine (style-dictionary v5.8.0) natively converting W3C DTCG tokens to CSS custom properties and Tailwind themes on Node.js 22 LTS",
         "selectionEligibility": "ELIGIBLE",
         "selectionExclusionReasons": []
       },
@@ -1509,10 +1509,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1556,10 +1556,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1603,10 +1603,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1650,10 +1650,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1697,10 +1697,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1744,10 +1744,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1791,10 +1791,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1838,10 +1838,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1887,10 +1887,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1936,10 +1936,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS_WITH_RESTRICTIONS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "NOT_APPLICABLE",
+          "G6_security": "NOT_APPLICABLE",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -1993,10 +1993,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS_WITH_RESTRICTIONS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -2013,10 +2013,12 @@
         "evidenceConfidence": "HIGH",
         "proposedConsumptionMode": "EXTERNAL_TOOL",
         "adoptionTier": "TIER 0",
-        "recommendation": "ADOPT",
-        "decisionRationale": "Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI",
+        "recommendation": "CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE",
+        "decisionRationale": "Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries",
         "selectionEligibility": "RESTRICTED",
-        "selectionExclusionReasons": []
+        "selectionExclusionReasons": [
+          "Adoption conditioned on formal IP legal counsel clearance before production distribution"
+        ]
       },
       {
         "candidateId": "OS-A11Y-02",
@@ -2040,10 +2042,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2087,10 +2089,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2136,10 +2138,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PENDING",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PENDING"
         },
         "scores": {
@@ -2185,10 +2187,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2232,10 +2234,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2280,10 +2282,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2328,10 +2330,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2375,10 +2377,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2425,10 +2427,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2473,10 +2475,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2520,10 +2522,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2567,10 +2569,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2614,10 +2616,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2661,10 +2663,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PENDING",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PENDING",
           "G5_fit": "PASS",
-          "G6_viability": "PENDING",
+          "G6_security": "PENDING",
           "overallGateResult": "PENDING"
         },
         "scores": {
@@ -2710,10 +2712,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2757,10 +2759,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2804,10 +2806,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2851,10 +2853,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2898,10 +2900,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -2945,10 +2947,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS_WITH_RESTRICTIONS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -2994,10 +2996,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS_WITH_RESTRICTIONS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -3043,10 +3045,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3090,10 +3092,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3137,10 +3139,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3192,10 +3194,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3213,7 +3215,7 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 0",
         "recommendation": "ADOPT",
-        "decisionRationale": "Model Context Protocol (MCP) server & client SDKs (@modelcontextprotocol/server v2.x implementing 2026-07-28 spec; @modelcontextprotocol/client) establishing standard agent tool/resource connectivity",
+        "decisionRationale": "Model Context Protocol (MCP) TypeScript SDKs (@modelcontextprotocol/server ^2.1.0; @modelcontextprotocol/client ^2.1.0) establishing agent tool/resource connectivity via 2026-07-28 wire protocol with fallback negotiation to 2024-11-05",
         "selectionEligibility": "ELIGIBLE",
         "selectionExclusionReasons": []
       },
@@ -3239,10 +3241,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3286,10 +3288,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3333,10 +3335,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3380,10 +3382,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3427,10 +3429,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3474,10 +3476,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3521,10 +3523,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3568,10 +3570,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3615,10 +3617,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3662,10 +3664,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3710,10 +3712,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3764,10 +3766,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "FAIL",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "FAIL"
         },
         "scores": {
@@ -3815,10 +3817,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3864,10 +3866,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3913,10 +3915,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -3962,10 +3964,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS_WITH_RESTRICTIONS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -3983,7 +3985,7 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 2",
         "recommendation": "OPTIONAL",
-        "decisionRationale": "Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets",
+        "decisionRationale": "Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets (5.5/10 accessibility is a preliminary estimate subject to 6-test verification matrix)",
         "selectionEligibility": "RESTRICTED",
         "selectionExclusionReasons": []
       },
@@ -4011,10 +4013,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4060,10 +4062,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4109,10 +4111,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "FAIL",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "FAIL",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "FAIL",
+          "G6_security": "FAIL",
           "overallGateResult": "FAIL"
         },
         "scores": {
@@ -4158,10 +4160,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4205,10 +4207,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4252,10 +4254,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4299,10 +4301,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS_WITH_RESTRICTIONS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -4346,10 +4348,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4393,10 +4395,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4440,10 +4442,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4487,10 +4489,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS_WITH_RESTRICTIONS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "FAIL",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "FAIL"
         },
         "scores": {
@@ -4539,10 +4541,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4586,10 +4588,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4633,10 +4635,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4680,10 +4682,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4727,10 +4729,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4774,10 +4776,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4821,10 +4823,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4868,10 +4870,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4915,10 +4917,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -4962,10 +4964,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5009,10 +5011,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5056,10 +5058,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5077,7 +5079,7 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 1",
         "recommendation": "ADOPT",
-        "decisionRationale": "Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management",
+        "decisionRationale": "Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management (~15-20 KB preliminary tree-shaken estimate subject to Phase 03 benchmark)",
         "selectionEligibility": "ELIGIBLE",
         "selectionExclusionReasons": []
       },
@@ -5103,10 +5105,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5150,10 +5152,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5197,10 +5199,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5244,10 +5246,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5292,10 +5294,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5340,10 +5342,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5387,10 +5389,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5436,10 +5438,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS_WITH_RESTRICTIONS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -5485,10 +5487,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS_WITH_RESTRICTIONS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -5532,10 +5534,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5581,10 +5583,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5631,10 +5633,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5680,10 +5682,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5730,10 +5732,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5779,10 +5781,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5826,10 +5828,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PENDING",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PENDING",
           "G5_fit": "PASS",
-          "G6_viability": "PENDING",
+          "G6_security": "PENDING",
           "overallGateResult": "PENDING"
         },
         "scores": {
@@ -5875,10 +5877,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PENDING",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PENDING",
           "G5_fit": "PASS",
-          "G6_viability": "PENDING",
+          "G6_security": "PENDING",
           "overallGateResult": "PENDING"
         },
         "scores": {
@@ -5925,10 +5927,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -5972,10 +5974,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -6019,10 +6021,10 @@
         "hardGates": {
           "G1_identity": "FAIL",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
-          "G4_evidence": "PASS",
+          "G3_maintenance": "PASS",
+          "G4_architecture": "FAIL",
           "G5_fit": "FAIL",
-          "G6_viability": "PASS",
+          "G6_security": "PASS",
           "overallGateResult": "FAIL"
         },
         "scores": {
