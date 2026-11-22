@@ -1,0 +1,32 @@
+{
+  "name": "uiforge-monorepo",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "lint": "eslint .",
+    "format:check": "prettier --check \"packages/**/*.{ts,json}\" \"*.{json,mjs,yaml,yml}\"",
+    "format:write": "prettier --write \"packages/**/*.{ts,json}\" \"*.{json,mjs,yaml,yml}\"",
+    "test": "vitest run",
+    "test:contracts": "vitest run packages/contracts",
+    "test:boundaries": "node scripts/check-boundaries.mjs",
+    "test:licenses": "node scripts/check-licenses.mjs",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.11",
+    "@types/node": "^22.13.4",
+    "@vitest/coverage-v8": "^3.0.5",
+    "eslint": "^9.20.0",
+    "madge": "^8.0.0",
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.4",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0",
+    "vitest": "^3.0.5"
+  }
+}
