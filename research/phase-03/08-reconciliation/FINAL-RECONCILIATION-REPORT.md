@@ -35,12 +35,12 @@ The objective of this reconciliation is to prove beyond technical doubt that:
 | **INV-02** | **Evidence Over Assumptions** | No fabricated test results, benchmarks, or claims; explicit classification tags. | All documents utilize standardized tags (`[PHASE-02-DECIDED]`, `[ARCHITECTURE-DECISION]`, `[PROPOSED]`, etc.). | **VERIFIED (100% Match)** |
 | **INV-03** | **Decoupled LLM Inference** | UIForge Core never wraps, resells, or meters LLM inference tokens. | Agents connect via Model Context Protocol (MCP 2026-07-28); Core has zero LLM billing code (`ADR-003`, `ADR-004`). | **VERIFIED (100% Match)** |
 | **INV-04** | **Coordinate Slice Patching** | Never rewrite whole files with an AST printer; splice character spans. | Mutation engine uses `slice(0, start) + code + slice(end)` with Babel coordinate offsets (`ADR-008`). | **VERIFIED (100% Match)** |
-| **INV-05** | **Pre-Image WAL & Rollback** | Every mutation requires atomic pre-image backup and automatic rollback. | SQLite `state.db` WAL engine stores full pre-images and executes byte-for-byte rollback on error (`DATA-ARCHITECTURE.md`). | **VERIFIED (100% Match)** |
-| **INV-06** | **TypeScript Diagnostic Gate** | Modified files must not introduce new compile or type diagnostics. | TypeScript Compiler API comparator runs post-mutation; auto-rolls back if new diagnostics detected (`ADR-008`). | **VERIFIED (100% Match)** |
+| **INV-05** | **Pre-Image Journaling & Rollback** | Every mutation requires atomic pre-image backup and automatic rollback. | SQLite WAL manages internal `state.db` transactions; OS filesystem mutations use dedicated two-phase pre-image journaling with `fsync`, shadow files, TOCTOU external-edit checks, and startup crash recovery (`DATA-ARCHITECTURE.md`, `ADR-008`). | **VERIFIED (Qualified Distinction)** |
+| **INV-06** | **TypeScript Diagnostic Gate** | Modified files must not introduce new compile or type diagnostics. | TypeScript Compiler API comparator runs post-mutation; auto-rolls back if new diagnostics detected (`ADR-008`). Qualified: proves syntax and semantic type conformance only, NOT runtime behavioral or visual correctness. | **VERIFIED (Qualified Semantic Gate)** |
 | **INV-07** | **Diff-Bound Authorization** | Destructive mutations require explicit, HMAC-signed approval tokens. | Level 4/5 permissions require HMAC SHA-256 token cryptographically bound to diff hash and TTL (`PERMISSION-AND-APPROVAL-MODEL.md`). | **VERIFIED (100% Match)** |
 | **INV-08** | **Strict 7-Level Monorepo DAG** | Monorepo packages strictly layered; 0 circular dependencies. | Levels 0–6 defined with explicit allowed/prohibited imports and `madge` static enforcement (`PACKAGE-DEPENDENCY-GRAPH.md`). | **VERIFIED (100% Match)** |
 | **INV-09** | **W3C DTCG Token Standard** | Canonical design token representation based on W3C DTCG format. | Zod schemas enforce DTCG 2025.10 spec with translation adapters for Tailwind and CSS variables (`ADR-005`). | **VERIFIED (100% Match)** |
-| **INV-10** | **Open-Core Permissive Core** | Core platform licensed under Apache-2.0; Studio commercial. | Clean boundary separation; zero GPL/AGPL in Core; standalone CLI and MCP operation (`OPEN-CORE-BOUNDARIES.md`, `ADR-010`). | **VERIFIED (100% Match)** |
+| **INV-10** | **Open-Core Permissive Core** | Core platform licensed under Apache-2.0; Studio commercial. | UIForge Core source code authored under Apache-2.0. Third-party testing dependencies (`axe-core`, `@axe-core/playwright`) retain MPL-2.0 file-level copyleft obligations without contaminating Core; `pa11y` (LGPL-3.0) quarantined in Tier 4 (`OPEN-CORE-BOUNDARIES.md`, `ADR-010`). | **VERIFIED (Qualified Licensing Model)** |
 
 ---
 
@@ -191,10 +191,12 @@ All 28 canonical contracts documented in `CONTRACT-CATALOGUE.md` and typed in `D
 
 Every contract contains:
 1. Unique Versioned URI (`uiforge.contract.<name>.v<major>`).
-2. Complete Zod Schema definition.
-3. TypeScript interface export.
+2. Complete Zod Schema definition in Markdown specification.
+3. TypeScript interface export definition.
 4. Defined Producer and Consumer packages.
 5. Invalidation triggers and serialization format.
+
+*Lifecycle Qualification:* In Phase 03, these 28 contracts are **designed, specified, and schema-documented**. They will be transpiled and compiled into `@uiforge/contracts` in Phase 04, where they will undergo runtime Zod test execution in CI.
 
 ---
 
@@ -204,7 +206,13 @@ The Independent Principal Software Architect, System Architect, and Technical Au
 
 1. **Internal Consistency:** The Phase 03 technical specification is 100% internally consistent across all 37+ documents, ADRs, schemas, and diagrams.
 2. **Phase 01/02 Fidelity:** Every strategic decision, candidate classification, and engineering invariant from Phase 01 and Phase 02 is preserved and operationalized.
-3. **Implementation Readiness:** The 16 monorepo packages, 7-level DAG, 28 contracts, and 4-phase roadmap provide an unambiguous, engineering-ready blueprint for Phase 04.
-4. **Architecture Freeze:** System architecture is hereby formally **FROZEN**. No further architectural modifications or candidate re-evaluations are permitted without formal ADR revision.
+3. **Evidence-Based Qualification:**
+   - Filesystem mutations are governed by two-phase pre-image journaling and TOCTOU hash checks; SQLite WAL manages internal `state.db` transactions.
+   - TypeScript Compiler API checks are recognized as semantic type and syntax regression gates, not behavioral or rendering correctness proofs.
+   - MCP 2026-07-28 stateless compatibility is an accepted architectural design; live socket wire tests remain `[NOT-EXECUTED]` pending Phase 04/06 integration test harnesses.
+   - Licensing preserves the Apache-2.0 core authoring standard while documenting MPL-2.0 obligations for `axe-core` and quarantining `pa11y` (LGPL-3.0) in Tier 4.
+   - The 320 passing automated assertions across Phase 02 and Phase 03 certify specification completeness, schema coverage, dataset census consistency, and mock fixture behavior—not production runtime execution or end-to-end performance benchmarks.
+4. **Implementation Readiness:** The 16 monorepo packages, 7-level DAG, 28 contracts, and 4-phase roadmap provide an unambiguous, engineering-ready blueprint for Phase 04.
+5. **Architecture Freeze:** System architecture is hereby formally **FROZEN**. No further architectural modifications or candidate re-evaluations are permitted without formal ADR revision.
 
 **Recommendation:** Proceed immediately to automated validation execution and Phase 03 closure.
