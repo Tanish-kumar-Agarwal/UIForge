@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+.uiforge/
+pnpm-lock.yaml
+research/
+docs/
