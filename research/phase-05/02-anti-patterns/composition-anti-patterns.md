@@ -32,3 +32,12 @@
 - **Severity:** `HIGH`
 - **Remediation:** Replace generic icon cards with interactive product UI previews, workflow diagrams, or customer evidence.
 - **Positive Counterpart:** `PATT-MKT-001`.
+
+### `ANTI-COM-004`: Excessive Muddy Shadows & Uncontrolled Elevation
+- **Description:** Stacking multiple heavy, dark, highly blurred drop shadows (`box-shadow: 0 20px 50px rgba(0,0,0,0.5)`) across adjacent cards and panels without a coherent elevation token ramp.
+- **Symptom:** Murky, ungrounded surfaces; blurry dark halos bleeding into neighboring text; visual heaviness that obscures layout boundaries.
+- **Root Defect:** Attempting to simulate physical depth without an optical elevation ramp or ambient light modeling (`EVID-SYS-001`, `EVID-HCI-004`).
+- **Severity:** `MEDIUM`
+- **Remediation:** Implement a disciplined 3-tier elevation token system using subtle, layered ambient shadows (`rgba(0,0,0,0.04)` to `0.08`) combined with 1px border keylines. In dark mode, rely on surface lightness shifts rather than shadows.
+- **Positive Counterpart:** `PATT-ENT-001`, `PATT-DEV-001`.
+
