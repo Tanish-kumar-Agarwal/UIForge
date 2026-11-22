@@ -81,7 +81,7 @@ The canonical selection universe consists of exactly **125 candidates** originat
 
 | Adoption Tier | Count | Percentage | Primary Recommendation | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **TIER 0 (Core Foundation)** | ${tierCounts['TIER 0']} | ${(tierCounts['TIER 0'] / totalCandidates * 100).toFixed(1)}% | \`ADOPT\` / \`CONDITIONALLY ADOPT\` | Essential architectural pillars forming core UIForge platform |
+| **TIER 0 (Core Foundation)** | ${tierCounts['TIER 0']} | ${(tierCounts['TIER 0'] / totalCandidates * 100).toFixed(1)}% | \`ADOPT\` / \`CONDITIONALLY ADOPT\` | Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility |
 | **TIER 1 (Recommended Core-Adjacent)** | ${tierCounts['TIER 1']} | ${(tierCounts['TIER 1'] / totalCandidates * 100).toFixed(1)}% | \`ADOPT\` | Curated registries, component blocks, and standard extensions |
 | **TIER 2 (Optional Integrations)** | ${tierCounts['TIER 2']} | ${(tierCounts['TIER 2'] / totalCandidates * 100).toFixed(1)}% | \`OPTIONAL\` | Modular plugins, secondary adapters, and optional integrations |
 | **TIER 3 (Reference & Research)** | ${tierCounts['TIER 3']} | ${(tierCounts['TIER 3'] / totalCandidates * 100).toFixed(1)}% | \`REFERENCE\` | Architectural patterns, layout concepts, and monolithic frameworks |
@@ -655,9 +655,21 @@ let mdCoreShortlist = `# UIForge Phase 02.5: Core Foundation Shortlist (Tier 0)
 
 ---
 
-## 1. Core Foundation Selection Rationale
+## 1. Core Foundation Selection Rationale & Architectural Decoupling
 
-The **24 Tier 0 Core Foundation candidates** represent the indispensable architectural pillars of UIForge. Each candidate satisfies the following criteria:
+> **Tier 0 — Core Foundation:** Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility.
+
+Tier 0 candidates do not represent an undifferentiated bundle of mandatory runtime dependencies. Instead, they are partitioned across seven distinct architectural and consumption layers:
+
+1. **Core Runtime Dependencies (8 candidates):** Directly integrated into production application bundles (\`@radix-ui/react-*\`, \`@ariakit/react\`, \`motion\`, \`lucide-react\`, \`recharts\`, \`@tanstack/react-table\`, \`react-resizable-panels\`, \`@tailwindcss/container-queries\`).
+2. **Development & Build Tooling (7 candidates):** Compiler, generator, and test execution harnesses (\`style-dictionary\`, \`tailwindcss\`, \`@axe-core/playwright\`, \`eslint-plugin-jsx-a11y\`, \`ast-grep\`, \`playwright\`, \`pixelmatch\`).
+3. **External CLI Tools (1 candidate):** Isolated CLI subprocesses with deferred release gates (\`@axe-core/cli\` — release blocked pending legal counsel clearance).
+4. **Source-Copy Component Blueprints (1 candidate):** Zero-runtime scaffolding templates (\`shadcn-ui/ui\`).
+5. **Open Design & Accessibility Standards (2 candidates):** Non-executable governance specifications (\`W3C Design Tokens Community Group Format\`, \`W3C ARIA Authoring Practices Guide 1.2\`).
+6. **Design System Assets (2 candidates):** Static typefaces with RFN compliance obligations (\`Inter\`, \`Geist\`).
+7. **Architectural Blueprints & Reference Infrastructure (3 candidates):** SDK foundations and reference patterns (\`Model Context Protocol TypeScript SDK\`, \`OpenDevin / OpenHands reference architecture\`, \`Babel 6-Stage AST & WAL Pipeline\`).
+
+Each Tier 0 candidate satisfies the following baseline criteria:
 1. Exceptional technical score ($\ge 92.0$ weighted score).
 2. Unconditional or restricted pass on all six mandatory hard gates (G1–G6).
 3. Zero unresolved legal copyleft or commercial non-compete contamination.
@@ -1265,7 +1277,7 @@ Rather than maximizing the number of external dependencies, Phase 02.5 adheres t
 
 | Adoption Tier | Purpose & Description | Candidate Count | Percentage | Primary Recommendation |
 | :--- | :--- | :---: | :---: | :---: |
-| **TIER 0** | **Core Foundation:** Essential technologies forming the core UIForge platform | **${tierCounts['TIER 0']}** | ${(tierCounts['TIER 0'] / totalCandidates * 100).toFixed(1)}% | \`ADOPT\` / \`CONDITIONALLY ADOPT\` |
+| **TIER 0** | **Core Foundation:** Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility | **${tierCounts['TIER 0']}** | ${(tierCounts['TIER 0'] / totalCandidates * 100).toFixed(1)}% | \`ADOPT\` / \`CONDITIONALLY ADOPT\` |
 | **TIER 1** | **Recommended Core-Adjacent:** High-value extensions and component registries | **${tierCounts['TIER 1']}** | ${(tierCounts['TIER 1'] / totalCandidates * 100).toFixed(1)}% | \`ADOPT\` |
 | **TIER 2** | **Optional Integrations:** Modular plugins, dashboard grids, and secondary adapters | **${tierCounts['TIER 2']}** | ${(tierCounts['TIER 2'] / totalCandidates * 100).toFixed(1)}% | \`OPTIONAL\` |
 | **TIER 3** | **Reference & Research:** Architectural patterns, layout concepts, and design systems | **${tierCounts['TIER 3']}** | ${(tierCounts['TIER 3'] / totalCandidates * 100).toFixed(1)}% | \`REFERENCE\` |
