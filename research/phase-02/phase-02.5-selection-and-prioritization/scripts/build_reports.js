@@ -638,6 +638,11 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 - **Consumption Mode:** \`DEPENDENCY\` (\`RESTRICTED\`, Tier 5 Excluded).
 - **License Terms:** Remotion's license is not a blanket commercial prohibition. It permits free, unlimited commercial use for individuals and small entities of up to 3 people. Entities with >3 employees must purchase a paid commercial Company License.
 - **Architectural Scope Misfit:** Remotion is excluded based on Gate G5 (Product Scope and Mission Fit): it is a specialized programmatic video rendering and composition engine (HTML/CSS to MP4 via headless Chromium/FFmpeg), whereas UIForge's mission is web UI design-to-code generation.
+
+### 2.7 @axe-core/playwright (\`OS-A11Y-02\`) — MPL-2.0 Testing Dependency Compliance (Finding C37)
+- **Consumption Mode:** \`DEPENDENCY\` (\`ELIGIBLE\`, \`allowed: true\`, Tier 0 Core Foundation).
+- **Authoritative License:** Mozilla Public License 2.0 (MPL-2.0).
+- **Compliance Boundary:** MPL-2.0 provides weak, file-level copyleft (Section 3). Because UIForge consumes \`@axe-core/playwright\` strictly as an unmodified test runner within \`devDependencies\` for automated CI/CD Playwright testing, it creates zero copyleft contamination of UIForge production runtime code. Deque copyright and MPL-2.0 notices are preserved in testing documentation.
 `;
 
 fs.writeFileSync(path.join(baseDir, 'LICENSE-AND-CONSUMPTION-MODE-DECISIONS.md'), mdLicDecisions, 'utf8');
@@ -661,13 +666,13 @@ let mdCoreShortlist = `# UIForge Phase 02.5: Core Foundation Shortlist (Tier 0)
 
 Tier 0 candidates do not represent an undifferentiated bundle of mandatory runtime dependencies. Instead, they are partitioned across seven distinct architectural and consumption layers:
 
-1. **Core Runtime Dependencies (8 candidates):** Directly integrated into production application bundles (\`@radix-ui/react-*\`, \`@ariakit/react\`, \`motion\`, \`lucide-react\`, \`recharts\`, \`@tanstack/react-table\`, \`react-resizable-panels\`, \`@tailwindcss/container-queries\`).
-2. **Development & Build Tooling (7 candidates):** Compiler, generator, and test execution harnesses (\`style-dictionary\`, \`tailwindcss\`, \`@axe-core/playwright\`, \`eslint-plugin-jsx-a11y\`, \`ast-grep\`, \`playwright\`, \`pixelmatch\`).
-3. **External CLI Tools (1 candidate):** Isolated CLI subprocesses with deferred release gates (\`@axe-core/cli\` — release blocked pending legal counsel clearance).
-4. **Source-Copy Component Blueprints (1 candidate):** Zero-runtime scaffolding templates (\`shadcn-ui/ui\`).
-5. **Open Design & Accessibility Standards (2 candidates):** Non-executable governance specifications (\`W3C Design Tokens Community Group Format\`, \`W3C ARIA Authoring Practices Guide 1.2\`).
-6. **Design System Assets (2 candidates):** Static typefaces with RFN compliance obligations (\`Inter\`, \`Geist\`).
-7. **Architectural Blueprints & Reference Infrastructure (3 candidates):** SDK foundations and reference patterns (\`Model Context Protocol TypeScript SDK\`, \`OpenDevin / OpenHands reference architecture\`, \`Babel 6-Stage AST & WAL Pipeline\`).
+1. **Core Runtime Dependencies (8 candidates):** Directly integrated into production application bundles (\`@radix-ui/react-*\` \`OS-COMP-02\`, \`@react-aria/*\` \`OS-COMP-03\`, \`motion\` \`OS-ANIM-01\`, \`lucide-react\` \`OS-ICON-01\`, \`recharts\` \`OS-CHRT-01\`, \`@tanstack/react-table\` \`OS-DASH-03\`, \`react-resizable-panels\` \`OS-LAYT-01\`, \`@modelcontextprotocol/typescript-sdk\` \`OS-AGNT-01\`).
+2. **Development, Build & Testing Tooling (8 candidates):** Compilers, generators, linters, and test execution harnesses (\`style-dictionary\` \`OS-TOKN-02\`, \`tailwindcss\` \`OS-TOKN-04\`, \`tailwindcss-container-queries\` \`OS-LAYT-02\` [Tailwind v3 compatibility plugin; native container queries in Tailwind v4], \`babel/babel\` \`OS-D2C-07\`, \`eslint-plugin-jsx-a11y\` \`OS-A11Y-03\`, \`playwright\` \`OS-BROW-01\`, \`@axe-core/playwright\` \`OS-A11Y-02\`, \`pixelmatch\` \`OS-VREG-01\`).
+3. **External CLI Subprocesses (2 candidates):** Isolated CLI subprocesses invoked out-of-process without binary bundling (\`@axe-core/cli\` \`OS-A11Y-01\` [release blocked pending legal counsel clearance], \`ast-grep\` \`OS-D2C-06\`).
+4. **Source-Copy Component Blueprints (1 candidate):** Zero-runtime scaffolding templates (\`shadcn-ui/ui\` \`OS-COMP-01\`).
+5. **Open Design & Accessibility Standards (2 candidates):** Non-executable governance specifications (\`W3C Design Tokens Community Group Format\` \`OS-TOKN-01\`, \`W3C ARIA Authoring Practices Guide 1.2\` \`OS-A11Y-08\`).
+6. **Design System Assets (2 candidates):** Static typefaces with RFN compliance obligations (\`Inter\` \`OS-TYPO-04\`, \`Geist\` \`OS-TYPO-05\`).
+7. **Agent Reference Architectures & Execution Patterns (1 candidate):** Autonomous coding agent reference execution harness and shadow-workspace patterns (\`anomalyco/opencode\` \`OS-AGNT-02\`).
 
 Each Tier 0 candidate satisfies the following baseline criteria:
 1. Exceptional technical score ($\ge 92.0$ weighted score).
@@ -693,8 +698,10 @@ mdCoreShortlist += `
 
 ## 3. Tier 0 Key Specifications & Boundaries
 - **axe-core (\`OS-A11Y-01\`):** Classified as \`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\` (C17). Out-of-process CLI execution decoupled from UIForge core binaries.
+- **@axe-core/playwright (\`OS-A11Y-02\`):** Official Playwright accessibility testing runner licensed under Mozilla Public License 2.0 (MPL-2.0). Restricted to \`devDependencies\` test suites; weak file-level copyleft ensures zero runtime contamination (C37).
 - **Style Dictionary (\`OS-TOKN-02\`):** Upgraded to \`v5.8.0\` supporting native W3C DTCG format on Node.js 22 LTS (C14).
 - **Model Context Protocol SDK (\`OS-AGNT-01\`):** Declared semver ranges (\`@modelcontextprotocol/server@^2.1.0\`, evaluated on v2.1.1; \`@modelcontextprotocol/client@^2.1.0\`). Implements modern 2026-07-28 discovery (\`server/discover\`, \`_meta\`) with auto-negotiation fallback to 2025-11-25 / 2024-11-05 (C13, C20, C24).
+- **anomalyco/opencode (\`OS-AGNT-02\`):** Autonomous AI coding agent reference architecture (Score: 92.4, Tier 0 Core Foundation, \`REFERENCE_ONLY\`). Serves as clean-room pattern for agent loop execution and shadow workspaces (C36).
 - **Babel Infrastructure (\`OS-D2C-07\`):** Complete 6-stage AST manipulation pipeline with \`@babel/generator\` and \`errorRecovery: true\` for fault-tolerant JSX parsing, coupled with WAL token buffering and TS baseline diagnostic regression checks (C15, C22).
 - **Fonts (\`OS-TYPO-04\`, \`OS-TYPO-05\`):** Inter v4.1 and Geist v1.4.0 distributed under SIL OFL 1.1 RFN preservation; custom subsetting defaults to font-family rename (\`UIForgeInter\`, \`UIForgeGeist\`) unless functional-equivalence exception or permission applies (C18, C21).
 
@@ -1154,8 +1161,8 @@ UIForge adopts **58 candidates** across Tier 0 (24 Core Foundation) and Tier 1 (
 
 ### Q3. Which candidates should be integrated as dependencies?
 Dependencies are partitioned strictly into **Core Runtime Dependencies** and **Development / Testing Dependencies**:
-- **Core Runtime Dependencies (UIForge Platform & Studio):** \`@modelcontextprotocol/server\` (^2.1.0), \`@radix-ui/react-*\`, \`@tanstack/react-table\`, \`lucide-react\`, \`motion\`, \`recharts\`, \`react-resizable-panels\`, \`tailwindcss\` (v4 compiler).
-- **Core Build & Test Dependencies:** \`style-dictionary\` (v5.8.0), \`pixelmatch\`, \`playwright\`, \`@axe-core/playwright\`, \`eslint-plugin-jsx-a11y\`, \`@babel/parser\`, \`@babel/traverse\`, \`@babel/types\`, \`@babel/generator\`.
+- **Core Runtime Dependencies (UIForge Platform & Studio):** \`@radix-ui/react-*\` (\`OS-COMP-02\`), \`@react-aria/*\` (\`OS-COMP-03\`), \`motion\` (\`OS-ANIM-01\`), \`lucide-react\` (\`OS-ICON-01\`), \`recharts\` (\`OS-CHRT-01\`, dynamically lazy-loaded), \`@tanstack/react-table\` (\`OS-DASH-03\`), \`react-resizable-panels\` (\`OS-LAYT-01\`), \`@modelcontextprotocol/typescript-sdk\` (\`OS-AGNT-01\`).
+- **Core Build & Test Dependencies:** \`style-dictionary\` (v5.8.0, \`OS-TOKN-02\`), \`tailwindcss\` (v4 compiler, \`OS-TOKN-04\`), \`@tailwindcss/container-queries\` (\`OS-LAYT-02\`, legacy v3 build plugin), \`@babel/parser\`, \`@babel/traverse\`, \`@babel/types\`, \`@babel/generator\` (\`OS-D2C-07\`), \`eslint-plugin-jsx-a11y\` (\`OS-A11Y-03\`), \`playwright\` (\`OS-BROW-01\`), \`@axe-core/playwright\` (\`OS-A11Y-02\`), \`pixelmatch\` (\`OS-VREG-01\`).
 
 ### Q4. Which candidates should be used through source adaptation or registry consumption?
 UIForge adopts the **shadcn/ui registry model** (\`OS-COMP-01\`) as its canonical component emission architecture:
