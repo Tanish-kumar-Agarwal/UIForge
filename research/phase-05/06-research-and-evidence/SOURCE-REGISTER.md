@@ -31,8 +31,12 @@ Every claim, rule, anti-pattern, and evaluation criterion in UIForge must trace 
 - **Publication Date:** October 5, 2023
 - **Status:** W3C Recommendation
 - **Canonical URL:** `https://www.w3.org/TR/WCAG22/`
-- **Scope & Coverage:** Success criteria for contrast (1.4.3, 1.4.6, 1.4.11), target size (2.5.8 Minimum, 2.5.5 Enhanced), focus appearance (2.4.13), dragging movements (2.5.7), consistent help (3.2.6), accessible authentication (3.3.8).
-- **Application in UIForge:** Authoritative truth for contrast calculations, touch target minimums, focus visibility, keyboard navigation, and cognitive accessibility.
+- **Scope & Coverage:** Normative success criteria:
+  - Contrast: SC 1.4.3 Contrast (Minimum, Level AA: 4.5:1 text, 3:1 large text), SC 1.4.6 Contrast (Enhanced, Level AAA: 7:1 text), SC 1.4.11 Non-text Contrast (Level AA: 3:1 components/states).
+  - Target Sizing: SC 2.5.8 Target Size (Minimum, Level AA: 24×24 CSS pixels minimum with spacing offsets), SC 2.5.5 Target Size (Enhanced, Level AAA: 44×44 CSS pixels).
+  - Focus: SC 2.4.7 Focus Visible (Level AA), SC 2.4.11 Focus Not Obscured (Minimum, Level AA), SC 2.4.13 Focus Appearance (Level AAA: 3:1 contrast and 2px perimeter indicator).
+  - Dragging & Navigation: SC 2.5.7 Dragging Movements (Level AA), SC 3.2.6 Consistent Help (Level AA), SC 3.3.8 Accessible Authentication (Level AA).
+- **Application in UIForge:** Authoritative truth for contrast calculations, target minimums (24×24px AA floor), focus visibility, keyboard navigation, and cognitive accessibility.
 
 #### `SRC-STD-002`: W3C WAI-ARIA Authoring Practices Guide (APG)
 - **Publisher:** W3C Web Accessibility Initiative (WAI)
@@ -41,13 +45,15 @@ Every claim, rule, anti-pattern, and evaluation criterion in UIForge must trace 
 - **Scope & Coverage:** Canonical design patterns for accessible widgets: dialogs, tabs, accordions, comboboxes, menus, tooltips, disclosure widgets, treeviews, grids, and landmarks.
 - **Application in UIForge:** Behavioral contracts, keyboard interaction models, ARIA role mapping, and focus management across components.
 
-#### `SRC-STD-003`: W3C Design Tokens Community Group (DTCG) Specification
-- **Publisher:** W3C Design Tokens Community Group
+#### `SRC-STD-003`: Design Tokens Community Group (DTCG) Draft Specification
+- **Publisher:** Design Tokens Community Group (hosted by W3C)
 - **Publication Date:** October 2025 (Draft 2025.10)
-- **Status:** Community Group Draft Standard (`OS-TOKN-01`)
+- **Status:** Community Group Draft Report / Specification (`OS-TOKN-01`)
+- **Note:** A W3C Community Group Report is an industry consensus specification developed within a W3C Community Group; it is not a formal W3C Recommendation or standard track deliverable of the W3C Working Groups.
 - **Canonical URL:** `https://tr.designtokens.org/format/`
 - **Scope & Coverage:** Machine-readable design token exchange format, explicit `$type`, `$value`, `$description`, token aliasing `{path.to.token}`, modes, composite tokens.
 - **Application in UIForge:** Canonical token schema for `@uiforge/tokens` and design system generation; verified zero-shim compilation via Style Dictionary v5.8.0.
+
 
 #### `SRC-STD-004`: W3C CSS Color Module Level 4 & 5
 - **Publisher:** W3C CSS Working Group
