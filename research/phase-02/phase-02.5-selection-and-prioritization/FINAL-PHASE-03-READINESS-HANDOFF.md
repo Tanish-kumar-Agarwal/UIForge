@@ -4,14 +4,25 @@
 **Document ID:** `UIF-PH02.5-FINAL-PHASE-03-HANDOFF`  
 **From:** Phase 02.5 (Preliminary Repository Selection & Prioritization)  
 **To:** Phase 03 (Project Setup, Core Foundation Integration & Tooling Implementation)  
-**Status:** **AUTHORITATIVE TRANSITION READY — ALL 24 CORE FOUNDATION PACKAGES FORMALIZED**  
+**Status:** **PHASE 02.5 — RESEARCH, SELECTION, RECONCILIATION AND DOCUMENTATION COMPLETE. EXTERNAL LEGAL AND OPERATIONAL DEPENDENCIES TRACKED FOR PHASE 03.**  
 **Handoff Date:** 2026-11-22  
 
 ---
 
-## 1. Core Foundation Package Handoff Checklist (Tier 0: 24 Candidates)
+## 1. Core Foundation Architectural Handoff (Tier 0: 24 Candidates)
 
-The following 24 candidates form UIForge's immutable Core Foundation. Each package must be integrated during Phase 03 according to its declared consumption mode and architectural configuration:
+> **Tier 0 — Core Foundation:** Strategic architectural foundations and capabilities to adopt selectively according to product requirements, existing infrastructure, compatibility and eligibility.
+
+The 24 Tier 0 candidates are explicitly distinguished across seven distinct architectural layers to prevent treating all candidates as monolithic runtime dependencies:
+
+### 1.1 Architectural Categorization of Tier 0 Candidates
+- **Runtime Library Dependencies (8 Candidates):** `@radix-ui/react-*` (`OS-COMP-02`), `@ariakit/react` (`OS-COMP-03`), `motion` (`OS-ANIM-01`), `lucide-react` (`OS-ICON-01`), `recharts` (`OS-CHRT-01`), `@tanstack/react-table` (`OS-DASH-03`), `react-resizable-panels` (`OS-LAYT-01`), `@tailwindcss/container-queries` (`OS-LAYT-02`).
+- **Development & Build-Time Tools (7 Candidates):** `style-dictionary` (`OS-TOKN-02`), `tailwindcss` (`OS-TOKN-04`), `@axe-core/playwright` (`OS-A11Y-02`), `eslint-plugin-jsx-a11y` (`OS-A11Y-03`), `ast-grep` (`OS-D2C-06`), `playwright` (`OS-BROW-01`), `pixelmatch` (`OS-VREG-01`).
+- **External Tools (1 Candidate):** `@axe-core/cli` (`OS-A11Y-01`, conditional on legal counsel clearance; external subprocess invocation only; no binary bundling).
+- **Source Copy / Code Registry Templates (1 Candidate):** `shadcn-ui/ui` (`OS-COMP-01`, CLI-driven component registry without mandatory runtime framework coupling).
+- **Standards & Specifications (2 Candidates):** W3C DTCG Format (`OS-TOKN-01`), W3C ARIA Authoring Practices Guide (APG) (`OS-A11Y-08`).
+- **Asset Redistribution (2 Candidates):** Inter font (`OS-TYPO-04`), Geist font (`OS-TYPO-05`) (SIL OFL 1.1 font binaries).
+- **Infrastructure & Protocol Frameworks (3 Candidates):** Model Context Protocol TypeScript SDK (`OS-AGNT-01`, agent connectivity protocol), OpenDevin reference architecture (`OS-AGNT-02`, agent loop spec), Babel AST infrastructure (`OS-D2C-07`, code transform infrastructure).
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐

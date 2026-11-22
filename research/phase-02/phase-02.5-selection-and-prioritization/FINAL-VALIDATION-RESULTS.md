@@ -18,13 +18,17 @@
 ├─────┬────────────────────────────────┬──────────────┬────────────┬─────────────┬─────────────────┤
 │ #   │ Test Suite Name                │ Executed By  │ Assertions │ Result      │ Exit Code       │
 ├─────┼────────────────────────────────┼──────────────┼────────────┼─────────────┼─────────────────┤
-│ 1   │ Phase 02.5 Selection Validator │ Node.js v22  │ 61 / 61    │ 100% PASS   │ 0 (Clean)       │
+│ 1   │ Phase 02.5 Selection Validator │ Node.js v22  │ 67 / 67    │ 100% PASS   │ 0 (Clean)       │
 │ 2   │ Phase 02.4 Registry Validator  │ Node.js v22  │ 46 / 46    │ 100% PASS   │ 0 (Clean)       │
 │ 3   │ Babel Recovery & WAL Fixtures  │ Node.js v22  │ 10 / 10    │ 100% PASS   │ 0 (Clean)       │
 ├─────┼────────────────────────────────┼──────────────┼────────────┼─────────────┼─────────────────┤
-│ ALL │ TOTAL MASTER ASSERTIONS        │ 3 Test Files │ 117 / 117  │ ZERO ERRORS │ ALL PASS        │
+│ ALL │ TOTAL MASTER ASSERTIONS        │ 3 Test Files │ 123 / 123  │ ZERO ERRORS │ ALL PASS        │
 └─────┴────────────────────────────────┴──────────────┴────────────┴─────────────┴─────────────────┘
 ```
+
+> [!NOTE]
+> **Assertion Scope & Independence Qualification (Finding C31):**
+> The arithmetic total of 123 assertions represents automated checks across schemas, inventory integrity, scoring math, tier classifications, and empirical behavioral fixtures. It does not represent 123 completely independent unit tests, as certain assertions verify structural invariants (e.g. JSON schema conformance, array lengths, non-null fields). Zero regressions is confirmed against the established Phase 02.4/02.5 validation baseline.
 
 ---
 
@@ -33,8 +37,8 @@
 ### 2.1 Suite 1: Phase 02.5 Selection Validator (`validate_selection.js`)
 - **Execution Command:** `node research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js`
 - **Script Path:** `research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js`
-- **Script Digest (SHA-256):** `b333731ad7bf4596d0f9a96a5270935483f48ce049ee5f9bdc6ee2d9cf04b14b`
-- **Assertion Count:** 61 Passed, 0 Failed
+- **Script Digest (SHA-256):** `800cc130725785275c808ef56a2a3082acfd1758725253e52d2f3324b6d8b016`
+- **Assertion Count:** 67 Passed, 0 Failed
 - **Execution Output:**
 ```
 ================================================================
@@ -100,11 +104,17 @@ UIFORGE PHASE 02.5: SELECTION & PRIORITIZATION VALIDATION HARNESS
 [PASS] 58: Pixelmatch is classified as TIER 0 Core Foundation deterministic visual difference engine
 [PASS] 59: Tailwind CSS v4 is classified as TIER 0 Core Foundation utility CSS engine
 [PASS] 60: Canonical technical scoring weights sum to exactly 100% (1.000)
-[PASS] 61: Validation script SHA-256 digest calculated; verifies script byte integrity and local execution conditions (not external third-party certification) (C23)
+[PASS] 61: 100% of candidate claims adhere strictly to canonical 12-enum evidence classification taxonomy without generic labels (C28)
+[PASS] 62: SIL OFL 1.1 font compliance specifies exact pyftsubset flags and default font-family rename for custom subsets (C25)
+[PASS] 63: Babel AST infrastructure strictly separates parser capabilities from UIForge WAL, which is specified architecturally and simulated (C26)
+[PASS] 64: Model Context Protocol specifies live runtime socket tests are classified NOT-EXECUTED pending Phase 03 integration test harness (C27)
+[PASS] 65: All 6 final Phase 02.5 closure dossiers exist on disk (Completion Report, Reconciliation, Evidence, Technical Corrections, Validation Results, Phase 03 Handoff)
+[PASS] 66: Empirical Babel recovery, WAL separation, and TS baseline comparator verification script executes cleanly with exit code 0
+[PASS] 67: Validation script SHA-256 digest calculated; verifies script byte integrity and local execution conditions (not external third-party certification) (C23)
 ----------------------------------------------------------------
-SELECTION VALIDATION SCRIPT SHA-256: b333731ad7bf4596d0f9a96a5270935483f48ce049ee5f9bdc6ee2d9cf04b14b
+SELECTION VALIDATION SCRIPT SHA-256: 800cc130725785275c808ef56a2a3082acfd1758725253e52d2f3324b6d8b016
 ================================================================
-VALIDATION HARNESS COMPLETE: 61 / 61 TESTS PASSED (0 failures)
+VALIDATION HARNESS COMPLETE: 67 / 67 TESTS PASSED (0 failures)
 ================================================================
 ```
 

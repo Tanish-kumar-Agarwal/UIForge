@@ -49,9 +49,9 @@ All test harnesses have been executed, and their byte-level SHA-256 digests are 
 
 | Script File Path | Byte Length | SHA-256 Digest | Primary Verification Scope |
 | :--- | :---: | :--- | :--- |
-| `research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js` | 24,691 bytes | `b333731ad7bf4596d0f9a96a5270935483f48ce049ee5f9bdc6ee2d9cf04b14b` | Master selection validator (61 assertions) |
+| `research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js` | 27,842 bytes | `800cc130725785275c808ef56a2a3082acfd1758725253e52d2f3324b6d8b016` | Master selection validator (67 assertions) |
 | `research/phase-02/phase-02.4-internal-source-registry/validation/validate_registry.js` | 22,870 bytes | `a96bfe007c3f57c12c0f365a677131de795cb8d38598b1524b2a635bef67916c` | Canonical source registry validator (46 assertions) |
-| `research/phase-02/phase-02.5-selection-and-prioritization/scripts/verify_babel_recovery.js` | 13,850 bytes | `0d8b5c93a8d8e4e4e9f733190df038ce02787c88b0a514d4e3cb2897669b7f52` | Babel error recovery, WAL separation & TS comparator |
+| `research/phase-02/phase-02.5-selection-and-prioritization/scripts/verify_babel_recovery.js` | 13,850 bytes | `e2171ce0c13e9bd5512cba4e49a9e1e5a29c6afda90a40fd5c2e35f298546155` | Babel error recovery, WAL separation & TS comparator |
 | `research/phase-02/phase-02.5-selection-and-prioritization/scripts/generate_selection_data.js` | 39,200 bytes | `e99a41df5a7114b0ef093a12a524e1cc5187747e928236d9d1502444b05a6111` | Deterministic dataset generator |
 
 ---
