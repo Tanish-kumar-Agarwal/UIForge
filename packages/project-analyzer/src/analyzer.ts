@@ -1,31 +1,35 @@
-import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import {
   type AnalysisRun,
-  type FrameworkMetadata,
-  type StylingMetadata,
+  type ProjectAnalysisResult,
   AnalysisRunSchema,
+  ProjectAnalysisResultSchema,
   UIForgeError,
   ErrorCode,
   ErrorCategory,
 } from '@uiforge/contracts';
 
-export interface ProjectAnalysisOptions {
+import { SecurityBoundaryManager, type SecurityOptions } from './security.js';
+import { WorkspaceManager } from './workspace.js';
+import { TechnologyDetector } from './detector.js';
+import { AstSourceAnalyzer } from './ast-analyzer.js';
+import { QualityEvaluator } from './quality.js';
+import { MarkdownReporter } from './reporter.js';
+
+export interface ProjectAnalysisOptions extends SecurityOptions {
   rootPath: string;
   projectId?: string;
-}
-
-export interface DiscoveredProjectMetadata {
-  framework: FrameworkMetadata;
-  styling: StylingMetadata;
-  routes: string[];
-  components: string[];
+  targetApplication?: string;
 }
 
 export class ProjectAnalyzer {
-  private readonly rootPath: string;
+  private readonly rawRootPath: string;
   private readonly projectId: string;
+  private readonly targetApplication?: string;
+  private readonly options: ProjectAnalysisOptions;
+  private securityInstance?: SecurityBoundaryManager;
+  private workspaceInstance?: WorkspaceManager;
 
   constructor(options: ProjectAnalysisOptions) {
     if (!options.rootPath) {
@@ -36,231 +40,179 @@ export class ProjectAnalyzer {
       });
     }
 
-    this.rootPath = path.resolve(options.rootPath);
+    this.rawRootPath = options.rootPath;
     this.projectId = options.projectId ?? randomUUID();
+    this.targetApplication = options.targetApplication;
+    this.options = options;
   }
 
-  public async scan(): Promise<AnalysisRun> {
+  private getSecurity(): SecurityBoundaryManager {
+    if (!this.securityInstance) {
+      this.securityInstance = new SecurityBoundaryManager(this.rawRootPath, this.options);
+    }
+    return this.securityInstance;
+  }
+
+  private getWorkspace(): WorkspaceManager {
+    if (!this.workspaceInstance) {
+      const sec = this.getSecurity();
+      this.workspaceInstance = new WorkspaceManager(sec.canonicalRoot, sec);
+    }
+    return this.workspaceInstance;
+  }
+
+  /**
+   * Primary comprehensive analysis engine.
+   * Produces a deterministic, validated ProjectAnalysisResult conforming to Contract 29.
+   */
+  public async analyze(): Promise<ProjectAnalysisResult> {
     const startTime = performance.now();
     const warnings: string[] = [];
+    const security = this.getSecurity();
+    const workspace = this.getWorkspace();
 
-    if (!fs.existsSync(this.rootPath)) {
-      throw new UIForgeError({
-        code: ErrorCode.ERR_SECURITY_PATH_TRAVERSAL,
-        category: ErrorCategory.SECURITY,
-        message: `Project root directory does not exist: ${this.rootPath}`,
-        remediationHint: 'Provide a valid existing directory path',
-      });
-    }
+    // 1. Filesystem Crawl & Discovery
+    const discoveredFiles = workspace.crawlFiles(this.targetApplication);
 
-    const packageJsonPath = path.join(this.rootPath, 'package.json');
-    let pkgJson: Record<string, unknown> = {};
+    // 2. Package Manager & Lockfile Detection
+    const packageManager = workspace.detectPackageManager();
 
-    if (fs.existsSync(packageJsonPath)) {
-      try {
-        const raw = fs.readFileSync(packageJsonPath, 'utf8');
-        pkgJson = JSON.parse(raw);
-      } catch (err) {
-        warnings.push(`Failed to parse package.json: ${(err as Error).message}`);
-      }
-    } else {
-      warnings.push('No package.json detected in root path.');
-    }
+    // 3. Workspace / Monorepo Detection
+    const workspaceMeta = workspace.detectWorkspace(this.targetApplication);
 
-    const deps = {
-      ...((pkgJson.dependencies as Record<string, string>) || {}),
-      ...((pkgJson.devDependencies as Record<string, string>) || {}),
-    };
+    // 4. Dependencies & Tooling
+    const dependencyAnalysis = workspace.analyzeDependencies();
+    warnings.push(...dependencyAnalysis.warnings);
 
-    // 1. Framework detection
-    const framework = this.detectFramework(deps);
+    // 5. Framework & Technology Detection
+    const detector = new TechnologyDetector(
+      security.canonicalRoot,
+      discoveredFiles,
+      dependencyAnalysis,
+    );
+    const framework = detector.detectFramework();
+    const language = detector.detectLanguage();
+    const runtime = detector.detectRuntime();
+    const styling = detector.detectStyling();
 
-    // 2. Styling strategy detection
-    const styling = this.detectStyling(deps);
+    // 6. TypeScript Compiler API AST Source Analysis
+    const astAnalyzer = new AstSourceAnalyzer(security.canonicalRoot, security);
+    const astResult = astAnalyzer.analyzeSources(
+      discoveredFiles.allSourceFiles,
+      this.targetApplication,
+    );
+    warnings.push(...astResult.parseWarnings);
 
-    // 3. Route discovery
-    const routes = this.discoverRoutes();
+    // 7. Quality Signals & Recommendations
+    const qualityEvaluator = new QualityEvaluator();
+    const recommendations = qualityEvaluator.generateRecommendations(
+      astResult.findings,
+      styling,
+      astResult.accessibilitySignals,
+      astResult.hardcodedValues,
+      packageManager,
+    );
 
-    // 4. Component census
-    const components = this.discoverComponents();
+    // 8. Read-Only Git Intelligence
+    const git = workspace.inspectGit();
 
     const durationMs = Math.round(performance.now() - startTime);
 
+    // Derive project name from directory or package.json
+    let projectName = path.basename(security.canonicalRoot);
+    if (dependencyAnalysis.direct['name']) {
+      projectName = dependencyAnalysis.direct['name'];
+    }
+
+    // Determine status
+    let status: 'SUCCESS' | 'PARTIAL' | 'FAILED' = 'SUCCESS';
+    if (discoveredFiles.limitsHit.length > 0) {
+      status = 'PARTIAL';
+      warnings.push(`Scan limits reached: ${discoveredFiles.limitsHit.join(', ')}`);
+    }
+
+    // Compile result conforming to Contract 29 (uiforge.contract.project-analysis.v1)
+    const result: ProjectAnalysisResult = {
+      $schema: 'https://schemas.uiforge.dev/v1/project-analysis.json',
+      execution: {
+        analysisId: randomUUID(),
+        timestamp: new Date().toISOString(),
+        durationMs,
+        analyzerVersion: '0.2.0',
+        environment: {
+          nodeVersion: process.version,
+          platform: process.platform,
+        },
+      },
+      analysis: {
+        projectIdentity: {
+          name: projectName,
+          framework,
+          language,
+          runtime,
+          packageManager,
+          workspace: workspaceMeta,
+          monorepoApp: this.targetApplication,
+        },
+        dependencies: {
+          direct: dependencyAnalysis.direct,
+          devDependencies: dependencyAnalysis.devDependencies,
+          scripts: dependencyAnalysis.scripts,
+          tools: dependencyAnalysis.tools,
+        },
+        architecture: {
+          routes: astResult.routes,
+          components: astResult.components,
+          styling,
+        },
+        signals: {
+          responsive: astResult.responsiveSignals,
+          accessibility: astResult.accessibilitySignals,
+          designTokens: astResult.hardcodedValues,
+        },
+        git,
+        coverage: discoveredFiles.coverage,
+        findings: astResult.findings,
+        recommendations,
+        warnings: Array.from(new Set(warnings)).sort(),
+        status,
+      },
+    };
+
+    return ProjectAnalysisResultSchema.parse(result);
+  }
+
+  /**
+   * Generates a comprehensive human-readable Markdown analysis report.
+   */
+  public async generateReport(): Promise<string> {
+    const analysisResult = await this.analyze();
+    const reporter = new MarkdownReporter();
+    return reporter.generate(analysisResult);
+  }
+
+  /**
+   * Backwards-compatible scan() method returning Contract 10 AnalysisRun.
+   */
+  public async scan(): Promise<AnalysisRun> {
+    const fullResult = await this.analyze();
+    const { analysis, execution } = fullResult;
+
     const run: AnalysisRun = {
-      analysisId: randomUUID(),
+      analysisId: execution.analysisId,
       projectId: this.projectId,
-      timestamp: new Date().toISOString(),
-      analyzerVersion: '0.1.0',
-      detectedFramework: framework.name,
-      detectedRouter: framework.router,
-      stylingStrategy: styling.engine,
-      componentCount: components.length,
-      routeCount: routes.length,
-      durationMs,
-      status: warnings.length > 0 && !fs.existsSync(packageJsonPath) ? 'PARTIAL' : 'SUCCESS',
-      warnings,
+      timestamp: execution.timestamp,
+      analyzerVersion: execution.analyzerVersion,
+      detectedFramework: analysis.projectIdentity.framework.name,
+      detectedRouter: analysis.projectIdentity.framework.router,
+      stylingStrategy: analysis.architecture.styling.primaryEngine,
+      componentCount: analysis.architecture.components.length,
+      routeCount: analysis.architecture.routes.length,
+      durationMs: execution.durationMs,
+      status: analysis.status,
+      warnings: analysis.warnings,
     };
 
     return AnalysisRunSchema.parse(run);
-  }
-
-  private detectFramework(deps: Record<string, string>): FrameworkMetadata {
-    if (deps['next']) {
-      const hasAppDir =
-        fs.existsSync(path.join(this.rootPath, 'app')) ||
-        fs.existsSync(path.join(this.rootPath, 'src', 'app'));
-      return {
-        name: 'next',
-        version: deps['next'] ?? 'unknown',
-        router: hasAppDir ? 'app-router' : 'pages-router',
-      };
-    }
-
-    if (deps['@remix-run/react'] || deps['@remix-run/node']) {
-      return {
-        name: 'remix',
-        version: deps['@remix-run/react'] ?? 'unknown',
-        router: 'file-system',
-      };
-    }
-
-    if (deps['@sveltejs/kit']) {
-      return {
-        name: 'sveltekit',
-        version: deps['@sveltejs/kit'] ?? 'unknown',
-        router: 'file-system',
-      };
-    }
-
-    if (deps['vue'] && deps['vite']) {
-      return {
-        name: 'vue-vite',
-        version: deps['vue'] ?? 'unknown',
-        router: 'spa-hash',
-      };
-    }
-
-    if (deps['react'] && (deps['vite'] || deps['@vitejs/plugin-react'])) {
-      return {
-        name: 'react-vite',
-        version: deps['react'] ?? 'unknown',
-        router: 'spa-hash',
-      };
-    }
-
-    return {
-      name: 'unknown',
-      version: '0.0.0',
-      router: 'none',
-    };
-  }
-
-  private detectStyling(deps: Record<string, string>): StylingMetadata {
-    const hasTailwindV4 =
-      deps['@tailwindcss/vite'] !== undefined ||
-      deps['tailwindcss']?.startsWith('4') ||
-      deps['tailwindcss']?.startsWith('^4');
-    const hasTailwindV3 = deps['tailwindcss'] && !hasTailwindV4;
-
-    if (hasTailwindV4) {
-      return {
-        engine: 'tailwind',
-        tailwindVersion: 'v4',
-        cssVariablesDetected: true,
-      };
-    }
-
-    if (hasTailwindV3) {
-      return {
-        engine: 'tailwind',
-        tailwindVersion: 'v3',
-        cssVariablesDetected: true,
-      };
-    }
-
-    if (deps['styled-components']) {
-      return {
-        engine: 'styled-components',
-        cssVariablesDetected: false,
-      };
-    }
-
-    if (deps['sass'] || deps['node-sass']) {
-      return {
-        engine: 'sass',
-        cssVariablesDetected: false,
-      };
-    }
-
-    return {
-      engine: 'vanilla-css',
-      cssVariablesDetected: false,
-    };
-  }
-
-  private discoverRoutes(): string[] {
-    const routes: string[] = [];
-    const candidateDirs = [
-      path.join(this.rootPath, 'src', 'app'),
-      path.join(this.rootPath, 'app'),
-      path.join(this.rootPath, 'src', 'pages'),
-      path.join(this.rootPath, 'pages'),
-      path.join(this.rootPath, 'src', 'routes'),
-      path.join(this.rootPath, 'routes'),
-    ];
-
-    for (const dir of candidateDirs) {
-      if (fs.existsSync(dir)) {
-        this.scanDirForFiles(dir, (filePath) => {
-          const relative = path.relative(dir, filePath);
-          if (/\.(tsx|jsx|ts|js|vue|svelte)$/.test(filePath) && !/\.(test|spec)\./.test(filePath)) {
-            const normalized =
-              '/' + relative.replace(/\.(tsx|jsx|ts|js|vue|svelte)$/, '').replace(/\\/g, '/');
-            routes.push(normalized);
-          }
-        });
-      }
-    }
-
-    return routes;
-  }
-
-  private discoverComponents(): string[] {
-    const components: string[] = [];
-    const componentDirs = [
-      path.join(this.rootPath, 'src', 'components'),
-      path.join(this.rootPath, 'components'),
-      path.join(this.rootPath, 'src', 'ui'),
-    ];
-
-    for (const dir of componentDirs) {
-      if (fs.existsSync(dir)) {
-        this.scanDirForFiles(dir, (filePath) => {
-          if (/\.(tsx|jsx|vue|svelte)$/.test(filePath) && !/\.(test|spec)\./.test(filePath)) {
-            components.push(path.relative(this.rootPath, filePath));
-          }
-        });
-      }
-    }
-
-    return components;
-  }
-
-  private scanDirForFiles(dir: string, callback: (filePath: string) => void): void {
-    try {
-      const entries = fs.readdirSync(dir, { withFileTypes: true });
-      for (const entry of entries) {
-        const fullPath = path.join(dir, entry.name);
-        if (entry.isDirectory()) {
-          if (entry.name !== 'node_modules' && entry.name !== '.git' && entry.name !== '.uiforge') {
-            this.scanDirForFiles(fullPath, callback);
-          }
-        } else if (entry.isFile()) {
-          callback(fullPath);
-        }
-      }
-    } catch {
-      // Ignored for restricted directories
-    }
   }
 }
