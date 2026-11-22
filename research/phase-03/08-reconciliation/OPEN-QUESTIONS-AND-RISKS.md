@@ -41,20 +41,20 @@ This document systematically catalogs the open technical questions, critical ope
 
 ---
 
-### RSK-01: Babel AST Coordinate Preservation on Complex JSX/TSX
+### RSK-01: Babel AST Coordinate Preservation & Filesystem Mutation Safety
 - **Category:** AST & Mutation Engine
 - **Impact:** High (Potential source code corruption if coordinates drift)
 - **Likelihood:** Medium
 - **Classification:** `[PROPOSED]` / `[ASSUMPTION]`
 - **Description:**
-  UIForge uses `@babel/parser` to discover component AST nodes and extract character coordinates `[start, end]` for surgical string-splicing insertions (`ADR-008`). While standard JSX/TSX produces exact offsets, complex real-world codebases contain edge cases: multi-byte Unicode strings (emojis, CJK characters), custom decorator syntax, unclosed or error-tolerant JSX fragments, inline TypeScript type assertions (`<Type>value` vs JSX), and unusual comment placements.
+  UIForge uses `@babel/parser` to discover component AST nodes and extract character coordinates `[start, end]` for surgical string-splicing insertions (`ADR-008`). While standard JSX/TSX produces exact offsets, complex real-world codebases contain edge cases: multi-byte Unicode strings (emojis, CJK characters), custom decorator syntax, unclosed or error-tolerant JSX fragments, inline TypeScript type assertions (`<Type>value` vs JSX), and unusual comment placements. Furthermore, coordinate splicing alone does not guarantee filesystem atomicity across multiple files.
 - **Architectural Assumptions:**
   - `@babel/parser` with `errorRecovery: true`, `plugins: ['jsx', 'typescript', 'decorators-legacy']` reliably yields 0-indexed byte/character offsets identical to the original UTF-8/UTF-16 buffer.
   - Coordinate slicing with `slice(0, start) + newCode + slice(end)` preserves all surrounding formatting, indentation, and comments without full-file AST reprinting.
 - **Mitigation Strategy:**
-  1. Mandatory pre-image Write-Ahead Logging (WAL) in SQLite before any file mutation.
+  1. Mandatory two-phase pre-image journaling in `.uiforge/wal/journal-<txid>.bin` with synchronous disk flush (`fsync`) prior to mutating target files.
   2. Post-mutation TypeScript Compiler API verification (`ts.createProgram`) checks for diagnostic regressions before finalizing.
-  3. Character span boundaries are strictly validated against opening/closing token delimiters before splicing.
+  3. Pre-write hash check verifies that no external developer edit occurred between AST parsing and write execution (TOCTOU guard).
 - **Phase 04/05 Validation Plan:**
   - Create a 100-file test fixture corpus containing multi-byte characters, CRLF/LF line endings, nested comments, and advanced JSX/TSX syntax.
   - Execute automated round-trip mutation tests: splice component props, verify zero byte diffs outside target span, and confirm 0 TypeScript diagnostic regressions.
@@ -73,6 +73,7 @@ This document systematically catalogs the open technical questions, critical ope
 - **Architectural Assumptions:**
   - Opting into automatic version negotiation (`versionNegotiation: { mode: "auto" }`) enables a single `@uiforge/mcp-server` process to advertise `2026-07-28` via `server/discover` while gracefully accepting legacy `initialize` handshakes from older clients.
   - Tool schema definitions remain compatible across protocol revisions when transported over standard STDIO transports.
+  - *Evidence Qualification:* Live socket and STDIO wire tests against external running agent binaries are categorized as `[NOT-EXECUTED]` in Phase 03; compatibility is currently a validated architectural specification to be tested live in Phase 04/06.
 - **Mitigation Strategy:**
   - Explicit dual-path negotiation engine in `@uiforge/mcp-server` (`ADR-003`).
   - Standard JSON-RPC 2.0 message parsing with protocol version metadata extraction from `_meta` (modern) or handshake parameters (legacy).
@@ -133,18 +134,22 @@ This document systematically catalogs the open technical questions, critical ope
 
 ---
 
-### RSK-05: TypeScript Compiler API Latency on Large Codebases (>10,000 files)
+### RSK-05: TypeScript Compiler API: Semantic Conformance vs Behavioral Invariance
 - **Category:** Safety & Verification Engine
-- **Impact:** High (Developer UX degradation or agent timeout)
+- **Impact:** High (False sense of safety if typecheck passes but logic breaks)
 - **Likelihood:** Medium
 - **Classification:** `[PROPOSED]` / `[ASSUMPTION]`
 - **Description:**
-  To guarantee that mutations never introduce type errors, UIForge invokes the TypeScript Compiler API (`ts.createProgram`) to check diagnostics on modified files (`ADR-008`). In massive enterprise monorepos (10,000+ TypeScript files), creating a full `ts.Program` can require 5–15 seconds and consume >1.5GB of RAM.
+  UIForge invokes the TypeScript Compiler API (`ts.createProgram`) to check diagnostic regressions on modified files (`ADR-008`).
+  - *Critical Clarification:* A clean TypeScript compilation check guarantees **syntactic validity and semantic type conformance only**.
+  - It does **not** prove runtime behavioral correctness, proper DOM rendering, event listener operation, state machine preservation, or business logic invariants. In accordance with the Phase 02 invariant verified in `verify_babel_recovery.js`: "Zero diagnostics != proof of behavioral correctness."
+  - Furthermore, in massive enterprise monorepos (10,000+ TypeScript files), creating a full `ts.Program` can require 5–15 seconds and consume >1.5GB of RAM.
 - **Architectural Assumptions:**
   - Incremental program creation (`ts.createIncrementalProgram`) with a persistent `ts.Program` cache reduces diagnostic check latency to $<200\text{ms}$ for single-file mutations.
   - Syntactic and semantic diagnostics can be scoped exclusively to the modified file and its immediate importers (`getSemanticDiagnostics(sourceFile)`).
 - **Mitigation Strategy:**
   - Maintain an in-memory cached `ts.Program` instance in the orchestrator process, updating only modified source files via `ts.updateProgram`.
+  - Clearly position the TypeScript check as Layer 2 of a 4-layer defense: Layer 1 (coordinate slicing), Layer 2 (TS type/syntax check), Layer 3 (axe-core/Playwright evaluation), Layer 4 (test suite & human review).
   - Restrict default verification scope to the mutated source file (`program.getSemanticDiagnostics(mutatedSourceFile)`).
   - Provide a configuration option (`diagnosticScope: 'file' | 'project'`) allowing developers to choose between sub-second file checks and full project compilation.
 - **Phase 04/05 Validation Plan:**
@@ -152,6 +157,42 @@ This document systematically catalogs the open technical questions, critical ope
   - Measure memory consumption, cold startup latency, and warm incremental check latency.
 - **Contingency Plan:**
   If full semantic diagnostics are too slow on a given project, provide a fast-path syntax-only check (`ts.getSyntacticDiagnostics`) followed by asynchronous background project compilation.
+
+---
+
+### RSK-09: Multi-File Filesystem Mutation Atomicity & TOCTOU External Edits
+- **Category:** Safety & Storage Engine
+- **Impact:** Critical (Partial file corruption or overwriting human edits)
+- **Likelihood:** Low
+- **Classification:** `[ARCHITECTURE-DECISION]` / `[PROPOSED]`
+- **Description:**
+  SQLite transactions (`PRAGMA journal_mode = WAL;`) manage internal database atomicity in `state.db`. They **cannot** make multi-file modifications on the operating system filesystem atomic. Furthermore, a human developer or IDE may edit a target file while an agent is generating code or waiting for human approval (TOCTOU race condition).
+- **Architectural Assumptions:**
+  - Synchronous pre-image writing with `fs.fsyncSync` to `.uiforge/wal/journal-<txid>.bin` ensures byte-level recovery even if power is lost during a subsequent write.
+  - Comparing `sha256(file)` immediately before write detects 100% of external modifications that occurred after the initial AST scan.
+- **Mitigation Strategy:**
+  - Two-phase journaling: write pre-image with `fsync`, write to shadow temp file, perform atomic replace, remove journal.
+  - Automatic pre-image recovery on process startup.
+  - Immediate abort with `UIF-ERR-TOCTOU-CONFLICT` if baseline hash mismatches disk hash at write time.
+- **Phase 04 Validation Plan:**
+  - Simulate process kills mid-write; verify automatic restoration of original pre-image bytes on subsequent process startup.
+  - Simulate concurrent external file edit; verify that UIForge aborts without clobbering external changes.
+
+---
+
+### RSK-10: Contract Implementation Lifecycle (Designed vs Runtime Packages)
+- **Category:** Shared Contracts & Interfaces
+- **Impact:** Medium (Documentation vs implementation divergence)
+- **Likelihood:** Low
+- **Classification:** `[ARCHITECTURE-DECISION]`
+- **Description:**
+  In Phase 03, the 28 canonical contracts are specified and typed in Markdown documentation (`CONTRACT-CATALOGUE.md`, `DATA-SCHEMAS.md`). They are not yet compiled into published TypeScript workspace packages or executed in production services.
+- **Architectural Assumptions:**
+  - Transpiling the frozen Zod schemas and TypeScript interfaces into `@uiforge/contracts` in Phase 04 will proceed without structural divergence.
+- **Mitigation Strategy:**
+  - Maintain automated schema synchronization tests in Phase 04 that validate `@uiforge/contracts` exports against the Phase 03 canonical schemas.
+- **Phase 04 Validation Plan:**
+  - Export compiled `@uiforge/contracts` package and execute runtime Zod round-trip validation against 50 synthetic test payloads per contract.
 
 ---
 
