@@ -73,22 +73,29 @@ Snapshots represent immutable, point-in-time captures of a project's frontend st
   ```
 - **Storage Policy:** Snapshots reference file hashes and token digests; they do **not** duplicate the full source code tree, keeping snapshot files $< 100\text{ KB}$ each.
 
-### 3.2 Write-Ahead Log (WAL) Journal Format
-Prior to executing any file mutation, the Safe Modifier writes a pre-image journal to `.uiforge/wal/journal-<txnId>.log`:
-- **Format:**
-  ```text
-  --- BEGIN TRANSACTION txn_20261122_001 ---
-  TARGET_PATH: src/components/ui/modal.tsx
-  ORIGINAL_SHA256: d41d8cd98f00b204e9800998ecf8427e...
-  ORIGINAL_BYTES_LENGTH: 4210
-  --- BEGIN PRE-IMAGE ---
-  <Exact byte-for-byte pre-modification contents>
-  --- END PRE-IMAGE ---
-  PROPOSED_DIFF_SHA256: 7f8a9b...
-  AUTHORIZATION_TOKEN_ID: AUTH-TOKEN-9912
-  STATUS: STAGED
-  ```
-- **Guarantees:** If the process crashes mid-write, the WAL recovery scanner restores the pre-image on subsequent startup before any new commands execute.
+### 3.2 Write-Ahead Log (WAL) & Two-Phase Filesystem Crash Recovery
+
+A critical architectural distinction governs UIForge data safety:
+- **SQLite Database Transactions:** `state.db` operates in SQLite WAL mode (`PRAGMA journal_mode = WAL;`), guaranteeing atomic, isolated transactions for internal metadata and relational cache tables.
+- **Operating System Filesystem Mutations:** SQLite cannot make arbitrary filesystem modifications across multiple project files atomic. OS filesystem mutation safety is governed by a dedicated **Two-Phase Pre-Image Journaling Protocol** implemented in `@uiforge/safe-modifier`.
+
+#### Two-Phase Journaling & Crash Recovery Protocol:
+1. **Pre-Image Journaling (Phase 1):** Prior to executing any file mutation, `@uiforge/safe-modifier` writes a pre-image journal to `.uiforge/wal/journal-<txnId>.bin` and invokes `fs.fsyncSync` to guarantee physical disk persistence:
+   ```text
+   --- BEGIN TRANSACTION txn_20261122_001 ---
+   TARGET_PATH: src/components/ui/modal.tsx
+   ORIGINAL_SHA256: d41d8cd98f00b204e9800998ecf8427e...
+   ORIGINAL_BYTES_LENGTH: 4210
+   --- BEGIN PRE-IMAGE ---
+   <Exact byte-for-byte pre-modification contents>
+   --- END PRE-IMAGE ---
+   PROPOSED_DIFF_SHA256: 7f8a9b...
+   AUTHORIZATION_TOKEN_ID: AUTH-TOKEN-9912
+   STATUS: STAGED
+   ```
+2. **Staged Replacement & Write (Phase 2):** Mutated content is written to a temporary shadow file (`<target>.uiforge-tmp`) and atomically renamed over the target file (`fs.renameSync` where atomic on the OS filesystem) or written with the journal active.
+3. **External-Edit & TOCTOU Protection:** Prior to applying any character slice, UIForge checks `sha256(currentDiskFile) === expectedBaselineHash`. If an external developer or tool modified the file after the AST was parsed, the transaction immediately aborts with `UIF-ERR-TOCTOU-CONFLICT`.
+4. **Crash Recovery Guarantee:** If the process is killed or power is lost mid-write, the WAL recovery scanner scans `.uiforge/wal/` on startup and restores the byte-for-byte pre-image from disk before any new task executes.
 
 ### 3.3 Append-Only Audit Journal (`audit.jsonl`)
 Every state transition, agent tool invocation, and human approval is written to `audit.jsonl`:
