@@ -28,6 +28,7 @@ import {
   ComparisonSchema,
   ExportArtifactSchema,
   WorkflowSchema,
+  ProjectAnalysisResultSchema,
   UIForgeError,
   ErrorCode,
   ErrorCategory,
@@ -412,6 +413,160 @@ describe('@uiforge/contracts - 28 Canonical Contracts Verification', () => {
       startedAt: isoTime,
     };
     expect(WorkflowSchema.parse(valid)).toMatchObject(valid);
+  });
+
+  it('29: validates ProjectAnalysisResult contract (uiforge.contract.project-analysis.v1)', () => {
+    const valid = {
+      $schema: 'https://schemas.uiforge.dev/v1/project-analysis.json',
+      execution: {
+        analysisId: uuid,
+        timestamp: isoTime,
+        durationMs: 42,
+        analyzerVersion: '0.2.0',
+        environment: { nodeVersion: 'v22.12.0', platform: 'win32' },
+      },
+      analysis: {
+        projectIdentity: {
+          name: 'sample-app',
+          framework: {
+            name: 'next',
+            version: '14.2.0',
+            router: 'app-router',
+            confidence: 'CONFIRMED',
+            evidence: ['dependency:next@14.2.0', 'directory:src/app'],
+          },
+          language: {
+            primary: 'typescript',
+            hasTsConfig: true,
+            strictMode: true,
+          },
+          runtime: {
+            detected: 'node',
+            confidence: 'CONFIRMED',
+          },
+          packageManager: {
+            name: 'pnpm',
+            lockfilePresent: true,
+            lockfilePath: 'pnpm-lock.yaml',
+          },
+          workspace: {
+            isMonorepo: false,
+            type: 'none',
+            rootPath: '.',
+            packagesCount: 1,
+          },
+        },
+        dependencies: {
+          direct: { next: '14.2.0', react: '18.3.1' },
+          devDependencies: { typescript: '^5.7.0' },
+          scripts: { build: 'next build', dev: 'next dev' },
+          tools: {
+            buildTools: ['next'],
+            testFrameworks: ['vitest'],
+            linters: ['eslint'],
+          },
+        },
+        architecture: {
+          routes: [
+            {
+              routePath: '/',
+              filePath: 'src/app/page.tsx',
+              type: 'page',
+              routerType: 'app-router',
+              hasDynamicSegments: false,
+            },
+          ],
+          components: [
+            {
+              name: 'Button',
+              filePath: 'src/components/Button.tsx',
+              exportType: 'named',
+              propsInterface: 'ButtonProps',
+              renderedComponents: [],
+              importedModules: ['react'],
+              hasInlineStyles: false,
+              usesCssClasses: true,
+            },
+          ],
+          styling: {
+            primaryEngine: 'tailwind',
+            tailwindVersion: 'v4',
+            cssVariablesCount: 12,
+            cssFiles: ['src/app/globals.css'],
+            hasDesignTokens: false,
+            tokenFiles: [],
+            iconLibraries: ['lucide-react'],
+            detectedDesignSystems: ['shadcn/ui'],
+          },
+        },
+        signals: {
+          responsive: {
+            hasViewportMeta: true,
+            mediaQueriesCount: 2,
+            responsiveUtilityClassesCount: 15,
+          },
+          accessibility: {
+            ariaAttributesCount: 4,
+            explicitRolesCount: 1,
+            semanticElementsCount: 8,
+            buttonsWithoutTypeCount: 1,
+            imagesWithoutAltCount: 0,
+            divButtonsCount: 0,
+          },
+          designTokens: {
+            colorLiteralsCount: 3,
+            spacingLiteralsCount: 2,
+            samples: ['#3b82f6', '24px'],
+          },
+        },
+        git: {
+          isGitRepository: true,
+          currentBranch: 'main',
+          isWorktreeDirty: false,
+        },
+        coverage: {
+          totalFilesFound: 25,
+          totalFilesScanned: 22,
+          totalDirectoriesScanned: 6,
+          skippedFiles: [
+            {
+              filePath: '.env.local',
+              reason: 'SENSITIVE_SECRET',
+              detail: 'Secret-bearing file shielded',
+            },
+          ],
+          limitsHit: [],
+        },
+        findings: [
+          {
+            id: 'FND-8f3b1a20',
+            detector: 'ast:jsx-accessibility',
+            nature: 'INFERRED_SIGNAL',
+            category: 'ACCESSIBILITY',
+            severity: 'MODERATE',
+            title: 'Button element without explicit type attribute',
+            description: 'Button defaults to type="submit" inside forms, which can trigger unintended form submissions.',
+            location: { filePath: 'src/components/Button.tsx', line: 12, column: 5 },
+            antiPatternId: 'ANTI-A11Y-002',
+            evidence: ['JSXElement:<button>', 'attribute:missing-type'],
+            confidence: 'CONFIRMED',
+          },
+        ],
+        recommendations: [
+          {
+            id: 'REC-01',
+            title: 'Add explicit type="button" to non-submitting buttons',
+            description: 'Explicitly define button types to prevent accidental form submission.',
+            suggestedAction: 'Specify type="button" on line 12 in Button.tsx',
+            relatedFindingIds: ['FND-8f3b1a20'],
+            antiPatternId: 'ANTI-A11Y-002',
+          },
+        ],
+        warnings: [],
+        status: 'SUCCESS',
+      },
+    };
+    expect(ProjectAnalysisResultSchema.parse(valid)).toMatchObject(valid);
   });
 
   it('instantiates and serializes UIForgeError with correct taxonomy', () => {
