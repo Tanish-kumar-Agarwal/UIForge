@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@uiforge/contracts": "workspace:*",
-    "@uiforge/config": "workspace:*"
+    "@uiforge/config": "workspace:*",
+    "typescript": "^5.7.3"
   },
   "devDependencies": {
     "typescript": "^5.7.3"
