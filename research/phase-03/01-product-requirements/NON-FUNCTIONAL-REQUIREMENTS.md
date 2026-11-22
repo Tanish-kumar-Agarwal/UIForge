@@ -1,0 +1,146 @@
+# UIFORGE — PHASE 03: NON-FUNCTIONAL REQUIREMENTS REGISTER (NFR-01 TO NFR-10)
+## Quality Attributes, Verification Methodologies, Latency Budgets & Engineering Constraints
+
+**Document ID:** `UIF-PH03-NON-FUNCTIONAL-REQUIREMENTS`  
+**Phase:** 03 — Product Specification & Architecture Freeze  
+**Status:** Certified / Complete  
+**Date:** November 22, 2026  
+**Standard:** Principal Software Architect & Application Security Architect  
+
+---
+
+## 1. Executive Quality Attribute Strategy
+
+UIForge operates as a mission-critical developer tool and autonomous agent substrate. Non-functional requirements (NFRs) are treated as first-class architectural constraints.
+
+In accordance with UIForge Evidence Discipline, targets are explicitly partitioned into:
+- **`[CONFIRMED-BASELINE]`**: Experimentally validated in Phase 02 prototypes.
+- **`[PROVISIONAL-TARGET]`**: Rigorously defined engineering targets that require formal Phase 04 empirical benchmarking.
+
+---
+
+## 2. Granular Non-Functional Requirement Specifications
+
+### NFR-01: Reliability & Fault Tolerance
+- **Requirement ID:** `NFR-01`
+- **Quality Attribute:** Reliability & Atomicity
+- **Requirement:** UIForge must guarantee atomic operations during code modification. In the event of a compilation error, runtime crash, user abort, or unhandled exception, the target project's filesystem must be 100% restored to its exact pre-operation state without data loss or partial writes.
+- **Measurement Method:** Automated crash-injection testing during multi-file file mutations; SHA-256 byte comparison before and after aborted operations.
+- **Target Value:** **100.0% atomic rollback guarantee**; 0 residual partial-write artifacts `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Chaos/kill-signal (`SIGKILL`, `SIGINT`) simulation tests in `@uiforge/safe-modifier` test harness.
+- **Priority:** P0 (Critical)
+- **Trade-offs:** Minimal I/O overhead from writing pre-image logs to `.uiforge/wal/` prior to disk writes.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-02: Performance & Latency Budgets
+- **Requirement ID:** `NFR-02`
+- **Quality Attribute:** Execution Latency & Responsiveness
+- **Requirement:** Core analysis and read-only query operations must execute with low latency to avoid stalling interactive developer CLI commands or agent reasoning loops.
+- **Measurement Method:** High-resolution timers (`performance.now()`) across standard benchmark repositories (small: 50 files; medium: 500 files; large: 2,500 files).
+- **Target Values:**
+  - Brownfield Project Scan (medium repo, 500 files): $\le 2.0\text{s}$ `[PROVISIONAL-TARGET]`.
+  - MCP Read-Only Tool Dispatch (`tools/call` for `analyze_project`): $\le 150\text{ms}$ `[PROVISIONAL-TARGET]`.
+  - Design Token Compilation (Style Dictionary): $\le 500\text{ms}$ `[CONFIRMED-BASELINE]`.
+  - Headless Browser Cold Start (Playwright Chromium): $\le 1.2\text{s}$ `[CONFIRMED-BASELINE]`.
+  - Pixelmatch Diff Computation ($1920 \times 1080$ viewport): $\le 120\text{ms}$ `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Automated performance benchmark suite executed on standard reference hardware (Apple M-series / Intel 8-core x86_64, 16 GB RAM).
+- **Priority:** P0 (Critical for CLI/Agent UX)
+- **Trade-offs:** Requires caching of parsed AST trees and route manifests in `.uiforge/cache/`.
+- **Status:** **PROVISIONAL TARGETS PENDING PHASE 04 BENCHMARK**
+
+### NFR-03: Security & Sandboxing
+- **Requirement ID:** `NFR-03`
+- **Quality Attribute:** Application & Execution Security
+- **Requirement:** All untrusted inputs (scanned repository code, third-party component registries, LLM agent tool payloads) must be strictly isolated. UIForge must prevent path traversal, arbitrary subprocess execution, prompt injection exploitation, and unauthorized file mutations.
+- **Measurement Method:** Automated penetration testing covering OWASP Top 10 for LLM Applications and standard filesystem security fixtures.
+- **Target Value:** **Zero unauthorized path escapes**; 100% of mutations gated behind Level 2+ signed authorization tokens `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Security test suite asserting rejection of directory traversal strings (`../../`), symlink loops, and malformed authorization tokens.
+- **Priority:** P0 (Critical)
+- **Trade-offs:** Strict path validation adds microsecond checks to every file read/write.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-04: Privacy & Data Sovereignty
+- **Requirement ID:** `NFR-04`
+- **Quality Attribute:** Local-First Data Privacy
+- **Requirement:** UIForge Core must operate 100% locally by default. No project source code, design tokens, AST structures, customer screenshots, or audit findings may be transmitted over the internet or to external cloud servers unless explicitly authorized by the user for hosted Studio sync.
+- **Measurement Method:** Network packet inspection (tcpdump / Wireshark) during CLI execution.
+- **Target Value:** **Zero outbound network packets** generated by Core engine operations `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Air-gapped network execution tests asserting all CLI and Core operations succeed with network interfaces disabled.
+- **Priority:** P0 (Critical)
+- **Trade-offs:** Offline operation requires local caching of fonts, schema assets, and documentation.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-05: Scalability & Memory Footprint
+- **Requirement ID:** `NFR-05`
+- **Quality Attribute:** Resource Efficiency & Memory Governance
+- **Requirement:** UIForge CLI and background MCP daemon processes must run efficiently on standard developer laptops without causing memory pressure or thrashing.
+- **Measurement Method:** Process RSS memory profiling (`process.memoryUsage().rss`) during heavy AST scanning and multi-viewport browser runs.
+- **Target Values:**
+  - Baseline CLI Process Memory: $\le 90\text{ MB}$ RSS `[PROVISIONAL-TARGET]`.
+  - Peak Memory During Full Brownfield Scan (2,500 files): $\le 350\text{ MB}$ RSS `[PROVISIONAL-TARGET]`.
+  - Browser Worker Process Memory (Chromium headless): $\le 250\text{ MB}$ (managed by OS/Playwright).
+- **Verification Method:** Continuous memory profiling assertions in CI regression tests.
+- **Priority:** P1 (High)
+- **Trade-offs:** Large AST trees must be garbage collected aggressively after route extraction.
+- **Status:** **PROVISIONAL TARGETS PENDING PHASE 04 BENCHMARK**
+
+### NFR-06: Accessibility Standards (WCAG 2.2 AA)
+- **Requirement ID:** `NFR-06`
+- **Quality Attribute:** Accessibility Compliance & Conformance
+- **Requirement:** All UI code generated or modified by UIForge, as well as the Studio visual interface itself, must strictly satisfy the Web Content Accessibility Guidelines (WCAG 2.2 Level AA).
+- **Measurement Method:** Automated `@axe-core/playwright` scanning + manual keyboard navigation and screen-reader audit protocols.
+- **Target Values:**
+  - Automated axe-core Violations: **0 Critical, 0 Serious, 0 Moderate** `[CONFIRMED-BASELINE]`.
+  - Contrast Minimum (SC 1.4.3): $\ge 4.5:1$ for normal text, $\ge 3.0:1$ for large text/icons.
+  - Focus Indicators (SC 2.4.7): 100% of interactive controls must possess visible focus indicators with $\ge 3.0:1$ contrast against adjacent background.
+- **Verification Method:** Automated CI gate running `@axe-core/playwright` across all generated components and Studio pages.
+- **Priority:** P0 (Critical Core Platform Value)
+- **Trade-offs:** Restricts arbitrary low-contrast color palettes from being chosen.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-07: Extensibility & Framework Independence
+- **Requirement ID:** `NFR-07`
+- **Quality Attribute:** Modular Architecture & Multi-Framework Extensibility
+- **Requirement:** Core contracts, design token formats, and evaluation engines must remain 100% decoupled from specific frontend frameworks (React, Vue, Svelte) and CSS architectures.
+- **Measurement Method:** Dependency graph inspection ensuring `@uiforge/core` has zero dependencies on React, Vue, Svelte, or Next.js.
+- **Target Value:** **0 framework-specific imports in Core packages** `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Automated monorepo dependency boundary linter (`eslint-plugin-import` / madge circular dependency checks).
+- **Priority:** P1 (High)
+- **Trade-offs:** Requires adapter layers (`@uiforge/adapter-react`, `@uiforge/adapter-vue`) rather than direct in-engine shortcuts.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-08: Compatibility & Platform Portability
+- **Requirement ID:** `NFR-08`
+- **Quality Attribute:** Cross-Platform & Node.js Runtime Support
+- **Requirement:** UIForge must run consistently across Windows, macOS, and Linux operating systems on modern Node.js Long Term Support (LTS) releases.
+- **Measurement Method:** Multi-platform GitHub Actions matrix testing across Windows-latest, macOS-latest, and Ubuntu-latest.
+- **Target Value:** **100% test pass parity** across Windows, macOS, and Linux on Node.js 22 LTS and 24 LTS `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Cross-OS test matrix executing all 123 baseline assertion fixtures.
+- **Priority:** P0 (Critical)
+- **Trade-offs:** Enforces forward-slash path normalization across all internal data contracts to prevent Windows backslash corruption.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-09: Observability & Auditability
+- **Requirement ID:** `NFR-09`
+- **Quality Attribute:** Transparency & Non-Repudiable Audit Logging
+- **Requirement:** Every execution step, agent tool call, permission grant, file modification, and verification score must be logged in an append-only, content-addressed event journal.
+- **Measurement Method:** Inspection of `.uiforge/audit.jsonl` ensuring every event contains timestamp, actor, input digest, output digest, and authorization token ID.
+- **Target Value:** **100% audit coverage** of state-changing operations with zero unjournaled writes `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Audit trail integrity test verifying that replaying the journal reproduces the exact historical project state.
+- **Priority:** P1 (High)
+- **Trade-offs:** Small additional disk storage for local JSONL journal records.
+- **Status:** **FROZEN & CERTIFIED**
+
+### NFR-10: Maintainability & Code Quality
+- **Requirement ID:** `NFR-10`
+- **Quality Attribute:** Maintainability, Modularity & Test Coverage
+- **Requirement:** The UIForge monorepo must maintain strict code quality standards, zero compile errors, complete TypeScript type-safety (`strict: true`), and high automated test coverage.
+- **Measurement Method:** `tsc --noEmit`, Vitest test coverage reports, ESLint static analysis.
+- **Target Values:**
+  - TypeScript Compiler Errors: **0 (`strict: true`)** `[CONFIRMED-BASELINE]`.
+  - Unit & Integration Test Coverage: $\ge 85.0\%$ line coverage across core engines `[PROVISIONAL-TARGET]`.
+  - Circular Package Dependencies: **0** `[CONFIRMED-BASELINE]`.
+- **Verification Method:** Pre-commit and CI verification pipeline enforcing typecheck, lint, and test suites.
+- **Priority:** P0 (Critical)
+- **Trade-offs:** High engineering discipline required when defining cross-package type contracts.
+- **Status:** **FROZEN & CERTIFIED**
