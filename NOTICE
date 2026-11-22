@@ -1,0 +1,26 @@
+UIForge
+Copyright 2026 UIForge Contributors
+
+This product includes software developed by the UIForge Project (https://uiforge.dev).
+
+===============================================================================
+Third-Party Software Acknowledgments & Licenses
+===============================================================================
+
+1. @modelcontextprotocol/sdk
+   - License: MIT License
+   - Upstream: https://github.com/modelcontextprotocol/typescript-sdk
+
+2. Zod
+   - License: MIT License
+   - Copyright (c) Colin McDonnell
+   - Upstream: https://github.com/colinhacks/zod
+
+3. @axe-core/playwright (Planned Browser Verification Engine)
+   - License: Mozilla Public License Version 2.0 (MPL-2.0)
+   - Copyright (c) Deque Systems, Inc.
+   - Upstream: https://github.com/dequelabs/axe-core-npm
+   - Notice: In compliance with Section 3 of MPL-2.0, any distributed Larger Works containing
+     Covered Software make source code available at the upstream repository cited above.
+
+===============================================================================
