@@ -9,11 +9,30 @@
 
 ## 1. Exclusion Policy & Enforcement
 
-Candidates assigned to **Tier 5** have failed mandatory hard gates (Licensing G2, Fit G5, or Viability G6) or have been excluded during architectural deduplication due to direct capability redundancy with core engines. They are strictly excluded from UIForge's core runtime, recommended extensions, and optional plugin registries.
+Candidates assigned to **Tier 5** have failed mandatory hard gates (Licensing G2, Architecture G4, Fit G5, or Security G6) or have been excluded during architectural deduplication due to direct capability redundancy with core engines. They are strictly excluded from UIForge's core runtime, recommended extensions, and optional plugin registries.
 
 ---
 
-## 2. Excluded Candidates Register (7 Sources)
+## 2. Canonical Identity & Supersession Table (C11)
+
+### Canonical Identity & Supersession Table (Finding C11 Reconciliation)
+
+To ensure tamper-evident traceability and prevent alias confusion, the following table formally maps every scrutinized candidate to its immutable identifier in the Phase 02.4 Canonical Source Registry (`sources.json`), superseding all erroneous identifiers from earlier working drafts:
+
+| Canonical Candidate ID | Canonical Source ID | Formal Name | Primary Category | Erroneous Prior Draft ID | Root Cause & Supersession Rationale |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`OS-ANIM-08`** | `SRC-OS-ANIM-08` | `remotion-dev/remotion` | Category 07 (Motion) | `OS-ANIM-05` | `OS-ANIM-05` is canonical `airbnb/lottie-web`. Remotion is canonical `OS-ANIM-08` (REJ priority; Tier 5 Excluded due to G5 mission misfit). |
+| **`OS-D2C-08`** | `SRC-OS-D2C-08` | `locofy/locofy` | Category 02 (Design-to-Code) | `OS-D2C-05` | `OS-D2C-05` is canonical `WICG/open-ui`. Locofy is canonical `OS-D2C-08` (REJ priority; Tier 5 Excluded due to closed proprietary SaaS). |
+| **`OS-LAYT-08`** | `SRC-OS-LAYT-08` | `Every-Layout` | Category 09 (Layout) | `OS-LAYT-06` | `OS-LAYT-06` is canonical `kristoferbaxter/flexboxgrid`. Every Layout is canonical `OS-LAYT-08` (P1 priority; Tier 3 Reference under clean-room boundary). |
+| **`OS-VREG-04`** | `SRC-OS-VREG-04` | `oblador/loki` | Category 06 (Visual Regr.) | `OS-VREG-03` | `OS-VREG-03` is canonical `argos-ci/argos`. Loki is canonical `OS-VREG-04` (P2 priority; Tier 5 Excluded due to Playwright redundancy). |
+| **`OS-VREG-05`** | `SRC-OS-VREG-05` | `garris/BackstopJS` | Category 06 (Visual Regr.) | `OS-VREG-04` | `OS-VREG-04` is canonical `oblador/loki`. BackstopJS is canonical `OS-VREG-05` (P2 priority; Tier 5 Excluded due to Playwright redundancy). |
+| **`OS-DASH-05`** | `SRC-OS-DASH-05` | `react-grid-layout/react-grid-layout` | Category 08 (Dashboard) | `OS-LAYT-03` | `OS-LAYT-03` is canonical Radix UI Aspect Ratio primitive. React-Grid-Layout is canonical `OS-DASH-05` (P2 priority; Tier 2 Optional adapter). |
+| **`OS-LAYT-03`** | `SRC-OS-LAYT-03` | `radix-ui/primitives (Aspect Ratio)` | Category 09 (Layout) | None | Immutable Radix Aspect Ratio primitive (P1 priority; Tier 1 Core-Adjacent), strictly distinct from `OS-DASH-05`. |
+
+
+---
+
+## 3. Excluded Candidates Register (7 Sources)
 
 | Candidate ID | Name | Category | Priority | Hard Gate | Score | Detailed Disqualification Rationale & Root Cause |
 | :--- | :--- | :--- | :---: | :---: | :---: | :--- |
@@ -27,10 +46,10 @@ Candidates assigned to **Tier 5** have failed mandatory hard gates (Licensing G2
 
 ---
 
-## 3. Exclusion Rationale Summary
+## 4. Exclusion Rationale Summary
 
 1. **Commercial Redistribution Prohibitions (`OS-MKT-08` Aceternity, `OS-D2C-08` Locofy):** Proprietary terms forbid redistributing, reselling, or embedding components into open developer tools.
 2. **Mission Scope Misfit & Organization-Size Licensing (`OS-ANIM-08` Remotion):** Programmatic video composition and rendering engine (Chrome/FFmpeg) rather than interactive web UI design-to-code generation. Free license is restricted to <=3 employee entities.
 3. **Severe Maintenance Abandonment (`OS-DASH-08` Tabler React):** Inactive maintainers, broken dependencies against modern React 18/19, and unmitigated security vulnerabilities.
 4. **Capability Redundancy & Runner Coupling (`OS-VREG-04` Loki, `OS-VREG-05` BackstopJS):** Functional visual testing tools (BackstopJS v6.3.25; Loki Storybook runner), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch diffing and legacy runner harness.
-5. **Rigid Vendor Lock-In (`OS-COMP-15` SaaS UI):** Crippled community edition with aggressive Pro tier upsell gating.
+5. **Rigid Vendor Lock-In (`OS-COMP-15` SaaS UI):** Crippled community edition with aggressive Pro tier upsell gating and architectural coupling.

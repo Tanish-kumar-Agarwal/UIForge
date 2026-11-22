@@ -24,7 +24,7 @@
 | **OS-MKT-04** | `cosscom/originui` | CAT_C | PASS | **84.2** | `SOURCE_COPY` | Modern Tailwind/React micro-components and application building blocks |
 | **OS-DASH-04** | `TanStack/virtual` | CAT_H | PASS | **84.2** | `DEPENDENCY` | High-performance headless virtualization engine for infinite lists and massive tables |
 | **OS-ICON-04** | `phosphor-icons/core` | CAT_H | PASS | **84.2** | `DEPENDENCY` | Flexible icon family with multiple weights (thin, light, regular, bold, fill) |
-| **OS-CHRT-04** | `airbnb/visx` | CAT_H | PASS | **84.2** | `DEPENDENCY` | Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management |
+| **OS-CHRT-04** | `airbnb/visx` | CAT_H | PASS | **84.2** | `DEPENDENCY` | Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management (~15-20 KB preliminary tree-shaken estimate subject to Phase 03 benchmark) |
 | **OS-BROW-04** | `testcontainers/testcontainers-node` | CAT_F | PASS | **84.2** | `DEPENDENCY` | Isolated containerized browser environments for sandboxed execution of untrusted code |
 | **OS-COMP-13** | `ariakit/ariakit` | CAT_B | PASS | **84** | `DEPENDENCY` | High-quality accessible unstyled dialog, composite, and menu primitives |
 | **OS-TOKN-03** | `argyleink/open-props` | CAT_E | PASS | **83.6** | `DEPENDENCY` | Pre-configured modern CSS custom properties for color, animation, and fluid scaling |
@@ -75,7 +75,7 @@
 | **OS-BROW-03** | `webdriverio/webdriverio` | CAT_F | PASS | **75.9** | `DEPENDENCY` | WebdriverIO cross-browser automation framework for WebDriver-compliant runners |
 | **OS-COMP-12** | `chakra-ui/park-ui` | CAT_C | PASS | **75.1** | `SOURCE_COPY` | Park UI Tailwind/CSS-in-JS component theme for Ark UI |
 | **OS-MKT-02** | `nolly-studio/cult-ui` | CAT_C | PASS | **74.7** | `SOURCE_COPY` | Specialized brutalist and retro interactive components for landing pages |
-| **OS-DASH-05** | `react-grid-layout/react-grid-layout` | CAT_H | PASS_WITH_RESTRICTIONS | **74.7** | `DEPENDENCY` | Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets |
+| **OS-DASH-05** | `react-grid-layout/react-grid-layout` | CAT_H | PASS_WITH_RESTRICTIONS | **74.7** | `DEPENDENCY` | Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets (5.5/10 accessibility is a preliminary estimate subject to 6-test verification matrix) |
 | **OS-ANIM-02** | `formkit/auto-animate` | CAT_H | PASS | **74.7** | `DEPENDENCY` | Zero-config DOM auto-animation utility for dynamic list reordering |
 | **OS-CHRT-02** | `apache/echarts` | CAT_H | PASS | **74.7** | `DEPENDENCY` | Enterprise-grade canvas/WebGL charting engine for high-density streaming telemetry |
 | **OS-CHRT-08** | `FormidableLabs/victory` | CAT_H | PASS | **74.7** | `DEPENDENCY` | Cross-platform charting components supporting React Native and web |
@@ -99,3 +99,10 @@
 | **OS-LAYT-06** | `kristoferbaxter/flexboxgrid` | CAT_H | PASS | **73.5** | `DEPENDENCY` | FlexboxGrid responsive 12-column grid system |
 | **OS-AGNT-06** | `continuedev/continue` | CAT_G | PASS | **73.5** | `REFERENCE_ONLY` | Continue IDE AI assistant protocol and custom command integration |
 | **OS-VREG-06** | `lost-pixel/lost-pixel` | CAT_F | PASS | **73.5** | `EXTERNAL_TOOL` | Lost Pixel open-source visual regression testing platform |
+
+---
+
+## 4. Key Qualifications & Test Matrices
+- **Visx (`OS-CHRT-04`, Tier 1):** Bundle size claims (~15–20 KB vs ~50 KB) are formally qualified as **preliminary tree-shaken estimates**, subject to Phase 03 Vite/Rollup benchmarks (C16).
+- **React-Grid-Layout (`OS-DASH-05`, Tier 2):** Upstream v2.3.0 is verified with Playwright harness and React 18/19. Accessibility score of 5.5/10 is qualified as a **preliminary estimate** subject to a 6-test verification matrix (keyboard, focus, live region, touch gestures, landmark hierarchy, reduced motion) (C19). Distinct candidate ID: `OS-DASH-05` (Radix Aspect Ratio is `OS-LAYT-03`).
+- **GSAP (`OS-ANIM-04`, Tier 2):** Scoped strictly to optional plugin code emission under Webflow April 2025 non-compete terms.
