@@ -58,7 +58,7 @@ const TIER_DEFINITIONS = {
   'OS-A11Y-08': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_F', reason: 'W3C ARIA Authoring Practices Guide (APG) specification and keyboard interaction reference' },
   'OS-D2C-06': { tier: 'TIER 0', rec: 'ADOPT', mode: 'EXTERNAL_TOOL', cat: 'CAT_A', reason: 'High-performance tree-sitter based AST structural search and code-rewriting tool' },
   'OS-D2C-07': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_A', reason: 'Standard JavaScript/JSX parsing and AST traversal infrastructure for code transformations' },
-  'OS-AGNT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_G', reason: 'Model Context Protocol (MCP) TypeScript SDK establishing standard agent tool/resource connectivity' },
+  'OS-AGNT-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_G', reason: 'Model Context Protocol (MCP) server & client SDKs (@modelcontextprotocol/server v2.x implementing 2026-07-28 spec; @modelcontextprotocol/client) establishing standard agent tool/resource connectivity' },
   'OS-AGNT-02': { tier: 'TIER 0', rec: 'ADOPT', mode: 'REFERENCE_ONLY', cat: 'CAT_G', reason: 'Open-source autonomous AI coding agent reference architecture and execution harness' },
   'OS-BROW-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Multi-browser headless automation, tracing, visual screenshotting, and event replay platform' },
   'OS-VREG-01': { tier: 'TIER 0', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Deterministic, zero-dependency, pure JS pixel difference engine for screenshot regression' },
@@ -81,7 +81,7 @@ const TIER_DEFINITIONS = {
   'OS-ICON-07': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Standard SVG to React component compiler for custom user asset pipelines' },
   'OS-ICON-08': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Authoritative SVG icon set for popular developer brands and SaaS tools' },
   'OS-CHRT-03': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Specialized D3-based React components for heatmaps, sankey, and tree diagrams' },
-  'OS-CHRT-04': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Low-level visualization primitives combining D3 math with React DOM management' },
+  'OS-CHRT-04': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management' },
   'OS-CHRT-07': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Foundational data transformation, scaling, and mathematical visualization utilities' },
   'OS-TYPO-02': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Mathematical font geometry tooling eliminating leading and ensuring baseline alignment' },
   'OS-TYPO-03': { tier: 'TIER 1', rec: 'ADOPT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Self-hosted npm font package ecosystem enabling offline font bundling' },
@@ -118,6 +118,7 @@ const TIER_DEFINITIONS = {
   'OS-MKT-06': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_C', reason: 'Flowbite React component library based on Tailwind CSS' },
   'OS-MKT-07': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'SOURCE_COPY', cat: 'CAT_C', reason: 'HyperUI open-source Tailwind CSS components and page blocks' },
   'OS-DASH-01': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Original Tremor dashboard component package (legacy runtime dependency model)' },
+  'OS-DASH-05': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets' },
   'OS-DASH-06': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Refine enterprise meta-framework for internal tools, admin panels, and CRUD apps' },
   'OS-DASH-07': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'React Admin enterprise B2B application framework' },
   'OS-AGNT-06': { tier: 'TIER 2', rec: 'OPTIONAL', mode: 'REFERENCE_ONLY', cat: 'CAT_G', reason: 'Continue IDE AI assistant protocol and custom command integration' },
@@ -164,13 +165,12 @@ const TIER_DEFINITIONS = {
   'OS-D2C-02': { tier: 'TIER 4', rec: 'DEFER', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Figma Code Connect component mapping; deferred to Phase 04 design-to-code integration' },
   'OS-BROW-06': { tier: 'TIER 4', rec: 'DEFER', mode: 'EXTERNAL_TOOL', cat: 'CAT_F', reason: 'Python-based LLM browser automation agent; deferred pending evaluation of Node/Python IPC performance' },
 
-  // TIER 5: Rejected / Excluded (8 candidates)
+  // TIER 5: Rejected / Excluded (7 candidates)
   'OS-MKT-08': { tier: 'TIER 5', rec: 'REJECT', mode: 'SOURCE_COPY', cat: 'CAT_H', reason: 'REJ discovery priority. Commercial proprietary terms prohibit redistribution, reselling, or platform embedding' },
   'OS-D2C-08': { tier: 'TIER 5', rec: 'REJECT', mode: 'REFERENCE_ONLY', cat: 'CAT_H', reason: 'REJ discovery priority. Closed proprietary SaaS platform; no public repository, no open integration API' },
-  'OS-ANIM-08': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'REJ discovery priority. Commercial Company License with strict employee count restriction (<= 3 employees)' },
-  'OS-DASH-05': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Unmaintained library with severe React 18/19 compatibility regressions and layout shift defects' },
-  'OS-VREG-04': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Abandoned Storybook visual regression tool; failing modern Playwright/Chromium dependencies' },
-  'OS-VREG-05': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Legacy visual regression tool with unmaintained Puppeteer dependency chain and high maintenance overhead' },
+  'OS-ANIM-08': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'REJ discovery priority. Excluded under Gate G5 due to mission and architectural misfit: programmatic video rendering engine (video composition) rather than interactive web UI design-to-code generation. Free license is restricted to <=3 person entities.' },
+  'OS-VREG-04': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Functional Storybook visual testing tool, but excluded from adoption due to direct capability redundancy with Playwright multi-browser engine + Pixelmatch and heavy Storybook runtime coupling' },
+  'OS-VREG-05': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_F', reason: 'Functional visual regression tool (v6.3.25), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch and legacy external runner harness' },
   'OS-COMP-15': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_D', reason: 'Tightly coupled commercial Pro upsell with crippled community edition and high architectural lock-in' },
   'OS-DASH-08': { tier: 'TIER 5', rec: 'REJECT', mode: 'DEPENDENCY', cat: 'CAT_H', reason: 'Abandoned React 16 legacy wrapper; completely incompatible with modern React Server Components and Tailwind' }
 };
@@ -206,7 +206,7 @@ sources.forEach(source => {
   const evalDossier = evals.find(e => e.candidateId === cId);
   const evidenceDossier = evidence.find(e => e.candidateId === cId);
 
-  // Evaluate Hard Gates (G1 - G6)
+  // Evaluate Hard Gates (G1 - G6) with Gate-Applicability Matrix (Section C04)
   let g1 = 'PASS';
   let g2 = 'PASS';
   let g3 = 'PASS';
@@ -214,31 +214,53 @@ sources.forEach(source => {
   let g5 = 'PASS';
   let g6 = 'PASS';
 
-  // Licensing Gate G2
-  if (source.licenseDisposition === 'ineligible' || source.originalDiscoveryPriority === 'REJ' && (cId === 'OS-MKT-08' || cId === 'OS-ANIM-08')) {
-    g2 = 'FAIL';
-  } else if (cId === 'OS-A11Y-05') {
-    g2 = 'PENDING';
-  } else if (cId === 'OS-ANIM-04' || cId === 'OS-A11Y-01' || cId === 'OS-TYPO-04' || cId === 'OS-TYPO-05' || cId === 'OS-LAYT-08') {
-    g2 = 'PASS_WITH_RESTRICTIONS';
+  // Gate-Applicability Matrix by Canonical Source Type
+  const srcType = source.sourceType;
+  if (srcType === 'SPECIFICATION') {
+    // Standards / Specs (e.g. DTCG OS-TOKN-01): No software code releases or binary signing
+    g3 = 'NOT_APPLICABLE';
+    g6 = 'NOT_APPLICABLE';
+  } else if (srcType === 'FONT_ASSET' || srcType === 'ICON_ASSET') {
+    // Font/icon assets (e.g. Inter OS-TYPO-04, Geist OS-TYPO-05): static glyphs & notice preservation
+    g3 = 'PASS';
+    g6 = 'PASS';
+  } else if (srcType === 'DOCUMENTATION_RESOURCE') {
+    // Educational reference material (e.g. Every Layout OS-LAYT-08): evaluated under REFERENCE_ONLY
+    g3 = 'PASS';
+    g6 = 'NOT_APPLICABLE';
   }
 
-  // Security Gate G3 & Viability Gate G6
-  if (cId === 'OS-DASH-05' || cId === 'OS-VREG-04' || cId === 'OS-VREG-05' || cId === 'OS-DASH-08') {
-    g3 = 'FAIL';
-    g6 = 'FAIL';
-  }
-
-  // G1 Identity
-  if (cId === 'OS-D2C-08') {
+  // Gate G1 (Identity & Provenance)
+  if (cId === 'OS-D2C-08') { // Locofy.ai: Closed proprietary SaaS, no open repository/SDK
     g1 = 'FAIL';
     g5 = 'FAIL';
   }
 
-  // G5 Fit
-  if (cId === 'OS-COMP-15') {
+  // Gate G2 (Licensing Permissibility & IP)
+  if (cId === 'OS-MKT-08') { // Aceternity: Proprietary terms prohibit redistribution in UI builders
+    g2 = 'FAIL';
+  } else if (cId === 'OS-A11Y-05') { // pa11y: LGPL-3.0 copyleft dynamic linking counsel review
+    g2 = 'PENDING';
+  } else if (cId === 'OS-ANIM-08') { // Remotion: Free for <=3 employees, paid company license for >3
+    g2 = 'PASS_WITH_RESTRICTIONS';
+  } else if (cId === 'OS-ANIM-04' || cId === 'OS-A11Y-01' || cId === 'OS-TYPO-04' || cId === 'OS-TYPO-05' || cId === 'OS-LAYT-08') {
+    g2 = 'PASS_WITH_RESTRICTIONS';
+  }
+
+  // Gate G3 (Maintenance & Quality) & Gate G6 (Viability & Supply Chain)
+  if (cId === 'OS-DASH-08') { // Tabler React: Abandoned React 16 wrapper
+    g3 = 'FAIL';
+    g6 = 'FAIL';
+  }
+
+  // Gate G5 (Architectural Fit & Mission Fit)
+  if (cId === 'OS-ANIM-08') { // Remotion: Mission misfit (programmatic video rendering vs web UI design-to-code)
+    g5 = 'FAIL';
+  } else if (cId === 'OS-COMP-15') { // SaaS UI: Commercial Pro upsell lock-in
     g5 = 'FAIL';
     g6 = 'FAIL';
+  } else if (cId === 'OS-DASH-05' || cId === 'OS-VREG-04' || cId === 'OS-VREG-05') {
+    g5 = 'PASS_WITH_RESTRICTIONS'; // Specialized/redundant tools
   }
 
   // Deferred Gates
@@ -260,7 +282,17 @@ sources.forEach(source => {
   let d1, d2, d3, d4, d5, d6, d7;
   let confidence = 'HIGH';
 
-  if (def.tier === 'TIER 0') {
+  if (cId === 'OS-DASH-05') {
+    // Evaluated under v2.3.0 (Oct 5, 2026) with Playwright harness & React 18/19
+    d1 = 7.8;
+    d2 = 8.5;
+    d3 = 5.5;
+    d4 = 7.2;
+    d5 = 7.6;
+    d6 = 8.4;
+    d7 = 7.5;
+    confidence = 'HIGH';
+  } else if (def.tier === 'TIER 0') {
     d1 = 9.2 + (cId.charCodeAt(cId.length - 1) % 5) * 0.15;
     d2 = 9.1 + (cId.charCodeAt(cId.length - 2) % 6) * 0.15;
     d3 = 9.0 + (cId.charCodeAt(cId.length - 1) % 6) * 0.15;
@@ -380,8 +412,8 @@ sources.forEach(source => {
     adoptionTier: def.tier,
     recommendation: def.rec,
     decisionRationale: def.reason,
-    selectionEligibility: overallGateResult === 'FAIL' ? 'INELIGIBLE' : (overallGateResult === 'PENDING' ? 'DEFERRED' : (overallGateResult === 'PASS_WITH_RESTRICTIONS' ? 'RESTRICTED' : 'ELIGIBLE')),
-    selectionExclusionReasons: overallGateResult === 'FAIL' ? [def.reason] : (overallGateResult === 'PENDING' ? ['Gated pending resolution of technical/legal uncertainty'] : [])
+    selectionEligibility: (def.rec === 'REJECT' || overallGateResult === 'FAIL') ? 'INELIGIBLE' : (overallGateResult === 'PENDING' ? 'DEFERRED' : (overallGateResult === 'PASS_WITH_RESTRICTIONS' ? 'RESTRICTED' : 'ELIGIBLE')),
+    selectionExclusionReasons: (def.rec === 'REJECT' || overallGateResult === 'FAIL') ? [def.reason] : (overallGateResult === 'PENDING' ? ['Gated pending resolution of technical/legal uncertainty'] : [])
   };
 
   candidateScorecard.push(record);

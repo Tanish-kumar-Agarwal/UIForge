@@ -73,43 +73,58 @@ let mdHardGates = `# UIForge Phase 02.5: Hard-Gate Eligibility Report
 Before weighted technical scoring, every candidate is subjected to **six mandatory hard gates (G1 through G6)** across its proposed consumption mode:
 - **Gate G1 — Identity and Source Integrity:** Canonical upstream repository, verified package metadata, exact commit/version evaluated, zero placeholder sources.
 - **Gate G2 — Licensing and Intellectual Property:** Permissive, weak-copyleft, or clear commercial terms; notice retention; font RFN compliance; zero viral copyleft contamination; counsel review gating.
-- **Gate G3 — Security and Supply-Chain Integrity:** No critical unmitigated CVEs, no typosquatting risks, clean install script behaviors, active maintainer trust.
+- **Gate G3 — Security, Maintenance & Quality:** Active commits/releases within 12 months, zero critical unmitigated CVEs, clean install script behaviors, active maintainer trust (or N/A for stable specifications/assets).
 - **Gate G4 — Technical Evidence Sufficiency:** Sufficient empirical documentation and package metadata to substantiate adoption in the proposed consumption mode.
-- **Gate G5 — Product and Architectural Fit:** Aligned with UIForge's mission as an open engineering intelligence platform (rejecting generic SaaS builders, static templates, or monolithic black-box lock-in).
+- **Gate G5 — Product and Architectural Fit:** Aligned with UIForge's mission as a headless agentic UI design-to-code platform (rejecting generic SaaS builders, video rendering engines, or monolithic black-box lock-in).
 - **Gate G6 — Operational Viability:** Feasible installation, manageable maintenance overhead, modern React 18/19 compatibility, cross-platform portability.
 
-### Gate Results Classification
+### 1.1 Gate-Applicability Matrix Across Source Types (C04)
+
+Hard-gate evaluation criteria are adapted specifically to the canonical nature of the source to avoid false-positive failures:
+
+| Canonical Source Type | Gate G1 (Identity) | Gate G2 (Licensing) | Gate G3 (Maintenance) | Gate G4 (Evidence) | Gate G5 (Mission Fit) | Gate G6 (Viability) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Runtime Software Package** | Verified npm/git repo | OSI/FSF approved or permissive | Commits/releases within 12 mos, 0 CVEs | Registry & package docs | Design-to-code headless UI | React 18/19, ESM, bundle size |
+| **Standard / Specification** | Standardizing body (W3C/DTCG) | Open specification license | \`NOT_APPLICABLE\` (Spec stability) | Published working drafts | Design token / ARIA grammar | \`NOT_APPLICABLE\` (No binaries) |
+| **Font / Icon Asset** | Upstream foundry repo | SIL OFL 1.1 / MIT + RFN notice | \`PASS\` (Asset glyph stability) | Vector files & font tables | Modern screen typography/icons | WOFF2 subsets, no vendor drift |
+| **Documentation / Reference** | Authoritative publisher | \`REFERENCE_ONLY\` mode terms | \`PASS\` (Pattern freshness) | Portal/book content | Clean-room algorithm synthesis | \`NOT_APPLICABLE\` (No binaries) |
+| **Commercial Product / SaaS** | Registered commercial entity | Exportability, redistribution terms | API availability & uptime | Platform documentation | Open developer tool alignment | Vendor lock-in & API drift |
+| **Native Browser Capability** | W3C/WHATWG standard | Public open web standard | \`NOT_APPLICABLE\` (Engine cadence) | MDN / WebKit / Blink status | Native responsive primitive | Baseline browser support |
+
+### 1.2 Gate Results Classification
 - \`PASS\`: Unconditional pass across all evaluated criteria.
-- \`PASS_WITH_RESTRICTIONS\`: Eligible for adoption subject to strictly enforced boundary conditions (e.g. out-of-process CLI boundary for axe-core; SIL OFL RFN notice preservation).
+- \`PASS_WITH_RESTRICTIONS\`: Eligible for adoption subject to strictly enforced boundary conditions (e.g. out-of-process CLI boundary for axe-core; SIL OFL RFN notice preservation; organization-size license terms).
 - \`PENDING\`: Gated pending formal legal counsel review or experimental benchmarking. Prevents default adoption.
+- \`NOT_APPLICABLE\`: Gate criterion does not apply to this non-software source type (e.g. maintenance commits for W3C specifications).
 - \`FAIL\`: Unmitigated failure on a mandatory gate. Results in immediate rejection to Tier 5.
 
 ---
 
 ## 2. Hard-Gate Evaluation Summary
 
-| Gate | Description | Passing Candidates | Restricted Pass | Pending Review | Failed Candidates |
+| Gate | Description | Passing / N/A | Restricted Pass | Pending Review | Failed Candidates |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Gate G1** | Identity & Source Integrity | 124 | 0 | 0 | 1 (\`OS-D2C-08\` Locofy) |
-| **Gate G2** | Licensing & Intellectual Property | 119 | 4 (axe-core, GSAP, Inter, Geist) | 1 (\`OS-A11Y-05\` pa11y) | 2 (\`OS-MKT-08\` Aceternity, \`OS-ANIM-08\` Remotion) |
-| **Gate G3** | Security & Supply Chain | 121 | 0 | 0 | 4 (\`OS-DASH-05\`, \`OS-VREG-04\`, \`OS-VREG-05\`, \`OS-DASH-08\`) |
+| **Gate G2** | Licensing & Intellectual Property | 118 | 5 (axe-core, GSAP, Inter, Geist, Remotion) | 1 (\`OS-A11Y-05\` pa11y) | 1 (\`OS-MKT-08\` Aceternity) |
+| **Gate G3** | Security, Maintenance & Quality | 124 | 0 | 0 | 1 (\`OS-DASH-08\` Tabler React) |
 | **Gate G4** | Evidence Sufficiency | 121 | 0 | 4 (Deferred candidates) | 0 |
-| **Gate G5** | Product & Architectural Fit | 122 | 0 | 0 | 3 (Locofy, SaaS UI, Aceternity) |
-| **Gate G6** | Operational Viability | 113 | 0 | 4 (Deferred candidates) | 8 (All Tier 5 candidates) |
+| **Gate G5** | Product & Architectural Fit | 119 | 3 (RGL, BackstopJS, Loki) | 0 | 3 (Locofy, SaaS UI, Remotion) |
+| **Gate G6** | Operational Viability | 119 | 0 | 4 (Deferred candidates) | 2 (Tabler React, SaaS UI) |
 
 ---
 
 ## 3. Quarantined & Gated Candidates
 
-### 3.1 Tier 5 Rejection Register (8 Failed Candidates)
+### 3.1 Tier 5 Rejection Register (7 Excluded Candidates)
 1. **\`OS-MKT-08\` (Aceternity UI):** **FAIL on Gate G2 (Licensing)**. Proprietary commercial terms strictly prohibit reselling, redistributing, or embedding components into open developer platforms.
 2. **\`OS-D2C-08\` (Locofy.ai):** **FAIL on Gate G1 (Identity) & Gate G5 (Fit)**. Closed proprietary SaaS platform; no public source repository, no open integration API.
-3. **\`OS-ANIM-08\` (Remotion):** **FAIL on Gate G2 (Licensing)**. Commercial Company License with strict employee count restriction (<= 3 employees); incompatible with open-source core redistribution.
-4. **\`OS-DASH-05\` (React-Grid-Layout):** **FAIL on Gate G3 (Security/Maintenance) & Gate G6 (Viability)**. Abandoned maintenance, severe React 18/19 compatibility regressions, open issues regarding layout shift and reflow calculation bugs.
-5. **\`OS-VREG-04\` (Loki):** **FAIL on Gate G3/G6**. Abandoned visual regression tool with broken dependencies against modern Playwright and Chromium.
-6. **\`OS-VREG-05\` (BackstopJS):** **FAIL on Gate G3/G6**. Legacy visual regression tool with heavy unmaintained Puppeteer dependency chain and high maintenance overhead.
-7. **\`OS-COMP-15\` (SaaS UI):** **FAIL on Gate G5 (Fit) & Gate G6 (Viability)**. Tightly coupled proprietary Pro tier upsell; poor standalone maintainability and restrictive community edition.
-8. **\`OS-DASH-08\` (Tabler React):** **FAIL on Gate G2/G6**. Abandoned React 16 legacy wrapper; completely incompatible with React 18/19 and modern Tailwind styling.
+3. **\`OS-ANIM-08\` (Remotion):** **FAIL on Gate G5 (Fit)**. Programmatic video composition and rendering engine (Chrome/FFmpeg) rather than interactive web UI design-to-code generation. Free license is restricted to entities with <=3 employees.
+4. **\`OS-COMP-15\` (SaaS UI):** **FAIL on Gate G5 (Fit) & Gate G6 (Viability)**. Tightly coupled proprietary Pro tier upsell; poor standalone maintainability and restrictive community edition.
+5. **\`OS-DASH-08\` (Tabler React):** **FAIL on Gate G3 (Maintenance) & Gate G6 (Viability)**. Abandoned React 16 legacy wrapper; completely incompatible with React 18/19 and modern Tailwind styling.
+6. **\`OS-VREG-04\` (Loki):** **PASS_WITH_RESTRICTIONS on Hard Gates**. Excluded in Tier 5 due to capability redundancy with Playwright multi-browser engine + Pixelmatch and heavy Storybook runtime coupling.
+7. **\`OS-VREG-05\` (BackstopJS):** **PASS_WITH_RESTRICTIONS on Hard Gates**. Functional visual regression tool (v6.3.25), but excluded in Tier 5 due to capability overlap with Playwright + Pixelmatch and legacy external runner harness.
+
+*Note on \`OS-DASH-05\` (React-Grid-Layout):* Following maintenance re-evaluation (v2.3.0 published Oct 5, 2026, active Playwright E2E harness, React 18/19 support), React-Grid-Layout passes G1-G6 and is admitted to Tier 2 (Optional Integrations) as an interactive dashboard grid adapter. Candidate ID confirmed as \`OS-DASH-05\` (distinct from \`OS-LAYT-03\` Radix Aspect Ratio).
 
 ### 3.2 Tier 4 Deferred Register (4 Pending Candidates)
 1. **\`OS-A11Y-05\` (pa11y):** **PENDING on Gate G2 (Licensing)**. Governed by LGPL-3.0; direct dynamic linking into compiled JavaScript bundles carries viral copyleft risk. Gated pending formal legal counsel review (\`counselReviewRequired: true\`, \`LEG-02\`).
@@ -277,9 +292,9 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
   - *Playwright (\`OS-BROW-01\`, Score: 96.0, Tier 0):* Multi-engine headless automation, deterministic network waiting, trace recording, and screenshot capture.
   - *axe-core (\`OS-A11Y-01\`, Score: 94.7, Tier 0):* The industry standard for deterministic WCAG 2.2 AA rule evaluation, integrated out-of-process.
   - *Pixelmatch (\`OS-VREG-01\`, Score: 94.8, Tier 0):* Lightweight pure-JavaScript pixel comparison engine without native binary dependencies.
-  - *pa11y (\`OS-A11Y-05\`, Score: 68.6, Tier 4):* Deferred pending legal review of LGPL-3.0 copyleft dynamic linking.
-  - *Loki (\`OS-VREG-04\`, Tier 5) & BackstopJS (\`OS-VREG-05\`, Tier 5):* Rejected due to maintenance abandonment and fragile Puppeteer wrappers.
-- **Decision:** Core verification pipeline couples Playwright + axe-core + Pixelmatch into an isolated browser verification harness.
+  - *pa11y (\`OS-A11Y-05\`, Score: 68.6, Tier 4):* Deferred pending legal review of LGPL-3.0 copyleft dynamic linking (\`counselReviewRequired: true\`).
+  - *Loki (\`OS-VREG-04\`, Tier 5) & BackstopJS (\`OS-VREG-05\`, Tier 5):* Functional testing tools (BackstopJS v6.3.25; Loki Storybook integration), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch and legacy runner / Storybook coupling.
+- **Decision:** Core verification pipeline couples Playwright + axe-core (out-of-process CLI) + Pixelmatch into an isolated browser verification harness.
 
 ---
 
@@ -288,21 +303,21 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
 - **Primary Challenge:** Standardizing how autonomous AI coding agents (Claude Code, OpenCode, Cursor, Antigravity) discover UIForge's design intelligence and invoke frontend mutations safely.
 - **Candidate Universe:** Model Context Protocol SDK (\`OS-AGNT-01\`), OpenCode (\`OS-AGNT-02\`), Vercel AI SDK (\`OS-AGNT-08\`), Cline (\`OS-AGNT-11\`), Roo-Cline (\`OS-AGNT-12\`), Continue (\`OS-AGNT-06\`), CopilotKit (\`OS-AGNT-07\`), LangGraph (\`OS-AGNT-09\`), LlamaIndex (\`OS-AGNT-10\`), Claude Code (\`OS-AGNT-03\`), Cursor (\`OS-AGNT-04\`), Windsurf (\`OS-AGNT-05\`).
 - **Comparative Evaluation:**
-  - *MCP TypeScript SDK (\`OS-AGNT-01\`, Score: 94.8, Tier 0):* Open, standardized client/server protocol backed by Anthropic and the open-source ecosystem. Decouples agent tools from proprietary LLM providers.
+  - *MCP TypeScript SDK (\`OS-AGNT-01\`, Score: 95.0, Tier 0):* Open, standardized client/server protocol backed by the open-source ecosystem. UIForge implements \`@modelcontextprotocol/server\` (v2.x, implementing the 2026-07-28 protocol specification) to expose design-to-code tools, and provides \`@modelcontextprotocol/client\` (v2.x) as an optional client adapter.
   - *OpenCode (\`OS-AGNT-02\`, Score: 95.8, Tier 0):* Open-source autonomous coding agent architecture; reference implementation for tool loops and context injection.
   - *Vercel AI SDK (\`OS-AGNT-08\`, Score: 85.9, Tier 1):* Streaming UI and multi-modal generative UI primitives for Studio frontends.
   - *Closed Agents (\`OS-AGNT-03\` through \`05\`, Tier 3):* Reference-only resources for developer experience and context protocols.
-- **Decision:** Adopt Model Context Protocol (MCP) TypeScript SDK as UIForge's primary interoperability standard. Build dedicated UIForge MCP servers exposing AST inspection, component search, and visual evaluation tools.
+- **Decision:** Adopt Model Context Protocol (MCP) server SDK (\`@modelcontextprotocol/server\` v2.x) as UIForge's primary interoperability standard. Build dedicated UIForge MCP servers exposing AST inspection, component search, and visual evaluation tools.
 
 ---
 
 ## 8. Category H — Supporting UI Libraries
 
-- **Motion & Animation:** \`motion\` (\`OS-ANIM-01\`, Score: 94.8, Tier 0) adopted as standard. GSAP (\`OS-ANIM-04\`, Score: 78.4, Tier 2) supported as optional emission plugin under Webflow April 2025 license. Remotion (\`OS-ANIM-08\`, Tier 5) rejected.
-- **Data Tables & Virtualization:** \`TanStack/table\` (\`OS-DASH-03\`, Score: 95.8, Tier 0) adopted as headless table foundation. \`TanStack/virtual\` (\`OS-DASH-04\`, Score: 85.8, Tier 1) adopted for large list virtualization. React-Grid-Layout (\`OS-DASH-05\`, Tier 5) rejected.
-- **Charts & Data Visualization:** \`recharts\` (\`OS-CHRT-01\`, Score: 94.8, Tier 0) adopted as primary declarative SVG chart library. \`nivo\` (\`OS-CHRT-03\`, Tier 1) and \`visx\` (\`OS-CHRT-04\`, Tier 1) provide core-adjacent D3 extensions.
+- **Motion & Animation:** \`motion\` (\`OS-ANIM-01\`, Score: 94.8, Tier 0) adopted as standard. GSAP (\`OS-ANIM-04\`, Score: 78.4, Tier 2) supported as optional emission plugin under Webflow April 2025 license. Remotion (\`OS-ANIM-08\`, Tier 5) excluded due to architectural & mission scope misfit (programmatic video composition vs web UI design-to-code) and license headcount cap (<=3 employees for free commercial use).
+- **Data Tables & Virtualization:** \`TanStack/table\` (\`OS-DASH-03\`, Score: 95.8, Tier 0) adopted as headless table foundation. \`TanStack/virtual\` (\`OS-DASH-04\`, Score: 85.8, Tier 1) adopted for large list virtualization. \`react-grid-layout\` (\`OS-DASH-05\`, Score: 74.7, Tier 2) admitted as an optional integration adapter for drag-and-drop dashboard grid layouts (v2.3.0 with React 18/19 and Playwright E2E harness).
+- **Charts & Data Visualization:** \`recharts\` (\`OS-CHRT-01\`, Score: 94.8, Tier 0) adopted as primary declarative SVG chart library. \`nivo\` (\`OS-CHRT-03\`, Tier 1) provides D3 chart components. \`visx\` (\`OS-CHRT-04\`, Tier 1) provides low-level unstyled SVG visualization primitives (v4.0.0 with React 19 support, modular per-package installation, and tree-shaking).
 - **Icons & Visual Assets:** \`lucide-icons\` (\`OS-ICON-01\`, Score: 94.9, Tier 0) adopted as primary icon set. \`svgr\` (\`OS-ICON-07\`, Tier 1) adopted as SVG-to-React compiler.
-- **Typography & Layout:** \`Inter\` (\`OS-TYPO-04\`, Score: 95.9, Tier 0) and \`Geist\` (\`OS-TYPO-05\`, Score: 94.9, Tier 0) adopted under SIL OFL 1.1 RFN preservation. \`react-resizable-panels\` (\`OS-LAYT-01\`, Score: 94.7, Tier 0) adopted for studio panel layouts.
+- **Typography & Layout:** \`Inter\` (\`OS-TYPO-04\`, Score: 95.9, Tier 0) and \`Geist\` (\`OS-TYPO-05\`, Score: 94.9, Tier 0) adopted under SIL OFL 1.1 RFN preservation. \`react-resizable-panels\` (\`OS-LAYT-01\`, Score: 94.7, Tier 0) adopted for studio panel layouts. Distinct candidate IDs preserved: \`OS-DASH-05\` is React-Grid-Layout; \`OS-LAYT-03\` is Radix Aspect Ratio.
 `;
 
 fs.writeFileSync(path.join(baseDir, 'CATEGORY-WISE-COMPARISON-REPORT.md'), mdCategoryWise, 'utf8');
@@ -401,30 +416,45 @@ let mdDepCost = `# UIForge Phase 02.5: Dependency & Architectural Cost Report
 
 ---
 
-## 1. UIForge Core Dependency Budget
+## 1. UIForge Proposed Core Dependency Budget (C09)
 
-To maintain rapid installation, deterministic cold starts, and zero dependency bloat, UIForge Core enforces strict architectural constraints:
-- **Zero Heavy Native Addons:** UIForge Core CLI must not require native C++ build toolchains (node-gyp) during standard installation.
-- **Tree-Shakeable Package Architecture:** All UI packages must export pure ES modules with explicit side-effect disclosures (\`sideEffects: false\`).
-- **Decoupled Engine Strategy:** Heavy automation engines (Playwright browsers, Docker testcontainers) are treated as out-of-process external tooling or lazy-loaded optional adapters.
+To maintain rapid installation, deterministic cold starts, and zero dependency bloat, UIForge proposes a **<95 MB target node_modules footprint** for the core production platform.
+
+> [!NOTE]
+> The **<95 MB figure represents a proposed target budget**, pending empirical verification via a reproducible benchmark installation in Phase 03.
+> 
+> **Benchmark Specifications for Phase 03 Measurement:**
+> - **Runtime & Package Manager:** Node.js 22 LTS, pnpm 9.x (clean cache, \`--frozen-lockfile\`).
+> - **Environments:** Linux x64 (Ubuntu 24.04) and Windows x64.
+> - **Dependency Separation:** Production dependencies (\`dependencies\`) measured independently from dev/test tools (\`devDependencies\`).
+> - **Browser Binary Isolation:** Playwright browser binaries (Chromium, Firefox, WebKit, ~150–300 MB) are explicitly excluded from the package tarball and cached in user directories on demand.
 
 ---
 
-## 2. Dependency Allocation by Package Role
+## 2. Layered Execution Architecture & Dependency Allocation (C08)
 
-| Package Category | Adopted Packages / Tools | Target Install Footprint | Runtime Environment | Justification |
+UIForge establishes a strictly decoupled, layered execution architecture to ensure that heavyweight analysis and verification engines do not become mandatory production runtime burdens:
+
+| Execution Layer | Adopted Packages / Tools | Dependency Policy | Target Footprint | Architectural Role & Justification |
 | :--- | :--- | :---: | :---: | :--- |
-| **Core Runtime (CLI & Studio Engine)** | \`@modelcontextprotocol/sdk\`, \`zod\` | < 15 MB | Node.js >= 20.0 | Minimal agent communication transport and runtime schema validation |
-| **Core Studio UI (Frontend)** | \`@radix-ui/react-*\`, \`lucide-react\`, \`motion\`, \`@tanstack/react-table\`, \`recharts\`, \`react-resizable-panels\` | < 35 MB | Browser / Next.js | Modern, responsive Studio interface built using UIForge's own recommended primitives |
-| **Core Build & Compilation Tools** | \`style-dictionary\`, \`tailwindcss\` v4, \`@babel/parser\`, \`@babel/traverse\` | < 45 MB | Development Only | Design token transformation and AST code mutation tooling |
-| **Testing & Evaluation Infrastructure** | \`playwright\`, \`@axe-core/playwright\`, \`pixelmatch\`, \`eslint-plugin-jsx-a11y\` | Deferred / User-Managed | Isolated CI/Sandbox | Executed out-of-process for browser rendering, a11y audits, and visual regression |
-| **External CLI Binaries** | \`ast-grep\` (native binary) | Standalone Binary (~20 MB) | System PATH / N-API | High-speed structural code searching without polluting node_modules |
+| **Layer 1: Core Analysis Engine** | \`typescript\` (Compiler API) | Peer / Required for Full Type Checking | ~40 MB | Semantic type checking, cross-file symbol resolution, interface diagnostics, and type assertion. Invoked only when full semantic checking is requested. |
+| **Layer 2: Structural Analysis & Transformation** | \`@babel/parser\`, \`@babel/traverse\`, \`ast-grep\` | Production Dependency + Native Tool | ~25 MB | High-speed fault-tolerant AST parsing and syntax manipulation for LLM-emitted JSX/TSX snippets without the overhead of spinning up a full TypeScript program. \`ast-grep\` provides native NAPI/CLI pattern matching. |
+| **Layer 3: Token Build Pipeline** | \`style-dictionary\` v4 | Build-Time Tool | ~15 MB | Design token transformation engine compiling W3C DTCG tokens into Tailwind v4 variables, CSS custom properties, and TypeScript theme objects. |
+| **Layer 4: Browser Verification Engine** | \`playwright\` | Optional / Dev Dependency | User Cache (~250 MB) | Multi-browser headless automation, DOM layout evaluation, visual screenshot capture, and trace replay. Installed on demand. |
+| **Layer 5: Accessibility Verification** | \`axe-core\` (\`@axe-core/cli\`), \`@axe-core/playwright\`, \`eslint-plugin-jsx-a11y\` | External Tool / Dev Dependency | ~10 MB | WCAG 2.2 AA rule evaluation invoked out-of-process via user CLI (\`counselReviewRequired: true\`). Static AST linting via eslint-plugin-jsx-a11y. |
+| **Layer 6: Image Comparison Adapter** | \`pixelmatch\`, \`pngjs\` | Optional Testing Adapter | < 3 MB | Deterministic, zero-native-dependency pixel diffing engine operating in-memory on PNG buffers. |
+| **Layer 7: Agent Interoperability** | \`@modelcontextprotocol/server\` (v2.x) | Core Runtime Dependency | < 10 MB | Implements the 2026-07-28 Model Context Protocol specification for exposing UIForge tools, tokens, and AST mutation engines to AI coding agents. \`@modelcontextprotocol/client\` is an optional client adapter. |
+
+### 2.1 Justification for Coexisting Analysis Engines (TypeScript vs Babel vs ast-grep)
+- **TypeScript Compiler API:** Essential for complete type diagnostics, generic type parameter evaluation, and cross-module interface reconciliation.
+- **Babel Parser & Traverse:** Optimized for high-throughput, fault-tolerant syntax manipulation and AST code generation. It can parse incomplete or malformed JSX/TSX snippets emitted by LLMs that would cause the TypeScript typechecker to halt.
+- **ast-grep:** Utilizes native Tree-sitter parsers to execute structural pattern searches and multi-file refactoring queries at C/Rust speeds without building a JavaScript AST object graph.
 
 ---
 
-## 3. Bloat Mitigation Strategies
+## 3. Bloat Mitigation & Cost Governance (C10)
 
-1. **Source-Copy Component Pattern:** Emitting shadcn/ui components directly into user projects eliminates 50+ redundant micro-packages from node_modules.
+1. **Source-Copy Component Architecture:** Source-copy integration avoids a mandatory UIForge runtime dependency. The copied implementation and its dependencies retain their own consumer-runtime cost.
 2. **Dynamic Lazy-Loading for Heavy Visual Engines:** Recharts and Pixelmatch are dynamically imported only when executing dashboard analytics or visual regression diffing.
 3. **Subprocess Isolation for Testing Engines:** Playwright browser binaries (Chromium, WebKit) are installed on demand via \`playwright install\` rather than bundled into the default UIForge CLI tarball.
 `;
@@ -459,14 +489,18 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 
 ## 2. Special Governance Cases
 
-### 2.1 axe-core (\`OS-A11Y-01\`) — User-Managed External Tool Boundary
-- **Consumption Mode:** \`EXTERNAL_TOOL\` (\`ELIGIBLE_WITH_RESTRICTIONS\`, \`allowed: true\`).
-- **Architectural Isolation:** UIForge invokes user-installed \`@axe-core/cli\` or \`@axe-core/playwright\` via out-of-process test runners. UIForge does **not** bundle, redistribute, or host executable binaries.
-- **Legal Caveat:** This architectural boundary isolates binary redistribution risks but does not constitute unconditional legal clearance. The flag \`counselReviewRequired: true\` is preserved pending formal sign-off from IP counsel.
+### 2.1 axe-core (\`OS-A11Y-01\`) — User-Managed External Tool Boundary & Legal Clearance Gate (C05)
+- **Consumption Mode:** \`EXTERNAL_TOOL\` (\`ELIGIBLE_WITH_RESTRICTIONS\`, \`allowed: true\`, \`counselReviewRequired: true\`).
+- **Architectural Isolation Strategy:** UIForge invokes user-installed \`@axe-core/cli\` via out-of-process subprocess execution over standard stdio JSON streams. UIForge does **not** bundle, vendor, or redistribute executable axe-core binaries.
+- **Legal Compliance Boundary:** While the subprocess boundary provides strong architectural decoupling, it does **not** automatically eliminate MPL-2.0 copyleft obligations in every hypothetical distribution or hosted architecture. Legal clearance from qualified IP counsel remains an **explicit release gate** before shipping any bundled, hosted, SaaS, or redistributed delivery model.
+- **Package & Integration Separation:**
+  1. \`axe-core\`: Core rule engine script / npm library (governed by MPL-2.0).
+  2. \`@axe-core/playwright\`: Headless browser test runner adapter for CI/local verification (MPL-2.0).
+  3. \`@axe-core/cli\`: Out-of-process command-line executable invoked via user environment.
 
 ### 2.2 pa11y (\`OS-A11Y-05\`) — Prudent Copyleft Gating
 - **Consumption Mode:** \`EXTERNAL_TOOL\` (\`PENDING_REVIEW\`, \`allowed: false\`, Tier 4 Deferred).
-- **Reason:** Governed by LGPL-3.0. Direct dynamic linking carries copyleft risk. Gated pending legal counsel review (\`LEG-02\`).
+- **Reason:** Governed by LGPL-3.0. Direct dynamic linking carries copyleft risk. Gated pending legal counsel review (\`LEG-02\`, \`counselReviewRequired: true\`).
 
 ### 2.3 GSAP (\`OS-ANIM-04\`) — Webflow Commercial License Scoping
 - **Consumption Mode:** \`DEPENDENCY\` (\`ELIGIBLE_WITH_RESTRICTIONS\`, \`allowed: true\`, Tier 2 Optional Plugin Emission).
@@ -479,6 +513,11 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 ### 2.5 SIL OFL 1.1 Fonts (Inter \`OS-TYPO-04\`, Geist \`OS-TYPO-05\`)
 - **Consumption Mode:** \`ASSET_REDISTRIBUTION\` (\`ELIGIBLE_WITH_RESTRICTIONS\`, \`allowed: true\`, Tier 0).
 - **Condition:** Both typefaces carry Reserved Font Name declarations ("with Reserved Font Name Inter", "with Reserved Font Name Geist"). Distributed unchanged as unmodified font binaries accompanied by the full OFL 1.1 license text.
+
+### 2.6 Remotion (\`OS-ANIM-08\`) — Tiered Headcount Commercial Licensing (C02)
+- **Consumption Mode:** \`DEPENDENCY\` (\`RESTRICTED\`, Tier 5 Excluded).
+- **License Terms:** Remotion's license is not a blanket commercial prohibition. It permits free, unlimited commercial use for individuals and small entities of up to 3 people. Entities with >3 employees must purchase a paid commercial Company License.
+- **Architectural Scope Misfit:** Remotion is excluded based on Gate G5 (Product and Architectural Fit): it is a specialized programmatic video rendering and composition engine (HTML/CSS to MP4 via headless Chromium/FFmpeg), whereas UIForge's mission is web UI design-to-code generation.
 `;
 
 fs.writeFileSync(path.join(baseDir, 'LICENSE-AND-CONSUMPTION-MODE-DECISIONS.md'), mdLicDecisions, 'utf8');
@@ -543,7 +582,7 @@ console.log('Built CORE-FOUNDATION-SHORTLIST.md');
 let mdOptionalShortlist = `# UIForge Phase 02.5: Optional Integration Shortlist (Tiers 1 & 2)
 
 **Document ID:** \`UIF-PH02.5-OPTIONAL-INTEGRATION-SHORTLIST\`  
-**Classification:** Modular Extensions, Registry Blocks & Adapters (73 Candidates)  
+**Classification:** Modular Extensions, Registry Blocks & Adapters (74 Candidates)  
 **Status:** Certified / Complete  
 **Date:** November 2026  
 
@@ -552,7 +591,7 @@ let mdOptionalShortlist = `# UIForge Phase 02.5: Optional Integration Shortlist 
 ## 1. Overview of Tiers 1 & 2
 
 - **TIER 1 (Recommended Core-Adjacent - 34 Candidates):** High-value libraries, curated component blocks, and specialized testing utilities recommended as standard extensions.
-- **TIER 2 (Optional Integrations - 39 Candidates):** Modular plugins, alternative charting libraries, secondary icon sets, and specialized UI snippets enabled on demand.
+- **TIER 2 (Optional Integrations - 40 Candidates):** Modular plugins, alternative charting libraries, secondary icon sets, and specialized UI snippets enabled on demand (including interactive dashboard grid layouts).
 
 ---
 
@@ -570,7 +609,7 @@ tier1Candidates.forEach(c => {
 mdOptionalShortlist += `
 ---
 
-## 3. Tier 2 Optional Integration Candidates (39 Sources)
+## 3. Tier 2 Optional Integration Candidates (40 Sources)
 
 | Candidate ID | Name | Category | Hard Gate | Score | Proposed Mode | Role & Integration Rationale |
 | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
@@ -630,7 +669,7 @@ console.log('Built REFERENCE-ONLY-AND-DEFERRED-SHORTLIST.md');
 let mdRejected = `# UIForge Phase 02.5: Rejected Candidate Register (Tier 5)
 
 **Document ID:** \`UIF-PH02.5-REJECTED-CANDIDATE-REGISTER\`  
-**Classification:** Quarantined & Ineligible Candidates (8 Candidates)  
+**Classification:** Quarantined & Ineligible Candidates (7 Candidates)  
 **Status:** Certified / Complete  
 **Date:** November 2026  
 
@@ -638,11 +677,11 @@ let mdRejected = `# UIForge Phase 02.5: Rejected Candidate Register (Tier 5)
 
 ## 1. Exclusion Policy & Enforcement
 
-Candidates assigned to **Tier 5** have failed mandatory hard gates (Licensing G2, Security/Maintenance G3, Fit G5, or Viability G6). They are strictly excluded from UIForge's core runtime, recommended extensions, and optional plugin registries.
+Candidates assigned to **Tier 5** have failed mandatory hard gates (Licensing G2, Fit G5, or Viability G6) or have been excluded during architectural deduplication due to direct capability redundancy with core engines. They are strictly excluded from UIForge's core runtime, recommended extensions, and optional plugin registries.
 
 ---
 
-## 2. Excluded Candidates Register (8 Sources)
+## 2. Excluded Candidates Register (7 Sources)
 
 | Candidate ID | Name | Category | Priority | Hard Gate | Score | Detailed Disqualification Rationale & Root Cause |
 | :--- | :--- | :--- | :---: | :---: | :---: | :--- |
@@ -659,9 +698,10 @@ mdRejected += `
 ## 3. Exclusion Rationale Summary
 
 1. **Commercial Redistribution Prohibitions (\`OS-MKT-08\` Aceternity, \`OS-D2C-08\` Locofy):** Proprietary terms forbid redistributing, reselling, or embedding components into open developer tools.
-2. **Employee Threshold License Restrictions (\`OS-ANIM-08\` Remotion):** Remotion Company License imposes restrictive headcount caps (<= 3 employees) that contradict open-core redistribution.
-3. **Severe Maintenance Abandonment (\`OS-DASH-05\` React-Grid-Layout, \`OS-VREG-04\` Loki, \`OS-VREG-05\` BackstopJS, \`OS-DASH-08\` Tabler React):** Inactive maintainers, broken dependencies against modern React 18/19, and unmitigated security vulnerabilities.
-4. **Rigid Vendor Lock-In (\`OS-COMP-15\` SaaS UI):** Crippled community edition with aggressive Pro tier upsell gating.
+2. **Mission Scope Misfit & Organization-Size Licensing (\`OS-ANIM-08\` Remotion):** Programmatic video composition and rendering engine (Chrome/FFmpeg) rather than interactive web UI design-to-code generation. Free license is restricted to <=3 employee entities.
+3. **Severe Maintenance Abandonment (\`OS-DASH-08\` Tabler React):** Inactive maintainers, broken dependencies against modern React 18/19, and unmitigated security vulnerabilities.
+4. **Capability Redundancy & Runner Coupling (\`OS-VREG-04\` Loki, \`OS-VREG-05\` BackstopJS):** Functional visual testing tools (BackstopJS v6.3.25; Loki Storybook runner), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch diffing and legacy runner harness.
+5. **Rigid Vendor Lock-In (\`OS-COMP-15\` SaaS UI):** Crippled community edition with aggressive Pro tier upsell gating.
 `;
 
 fs.writeFileSync(path.join(baseDir, 'REJECTED-CANDIDATE-REGISTER.md'), mdRejected, 'utf8');
@@ -764,11 +804,11 @@ Phase 02.5 has completed all required selection methodologies, hard-gate evaluat
 | **AC18** | Pending legal candidates remain gated | **PASS** | pa11y kept PENDING in Tier 4 Deferred; counselReviewRequired: true preserved (Test 19). |
 | **AC19** | Core and optional dependencies distinguished | **PASS** | Tier 0 Core separated from Tier 1 Core-Adjacent and Tier 2 Optional Plugins. |
 | **AC20** | Reference-only sources not promoted | **PASS** | Every Layout and closed AI agents preserved as Tier 3 Reference Only (Test 36). |
-| **AC21** | Complete shortlists created | **PASS** | Tier 0 (24), Tier 1 (34), Tier 2 (39), Tier 3 (16), Tier 4 (4), Tier 5 (8) documented. |
+| **AC21** | Complete shortlists created | **PASS** | Tier 0 (24), Tier 1 (34), Tier 2 (40), Tier 3 (16), Tier 4 (4), Tier 5 (7) documented (Total: 125). |
 | **AC22** | Experimental gaps documented | **PASS** | Experiments E1 through E6 specified (\`EXPERIMENTAL-VALIDATION-PLAN.md\`). |
 | **AC23** | Research claims independently traceable | **PASS** | Exactly 125 claim dossiers tracked in \`data/evidence-and-claim-register.json\` (Test 40, 41). |
 | **AC24** | Datasets reconcile with Markdown reports | **PASS** | Markdown tables generated directly from canonical JSON datasets. |
-| **AC25** | Automated validation reproducible | **PASS** | \`validate_selection.js\` executes 50 assertions cleanly (50 / 50 PASS). |
+| **AC25** | Automated validation reproducible | **PASS** | \`validate_selection.js\` executes 53 assertions cleanly (53 / 53 PASS, SHA-256: \`83d2a76a...\`). |
 | **AC26** | No production implementation performed | **PASS** | Strict Phase 1 research discipline maintained; zero application code written. |
 | **AC27** | No unrequested Git operation performed | **PASS** | Zero git add, commit, or push operations executed during Phase 1. |
 | **AC28** | Phase 03 readiness documented | **PASS** | Clear roadmap handoff and prerequisites established (\`PHASE-03-HANDOFF.md\`). |
@@ -812,7 +852,7 @@ The following 24 Tier 0 selections are frozen and ready for architecture specifi
 2. **Component Emission Format:** \`shadcn-ui/ui\` (\`OS-COMP-01\`) source-copy model.
 3. **Design Tokens & Styling:** \`tailwindcss\` v4 (\`OS-TOKN-04\`), \`DTCG 2025.10\` (\`OS-TOKN-01\`), \`style-dictionary\` (\`OS-TOKN-02\`), and \`container-queries\` (\`OS-LAYT-02\`).
 4. **Browser Testing & Evaluation:** \`playwright\` (\`OS-BROW-01\`), \`axe-core\` (\`OS-A11Y-01\`, out-of-process CLI), and \`pixelmatch\` (\`OS-VREG-01\`).
-5. **Agent Connectivity:** \`modelcontextprotocol/typescript-sdk\` (\`OS-AGNT-01\`).
+5. **Agent Connectivity:** \`@modelcontextprotocol/server\` (v2.x implementing 2026-07-28 spec; \`OS-AGNT-01\`).
 6. **Core UI Controls & Typefaces:** \`motion\` (\`OS-ANIM-01\`), \`TanStack Table\` (\`OS-DASH-03\`), \`recharts\` (\`OS-CHRT-01\`), \`lucide-icons\` (\`OS-ICON-01\`), \`react-resizable-panels\` (\`OS-LAYT-01\`), and \`Inter\` / \`Geist\` (\`OS-TYPO-04/05\`).
 
 ### 2.2 Decisions Requiring Pre-Implementation Experiments (Phase 03 Prep)
@@ -822,7 +862,7 @@ Before freezing final monorepo dependency boundaries, execute experiments E1 thr
 - **E4 (Sandbox Execution):** Validate Docker-isolated Playwright execution latency.
 
 ### 2.3 Decisions Awaiting Formal Legal Counsel Sign-off
-- **axe-core (\`OS-A11Y-01\`):** Formal counsel confirmation of out-of-process user-managed CLI invocation model.
+- **axe-core (\`OS-A11Y-01\`):** Formal counsel confirmation of out-of-process user-managed CLI invocation model; legal clearance remains an explicit release gate for any bundled, hosted, or redistributed delivery model.
 - **pa11y (\`OS-A11Y-05\`):** Gated in Tier 4 Deferred pending LGPL-3.0 dynamic linking opinion (\`LEG-02\`).
 - **GSAP (\`OS-ANIM-04\`):** Preserved in Tier 2 Optional Plugin Emission under Webflow April 2025 non-compete terms.
 
@@ -833,7 +873,7 @@ Before freezing final monorepo dependency boundaries, execute experiments E1 thr
 1. **Step 1: Monorepo & Toolchain Initialization:** Configure Turborepo + pnpm workspaces with strict TypeScript strictness and Biome/ESLint linting.
 2. **Step 2: Core Platform Schema Definitions:** Implement Zod contracts for DTCG design tokens, component registry manifests, and AST patch journals.
 3. **Step 3: AST Engine & Patch Recovery Engine:** Implement Gate 1 TypeScript Compiler API visitor and Gate 2 Write-Ahead Log (WAL) transaction manager.
-4. **Step 4: Model Context Protocol (MCP) Server:** Implement UIForge MCP server exposing AST inspection and component discovery tools to AI coding agents.
+4. **Step 4: Model Context Protocol (MCP) Server:** Implement UIForge MCP server using \`@modelcontextprotocol/server\` (v2.x) exposing AST inspection and component discovery tools to AI coding agents.
 5. **Step 5: Browser Verification Sandbox:** Implement Docker containerized Playwright + axe-core + Pixelmatch evaluation service.
 
 **Phase 02.5 is concluded. Phase 03 is ready for authorization.**

@@ -1415,10 +1415,10 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "PASS",
+          "G3_security": "NOT_APPLICABLE",
           "G4_evidence": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_viability": "NOT_APPLICABLE",
           "overallGateResult": "PASS"
         },
         "scores": {
@@ -1939,7 +1939,7 @@
           "G3_security": "PASS",
           "G4_evidence": "PASS",
           "G5_fit": "PASS",
-          "G6_viability": "PASS",
+          "G6_viability": "NOT_APPLICABLE",
           "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
@@ -2945,11 +2945,11 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "FAIL",
+          "G3_security": "PASS",
           "G4_evidence": "PASS",
-          "G5_fit": "PASS",
-          "G6_viability": "FAIL",
-          "overallGateResult": "FAIL"
+          "G5_fit": "PASS_WITH_RESTRICTIONS",
+          "G6_viability": "PASS",
+          "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
           "codeQuality": 5.1,
@@ -2966,10 +2966,10 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 5",
         "recommendation": "REJECT",
-        "decisionRationale": "Abandoned Storybook visual regression tool; failing modern Playwright/Chromium dependencies",
+        "decisionRationale": "Functional Storybook visual testing tool, but excluded from adoption due to direct capability redundancy with Playwright multi-browser engine + Pixelmatch and heavy Storybook runtime coupling",
         "selectionEligibility": "INELIGIBLE",
         "selectionExclusionReasons": [
-          "Abandoned Storybook visual regression tool; failing modern Playwright/Chromium dependencies"
+          "Functional Storybook visual testing tool, but excluded from adoption due to direct capability redundancy with Playwright multi-browser engine + Pixelmatch and heavy Storybook runtime coupling"
         ]
       },
       {
@@ -2994,11 +2994,11 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "FAIL",
+          "G3_security": "PASS",
           "G4_evidence": "PASS",
-          "G5_fit": "PASS",
-          "G6_viability": "FAIL",
-          "overallGateResult": "FAIL"
+          "G5_fit": "PASS_WITH_RESTRICTIONS",
+          "G6_viability": "PASS",
+          "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
           "codeQuality": 5.3,
@@ -3015,10 +3015,10 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 5",
         "recommendation": "REJECT",
-        "decisionRationale": "Legacy visual regression tool with unmaintained Puppeteer dependency chain and high maintenance overhead",
+        "decisionRationale": "Functional visual regression tool (v6.3.25), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch and legacy external runner harness",
         "selectionEligibility": "INELIGIBLE",
         "selectionExclusionReasons": [
-          "Legacy visual regression tool with unmaintained Puppeteer dependency chain and high maintenance overhead"
+          "Functional visual regression tool (v6.3.25), but excluded from adoption due to direct capability overlap with Playwright multi-browser engine + Pixelmatch and legacy external runner harness"
         ]
       },
       {
@@ -3213,7 +3213,7 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 0",
         "recommendation": "ADOPT",
-        "decisionRationale": "Model Context Protocol (MCP) TypeScript SDK establishing standard agent tool/resource connectivity",
+        "decisionRationale": "Model Context Protocol (MCP) server & client SDKs (@modelcontextprotocol/server v2.x implementing 2026-07-28 spec; @modelcontextprotocol/client) establishing standard agent tool/resource connectivity",
         "selectionEligibility": "ELIGIBLE",
         "selectionExclusionReasons": []
       },
@@ -3962,32 +3962,30 @@
         "hardGates": {
           "G1_identity": "PASS",
           "G2_licensing": "PASS",
-          "G3_security": "FAIL",
+          "G3_security": "PASS",
           "G4_evidence": "PASS",
-          "G5_fit": "PASS",
-          "G6_viability": "FAIL",
-          "overallGateResult": "FAIL"
+          "G5_fit": "PASS_WITH_RESTRICTIONS",
+          "G6_viability": "PASS",
+          "overallGateResult": "PASS_WITH_RESTRICTIONS"
         },
         "scores": {
-          "codeQuality": 5.3,
-          "compatibility": 5,
-          "accessibility": 4.5,
-          "responsiveness": 4.7,
-          "maintainability": 4.5,
-          "customization": 5.5,
-          "documentation": 6,
-          "weightedScore": 5.02,
-          "finalScore": 50.2
+          "codeQuality": 7.8,
+          "compatibility": 8.5,
+          "accessibility": 5.5,
+          "responsiveness": 7.2,
+          "maintainability": 7.6,
+          "customization": 8.4,
+          "documentation": 7.5,
+          "weightedScore": 7.47,
+          "finalScore": 74.7
         },
-        "evidenceConfidence": "INSUFFICIENT",
+        "evidenceConfidence": "HIGH",
         "proposedConsumptionMode": "DEPENDENCY",
-        "adoptionTier": "TIER 5",
-        "recommendation": "REJECT",
-        "decisionRationale": "Unmaintained library with severe React 18/19 compatibility regressions and layout shift defects",
-        "selectionEligibility": "INELIGIBLE",
-        "selectionExclusionReasons": [
-          "Unmaintained library with severe React 18/19 compatibility regressions and layout shift defects"
-        ]
+        "adoptionTier": "TIER 2",
+        "recommendation": "OPTIONAL",
+        "decisionRationale": "Interactive drag-and-drop dashboard grid layout adapter; active upstream v2.3.0 with React 18/19 and Playwright test harness; admitted as optional plugin for dashboard widgets",
+        "selectionEligibility": "RESTRICTED",
+        "selectionExclusionReasons": []
       },
       {
         "candidateId": "OS-DASH-06",
@@ -4488,10 +4486,10 @@
         "licenseRef": "LIC-REMOTION-COMMERCIAL",
         "hardGates": {
           "G1_identity": "PASS",
-          "G2_licensing": "FAIL",
+          "G2_licensing": "PASS_WITH_RESTRICTIONS",
           "G3_security": "PASS",
           "G4_evidence": "PASS",
-          "G5_fit": "PASS",
+          "G5_fit": "FAIL",
           "G6_viability": "PASS",
           "overallGateResult": "FAIL"
         },
@@ -4510,10 +4508,10 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 5",
         "recommendation": "REJECT",
-        "decisionRationale": "REJ discovery priority. Commercial Company License with strict employee count restriction (<= 3 employees)",
+        "decisionRationale": "REJ discovery priority. Excluded under Gate G5 due to mission and architectural misfit: programmatic video rendering engine (video composition) rather than interactive web UI design-to-code generation. Free license is restricted to <=3 person entities.",
         "selectionEligibility": "INELIGIBLE",
         "selectionExclusionReasons": [
-          "REJ discovery priority. Commercial Company License with strict employee count restriction (<= 3 employees)"
+          "REJ discovery priority. Excluded under Gate G5 due to mission and architectural misfit: programmatic video rendering engine (video composition) rather than interactive web UI design-to-code generation. Free license is restricted to <=3 person entities."
         ]
       },
       {
@@ -5079,7 +5077,7 @@
         "proposedConsumptionMode": "DEPENDENCY",
         "adoptionTier": "TIER 1",
         "recommendation": "ADOPT",
-        "decisionRationale": "Low-level visualization primitives combining D3 math with React DOM management",
+        "decisionRationale": "Low-level modular SVG visualization primitives (v4.0.0 with React 19 support) combining D3 math with React DOM management",
         "selectionEligibility": "ELIGIBLE",
         "selectionExclusionReasons": []
       },
@@ -6020,7 +6018,7 @@
         "licenseRef": "LIC-COMMERCIAL",
         "hardGates": {
           "G1_identity": "FAIL",
-          "G2_licensing": "FAIL",
+          "G2_licensing": "PASS",
           "G3_security": "PASS",
           "G4_evidence": "PASS",
           "G5_fit": "FAIL",
