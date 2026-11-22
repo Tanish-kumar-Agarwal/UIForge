@@ -1,0 +1,207 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://uiforge.dev/schemas/knowledge-entry.schema.json",
+  "title": "UIForge Design Knowledge Entry Contract",
+  "description": "Canonical schema for versioned, machine-readable design intelligence entries in UIForge",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "category",
+    "subcategory",
+    "type",
+    "summary",
+    "appliesTo",
+    "severity",
+    "confidence",
+    "guidance",
+    "evidence",
+    "version",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(KNOW|ANTI|PATT|HEUR)-[A-Z0-9]+-[0-9]{3}$",
+      "description": "Unique stable identifier for the knowledge entry"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120,
+      "description": "Concise human-readable title of the design rule or pattern"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "visual-fundamentals",
+        "layout-engineering",
+        "typography-intelligence",
+        "color-intelligence",
+        "interaction-and-motion",
+        "ux-information-architecture",
+        "design-systems"
+      ],
+      "description": "Primary architectural category"
+    },
+    "subcategory": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 50,
+      "description": "Specialized subcategory (e.g. hierarchy, contrast, grids, scales, states)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "principle",
+        "anti-pattern",
+        "positive-pattern",
+        "heuristic",
+        "rule"
+      ],
+      "description": "Classification of the knowledge item"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 500,
+      "description": "Concise normative statement or thesis of the rule"
+    },
+    "appliesTo": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "all",
+          "editorial",
+          "enterprise-saas",
+          "fintech",
+          "ecommerce",
+          "developer-tools",
+          "healthcare",
+          "education",
+          "dashboards",
+          "administration",
+          "consumer-applications"
+        ]
+      },
+      "minItems": 1,
+      "description": "Product domains or interface types where this rule is active"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "INFORMATIONAL"
+      ],
+      "description": "Impact severity if violated or neglected"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "MANDATORY",
+        "VERY_HIGH",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "description": "Confidence tier based on supporting evidence authority"
+    },
+    "guidance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Actionable, concrete implementation instructions"
+    },
+    "antiPatterns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ANTI-[A-Z0-9]+-[0-9]{3}$"
+      },
+      "default": [],
+      "description": "Referenced anti-pattern IDs that violate this entry"
+    },
+    "positivePatterns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^PATT-[A-Z0-9]+-[0-9]{3}$"
+      },
+      "default": [],
+      "description": "Referenced positive pattern IDs illustrating compliance"
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Valid real-world contexts where this rule should intentionally be suspended"
+    },
+    "evaluationCriteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "metric",
+          "method",
+          "threshold"
+        ],
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "AUTOMATED_STATIC",
+              "AUTOMATED_BROWSER",
+              "HEURISTIC_AGENT",
+              "HUMAN_REVIEW"
+            ]
+          },
+          "threshold": {
+            "type": "string"
+          }
+        }
+      },
+      "default": [],
+      "description": "Testable conditions to evaluate compliance"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVID-[A-Z0-9]+-[0-9]{3}$"
+      },
+      "minItems": 1,
+      "description": "Traceable evidence IDs from EVIDENCE-REGISTER.json"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Semantic version of this knowledge entry"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "deprecated",
+        "superseded"
+      ],
+      "description": "Lifecycle state of the entry"
+    },
+    "supersededBy": {
+      "type": "string",
+      "description": "ID of replacement entry if status is superseded"
+    }
+  },
+  "additionalProperties": false
+}
