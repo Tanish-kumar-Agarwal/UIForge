@@ -9,19 +9,37 @@
       "category": "layout-engineering",
       "subcategory": "section-composition",
       "description": "Applying a 3-column homogeneous card grid to completely disparate information types (e.g. pricing, testimonials, features, blog posts) on the same page.",
-      "symptoms": ["Every section uses identical 3-column cards", "Visual monotony", "No visual hierarchy between sections"],
+      "symptoms": [
+        "Every section uses identical 3-column cards",
+        "Visual monotony",
+        "No visual hierarchy between sections"
+      ],
       "underlyingDefect": "Failure to design appropriate information architectures tailored to distinct content types.",
       "context": "Marketing pages, homepages, and product landing pages.",
-      "validExceptions": ["Product catalog search results or blog post archives where items are truly homogeneous."],
+      "validExceptions": [
+        "Product catalog search results or blog post archives where items are truly homogeneous."
+      ],
       "severity": "HIGH",
       "confidence": "HIGH",
       "detectionStrategy": "Detect repeated 3-column CSS Grid or Flex child containers with identical DOM depth across adjacent sections.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Verify whether content types are genuinely distinct.",
       "remediation": "Vary compositional layout by content type: use split-screen for features, horizontal quote carousel for testimonials, and comparison table for pricing.",
-      "positivePatterns": ["PATT-EDT-001", "PATT-MKT-001"],
-      "evaluationCriteria": [{"metric": "AdjacentSectionGridSimilarity", "method": "AUTOMATED_STATIC", "threshold": "SimilarityScore < 0.70"}],
-      "evidence": ["EVID-HCI-001", "EVID-HCI-002"],
+      "positivePatterns": [
+        "PATT-EDT-001",
+        "PATT-MKT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "AdjacentSectionGridSimilarity",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "SimilarityScore < 0.70"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-HCI-002"
+      ],
       "version": "1.0.0"
     },
     {
@@ -30,19 +48,37 @@
       "category": "layout-engineering",
       "subcategory": "grid-systems",
       "description": "Forcing tabular, transactional, or sequential information into an asymmetrical bento box layout simply because it is visually trendy.",
-      "symptoms": ["Asymmetric card spans containing plain lists or tables", "Disjointed reading flow", "Cramped content in 1x1 cells"],
+      "symptoms": [
+        "Asymmetric card spans containing plain lists or tables",
+        "Disjointed reading flow",
+        "Cramped content in 1x1 cells"
+      ],
       "underlyingDefect": "Subordinating functional readability and data hierarchy to superficial aesthetic trends.",
       "context": "Dashboards, transactional portals, settings forms.",
-      "validExceptions": ["High-level marketing feature overviews where items have varying visual richness."],
+      "validExceptions": [
+        "High-level marketing feature overviews where items have varying visual richness."
+      ],
       "severity": "MEDIUM",
       "confidence": "HIGH",
       "detectionStrategy": "Detect CSS grid-column spans (2x1, 1x2) enclosing table or form input elements.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Assess whether asymmetric spans help or hinder comprehension.",
       "remediation": "Use standard linear multi-column grids or data tables for structured and transactional information.",
-      "positivePatterns": ["PATT-DSB-001", "PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "BentoLayoutSuitability", "method": "HEURISTIC_AGENT", "threshold": "NoDataTablesInBentoCells"}],
-      "evidence": ["EVID-HCI-001", "EVID-SYS-003"],
+      "positivePatterns": [
+        "PATT-DSB-001",
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "BentoLayoutSuitability",
+          "method": "HEURISTIC_AGENT",
+          "threshold": "NoDataTablesInBentoCells"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-SYS-003"
+      ],
       "version": "1.0.0"
     },
     {
@@ -51,19 +87,75 @@
       "category": "layout-engineering",
       "subcategory": "container-widths",
       "description": "Nesting cards inside cards inside panels, creating heavy layered borders and wasted padding.",
-      "symptoms": ["More than two levels of nested bordered containers", "Narrow content width due to cumulative padding", "Heavy prison-bar visual clutter"],
+      "symptoms": [
+        "More than two levels of nested bordered containers",
+        "Narrow content width due to cumulative padding",
+        "Heavy visual clutter"
+      ],
       "underlyingDefect": "Relying on physical borders rather than whitespace and subtle surface fills to group information.",
       "context": "Enterprise dashboards, settings pages, forms.",
-      "validExceptions": ["Draggable Kanban cards within column swimlanes."],
+      "validExceptions": [
+        "Draggable Kanban cards within column swimlanes."
+      ],
       "severity": "MEDIUM",
       "confidence": "VERY_HIGH",
       "detectionStrategy": "Inspect DOM tree for nested elements declaring border or box-shadow with depth > 2.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "None. Mathematically detectable via DOM depth.",
       "remediation": "Flatten the container hierarchy. Use whitespace (space-6) or subtle background surfaces without borders for inner groupings.",
-      "positivePatterns": ["PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "ContainerNestingDepth", "method": "AUTOMATED_STATIC", "threshold": "BorderedNestingDepth <= 2"}],
-      "evidence": ["EVID-HCI-002", "EVID-SYS-001"],
+      "positivePatterns": [
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "ContainerNestingDepth",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "BorderedNestingDepth <= 2"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-002",
+        "EVID-SYS-001"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-LAY-004",
+      "name": "Repeated Centered Hero Syndrome",
+      "category": "layout-engineering",
+      "subcategory": "section-composition",
+      "description": "Center-aligning every single headline, body paragraph, and button group down an entire page, eliminating any consistent visual anchor edge.",
+      "symptoms": [
+        "Ragged left and right text margins on body paragraphs",
+        "Saccadic tracking difficulty during reading",
+        "Weak visual alignment"
+      ],
+      "underlyingDefect": "Misapplying display hero center-alignment to continuous reading copy.",
+      "context": "Marketing pages, documentation, case studies.",
+      "validExceptions": [
+        "Standalone modal dialogs or isolated callout banners with at most 2 lines of text."
+      ],
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "detectionStrategy": "Inspect text-align: center on paragraphs with text length > 120 characters.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Review narrative cadence.",
+      "remediation": "Anchor continuous prose and multi-field forms to a strong left vertical edge (in LTR languages). Reserve center alignment strictly for brief headings or isolated hero banners.",
+      "positivePatterns": [
+        "PATT-MKT-001",
+        "PATT-EDT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "CenteredBodyParagraphCount",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "LongCenteredParagraphs == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-TYP-001"
+      ],
       "version": "1.0.0"
     },
     {
@@ -71,20 +163,36 @@
       "name": "Unbounded Line Measure (Extreme Text Width)",
       "category": "typography-intelligence",
       "subcategory": "line-length-and-measure",
-      "description": "Allowing continuous body text to span the full viewport width on large monitors (>100 characters per line).",
-      "symptoms": ["Text spanning 1200px+ width", "Severe lateral eye movement", "Reader tracking loss when scanning to next line"],
+      "description": "Allowing continuous body text to span the full viewport width on large monitors (>75 characters per line).",
+      "symptoms": [
+        "Text spanning 1200px+ width",
+        "Severe lateral eye movement",
+        "Reader tracking loss when scanning to next line"
+      ],
       "underlyingDefect": "Ignoring optical reading mechanics and psycholinguistic measure constraints.",
       "context": "Articles, documentation, blog posts, long form descriptions.",
-      "validExceptions": ["Terminal command outputs or log viewers with horizontal scrolling."],
+      "validExceptions": [
+        "Terminal command outputs or log viewers with horizontal scrolling."
+      ],
       "severity": "HIGH",
       "confidence": "VERY_HIGH",
       "detectionStrategy": "Compute rendered character count per line or check max-width in ch units on paragraph elements.",
       "automatedFeasibility": "AUTOMATED_BROWSER",
       "humanReviewRequirements": "None.",
       "remediation": "Enforce max-width: 65ch (or max-width: 720px) on prose containers.",
-      "positivePatterns": ["PATT-EDT-001"],
-      "evaluationCriteria": [{"metric": "BodyTextLineMeasure", "method": "AUTOMATED_BROWSER", "threshold": "CharacterCountPerLine <= 75"}],
-      "evidence": ["EVID-TYP-001"],
+      "positivePatterns": [
+        "PATT-EDT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "BodyTextLineMeasure",
+          "method": "AUTOMATED_BROWSER",
+          "threshold": "CharacterCountPerLine <= 75"
+        }
+      ],
+      "evidence": [
+        "EVID-TYP-001"
+      ],
       "version": "1.0.0"
     },
     {
@@ -93,19 +201,36 @@
       "category": "typography-intelligence",
       "subcategory": "heading-hierarchies",
       "description": "Using heading sizes that are barely distinguishable from body text (e.g. h1: 18px, h2: 16px, body: 14px), destroying visual hierarchy.",
-      "symptoms": ["Headings do not pop from page", "Reader cannot quickly scan document structure", "Page appears as uniform wall of text"],
+      "symptoms": [
+        "Headings do not pop from page",
+        "Reader cannot quickly scan document structure",
+        "Page appears as uniform wall of text"
+      ],
       "underlyingDefect": "Failure to apply harmonic scale intervals to typographic sizes.",
       "context": "All text-heavy interfaces, documentation, marketing pages.",
-      "validExceptions": ["Ultra-compact monospace data listings where typography is deliberately uniform."],
+      "validExceptions": [
+        "Ultra-compact monospace data listings where typography is deliberately uniform."
+      ],
       "severity": "HIGH",
       "confidence": "HIGH",
       "detectionStrategy": "Compute ratio between h1, h2, h3, and body text font-size.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Review optical balance with custom display typefaces.",
       "remediation": "Apply a harmonic type scale (Major Second or Minor Third ratio): H1: 30px+, H2: 24px, H3: 20px, Body: 16px.",
-      "positivePatterns": ["PATT-EDT-001"],
-      "evaluationCriteria": [{"metric": "H1ToBodyScaleRatio", "method": "AUTOMATED_STATIC", "threshold": "H1Ratio >= 1.75"}],
-      "evidence": ["EVID-HCI-001", "EVID-TYP-002"],
+      "positivePatterns": [
+        "PATT-EDT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "H1ToBodyScaleRatio",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "H1Ratio >= 1.75"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-TYP-002"
+      ],
       "version": "1.0.0"
     },
     {
@@ -114,19 +239,73 @@
       "category": "typography-intelligence",
       "subcategory": "numeric-and-tabular-typography",
       "description": "Displaying financial figures, stock prices, or tabular metrics using proportional numerals, causing decimal points to stagger and misalign.",
-      "symptoms": ["Ragged decimal alignment in table columns", "Columns impossible to scan vertically", "Numbers appear uneven"],
+      "symptoms": [
+        "Ragged decimal alignment in table columns",
+        "Columns impossible to scan vertically",
+        "Numbers appear uneven"
+      ],
       "underlyingDefect": "Neglecting OpenType tabular numeric features in data-dense interfaces.",
       "context": "Fintech, accounting, dashboards, invoice reviews.",
-      "validExceptions": ["Marketing hero headline stating 'Over $1,000,000 Saved' where proportional numerals look more natural."],
+      "validExceptions": [
+        "Marketing hero headline stating 'Over $1,000,000 Saved' where proportional numerals look more natural."
+      ],
       "severity": "HIGH",
       "confidence": "VERY_HIGH",
       "detectionStrategy": "Inspect computed CSS font-variant-numeric on table cells containing numeric data.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "None.",
       "remediation": "Set font-variant-numeric: tabular-nums lining-nums and text-align: right on all numeric data cells.",
-      "positivePatterns": ["PATT-FIN-001", "PATT-DSB-001"],
-      "evaluationCriteria": [{"metric": "TabularNumericEnforcement", "method": "AUTOMATED_STATIC", "threshold": "TabularNumsActiveOnNumericColumns == true"}],
-      "evidence": ["EVID-DOM-001"],
+      "positivePatterns": [
+        "PATT-FIN-001",
+        "PATT-DSB-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "TabularNumericEnforcement",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "TabularNumsActiveOnNumericColumns == true"
+        }
+      ],
+      "evidence": [
+        "EVID-DOM-001"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-TYP-004",
+      "name": "Inappropriate Font Pairing Clash",
+      "category": "typography-intelligence",
+      "subcategory": "font-pairing",
+      "description": "Combining two expressive fonts with conflicting historical personalities (e.g. geometric futuristic sans with ornate Victorian serif).",
+      "symptoms": [
+        "Visual discordance",
+        "Typography feels uncoordinated and amateurish",
+        "Distracted reading"
+      ],
+      "underlyingDefect": "Combining multiple highly expressive focal typefaces rather than pairing a distinct display font with a neutral workhorse body font.",
+      "context": "Brand marketing, editorial sites, landing pages.",
+      "validExceptions": [
+        "Experimental artistic portfolios."
+      ],
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "detectionStrategy": "Inspect declared font-family rules across headings and body containers.",
+      "automatedFeasibility": "HEURISTIC_AGENT",
+      "humanReviewRequirements": "Evaluate typography harmony with brand personality.",
+      "remediation": "Pair an expressive display typeface with a neutral neo-grotesque (e.g. Fraunces + Inter, or Playfair + Roboto).",
+      "positivePatterns": [
+        "PATT-EDT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "FontFamilyPairingCheck",
+          "method": "HEURISTIC_AGENT",
+          "threshold": "MaxFocalTypefaces <= 1"
+        }
+      ],
+      "evidence": [
+        "EVID-TYP-002"
+      ],
       "version": "1.0.0"
     },
     {
@@ -135,19 +314,35 @@
       "category": "color-intelligence",
       "subcategory": "accessible-contrast",
       "description": "Styling input placeholder text, secondary captions, or disabled controls with ultra-light grey (< 3:1 contrast), making it illegible for low-vision users.",
-      "symptoms": ["Faint light grey text (#A0AEC0 or lighter) on white background", "Users unable to read field hints", "Automated a11y audit failure"],
+      "symptoms": [
+        "Faint light grey text (#A0AEC0 or lighter) on white background",
+        "Users unable to read field hints",
+        "Automated a11y audit failure"
+      ],
       "underlyingDefect": "Prioritizing an ultra-clean minimalist aesthetic over basic legibility and accessibility laws.",
       "context": "Forms, cards, metadata rows, footers.",
-      "validExceptions": ["Pure decorative watermarks or inactive disabled inputs exempted by WCAG SC 1.4.3."],
+      "validExceptions": [
+        "Pure decorative watermarks or inactive disabled inputs exempted by WCAG SC 1.4.3."
+      ],
       "severity": "CRITICAL",
       "confidence": "MANDATORY",
       "detectionStrategy": "Compute relative luminance contrast ratio between text color and background color.",
       "automatedFeasibility": "AUTOMATED_BROWSER",
       "humanReviewRequirements": "None. Mathematically calculated.",
-      "remediation": "Enforce minimum 4.5:1 contrast for all secondary text, and minimum 3:1 for essential non-text elements and placeholders.",
-      "positivePatterns": ["PATT-ADM-001"],
-      "evaluationCriteria": [{"metric": "TextContrastRatio", "method": "AUTOMATED_BROWSER", "threshold": "ContrastRatio >= 4.5"}],
-      "evidence": ["EVID-A11Y-001"],
+      "remediation": "Enforce minimum 4.5:1 contrast for all essential text, and minimum 3:1 for essential non-text elements and placeholders.",
+      "positivePatterns": [
+        "PATT-ADM-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "TextContrastRatio",
+          "method": "AUTOMATED_BROWSER",
+          "threshold": "ContrastRatio >= 4.5"
+        }
+      ],
+      "evidence": [
+        "EVID-A11Y-001"
+      ],
       "version": "1.0.0"
     },
     {
@@ -156,19 +351,37 @@
       "category": "color-intelligence",
       "subcategory": "semantic-palette-mapping",
       "description": "Applying rainbow or neon multi-stop gradients across headings, card borders, and buttons on utilitarian software interfaces.",
-      "symptoms": ["Purple-to-orange gradient headings", "Glowing neon gradient borders", "Vibrating optical edges"],
+      "symptoms": [
+        "Purple-to-orange gradient headings",
+        "Glowing neon gradient borders",
+        "Vibrating optical edges"
+      ],
       "underlyingDefect": "Using superficial AI-template decoration to compensate for a lack of structural visual hierarchy.",
       "context": "Enterprise SaaS, dashboards, developer tools.",
-      "validExceptions": ["Consumer AI marketing websites or crypto landing pages where vibrant gradients are intentional brand identifiers."],
+      "validExceptions": [
+        "Consumer AI marketing websites or crypto landing pages where vibrant gradients are intentional brand identifiers."
+      ],
       "severity": "MEDIUM",
       "confidence": "HIGH",
       "detectionStrategy": "Inspect CSS linear-gradient declarations on text (background-clip: text) and component borders.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Assess whether gradients align with explicit brand direction.",
       "remediation": "Replace text gradients with crisp, solid high-contrast neutral text. Use subtle single-hue tints for card surfaces.",
-      "positivePatterns": ["PATT-DEV-001", "PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "GradientDecorOveruse", "method": "AUTOMATED_STATIC", "threshold": "TextGradientCount <= 1"}],
-      "evidence": ["EVID-HCI-003", "EVID-HCI-004"],
+      "positivePatterns": [
+        "PATT-DEV-001",
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "GradientDecorOveruse",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "TextGradientCount <= 1"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-003",
+        "EVID-HCI-004"
+      ],
       "version": "1.0.0"
     },
     {
@@ -177,19 +390,73 @@
       "category": "color-intelligence",
       "subcategory": "light-and-dark-theming",
       "description": "Using pure #000000 black as the background for cards, modals, and canvas in dark mode.",
-      "symptoms": ["Harsh contrast against white text causing halation", "Invisible drop shadows destroying depth", "OLED pixel smearing during scroll"],
+      "symptoms": [
+        "Harsh contrast against white text causing halation",
+        "Invisible drop shadows destroying depth",
+        "OLED pixel smearing during scroll"
+      ],
       "underlyingDefect": "Naive color inversion rather than structured elevation-based surface lightening in dark themes.",
       "context": "All dark theme interfaces.",
-      "validExceptions": ["High-contrast accessibility mode explicitly requested by user, or ultra-low-power battery modes."],
+      "validExceptions": [
+        "High-contrast accessibility mode explicitly requested by user, or ultra-low-power battery modes."
+      ],
       "severity": "MEDIUM",
       "confidence": "HIGH",
       "detectionStrategy": "Inspect computed background-color in dark mode for #000000 across multiple elevation levels.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "None.",
       "remediation": "Use deep neutral slates (e.g. oklch(0.18 0.01 260) / #121417) for base canvas and progressively lighten surfaces for elevation.",
-      "positivePatterns": ["PATT-DEV-001"],
-      "evaluationCriteria": [{"metric": "DarkModeSurfaceLuminance", "method": "AUTOMATED_STATIC", "threshold": "BaseSurfaceLuminance > 0.01"}],
-      "evidence": ["EVID-COL-001", "EVID-SYS-001"],
+      "positivePatterns": [
+        "PATT-DEV-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "DarkModeSurfaceLuminance",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "BaseSurfaceLuminance > 0.01"
+        }
+      ],
+      "evidence": [
+        "EVID-COL-001",
+        "EVID-SYS-001"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-COL-004",
+      "name": "Inappropriate Semantic Status Color Hijacking",
+      "category": "color-intelligence",
+      "subcategory": "semantic-palette-mapping",
+      "description": "Using semantic alert colors (red/green) for non-semantic brand elements (e.g. styled non-destructive buttons in red, or warning messages in green).",
+      "symptoms": [
+        "User hesitation and fear of making destructive errors",
+        "Confusion over actual system state"
+      ],
+      "underlyingDefect": "Violating universal chromatic semantic associations.",
+      "context": "All software interfaces.",
+      "validExceptions": [
+        "Brand color palettes where red or green is a non-alert identity color used with distinct secondary signifiers."
+      ],
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "detectionStrategy": "Check semantic status component classes against declared button roles and intents.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Verify contextual intent.",
+      "remediation": "Reserve red strictly for critical errors and irreversible destructive actions. Reserve green strictly for verified success.",
+      "positivePatterns": [
+        "PATT-ADM-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "SemanticColorIntentAlignment",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "RedUsedForNonDestructiveCTA == false"
+        }
+      ],
+      "evidence": [
+        "EVID-A11Y-001",
+        "EVID-A11Y-002"
+      ],
       "version": "1.0.0"
     },
     {
@@ -198,19 +465,35 @@
       "category": "interaction-and-motion",
       "subcategory": "focus-management",
       "description": "Removing default browser focus outlines (outline: none or outline: 0) without providing an alternative high-contrast focus indicator.",
-      "symptoms": ["Keyboard navigators unable to see which button is focused", "Tab navigation completely blind", "Critical WCAG violation"],
+      "symptoms": [
+        "Keyboard navigators unable to see which button is focused",
+        "Tab navigation completely blind",
+        "Critical WCAG violation"
+      ],
       "underlyingDefect": "Prioritizing mouse-only visual minimalism over fundamental keyboard accessibility.",
       "context": "All interactive elements (buttons, links, inputs, tabs).",
-      "validExceptions": ["None. Absolute legal and standard violation."],
+      "validExceptions": [
+        "None. Absolute legal and standard violation."
+      ],
       "severity": "CRITICAL",
       "confidence": "MANDATORY",
       "detectionStrategy": "Inspect CSS for outline: none or outline: 0 without matching :focus-visible declaration.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "None.",
       "remediation": "Declare :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; } on all interactive elements.",
-      "positivePatterns": ["PATT-ADM-001"],
-      "evaluationCriteria": [{"metric": "KeyboardFocusVisibility", "method": "AUTOMATED_STATIC", "threshold": "FocusVisibleRuleDeclared == true"}],
-      "evidence": ["EVID-A11Y-004"],
+      "positivePatterns": [
+        "PATT-ADM-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "KeyboardFocusVisibility",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "FocusVisibleRuleDeclared == true"
+        }
+      ],
+      "evidence": [
+        "EVID-A11Y-004"
+      ],
       "version": "1.0.0"
     },
     {
@@ -219,19 +502,35 @@
       "category": "interaction-and-motion",
       "subcategory": "functional-motion-and-easing",
       "description": "Applying slow, lingering transitions (>400ms) or bouncy spring animations to basic functional widgets like dropdowns and modals.",
-      "symptoms": ["Users waiting for menus to open", "Interface feels heavy and laggy", "Motion sickness in sensitive users"],
+      "symptoms": [
+        "Users waiting for menus to open",
+        "Interface feels heavy and laggy",
+        "Motion sickness in sensitive users"
+      ],
       "underlyingDefect": "Confusing decorative cartoon physics with functional UI state feedback.",
       "context": "Enterprise SaaS, dashboards, developer tools.",
-      "validExceptions": ["Game interfaces or playful consumer onboarding celebrations."],
+      "validExceptions": [
+        "Game interfaces or playful consumer onboarding celebrations."
+      ],
       "severity": "MEDIUM",
       "confidence": "HIGH",
       "detectionStrategy": "Parse CSS transition-duration and animation-duration values.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Review animation intent.",
       "remediation": "Clamp micro-interactions to 100-150ms and modal expansions to 200-300ms using decelerate easing.",
-      "positivePatterns": ["PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "MaxTransitionDuration", "method": "AUTOMATED_STATIC", "threshold": "Duration <= 350ms"}],
-      "evidence": ["EVID-SYS-006"],
+      "positivePatterns": [
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "MaxTransitionDuration",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "Duration <= 350ms"
+        }
+      ],
+      "evidence": [
+        "EVID-SYS-006"
+      ],
       "version": "1.0.0"
     },
     {
@@ -240,19 +539,74 @@
       "category": "interaction-and-motion",
       "subcategory": "feedback-and-optimistic-ui",
       "description": "Displaying a completely blank container or raw 'No data available' text when a list, project, or dashboard has zero items.",
-      "symptoms": ["Blank grey boxes", "User has no idea what action to take", "High drop-off in user onboarding"],
+      "symptoms": [
+        "Blank grey boxes",
+        "User has no idea what action to take",
+        "High drop-off in user onboarding"
+      ],
       "underlyingDefect": "Treating edge states as afterthought rather than proactive guidance channels.",
       "context": "Resource lists, tables, search results, dashboards.",
-      "validExceptions": ["None."],
+      "validExceptions": [
+        "None."
+      ],
       "severity": "HIGH",
       "confidence": "HIGH",
       "detectionStrategy": "Inspect template conditionals for empty array rendering.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Evaluate quality and actionability of empty state message.",
       "remediation": "Provide an actionable empty state with an illustrative icon, explanation of value, and a primary CTA button to create the first entity.",
-      "positivePatterns": ["PATT-ECM-001", "PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "EmptyStateActionability", "method": "HEURISTIC_AGENT", "threshold": "HasTitleExplanationAndCTA == true"}],
-      "evidence": ["EVID-SYS-005"],
+      "positivePatterns": [
+        "PATT-ECM-001",
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "EmptyStateActionability",
+          "method": "HEURISTIC_AGENT",
+          "threshold": "HasTitleExplanationAndCTA == true"
+        }
+      ],
+      "evidence": [
+        "EVID-SYS-005"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-INT-004",
+      "name": "Destructive Actions Without Safeguards",
+      "category": "interaction-and-motion",
+      "subcategory": "feedback-and-optimistic-ui",
+      "description": "Executing permanent, irreversible data deletions or cancellations upon a single button click without confirmation.",
+      "symptoms": [
+        "Accidental user data loss",
+        "Severe user panic and frustration"
+      ],
+      "underlyingDefect": "Missing error prevention and destructive action guardrails.",
+      "context": "Account deletion, workspace teardown, database drops, billing cancellation.",
+      "validExceptions": [
+        "Actions with instant 100% reliable Undo toast notifications."
+      ],
+      "severity": "CRITICAL",
+      "confidence": "MANDATORY",
+      "detectionStrategy": "Inspect destructive button click handlers for modal confirmation triggers.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Evaluate confirmation dialog copy clarity.",
+      "remediation": "Implement a two-step confirmation dialog requiring the user to type the entity name for catastrophic operations.",
+      "positivePatterns": [
+        "PATT-ENT-001",
+        "PATT-FIN-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "DestructiveActionConfirmation",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "HasTwoStepConfirmation == true"
+        }
+      ],
+      "evidence": [
+        "EVID-DOM-003",
+        "EVID-SYS-004"
+      ],
       "version": "1.0.0"
     },
     {
@@ -261,19 +615,37 @@
       "category": "visual-fundamentals",
       "subcategory": "composition",
       "description": "Scattering blurred neon gradient spheres (floating blobs) behind frosted-glass cards (backdrop-filter: blur) on utility software.",
-      "symptoms": ["Blurred colorful circles distracting from text", "High GPU rendering load and scroll lag", "Text illegibility over blurred borders"],
+      "symptoms": [
+        "Blurred colorful circles distracting from text",
+        "High GPU rendering load and scroll lag",
+        "Text illegibility over blurred borders"
+      ],
       "underlyingDefect": "AI-template visual gimmickry substituting for rigorous layout and contrast engineering.",
       "context": "Enterprise SaaS, fintech, healthcare, administrative tools.",
-      "validExceptions": ["Artistic portfolio sites or music player visualizers."],
+      "validExceptions": [
+        "Artistic portfolio sites or music player visualizers."
+      ],
       "severity": "HIGH",
       "confidence": "HIGH",
       "detectionStrategy": "Detect backdrop-filter: blur() combined with high border-radius floating elements.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Verify if backdrop blur is strictly functional (e.g. frosted sticky navbar).",
       "remediation": "Replace floating blur spheres with crisp, purposeful spatial separation on solid neutral surfaces.",
-      "positivePatterns": ["PATT-DEV-001", "PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "DecorativeBlobCount", "method": "AUTOMATED_STATIC", "threshold": "FloatingBlobCount == 0"}],
-      "evidence": ["EVID-HCI-003", "EVID-HCI-004"],
+      "positivePatterns": [
+        "PATT-DEV-001",
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "DecorativeBlobCount",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "FloatingBlobCount == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-003",
+        "EVID-HCI-004"
+      ],
       "version": "1.0.0"
     },
     {
@@ -282,19 +654,113 @@
       "category": "visual-fundamentals",
       "subcategory": "rhythm-and-repetition",
       "description": "Applying rounded-full (pill, 9999px) border radius to large cards, input boxes, tables, and buttons simultaneously.",
-      "symptoms": ["Everything looks like a lozenge or pill", "Wasted corner padding clipping text", "Playful toy aesthetic inappropriate for serious tools"],
+      "symptoms": [
+        "Everything looks like a lozenge or pill",
+        "Wasted corner padding clipping text",
+        "Playful toy aesthetic inappropriate for serious tools"
+      ],
       "underlyingDefect": "Failure to maintain a coherent corner radius hierarchy.",
       "context": "Fintech, enterprise SaaS, developer tools.",
-      "validExceptions": ["Consumer social apps, badges, or avatar profile chips."],
+      "validExceptions": [
+        "Consumer social apps, badges, or avatar profile chips."
+      ],
       "severity": "LOW",
       "confidence": "HIGH",
       "detectionStrategy": "Compute ratio of border-radius to container height across cards and inputs.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Evaluate appropriateness for brand identity.",
       "remediation": "Establish a disciplined radius scale: 4px for inputs/buttons, 8px for cards, 12px for modals. Reserve pill radius strictly for small badges.",
-      "positivePatterns": ["PATT-FIN-001", "PATT-DEV-001"],
-      "evaluationCriteria": [{"metric": "CardBorderRadiusRatio", "method": "AUTOMATED_STATIC", "threshold": "CardRadius <= 16px"}],
-      "evidence": ["EVID-TOK-001", "EVID-SYS-001"],
+      "positivePatterns": [
+        "PATT-FIN-001",
+        "PATT-DEV-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "CardBorderRadiusRatio",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "CardRadius <= 16px"
+        }
+      ],
+      "evidence": [
+        "EVID-TOK-001",
+        "EVID-SYS-001"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-COM-003",
+      "name": "Generic Hero with Repetitive Icon-and-Text Grids",
+      "category": "visual-fundamentals",
+      "subcategory": "composition",
+      "description": "A centered hero followed immediately by 6 identical cards, each containing a pastel circle, a Lucide icon, a 2-word title, and 2 lines of generic copy.",
+      "symptoms": [
+        "Instantly recognizable as low-effort AI slop",
+        "Zero communicative depth"
+      ],
+      "underlyingDefect": "Lack of bespoke visual direction and realistic product interaction previews.",
+      "context": "Marketing landing pages, product overviews.",
+      "validExceptions": [
+        "Simple reference icon tables."
+      ],
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "detectionStrategy": "Detect repeated icon-header-paragraph card patterns with identical character counts.",
+      "automatedFeasibility": "HEURISTIC_AGENT",
+      "humanReviewRequirements": "Assess depth of product storytelling.",
+      "remediation": "Replace generic icon cards with interactive product UI previews, workflow diagrams, or customer evidence.",
+      "positivePatterns": [
+        "PATT-MKT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "RepetitiveIconCardDeckDetected",
+          "method": "HEURISTIC_AGENT",
+          "threshold": "CardDeckNoveltyScore >= 0.70"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-SYS-005"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-COM-004",
+      "name": "Excessive Muddy Shadows & Uncontrolled Elevation",
+      "category": "visual-fundamentals",
+      "subcategory": "composition",
+      "description": "Stacking multiple heavy, dark, highly blurred drop shadows across adjacent cards without an elevation token ramp.",
+      "symptoms": [
+        "Murky, ungrounded surfaces",
+        "Blurry dark halos bleeding into neighboring text",
+        "Visual heaviness"
+      ],
+      "underlyingDefect": "Simulating physical depth without an optical elevation scale or ambient light modeling.",
+      "context": "Cards, modals, popovers across all domains.",
+      "validExceptions": [
+        "High-contrast neo-brutalist solid black drop-shadows with 0 blur."
+      ],
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "detectionStrategy": "Inspect CSS box-shadow opacity and blur radius values across sibling cards.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Assess visual lightness.",
+      "remediation": "Implement a disciplined 3-tier elevation token system using subtle, layered ambient shadows (rgba(0,0,0,0.04) to 0.08) with 1px border keylines.",
+      "positivePatterns": [
+        "PATT-ENT-001",
+        "PATT-DEV-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "ShadowOpacityAndBlur",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "ShadowAlpha <= 0.15"
+        }
+      ],
+      "evidence": [
+        "EVID-SYS-001",
+        "EVID-HCI-004"
+      ],
       "version": "1.0.0"
     },
     {
@@ -303,19 +769,149 @@
       "category": "ux-information-architecture",
       "subcategory": "information-chunking",
       "description": "Using 'Lorem ipsum' filler, hyperbolic buzzwords ('The Next-Gen Quantum Synergy Platform'), or absurd fake statistics ('10,000% ROI').",
-      "symptoms": ["Unconvincing marketing fluff", "Missing real product terminology", "Lack of concrete user value explanation"],
+      "symptoms": [
+        "Unconvincing marketing fluff",
+        "Missing real product terminology",
+        "Lack of concrete user value explanation"
+      ],
       "underlyingDefect": "AI text generators fabricating hype rather than articulating authentic product workflows.",
       "context": "All software interfaces and landing pages.",
-      "validExceptions": ["Early wireframes explicitly marked as draft."],
+      "validExceptions": [
+        "Early wireframes explicitly marked as draft."
+      ],
       "severity": "HIGH",
       "confidence": "HIGH",
       "detectionStrategy": "Regex scan for 'Lorem ipsum', 'next-gen', 'synergistic', and ungrounded percentage claims.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "Assess tone and authenticity of product copy.",
       "remediation": "Write concise, domain-specific copy that describes the concrete problem solved and the exact workflow supported.",
-      "positivePatterns": ["PATT-MKT-001"],
-      "evaluationCriteria": [{"metric": "PlaceholderCopyDetected", "method": "AUTOMATED_STATIC", "threshold": "PlaceholderMatches == 0"}],
-      "evidence": ["EVID-HCI-001", "EVID-SYS-005"],
+      "positivePatterns": [
+        "PATT-MKT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "PlaceholderCopyDetected",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "PlaceholderMatches == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-SYS-005"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-CNT-002",
+      "name": "Fake Testimonials & Stock AI Avatars",
+      "category": "ux-information-architecture",
+      "subcategory": "information-chunking",
+      "description": "Generating fictional customer quotes with AI-generated headshots and generic praise ('This tool changed my life!').",
+      "symptoms": [
+        "Inauthentic social proof",
+        "Destroys user and buyer trust"
+      ],
+      "underlyingDefect": "Superficial template filler substituting for verifiable social proof.",
+      "context": "Marketing pages, conversion funnels.",
+      "validExceptions": [
+        "Design mockups populated with clearly labelled test personas."
+      ],
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "detectionStrategy": "Heuristic review of testimonial author attribution and generic quote wording.",
+      "automatedFeasibility": "HEURISTIC_AGENT",
+      "humanReviewRequirements": "Verify authenticity of customer endorsements.",
+      "remediation": "Use real customer case studies with specific metrics, or replace the section with verifiable architecture diagrams and documentation snippets.",
+      "positivePatterns": [
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "VerifiedSocialProofPresent",
+          "method": "HEURISTIC_AGENT",
+          "threshold": "HasVerifiableSourceOrMetric == true"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-SYS-005"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-CNT-003",
+      "name": "Empty Visual Sections (Decorative Shells Without Workflow Purpose)",
+      "category": "ux-information-architecture",
+      "subcategory": "information-chunking",
+      "description": "Rendering feature sections, cards, or hero graphic containers that contain elaborate decorative illustrations but zero actionable information or workflow utility.",
+      "symptoms": [
+        "Wasted viewport real estate",
+        "Users scanning past decorative fluff trying to find real product capabilities"
+      ],
+      "underlyingDefect": "Treating interfaces as static graphic canvases rather than functional problem-solving software.",
+      "context": "Landing pages, feature overviews, settings.",
+      "validExceptions": [
+        "Pure artistic brand splash pages."
+      ],
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "detectionStrategy": "Inspect sections with DOM area > 200,000px² containing zero text nodes or interactive triggers.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Assess communicative utility of graphic.",
+      "remediation": "Every visual card or section must contain actionable product data, verified capability descriptions, or interactive previews.",
+      "positivePatterns": [
+        "PATT-MKT-001",
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "ActionableContentDensity",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "EmptyVisualSectionsCount == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-HCI-001",
+        "EVID-SYS-005"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-CNT-004",
+      "name": "Mismatched Domain Copy & Tone Dissonance",
+      "category": "ux-information-architecture",
+      "subcategory": "information-chunking",
+      "description": "Using playful consumer slang, celebratory confetti copy ('Woohoo!'), or marketing hype inside high-acuity financial, clinical, or administrative interfaces.",
+      "symptoms": [
+        "Undermines user trust",
+        "Cognitive dissonance during high-stress operational or emergency tasks"
+      ],
+      "underlyingDefect": "Ignoring domain context and user emotional posture in microcopy engineering.",
+      "context": "Healthcare EHR, fintech, administration, compliance systems.",
+      "validExceptions": [
+        "Consumer entertainment apps."
+      ],
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "detectionStrategy": "Scan text nodes for playful colloquialisms in enterprise/clinical domains.",
+      "automatedFeasibility": "HEURISTIC_AGENT",
+      "humanReviewRequirements": "Review microcopy tone against domain requirements.",
+      "remediation": "Align tone strictly with domain: objective, precise, and sober language in enterprise/health/fintech; save playful elements for consumer entertainment contexts.",
+      "positivePatterns": [
+        "PATT-HLT-001",
+        "PATT-ADM-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "DomainToneAlignment",
+          "method": "HEURISTIC_AGENT",
+          "threshold": "ToneAppropriatenessScore >= 0.85"
+        }
+      ],
+      "evidence": [
+        "EVID-SYS-004",
+        "EVID-HCI-002"
+      ],
       "version": "1.0.0"
     },
     {
@@ -324,40 +920,148 @@
       "category": "layout-engineering",
       "subcategory": "responsive-adaptation",
       "description": "Failing to reflow multi-column tables, side-by-side forms, or complex toolbars on mobile screens, forcing awkward zooming or horizontal scrolling.",
-      "symptoms": ["Cramped text columns", "Horizontal scrollbar appearing on body element", "Inputs too narrow to type in"],
+      "symptoms": [
+        "Cramped text columns",
+        "Horizontal scrollbar appearing on body element",
+        "Inputs too narrow to type in"
+      ],
       "underlyingDefect": "Designing desktop-first without mobile ergonomic reflow architecture.",
       "context": "Mobile and tablet viewports (<768px).",
-      "validExceptions": ["Dedicated desktop-only workstation apps explicitly gated on screen width."],
+      "validExceptions": [
+        "Dedicated desktop-only workstation apps explicitly gated on screen width."
+      ],
       "severity": "CRITICAL",
       "confidence": "VERY_HIGH",
       "detectionStrategy": "Inspect DOM bounding boxes at 375px viewport width for scrollWidth > innerWidth.",
       "automatedFeasibility": "AUTOMATED_BROWSER",
       "humanReviewRequirements": "None.",
       "remediation": "Reflow grids to 1 column, stack forms vertically, and wrap tables in touch-friendly horizontal scroll containers with sticky key columns.",
-      "positivePatterns": ["PATT-MKT-001", "PATT-ENT-001"],
-      "evaluationCriteria": [{"metric": "ViewportHorizontalOverflow", "method": "AUTOMATED_BROWSER", "threshold": "BodyScrollWidth == InnerWidth"}],
-      "evidence": ["EVID-LAY-001", "EVID-HCI-005"],
+      "positivePatterns": [
+        "PATT-MKT-001",
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "ViewportHorizontalOverflow",
+          "method": "AUTOMATED_BROWSER",
+          "threshold": "BodyScrollWidth == InnerWidth"
+        }
+      ],
+      "evidence": [
+        "EVID-LAY-001",
+        "EVID-HCI-005"
+      ],
       "version": "1.0.0"
     },
     {
       "id": "ANTI-RSP-002",
-      "name": "Cramped Mobile Touch Targets (<24px / <44px)",
+      "name": "Cramped Mobile Touch Targets (<24×24px WCAG AA / <44×44px Touch Ergonomics)",
       "category": "interaction-and-motion",
       "subcategory": "touch-and-pointer-ergonomics",
-      "description": "Interactive icons, pagination links, or table action buttons rendered smaller than 24x24px (WCAG minimum) or without 44x44px touch buffers.",
-      "symptoms": ["Accidental clicks on adjacent buttons", "Users struggling to tap small icons on phones", "WCAG SC 2.5.8 violation"],
+      "description": "Interactive buttons, pagination links, or table action links rendered smaller than 24×24 CSS pixels (violating WCAG 2.2 Level AA SC 2.5.8) or failing to provide recommended 44×44px touch targets on coarse pointer devices (WCAG Level AAA SC 2.5.5 / Apple HIG platform standards).",
+      "symptoms": [
+        "Accidental clicks on adjacent buttons",
+        "Users struggling to tap small icons on phones",
+        "WCAG SC 2.5.8 violation"
+      ],
       "underlyingDefect": "Assuming desktop mouse precision applies to mobile finger tap interactions.",
       "context": "Mobile and tablet touch devices.",
-      "validExceptions": ["Inline text hyperlink within a paragraph of running text (exempted by WCAG 2.2)."],
+      "validExceptions": [
+        "Inline text hyperlink within a paragraph of running text (exempted by WCAG 2.2)."
+      ],
       "severity": "HIGH",
       "confidence": "MANDATORY",
       "detectionStrategy": "Compute bounding box dimensions of all interactive elements on coarse pointer viewports.",
       "automatedFeasibility": "AUTOMATED_BROWSER",
       "humanReviewRequirements": "None.",
-      "remediation": "Ensure min-width: 44px and min-height: 44px (or padding buffers) on all mobile interactive targets.",
-      "positivePatterns": ["PATT-MKT-001"],
-      "evaluationCriteria": [{"metric": "TouchTargetDimension", "method": "AUTOMATED_BROWSER", "threshold": "TargetBoundingBox >= 24px"}],
-      "evidence": ["EVID-A11Y-003", "EVID-SYS-003"],
+      "remediation": "Enforce a strict minimum target size of 24×24 CSS pixels for WCAG 2.2 Level AA compliance, and expand touch target padding to 44×44 CSS pixels (or 44×44 pt) on touch viewports (@media (pointer: coarse)).",
+      "positivePatterns": [
+        "PATT-MKT-001",
+        "PATT-CON-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "TouchTargetDimension",
+          "method": "AUTOMATED_BROWSER",
+          "threshold": "TargetBoundingBox >= 24px"
+        }
+      ],
+      "evidence": [
+        "EVID-A11Y-003",
+        "EVID-SYS-003"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-RSP-003",
+      "name": "Destructive Text Truncation (text-overflow: ellipsis on Vital Data)",
+      "category": "layout-engineering",
+      "subcategory": "overflow-management",
+      "description": "Applying ellipsis truncation to unique identifiers, monetary amounts, or error messages without a tooltip or expansion mechanism.",
+      "symptoms": [
+        "Users see 'Transaction ID: tx_984...' and cannot copy or verify the actual full value"
+      ],
+      "underlyingDefect": "Prioritizing rigid visual line heights over data integrity.",
+      "context": "Financial tables, transaction logs, key-value inspector drawers.",
+      "validExceptions": [
+        "Long URL previews where the domain is visible and a full link copy button is provided."
+      ],
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "detectionStrategy": "Inspect text-overflow: ellipsis on elements displaying financial amounts or IDs.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Verify if full value is accessible via click/hover.",
+      "remediation": "Allow essential identifiers to wrap, break cleanly (overflow-wrap: break-word), or provide an inline one-click copy button.",
+      "positivePatterns": [
+        "PATT-FIN-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "VitalDataTruncation",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "CriticalDataTruncatedWithoutCopy == false"
+        }
+      ],
+      "evidence": [
+        "EVID-DOM-001"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-RSP-004",
+      "name": "Desktop-Only Hover Dependency (Touch Inaccessibility)",
+      "category": "interaction-and-motion",
+      "subcategory": "touch-and-pointer-ergonomics",
+      "description": "Concealing essential interactive actions (e.g. edit, delete, share, or dropdown disclosure) exclusively behind mouse :hover states without an alternative trigger for touchscreens.",
+      "symptoms": [
+        "Mobile touch users cannot access core functions because touch displays do not have a continuous hover cursor state"
+      ],
+      "underlyingDefect": "Designing with desktop-pointer assumptions, ignoring multi-input device modalities.",
+      "context": "Table row action bars, card action overlays, navigation menus.",
+      "validExceptions": [
+        "Secondary keyboard shortcut hints that are purely informational."
+      ],
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "detectionStrategy": "Inspect CSS for opacity/visibility toggles inside :hover selectors without matching touch tap triggers.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "Review mobile touch usability.",
+      "remediation": "Make primary actions permanently visible, or provide an explicit overflow icon button that triggers on click/tap across all pointer types.",
+      "positivePatterns": [
+        "PATT-ENT-001",
+        "PATT-CON-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "HoverOnlyActionTriggers",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "EssentialActionsHiddenBehindHover == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-SYS-003",
+        "EVID-LAY-001"
+      ],
       "version": "1.0.0"
     },
     {
@@ -366,19 +1070,37 @@
       "category": "color-intelligence",
       "subcategory": "accessible-contrast",
       "description": "Communicating success, failure, or priority solely through red, yellow, or green dots without accompanying text or unique icon shapes.",
-      "symptoms": ["Plain colored circles representing server status", "Form errors indicated only by red borders with no text", "Inaccessible to color-blind users"],
+      "symptoms": [
+        "Plain colored circles representing server status",
+        "Form errors indicated only by red borders with no text",
+        "Inaccessible to color-blind users"
+      ],
       "underlyingDefect": "Violating WCAG 2.2 SC 1.4.1 (Use of Color).",
       "context": "Status badges, validation alerts, table rows, charts.",
-      "validExceptions": ["None."],
+      "validExceptions": [
+        "None."
+      ],
       "severity": "CRITICAL",
       "confidence": "MANDATORY",
       "detectionStrategy": "Inspect DOM for status badge elements lacking text content or aria-label.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "None.",
       "remediation": "Pair every color indicator with a visible text label ('Active', 'Offline') and a distinct icon glyph.",
-      "positivePatterns": ["PATT-ADM-001", "PATT-DSB-001"],
-      "evaluationCriteria": [{"metric": "ColorOnlyStatusIndicator", "method": "AUTOMATED_STATIC", "threshold": "HasVisibleTextOrAriaLabel == true"}],
-      "evidence": ["EVID-A11Y-001", "EVID-A11Y-002"],
+      "positivePatterns": [
+        "PATT-ADM-001",
+        "PATT-DSB-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "ColorOnlyStatusIndicator",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "HasVisibleTextOrAriaLabel == true"
+        }
+      ],
+      "evidence": [
+        "EVID-A11Y-001",
+        "EVID-A11Y-002"
+      ],
       "version": "1.0.0"
     },
     {
@@ -387,19 +1109,108 @@
       "category": "ux-information-architecture",
       "subcategory": "navigation-models",
       "description": "Using <div onClick={...}> or <a href='#'> instead of native <button> elements, breaking keyboard accessibility and screen reader announcement.",
-      "symptoms": ["Interactive elements skipped during Tab navigation", "Screen readers announce 'group' or 'link' instead of 'button'", "Pressing Enter or Space does not trigger action"],
+      "symptoms": [
+        "Interactive elements skipped during Tab navigation",
+        "Screen readers announce 'group' or 'link' instead of 'button'",
+        "Pressing Enter or Space does not trigger action"
+      ],
       "underlyingDefect": "Amateur HTML semantic engineering ignoring web platform standards.",
       "context": "All interactive triggers and buttons.",
-      "validExceptions": ["None."],
+      "validExceptions": [
+        "None."
+      ],
       "severity": "CRITICAL",
       "confidence": "MANDATORY",
       "detectionStrategy": "AST scan for non-interactive HTML tags (div, span) declaring click listeners without role='button' and tabIndex.",
       "automatedFeasibility": "AUTOMATED_STATIC",
       "humanReviewRequirements": "None.",
       "remediation": "Use native <button type='button'> elements. Native buttons handle Space and Enter keys, focus order, and screen reader roles automatically.",
-      "positivePatterns": ["PATT-ADM-001"],
-      "evaluationCriteria": [{"metric": "NonSemanticClickableElements", "method": "AUTOMATED_STATIC", "threshold": "DivClickListenersCount == 0"}],
-      "evidence": ["EVID-DOM-003"],
+      "positivePatterns": [
+        "PATT-ADM-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "NonSemanticClickableElements",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "DivClickListenersCount == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-DOM-003"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-A11Y-003",
+      "name": "Missing Form Labels (Placeholder-Only Inputs)",
+      "category": "ux-information-architecture",
+      "subcategory": "navigation-models",
+      "description": "Omitting explicit visible <label> elements and relying solely on <input placeholder='...'> for form fields.",
+      "symptoms": [
+        "Screen readers announce unlabelled inputs",
+        "Once user begins typing, hint disappears and user loses context",
+        "WCAG SC 3.3.2 violation"
+      ],
+      "underlyingDefect": "Treating transient placeholder text as a substitute for permanent semantic form labels.",
+      "context": "All transactional and registration forms.",
+      "validExceptions": [
+        "Standalone global search bar with explicit aria-label."
+      ],
+      "severity": "CRITICAL",
+      "confidence": "MANDATORY",
+      "detectionStrategy": "Inspect input elements for missing matching <label for='...'> or aria-label.",
+      "automatedFeasibility": "AUTOMATED_STATIC",
+      "humanReviewRequirements": "None.",
+      "remediation": "Provide permanent visible <label> elements placed directly above each input.",
+      "positivePatterns": [
+        "PATT-ADM-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "MissingFormLabelsCount",
+          "method": "AUTOMATED_STATIC",
+          "threshold": "InputsWithoutExplicitLabel == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-SYS-004"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "id": "ANTI-A11Y-004",
+      "name": "Keyboard Traps in Custom Widgets",
+      "category": "interaction-and-motion",
+      "subcategory": "focus-management",
+      "description": "Keyboard focus enters a custom dropdown, datepicker, or rich-text editor and cannot exit via standard Tab or Escape keys.",
+      "symptoms": [
+        "Keyboard navigators trapped permanently in a widget and forced to reload the page",
+        "Critical WCAG SC 2.1.2 violation"
+      ],
+      "underlyingDefect": "Incomplete keyboard interaction event handling in custom widgets.",
+      "context": "Custom datepickers, modal dialogs, comboboxes.",
+      "validExceptions": [
+        "None. Absolute accessibility violation."
+      ],
+      "severity": "CRITICAL",
+      "confidence": "MANDATORY",
+      "detectionStrategy": "Automated headless browser keyboard Tab navigation loop test.",
+      "automatedFeasibility": "AUTOMATED_BROWSER",
+      "humanReviewRequirements": "None.",
+      "remediation": "Adhere strictly to W3C ARIA Authoring Practices Guide (APG) keyboard contracts; ensure Tab navigates forward, Shift+Tab navigates backward, and Escape dismisses overlays.",
+      "positivePatterns": [
+        "PATT-ENT-001"
+      ],
+      "evaluationCriteria": [
+        {
+          "metric": "KeyboardTrapDetected",
+          "method": "AUTOMATED_BROWSER",
+          "threshold": "KeyboardTrapsCount == 0"
+        }
+      ],
+      "evidence": [
+        "EVID-DOM-003"
+      ],
       "version": "1.0.0"
     }
   ]
