@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForge Phase 02.5 Evidence and Claim Register Schema",
+  "description": "Formal Draft-07 schema for claim-level traceability supporting technical selection decisions.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "claimId",
+      "candidateId",
+      "sourceId",
+      "claim",
+      "sourceType",
+      "evidenceType",
+      "verificationClassification",
+      "hardGateResult",
+      "lastVerifiedDate"
+    ],
+    "properties": {
+      "claimId": { "type": "string", "pattern": "^CLM-PH02\\.5-[0-9]{4}$" },
+      "candidateId": { "type": "string" },
+      "sourceId": { "type": "string" },
+      "claim": { "type": "string" },
+      "sourceType": { "type": "string" },
+      "evidenceType": { "type": "string" },
+      "verificationClassification": { "type": "string" },
+      "hardGateResult": { "type": "string" },
+      "lastVerifiedDate": { "type": "string" }
+    }
+  }
+}

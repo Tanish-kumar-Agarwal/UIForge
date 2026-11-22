@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForge Phase 02.5 Category Decisions Schema",
+  "description": "Formal Draft-07 schema for technology category evaluation, comparative analysis, and build-vs-adopt decisions.",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["name", "winner", "adoptMode", "candidates"],
+    "properties": {
+      "name": { "type": "string" },
+      "winner": { "type": "string" },
+      "adoptMode": { "type": "string" },
+      "candidates": {
+        "type": "array",
+        "items": { "type": "object" }
+      }
+    }
+  }
+}

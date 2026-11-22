@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIForge Phase 02.5 Candidate Selection Scorecard Schema",
+  "description": "Formal Draft-07 schema for candidate repository selection, technical scoring, hard-gate evaluation, and adoption prioritization.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "candidateId",
+      "sourceId",
+      "name",
+      "category",
+      "selectionCategory",
+      "canonicalSourceType",
+      "originalDiscoveryPriority",
+      "registryOperationalTier",
+      "licenseDisposition",
+      "hardGates",
+      "scores",
+      "evidenceConfidence",
+      "proposedConsumptionMode",
+      "adoptionTier",
+      "recommendation",
+      "decisionRationale",
+      "selectionEligibility"
+    ],
+    "properties": {
+      "candidateId": {
+        "type": "string",
+        "pattern": "^OS-[A-Z0-9]+-[0-9]{2}[A-Za-z0-9-]*$"
+      },
+      "sourceId": {
+        "type": "string",
+        "pattern": "^SRC-OS-[A-Z0-9]+-[0-9]{2}[A-Za-z0-9-]*$"
+      },
+      "name": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "selectionCategory": {
+        "type": "string",
+        "enum": ["CAT_A", "CAT_B", "CAT_C", "CAT_D", "CAT_E", "CAT_F", "CAT_G", "CAT_H"]
+      },
+      "canonicalSourceType": {
+        "type": "string"
+      },
+      "repositoryRef": {
+        "type": ["string", "null"]
+      },
+      "packageRefs": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "componentRefs": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "assetRefs": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "originalDiscoveryPriority": {
+        "type": "string",
+        "enum": ["P0", "P1", "P2", "REJ"]
+      },
+      "currentDiscoveryPriority": {
+        "type": "string",
+        "enum": ["P0", "P1", "P2", "REJ"]
+      },
+      "registryOperationalTier": {
+        "type": "string",
+        "enum": ["TIER_A", "TIER_B", "TIER_C", "TIER_D"]
+      },
+      "technicalEvaluationStatus": {
+        "type": "string"
+      },
+      "licenseDisposition": {
+        "type": "string"
+      },
+      "licenseRef": {
+        "type": "string"
+      },
+      "hardGates": {
+        "type": "object",
+        "required": [
+          "G1_identity",
+          "G2_licensing",
+          "G3_security",
+          "G4_evidence",
+          "G5_fit",
+          "G6_viability",
+          "overallGateResult"
+        ],
+        "properties": {
+          "G1_identity": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G2_licensing": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G3_security": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G4_evidence": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G5_fit": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "G6_viability": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] },
+          "overallGateResult": { "type": "string", "enum": ["PASS", "PASS_WITH_RESTRICTIONS", "PENDING", "FAIL", "NOT_APPLICABLE"] }
+        }
+      },
+      "scores": {
+        "type": "object",
+        "required": [
+          "codeQuality",
+          "compatibility",
+          "accessibility",
+          "responsiveness",
+          "maintainability",
+          "customization",
+          "documentation",
+          "weightedScore",
+          "finalScore"
+        ],
+        "properties": {
+          "codeQuality": { "type": "number", "minimum": 0, "maximum": 10 },
+          "compatibility": { "type": "number", "minimum": 0, "maximum": 10 },
+          "accessibility": { "type": "number", "minimum": 0, "maximum": 10 },
+          "responsiveness": { "type": "number", "minimum": 0, "maximum": 10 },
+          "maintainability": { "type": "number", "minimum": 0, "maximum": 10 },
+          "customization": { "type": "number", "minimum": 0, "maximum": 10 },
+          "documentation": { "type": "number", "minimum": 0, "maximum": 10 },
+          "weightedScore": { "type": "number", "minimum": 0, "maximum": 10 },
+          "finalScore": { "type": "number", "minimum": 0, "maximum": 100 }
+        }
+      },
+      "evidenceConfidence": {
+        "type": "string",
+        "enum": ["HIGH", "MEDIUM", "LOW", "INSUFFICIENT"]
+      },
+      "proposedConsumptionMode": {
+        "type": "string",
+        "enum": ["REFERENCE_ONLY", "DEPENDENCY", "SOURCE_COPY", "ASSET_REDISTRIBUTION", "EXTERNAL_TOOL", "TEMPLATE_ADAPTATION"]
+      },
+      "adoptionTier": {
+        "type": "string",
+        "enum": ["TIER 0", "TIER 1", "TIER 2", "TIER 3", "TIER 4", "TIER 5"]
+      },
+      "recommendation": {
+        "type": "string",
+        "enum": ["ADOPT", "OPTIONAL", "REFERENCE", "DEFER", "REJECT"]
+      },
+      "decisionRationale": {
+        "type": "string",
+        "minLength": 10
+      },
+      "selectionEligibility": {
+        "type": "string",
+        "enum": ["ELIGIBLE", "RESTRICTED", "DEFERRED", "INELIGIBLE"]
+      },
+      "selectionExclusionReasons": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    }
+  }
+}
