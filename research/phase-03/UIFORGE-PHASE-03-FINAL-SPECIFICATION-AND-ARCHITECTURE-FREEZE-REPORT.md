@@ -18,7 +18,7 @@ Phase 03 completes the decisive transition of UIForge from an exploratory resear
 ### What UIForge Is:
 - A local-first developer tool and Model Context Protocol (MCP) server that inspects, analyzes, and guides modifications to modern web applications.
 - An intelligence engine that parses JSX/TSX ASTs, extracts styling systems, evaluates WCAG 2.2 AA accessibility, and synthesizes W3C DTCG design tokens.
-- A safe modification orchestrator that uses coordinate slice patching, Write-Ahead Logging (WAL), and the TypeScript Compiler API to eliminate source code corruption.
+- A safe modification orchestrator that uses coordinate slice patching, dedicated two-phase filesystem pre-image journaling, and TypeScript Compiler API semantic baselines to prevent syntax corruption.
 
 ### What UIForge Is NOT:
 - A generic website builder or prompt generator.
@@ -61,7 +61,7 @@ UIForge is organized into **11 logical system layers** distributed across **16 m
 │  ├─ @uiforge/project-intelligence: Babel JSX/TSX AST parser & routing  │
 │  ├─ @uiforge/tokens: W3C DTCG 2025.10 tokens, Tailwind v4, WCAG math   │
 │  ├─ @uiforge/component-registry: shadcn & Radix component discovery    │
-│  ├─ @uiforge/safe-modifier: Coordinate slice patcher, WAL & TS check   │
+│  ├─ @uiforge/safe-modifier: Coordinate slice patcher, 2-phase WAL & TS │
 │  ├─ @uiforge/browser-eval: Playwright headless runner, pixelmatch diff │
 │  ├─ @uiforge/eval: axe-core 4.10 accessibility & ESLint rule auditor   │
 │  └─ @uiforge/reporting: Markdown, JSON & HTML audit report generator   │
@@ -81,27 +81,30 @@ UIForge is organized into **11 logical system layers** distributed across **16 m
 
 ---
 
-## 3. The 11 Frozen Architecture Decision Records (ADRs)
+## 3. The 11 Frozen Architecture Decision Records (ADRs) with Essential Qualifications
 
 All 11 ADRs in `docs/architecture/` have been audited, cross-referenced, and formally accepted:
 
 1. **ADR-001 (Monorepo Tooling):** pnpm workspaces + Turborepo DAG for deterministic compilation and caching.
 2. **ADR-002 (Package Boundaries):** Strict 7-level DAG; circular dependencies blocked at lint time via `madge`.
-3. **ADR-003 (Agent Integration Abstraction):** MCP 2026-07-28 stateless server with automatic fallback negotiation to legacy revisions (2025-11-25 / 2024-11-05).
+3. **ADR-003 (Agent Integration Abstraction):** MCP 2026-07-28 stateless server with automatic fallback negotiation to legacy revisions (2025-11-25 / 2024-11-05). *Qualification:* Live socket and STDIO wire tests against running external agents are classified as `[NOT-EXECUTED]` in Phase 03; compatibility is currently a certified architectural design to be tested live in Phase 04/06.
 4. **ADR-004 (LLM Provider Decoupling):** Zero LLM inference or billing in Core; agents supply their own reasoning models.
 5. **ADR-005 (Design Knowledge Representation):** W3C DTCG October 2025 specification with Zod validation and bidirectional Tailwind/CSS variable translation.
 6. **ADR-006 (Component Registry Architecture):** shadcn/ui source-copy distribution pattern backed by Radix UI and React Aria primitives.
 7. **ADR-007 (Evaluation Architecture):** Dual-engine evaluation using headless Chromium (Playwright), axe-core 4.10, and Pixelmatch.
-8. **ADR-008 (Project Safety & Modification):** Surgical coordinate slice patching $[start, end]$, pre-image Write-Ahead Logging in SQLite, and post-mutation TypeScript Compiler API verification.
+8. **ADR-008 (Project Safety & Modification):** Surgical coordinate slice patching $[start, end]$, two-phase pre-image journaling with `fsync`, post-mutation TypeScript Compiler API verification, and TOCTOU hash guards.
+   - *Critical Distinction:* SQLite WAL mode manages internal `state.db` database page transactions. It **cannot** make arbitrary multi-file OS filesystem operations atomic. Filesystem crash resilience is provided by `@uiforge/safe-modifier`'s independent pre-image journal and startup recovery scanner.
+   - *Semantic Gate Qualification:* A successful TypeScript Compiler API check evaluates **syntax and semantic type conformance only**. It does **not** prove runtime behavioral correctness, proper visual rendering, or business logic preservation ("Zero diagnostics != proof of behavioral correctness").
 9. **ADR-009 (Storage & State Management):** Local-first `.uiforge/` project directory topology with SQLite `state.db` in WAL mode.
-10. **ADR-010 (Open-Core Boundary):** Permissive Apache-2.0 Core platform with zero copyleft contaminations; cleanly decoupled commercial Studio.
+10. **ADR-010 (Open-Core Boundary & Copyleft Isolation):** Permissive Apache-2.0 Core platform with clean copyleft isolation.
+    - *Licensing Qualification:* UIForge-authored core source code is 100% Apache-2.0. Third-party testing dependencies (`axe-core`, `@axe-core/playwright`) retain MPL-2.0 file-level copyleft notice obligations without contaminating UIForge Core source files; `pa11y` (LGPL-3.0) remains strictly quarantined in Tier 4 pending legal counsel review.
 11. **ADR-011 (Schema Versioning & Evolution):** Strict Semantic Versioning with versioned contract URIs (`uiforge.contract.<name>.v<major>`) and SQLite database migrations.
 
 ---
 
-## 4. The 28 Canonical Contracts & Wire Protocols
+## 4. The 28 Canonical Contracts & Wire Protocols (Designed & Schema-Documented)
 
-All inter-package and agent communication is governed by 28 canonical, version-controlled contracts defined in `@uiforge/contracts`:
+All inter-package and agent communication is governed by 28 canonical, version-controlled contracts designed and documented in `@uiforge/contracts`:
 
 1. `uiforge.contract.project.v1` — Project profile, framework, and tooling metadata.
 2. `uiforge.contract.project-snapshot.v1` — Immutable point-in-time project codebase snapshot.
@@ -132,6 +135,8 @@ All inter-package and agent communication is governed by 28 canonical, version-c
 27. `uiforge.contract.workflow.v1` — Multi-step end-to-end workflow execution state and active step.
 28. `uiforge.contract.error.v1` — Canonical error payload, code taxonomy, category, and remediation hints.
 
+*Implementation Note:* In Phase 03, these contracts are **designed and schema-specified in Markdown and Zod**. They will be compiled and published as TypeScript packages under `@uiforge/contracts` during Phase 04.
+
 ---
 
 ## 5. Security Architecture & Threat Model
@@ -139,8 +144,9 @@ All inter-package and agent communication is governed by 28 canonical, version-c
 UIForge enforces a defense-in-depth security model across 4 trust zones:
 - **STRIDE Threat Coverage:** All 20 critical attack scenarios (`T01` to `T20`) analyzed in `THREAT-MODEL.md` with explicit countermeasures.
 - **Path Traversal Sandboxing:** All filesystem operations canonicalized via `pathe` and verified with `fs.realpathSync` to guarantee zero writes outside the target project boundary.
+- **Time-of-Check to Time-of-Use (TOCTOU) External-Edit Protection:** Target file SHA-256 is verified immediately before modification; if an external user or editor changed the file, the transaction aborts with `UIF-ERR-TOCTOU-CONFLICT`.
 - **5-Level Permission Ladder:** Read-only operations require Level 1 permissions; destructive file mutations require Level 4 permissions authenticated by HMAC SHA-256 tokens bound to the diff hash.
-- **Pre-Image WAL & Rollback:** SQLite Write-Ahead Logging stores raw buffer pre-images before modification. Any TypeScript Compiler API regression or process failure triggers an automatic byte-for-byte rollback.
+- **Two-Phase Filesystem Pre-Image Journaling:** Synchronous disk flush (`fs.fsyncSync`) of original byte buffers ensures byte-for-byte restoration if process execution is interrupted mid-write.
 - **Audit Log Integrity:** Audit logs in `.uiforge/audit.log` are tamper-evident, linked via a SHA-256 parent hash chain.
 
 ---
@@ -185,14 +191,21 @@ UIForge enforces a defense-in-depth security model across 4 trust zones:
 
 ---
 
-## 7. Verification Outcomes & Acceptance Summary
+## 7. Automated Verification Scope & Outcomes
 
 The automated validation suite was executed against the repository:
 1. `validate_phase03.js`: **197 / 197 Passed** (100.0%)
+   - Verifies file system structure, contract URI coverage in catalog/schemas, functional/non-functional requirement registration, ADR RFC sections, Mermaid diagram syntax, STRIDE threat scenario coverage, and risk register entries.
 2. `validate_selection.js`: **67 / 67 Passed** (100.0%)
+   - Verifies 125 candidate scorecard schemas, census counts, weighting formulas, and hard-gate quarantine logic.
 3. `validate_registry.js`: **46 / 46 Passed** (100.0%)
+   - Verifies normalized repository entities, consumption permissions matrix (750 pairs), and license scopes.
 4. `verify_babel_recovery.js`: **10 / 10 Passed** (100.0%)
-- **Grand Repository Verification Total:** **320 / 320 Assertions Passed (0 Regressions, 0 Failures)**.
+   - Verifies empirical Babel error recovery reason codes and TypeScript diagnostic baseline delta filtering fixtures.
+- **Combined Repository Total:** **320 / 320 Automated Assertions Passed**.
+
+### Scope of Evidence:
+These 320 assertions establish **specification completeness, schema coverage, dataset census consistency, and simulated fixture behavior**. They do **not** represent production runtime reliability, live agent socket communication, or browser end-to-end execution, which are scheduled for Phase 04 through Phase 07.
 
 All 18 Acceptance Deliverables (`PH03-01` through `PH03-18`) are formally certified and approved in [PHASE-03-ACCEPTANCE-REPORT.md](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-03/validation/PHASE-03-ACCEPTANCE-REPORT.md).
 
@@ -204,4 +217,4 @@ The System Architecture, Master Product Specification, Monorepo Package Topology
 
 No further architectural refactoring or candidate re-evaluations are permitted without formal Architecture Decision Record (ADR) revision.
 
-**Phase 03 is 100% complete and concluded.**
+**Phase 03 is 100% complete, verified, qualified, and concluded.**
