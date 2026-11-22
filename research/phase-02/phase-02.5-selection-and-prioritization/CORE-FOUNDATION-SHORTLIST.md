@@ -26,15 +26,15 @@ The **24 Tier 0 Core Foundation candidates** represent the indispensable archite
 | **OS-ANIM-01** | SRC-OS-ANIM-01 | `motiondivision/motion` | CAT_H | PASS | **95** | `DEPENDENCY` | `ADOPT` | Production-grade declarative React spring/physics animation engine with zero layout thrash |
 | **OS-ICON-01** | SRC-OS-ICON-01 | `lucide-icons/lucide` | CAT_H | PASS | **95** | `DEPENDENCY` | `ADOPT` | Consistent, accessible, modern SVG icon primitives with tree-shakeable exports |
 | **OS-CHRT-01** | SRC-OS-CHRT-01 | `recharts/recharts` | CAT_H | PASS | **95** | `DEPENDENCY` | `ADOPT` | Declarative React SVG data visualization standard with composable chart primitives |
-| **OS-TYPO-05** | SRC-OS-TYPO-05 | `vercel/geist-font` | CAT_H | PASS_WITH_RESTRICTIONS | **95** | `ASSET_REDISTRIBUTION` | `ADOPT` | Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display |
+| **OS-TYPO-05** | SRC-OS-TYPO-05 | `vercel/geist-font` | CAT_H | PASS_WITH_RESTRICTIONS | **95** | `ASSET_REDISTRIBUTION` | `ADOPT` | Primary monospace and geometric sans typeface (OFL 1.1) for code and metric display; custom subsetting defaults to font-family rename (UIForgeGeist) unless SIL functional-equivalence exception or copyright permission applies |
 | **OS-LAYT-01** | SRC-OS-LAYT-01 | `bvaughn/react-resizable-panels` | CAT_H | PASS | **95** | `DEPENDENCY` | `ADOPT` | Accessible, persistent resizable panel layouts for UIForge Studio and workspace sidebars |
 | **OS-A11Y-01** | SRC-OS-A11Y-01 | `dequelabs/axe-core` | CAT_F | PASS_WITH_RESTRICTIONS | **95** | `EXTERNAL_TOOL` | `CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE` | Authoritative automated WCAG accessibility rule engine invoked out-of-process via user CLI (@axe-core/cli); release blocked pending formal legal counsel clearance for distribution boundaries |
-| **OS-AGNT-01** | SRC-OS-AGNT-01 | `modelcontextprotocol/typescript-sdk` | CAT_G | PASS | **95** | `DEPENDENCY` | `ADOPT` | Model Context Protocol (MCP) TypeScript SDKs (@modelcontextprotocol/server ^2.1.0; @modelcontextprotocol/client ^2.1.0) establishing agent tool/resource connectivity via 2026-07-28 wire protocol with fallback negotiation to 2024-11-05 |
+| **OS-AGNT-01** | SRC-OS-AGNT-01 | `modelcontextprotocol/typescript-sdk` | CAT_G | PASS | **95** | `DEPENDENCY` | `ADOPT` | Model Context Protocol (MCP) TypeScript SDKs (declared semver ranges: @modelcontextprotocol/server ^2.1.0, evaluated v2.1.1; @modelcontextprotocol/client ^2.1.0) establishing agent connectivity via modern 2026-07-28 discovery (server/discover, _meta headers) with versionNegotiation: { mode: "auto" } fallback to legacy revisions 2025-11-25 and 2024-11-05 |
 | **OS-BROW-01** | SRC-OS-BROW-01 | `microsoft/playwright` | CAT_F | PASS | **95** | `DEPENDENCY` | `ADOPT` | Multi-browser headless automation, tracing, visual screenshotting, and event replay platform |
 | **OS-VREG-01** | SRC-OS-VREG-01 | `mapbox/pixelmatch` | CAT_F | PASS | **95** | `DEPENDENCY` | `ADOPT` | Deterministic, zero-dependency, pure JS pixel difference engine for screenshot regression |
 | **OS-D2C-06** | SRC-OS-D2C-06 | `ast-grep/ast-grep` | CAT_A | PASS | **94.7** | `EXTERNAL_TOOL` | `ADOPT` | High-performance tree-sitter based AST structural search and code-rewriting tool |
 | **OS-TOKN-04** | SRC-OS-TOKN-04 | `tailwindlabs/tailwindcss` | CAT_E | PASS | **94.2** | `DEPENDENCY` | `ADOPT` | Foundational utility CSS engine v4 with native CSS variable cascade and container queries |
-| **OS-TYPO-04** | SRC-OS-TYPO-04 | `rsms/inter` | CAT_H | PASS_WITH_RESTRICTIONS | **94.2** | `ASSET_REDISTRIBUTION` | `ADOPT` | Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability |
+| **OS-TYPO-04** | SRC-OS-TYPO-04 | `rsms/inter` | CAT_H | PASS_WITH_RESTRICTIONS | **94.2** | `ASSET_REDISTRIBUTION` | `ADOPT` | Primary UI sans-serif typeface (OFL 1.1) optimized for high-density screen readability; custom subsetting defaults to font-family rename (UIForgeInter) unless SIL functional-equivalence exception or copyright permission applies |
 | **OS-COMP-03** | SRC-OS-COMP-03 | `adobe/react-spectrum` | CAT_B | PASS | **93.4** | `DEPENDENCY` | `ADOPT` | Comprehensive accessible interaction hooks, state management, and mobile touch primitives |
 | **OS-DASH-03** | SRC-OS-DASH-03 | `TanStack/table` | CAT_H | PASS | **93.4** | `DEPENDENCY` | `ADOPT` | Headless, robust table state machine with sorting, filtering, and grouping primitives |
 | **OS-A11Y-03** | SRC-OS-A11Y-03 | `jsx-eslint/eslint-plugin-jsx-a11y` | CAT_A | PASS | **93.4** | `DEPENDENCY` | `ADOPT` | Static JSX accessibility linting rules enforcing ARIA and semantic HTML at build time |
@@ -44,16 +44,16 @@ The **24 Tier 0 Core Foundation candidates** represent the indispensable archite
 | **OS-LAYT-02** | SRC-OS-LAYT-02 | `tailwindlabs/tailwindcss-container-queries` | CAT_E | PASS | **92.4** | `DEPENDENCY` | `ADOPT` | Standard Tailwind container query plugin enabling component-level responsive reflow |
 | **OS-A11Y-02** | SRC-OS-A11Y-02 | `axe-core/playwright` | CAT_F | PASS | **92.4** | `DEPENDENCY` | `ADOPT` | Official Playwright axe integration runner for end-to-end DOM accessibility assertion |
 | **OS-AGNT-02** | SRC-OS-AGNT-02 | `anomalyco/opencode` | CAT_G | PASS | **92.4** | `REFERENCE_ONLY` | `ADOPT` | Open-source autonomous AI coding agent reference architecture and execution harness |
-| **OS-D2C-07** | SRC-OS-D2C-07 | `babel/babel` | CAT_A | PASS | **92.3** | `DEPENDENCY` | `ADOPT` | Standard JavaScript/JSX parsing and AST traversal infrastructure for code transformations |
+| **OS-D2C-07** | SRC-OS-D2C-07 | `babel/babel` | CAT_A | PASS | **92.3** | `DEPENDENCY` | `ADOPT` | Babel AST infrastructure (@babel/parser, @babel/traverse, @babel/types, @babel/generator) providing 6-stage AST manipulation with errorRecovery: true for streaming JSX, coupled with WAL token buffering and TS baseline diagnostic regression checks |
 
 ---
 
 ## 3. Tier 0 Key Specifications & Boundaries
 - **axe-core (`OS-A11Y-01`):** Classified as `CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE` (C17). Out-of-process CLI execution decoupled from UIForge core binaries.
 - **Style Dictionary (`OS-TOKN-02`):** Upgraded to `v5.8.0` supporting native W3C DTCG format on Node.js 22 LTS (C14).
-- **Model Context Protocol SDK (`OS-AGNT-01`):** Pinned at `@modelcontextprotocol/server@^2.1.0` and `@modelcontextprotocol/client@^2.1.0`, implementing 2026-07-28 wire protocol with 2024-11-05 fallback negotiation (C13).
-- **Babel Infrastructure (`OS-D2C-07`):** Complete 6-stage AST manipulation pipeline with `@babel/generator` and `errorRecovery: true` for fault-tolerant JSX parsing (C15).
-- **Fonts (`OS-TYPO-04`, `OS-TYPO-05`):** Inter v4.1 and Geist v1.4.0 distributed under SIL OFL 1.1 RFN preservation; custom subsetting requires font-family rename (C18).
+- **Model Context Protocol SDK (`OS-AGNT-01`):** Declared semver ranges (`@modelcontextprotocol/server@^2.1.0`, evaluated on v2.1.1; `@modelcontextprotocol/client@^2.1.0`). Implements modern 2026-07-28 discovery (`server/discover`, `_meta`) with auto-negotiation fallback to 2025-11-25 / 2024-11-05 (C13, C20, C24).
+- **Babel Infrastructure (`OS-D2C-07`):** Complete 6-stage AST manipulation pipeline with `@babel/generator` and `errorRecovery: true` for fault-tolerant JSX parsing, coupled with WAL token buffering and TS baseline diagnostic regression checks (C15, C22).
+- **Fonts (`OS-TYPO-04`, `OS-TYPO-05`):** Inter v4.1 and Geist v1.4.0 distributed under SIL OFL 1.1 RFN preservation; custom subsetting defaults to font-family rename (`UIForgeInter`, `UIForgeGeist`) unless functional-equivalence exception or permission applies (C18, C21).
 
 ---
 

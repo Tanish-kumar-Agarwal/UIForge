@@ -11,14 +11,23 @@
 
 - **Primary Challenge:** AI coding agents frequently hallucinate non-existent component props, fail to respect existing project conventions, and perform clumsy string-based code replacements that destroy comments and syntax trees.
 - **Candidate Universe:** Native TypeScript Compiler API, `ast-grep` (`OS-D2C-06`), `babel` (`OS-D2C-07`), `eslint-plugin-react` (`OS-LAYT-07`), `eslint-plugin-jsx-a11y` (`OS-A11Y-03`).
-- **Complete 6-Stage AST Manipulation Pipeline (Finding C15):**
+- **Complete 6-Stage AST Manipulation Pipeline & Distinct Guarantees (Findings C15 & C22):**
   UIForge establishes an authoritative 6-stage AST manipulation pipeline combining high-performance pattern search with AST transformation and full semantic type checking:
-  1. **Stage 1: Parsing (`@babel/parser`):** High-throughput ECMAScript/TypeScript parsing configured with `sourceType: "module"`, plugins `["jsx", "typescript"]`, and `errorRecovery: true` to parse partial or malformed JSX streams from AI models without throwing unrecoverable exceptions. Supported error recovery cases include unclosed JSX elements/fragments, missing trailing commas/semicolons, and incomplete type annotations during live streaming.
+  1. **Stage 1: Parsing (`@babel/parser`):** Module parsing configured with `sourceType: "module"`, plugins `["jsx", "typescript"]`, and `errorRecovery: true`.
+     - *Recoverable Error Handling:* Babel recovers from specific parser anomalies (e.g. unclosed JSX elements, missing property separators, missing semicolons), recording them in `ast.errors` while returning a navigable partial AST.
+     - *Fatal Unrecoverable Boundary:* `errorRecovery: true` is **not a guarantee** that every incomplete stream can be parsed. Unrecoverable tokens (unterminated template literals, mismatched parentheses in expression containers, unclosed block comments) throw fatal `SyntaxError` exceptions.
+     - *Architectural Remedy:* UIForge implements a **token-stream write-ahead log (WAL) buffer**: mid-stream chunks that trigger unrecoverable syntax errors are held in an in-memory buffer until closing delimiters are streamed, rather than failing the transaction.
   2. **Stage 2: AST Traversal (`@babel/traverse`):** Structured visitor navigation identifying component declarations, hook invocations, prop distributions, and import declarations.
   3. **Stage 3: AST Transformation (`@babel/types`):** Deterministic node construction, replacement, and insertion using strongly-typed builder definitions.
-  4. **Stage 4: Code Generation (`@babel/generator`):** Accurate AST serialization with `retainLines: true`, preserving surrounding layout and indentation.
-  5. **Stage 5: Comment & Formatting Preservation:** For surgical edits, coordinate-based AST slice patching replaces only mutated token ranges; for file regenerations, Prettier with language plugins formats the emitted source while preserving detached leading/trailing comments.
-  6. **Stage 6: Semantic Verification (TypeScript Compiler API):** In-memory program diagnostics verifying that transformed code compiles without type regressions before committing to disk.
+  4. **Stage 4: Code Generation (`@babel/generator`):** AST serialization.
+     - *Formatting Qualification:* `retainLines: true` only preserves line numbers; it does **not** guarantee original indentation, column alignment, or trivia preservation.
+  5. **Stage 5: Comment & Formatting Preservation:**
+     - *Attached Comments:* Comments are preserved on AST nodes (`leadingComments` / `trailingComments`).
+     - *Formatting Preservation via Coordinate Slice Patching:* For localized edits, UIForge utilizes exact character start/end offsets to splice in modified token slices, preserving 100% of the surrounding untouched file. Full-file regenerations utilize Prettier with language plugins.
+  6. **Stage 6: Semantic Verification (TypeScript Compiler API Baseline Comparator):**
+     - Rather than merely checking that post-transform diagnostics are zero (which can mask existing errors or fail on brownfield projects with pre-existing warnings), UIForge evaluates:
+       $$\text{newRegressions} = \text{postTransformDiagnostics} \setminus \text{baselineDiagnostics}$$
+       guaranteeing that the AST mutation introduced zero *new* type regressions.
 - **Decision:** Hybrid Architecture. Native TS Compiler API forms internal core semantic engine; ast-grep is integrated as high-performance CLI scanner; Babel 6-stage pipeline handles fault-tolerant JSX rewriting.
 
 ---
@@ -40,11 +49,6 @@
 
 - **Primary Challenge:** Delivering component code that developers can freely modify, without imposing immutable `node_modules` abstraction layers.
 - **Candidate Universe:** shadcn/ui (`OS-COMP-01`), Magic UI (`OS-MKT-01`), Origin UI (`OS-MKT-04`), Tremor Raw (`OS-DASH-02`), Park UI (`OS-COMP-12`), Cult UI (`OS-MKT-02`), React Bits (`OS-MKT-03`), HyperUI (`OS-MKT-07`).
-- **Comparative Evaluation:**
-  - *shadcn/ui (`OS-COMP-01`, Score: 94.6, Tier 0):* Decoupled source-copy component distribution model. Zero runtime dependency bloat; full project-level customization.
-  - *Magic UI (`OS-MKT-01`, Score: 84.7, Tier 1):* Curated animated sections; compatible with shadcn/ui registry format.
-  - *Origin UI (`OS-MKT-04`, Score: 84.9, Tier 1):* Modern micro-components (buttons, inputs, tooltips) with clean Tailwind v4 bindings.
-  - *Tremor Raw (`OS-DASH-02`, Score: 86.1, Tier 1):* Unstyled dashboard cards, metrics, and KPI primitives.
 - **Decision:** Adopt shadcn/ui registry schema as UIForge's canonical component emission format. Core-adjacent registries (Magic UI, Origin UI, Tremor Raw) are integrated via standardized schema adapters.
 
 ---
@@ -53,10 +57,6 @@
 
 - **Primary Challenge:** Full-system UI frameworks (Mantine, MUI, Chakra, Ant Design) impose heavy CSS-in-JS runtimes, rigid design opinions, and massive bundle footprints that break existing brownfield projects.
 - **Candidate Universe:** Mantine (`OS-COMP-05`), Chakra UI (`OS-COMP-06`), MUI (`OS-COMP-07`), Ant Design (`OS-COMP-08`), NextUI (`OS-COMP-09`), Blueprint (`OS-COMP-14`), SaaS UI (`OS-COMP-15`).
-- **Comparative Evaluation:**
-  - Adopting any complete framework as a mandatory UIForge core dependency would immediately introduce framework lock-in and vendor rigidity.
-  - SaaS UI (`OS-COMP-15`, Score: 46.9, Tier 5) is rejected due to proprietary Pro upsell gating and architectural lock-in.
-  - The remaining frameworks (`OS-COMP-05` through `09`, `14`) provide exceptional pattern references for complex enterprise data grids, form validation, and slot architectures.
 - **Decision:** Build Internally. UIForge does not adopt any complete monolithic UI framework as a core dependency. All eligible candidates are classified as **Tier 3 (Reference and Research)**.
 
 ---
@@ -76,7 +76,6 @@
 ## 6. Category F — Browser Verification & Accessibility
 
 - **Primary Challenge:** Automated tests that rely solely on jsdom or simulated DOMs miss real layout reflow bugs, subpixel rendering glitches, and true visual accessibility contrast failures.
-- **Candidate Universe:** Playwright (`OS-BROW-01`), axe-core (`OS-A11Y-01`), @axe-core/playwright (`OS-A11Y-02`), W3C ARIA Practices (`OS-A11Y-08`), Pixelmatch (`OS-VREG-01`), Puppeteer (`OS-BROW-02`), Testcontainers (`OS-BROW-04`), Looks-Same (`OS-VREG-02`), Argos CI (`OS-VREG-03`), Storybook Test Runner (`OS-VREG-08`), pa11y (`OS-A11Y-05`), Loki (`OS-VREG-04`), BackstopJS (`OS-VREG-05`).
 - **axe-core Conditional Adoption & Release Gate (Finding C17):**
   axe-core (`OS-A11Y-01`) recommendation is classified as:
   > **`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE`**
@@ -85,16 +84,27 @@
 
 ---
 
-## 7. Category G — Agent & MCP Integration
+## 7. Category G — Agent & MCP Integration (Findings C20 & C24)
 
 - **Primary Challenge:** Standardizing how autonomous AI coding agents (Claude Code, OpenCode, Cursor, Antigravity) discover UIForge's design intelligence and invoke frontend mutations safely.
-- **MCP TypeScript SDK Pinning & Wire Protocol Negotiation (Finding C13):**
-  UIForge pins:
-  - `@modelcontextprotocol/server@^2.1.0` (Core Runtime Dependency)
-  - `@modelcontextprotocol/client@^2.1.0` (Optional Integration Client)
-  
-  **Wire Protocol Negotiation Protocol:**
-  During client/server initialization, UIForge proposes protocol version `2026-07-28`. If the connecting agent or client only supports the legacy standard, UIForge automatically negotiates and falls back to wire protocol `2024-11-05`. Capabilities supported across both versions include structured tool exposure, token graph resources, prompt templates, logging, progress tokens, cancellation, and interactive parameter elicitation.
+- **Declared Semver Ranges vs Exact Pins (Finding C24):**
+  UIForge defines the following declared semver ranges for MCP packages:
+  - `@modelcontextprotocol/server@^2.1.0` (Core Runtime Dependency; evaluated on release `v2.1.1` on Node.js 22 LTS; the caret `^` permits compatible 2.x releases).
+  - `@modelcontextprotocol/client@^2.1.0` (Optional Integration Client).
+  - *Reproducibility Invariant:* Deterministic builds lock exact resolved versions and SHA-512 SRI hashes in `pnpm-lock.yaml` during Phase 03.
+- **Modern Protocol Era & Wire Negotiation Architecture (Finding C20):**
+  - **Modern Protocol Revision (`2026-07-28`):** The modern era is stateless. It **does NOT** use the legacy stateful `initialize` handshake.
+  - **Modern Discovery:** Modern clients probe server capabilities using the `server/discover` endpoint/method.
+  - **Per-Request Metadata:** Every request carries the protocol version in `_meta` (e.g. `_meta: { protocolVersion: "2026-07-28" }`) and corresponding HTTP headers (`mcp-protocol-version: 2026-07-28`).
+  - **Opt-In Auto-Negotiation:** The v2 SDK requires explicitly opting into negotiation via configuration:
+    ```typescript
+    const server = new McpServer({
+      name: "uiforge-mcp",
+      version: "1.0.0",
+      versionNegotiation: { mode: "auto", preferred: "2026-07-28", fallback: ["2025-11-25", "2024-11-05"] }
+    });
+    ```
+  - **Fallback Hierarchy:** If the connecting client or server does not support modern `server/discover`, automatic negotiation seamlessly falls back to the legacy stateful `initialize` handshake, first trying latest legacy revision **`2025-11-25`**, and then older legacy revision **`2024-11-05`** for backward compatibility.
 - **Decision:** Adopt Model Context Protocol SDK (`@modelcontextprotocol/server` ^2.1.0) as UIForge's primary interoperability standard.
 
 ---
@@ -113,5 +123,11 @@
   6. Reduced-motion behavior (`prefers-reduced-motion` transition bypass).
 - **Charts & Data Visualization (Finding C16):**
   `recharts` (`OS-CHRT-01`, Score: 94.8, Tier 0) adopted as primary declarative SVG chart library. `visx` (`OS-CHRT-04`, Tier 1) provides low-level modular SVG visualization primitives (v4.0.0 with React 19 support). Bundle size figures (~15–20 KB vs ~50 KB) are formally qualified as **preliminary tree-shaken estimates**, pending reproducible Phase 03 benchmarks.
-- **Typography & Font Subsetting (Finding C18):**
-  `Inter` (`OS-TYPO-04`, `rsms/inter` v4.1) and `Geist` (`OS-TYPO-05`, `vercel/geist-font` v1.4.0) adopted under SIL OFL 1.1 RFN preservation. Custom subsetting legally constitutes a "Modified Version" under SIL OFL 1.1 Clause 3, requiring renamed font-family declarations (e.g., `UIForgeInter`, `UIForgeGeist`) unless written copyright permission is secured.
+- **Typography & Font Subsetting Qualification (Findings C18 & C21):**
+  `Inter` (`OS-TYPO-04`, `rsms/inter` v4.1) and `Geist` (`OS-TYPO-05`, `vercel/geist-font` v1.4.0) are adopted under SIL OFL 1.1 RFN preservation.
+  - **Default Rule:** Custom glyph subsetting modifies font binaries. Under SIL OFL 1.1 Clause 3, renaming the font family (`UIForgeInter`, `UIForgeGeist`) is the default, legally safe practice.
+  - **Documented Exceptions:** Renaming is required UNLESS:
+    1. The transformation qualifies for SIL's documented "functional-equivalence exception" (SIL OFL FAQ Q5.3) for web-font character-set optimization preserving all OpenType layout tables, Unicode mappings, and metrics without design changes; OR
+    2. The copyright holder grants explicit written permission; OR
+    3. UIForge redistributes upstream unsubsetted static/variable `.woff2` binaries unchanged.
+  - **Subsetting Engineering Specification:** Planned subsetter tooling is `pyftsubset` (`fonttools`) with parameters `--layout-features=*`, `--desubroutinize`, `--flavor=woff2`, and Name table updates to IDs 1, 4, 6 when renamed.

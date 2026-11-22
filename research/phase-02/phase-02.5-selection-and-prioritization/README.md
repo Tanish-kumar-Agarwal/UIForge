@@ -43,7 +43,7 @@ Rather than maximizing the number of external dependencies, Phase 02.5 adheres t
 | **Category D** | Design Systems & Complete UI Frameworks | **Internal UIForge Architecture** (Reference Mantine, MUI, Chakra) | `BUILD_INTERNAL` |
 | **Category E** | Design Tokens & Styling | **Tailwind CSS v4** (`OS-TOKN-04`) + **DTCG** (`OS-TOKN-01`) + **Style Dictionary v5.8.0** (`OS-TOKN-02`) | `DEPENDENCY` / `BUILD_TOOL` |
 | **Category F** | Browser Verification & Accessibility | **Playwright** (`OS-BROW-01`) + **axe-core** (`OS-A11Y-01`, conditional) + **Pixelmatch** (`OS-VREG-01`) | `DEPENDENCY` / `EXTERNAL_TOOL` |
-| **Category G** | Agent & MCP Integration | **Model Context Protocol TypeScript SDK** (`OS-AGNT-01`, ^2.1.0 with 2026-07-28 / 2024-11-05 negotiation) | `DEPENDENCY` |
+| **Category G** | Agent & MCP Integration | **Model Context Protocol TypeScript SDK** (`OS-AGNT-01`, ^2.1.0; modern 2026-07-28 discovery with auto-negotiation fallback) | `DEPENDENCY` |
 | **Category H** | Supporting UI Libraries | **Motion** (`OS-ANIM-01`), **TanStack Table** (`OS-DASH-03`), **Recharts** (`OS-CHRT-01`), **Lucide** (`OS-ICON-01`), **Inter/Geist** (`OS-TYPO-04/05`), **Resizable Panels** (`OS-LAYT-01`) | `DEPENDENCY` / `ASSET` |
 
 ---
@@ -78,15 +78,20 @@ research/phase-02/phase-02.5-selection-and-prioritization/
 │   ├── selection-scorecard.schema.json          # Draft-07 formal schema for scorecard
 │   ├── category-decisions.schema.json           # Draft-07 formal schema for category decisions
 │   └── evidence-and-claim.schema.json           # Draft-07 formal schema for evidence claims
+├── scripts/
+│   ├── build_reports.js                         # Automated report builder
+│   ├── generate_selection_data.js               # Structured dataset generator
+│   └── verify_babel_recovery.js                 # Empirical fixture parser recovery verification
 └── validation/
-    └── validate_selection.js                    # Automated integrity validation harness (59/59 PASS)
+    └── validate_selection.js                    # Automated integrity validation harness (61/61 PASS)
 ```
 
 ---
 
 ## 5. Automated Validation & Script Digest
 
-The automated test suite certifies all 59 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, category coverage, and finding remediations (C11–C19):
+The automated test suite certifies all 61 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, category coverage, and finding remediations (C11–C24):
 - **Harness Script:** [`validation/validate_selection.js`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js)
-- **Harness Result:** **59 / 59 PASS (0 failures)**
-- **Script SHA-256 Digest:** `818c9436a7c235baa4e0e09d9db6f225cbac1e9a3ac8dc3b27e78cb84314739d`
+- **Harness Result:** **61 / 61 PASS (0 failures)**
+- **Script SHA-256 Digest:** `b333731ad7bf4596d0f9a96a5270935483f48ce049ee5f9bdc6ee2d9cf04b14b`
+- **Digest Qualification:** Test execution certifies conditions tested under the local test environment; SHA-256 digest validates byte identity of the test script, not external third-party certification.

@@ -43,12 +43,17 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 - **Consumption Mode:** `REFERENCE_ONLY` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 3 Reference).
 - **Condition:** Studying general, uncopyrightable CSS layout concepts (The Stack, The Cluster, The Reel) is permissible as architectural research. Direct copying of authored book text, diagrams, and component code is strictly prohibited under `LIC-EVERY-LAYOUT-COMMERCIAL`. UIForge makes no unconditional legal guarantee of non-infringement without clean-room engineering verification.
 
-### 2.5 SIL OFL 1.1 Fonts & Subsetting Rules (Finding C18)
+### 2.5 SIL OFL 1.1 Fonts & Subsetting Rules (Findings C18 & C21)
 - **Candidates:** Inter (`OS-TYPO-04`, `rsms/inter` v4.1, files: `InterVariable.woff2`, `InterVariable-Italic.woff2`, `Inter-Regular.woff2`, `Inter-Bold.woff2`) and Geist (`OS-TYPO-05`, `vercel/geist-font` v1.4.0, files: `Geist-Variable.woff2`, `GeistMono-Variable.woff2`).
 - **Consumption Mode:** `ASSET_REDISTRIBUTION` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 0).
-- **SIL OFL 1.1 Clause 3 RFN Compliance Dossier:**
+- **SIL OFL 1.1 Clause 3 RFN Compliance Dossier & Qualification:**
   Both fonts carry Reserved Font Name declarations ("with Reserved Font Name Inter", "with Reserved Font Name Geist"). Clause 3 states: *"No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder."*
-  **Custom subsetting legally constitutes a "Modified Version" under SIL OFL 1.1 Clause 3.** Therefore, if UIForge performs custom glyph subsetting, the resulting font family must be renamed (e.g. `UIForgeInter`, `UIForgeGeist`) unless written permission is obtained, or UIForge redistributes upstream unsubsetted static/variable `.woff2` binaries unchanged alongside full OFL 1.1 license texts.
+  - **Default Rule:** Custom glyph subsetting modifies font binaries. Renaming the font family (e.g. `UIForgeInter`, `UIForgeGeist`) is the **default, legally safe practice** for custom subsets.
+  - **Documented Exceptions:** Renaming is required UNLESS:
+    1. The transformation qualifies for SIL's documented "functional-equivalence exception" (SIL OFL FAQ Q5.3) where character-set optimization preserves full OpenType layout tables, Unicode mappings, and metrics without design changes; OR
+    2. The copyright holder grants explicit written permission; OR
+    3. UIForge redistributes upstream unsubsetted static/variable `.woff2` binaries unchanged.
+  - **Subsetting Engineering Specification:** Planned subsetter tooling is `pyftsubset` (`fonttools`) with parameters `--layout-features=*`, `--desubroutinize`, `--flavor=woff2`, and Name table updates to IDs 1, 4, 6 when renamed.
 
 ### 2.6 Remotion (`OS-ANIM-08`) — Tiered Headcount Commercial Licensing (Finding C02/C11)
 - **Consumption Mode:** `DEPENDENCY` (`RESTRICTED`, Tier 5 Excluded).

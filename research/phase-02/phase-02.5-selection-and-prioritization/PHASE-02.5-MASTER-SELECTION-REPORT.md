@@ -44,10 +44,10 @@ To ensure tamper-evident traceability and prevent alias confusion, the following
 UIForge adopts **58 candidates** across Tier 0 (24 Core Foundation) and Tier 1 (34 Recommended Core-Adjacent):
 - **Core Primitives & Registry:** `radix-ui/primitives` (`OS-COMP-02`), `react-spectrum / React Aria` (`OS-COMP-03`), and `shadcn-ui/ui` (`OS-COMP-01`).
 - **Styling & Design Tokens:** `tailwindcss` v4 (`OS-TOKN-04`), `DTCG 2025.10` (`OS-TOKN-01`), and `style-dictionary` v5.8.0 (`OS-TOKN-02`) on Node.js 22 LTS (C14).
-- **Analysis & Code Transformation:** Native TypeScript Compiler API engine, `ast-grep` (`OS-D2C-06`), and Babel 6-stage AST manipulation pipeline (`OS-D2C-07`) with `@babel/generator` and `errorRecovery: true` (C15).
+- **Analysis & Code Transformation:** Native TypeScript Compiler API engine, `ast-grep` (`OS-D2C-06`), and Babel 6-stage AST manipulation pipeline (`OS-D2C-07`) with `@babel/generator`, coordinate slice-patching, WAL token buffering, and TS baseline diagnostic regression comparator (C15, C22).
 - **Verification & Testing:** `playwright` (`OS-BROW-01`), `axe-core` (`OS-A11Y-01`, `CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE`) (C17), `@axe-core/playwright` (`OS-A11Y-02`), `eslint-plugin-jsx-a11y` (`OS-A11Y-03`), and `pixelmatch` (`OS-VREG-01`).
-- **Agent Interoperability:** `@modelcontextprotocol/server` (`OS-AGNT-01`, ^2.1.0 implementing 2026-07-28 spec with 2024-11-05 fallback; `@modelcontextprotocol/client` ^2.1.0) and `anomalyco/opencode` (`OS-AGNT-02`) (C13).
-- **Foundational UI Controls & Typefaces:** `motion` (`OS-ANIM-01`), `lucide-icons` (`OS-ICON-01`), `TanStack Table` (`OS-DASH-03`), `recharts` (`OS-CHRT-01`), `react-resizable-panels` (`OS-LAYT-01`), and `Inter` / `Geist` typefaces (`OS-TYPO-04`, `OS-TYPO-05`, SIL OFL 1.1 RFN preservation) (C18).
+- **Agent Interoperability:** `@modelcontextprotocol/server` (`OS-AGNT-01`, declared semver range ^2.1.0, evaluated on v2.1.1; implementing modern 2026-07-28 discovery via `server/discover` with `_meta` versioning and auto-negotiation fallback to legacy `2025-11-25` / `2024-11-05`; `@modelcontextprotocol/client` ^2.1.0) and `anomalyco/opencode` (`OS-AGNT-02`) (C13, C20, C24).
+- **Foundational UI Controls & Typefaces:** `motion` (`OS-ANIM-01`), `lucide-icons` (`OS-ICON-01`), `TanStack Table` (`OS-DASH-03`), `recharts` (`OS-CHRT-01`), `react-resizable-panels` (`OS-LAYT-01`), and `Inter` / `Geist` typefaces (`OS-TYPO-04`, `OS-TYPO-05`, SIL OFL 1.1 RFN preservation; custom subsetting defaults to font-family rename unless functional-equivalence exception or permission applies) (C18, C21).
 
 ### Q2. Which candidates should remain reference-only?
 **16 candidates** are assigned to **Tier 3 (Reference and Research)**:
@@ -69,7 +69,7 @@ UIForge adopts the **shadcn/ui registry model** (`OS-COMP-01`) as its canonical 
 
 ### Q5. Which candidates should be used as external tools?
 - `axe-core` (`OS-A11Y-01`): Executed out-of-process via user-installed `@axe-core/cli` or Playwright runner (`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE`). UIForge does not bundle or redistribute axe-core binaries (C17).
-- `ast-grep` (`OS-D2C-06`): Invoked as a standalone native CLI binary or pre-compiled N-API binding for high-speed AST pattern search across massive brownfield repositories.
+- `ast-grep` (`OS-D2C-06`: Invoked as a standalone native CLI binary or pre-compiled N-API binding for high-speed AST pattern search across massive brownfield repositories.
 - `Lighthouse` (`OS-A11Y-06`) & `Accessibility Insights` (`OS-A11Y-07`): Invoked as standalone external audit runners for comprehensive audits.
 
 ### Q6. Which candidates should be rejected or deferred?
@@ -111,11 +111,11 @@ The **40 Tier 2 Optional Integration candidates** specified in [OPTIONAL-INTEGRA
 
 ### Q11. Which decisions require additional proof before implementation?
 Eight concrete experiments (E1 through E8) are specified in [EXPERIMENTAL-VALIDATION-PLAN.md](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.5-selection-and-prioritization/EXPERIMENTAL-VALIDATION-PLAN.md):
-- E1: TypeScript Compiler API vs. ast-grep vs Babel 6-stage AST mutation benchmark (C15).
+- E1: TypeScript Compiler API vs. ast-grep vs Babel 6-stage AST mutation benchmark (with WAL buffering for fatal tokens and TS baseline diagnostic regression comparator) (C15, C22).
 - E2: Radix UI vs. React Aria primitive composition in brownfield projects.
 - E3: DTCG 2025.10 token compilation to Tailwind v4 theme variables via Style Dictionary v5.8.0 (C14).
 - E4: Headless Playwright + axe-core automated audit execution in sandboxed Docker containers (C17).
-- E5: Model Context Protocol (MCP) wire negotiation for `2026-07-28` with fallback to `2024-11-05` (C13).
+- E5: Model Context Protocol (MCP) modern discovery (`server/discover`) and auto-negotiation fallback to `2025-11-25` / `2024-11-05` (C13, C20, C24).
 - E6: Registry cryptographic digest verification and untrusted artifact retrieval isolation.
 - E7: Chart bundle size benchmark (Visx preliminary tree-shaken estimate ~15–20 KB vs Recharts) (C16).
 - E8: React-Grid-Layout 6-test accessibility verification matrix (C19).

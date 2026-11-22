@@ -41,6 +41,10 @@ scorecard.forEach(c => {
   gateSummary.overall[map[g.overallGateResult]]++;
 });
 
+// Calculate current validator script hash
+const validatorContent = fs.readFileSync(path.join(baseDir, 'validation', 'validate_selection.js'), 'utf8');
+const validatorHash = crypto.createHash('sha256').update(validatorContent).digest('hex');
+
 // Canonical Identity & Supersession Table markdown snippet (C11)
 const supersessionTableMd = `### Canonical Identity & Supersession Table (Finding C11 Reconciliation)
 
@@ -300,14 +304,23 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
 
 - **Primary Challenge:** AI coding agents frequently hallucinate non-existent component props, fail to respect existing project conventions, and perform clumsy string-based code replacements that destroy comments and syntax trees.
 - **Candidate Universe:** Native TypeScript Compiler API, \`ast-grep\` (\`OS-D2C-06\`), \`babel\` (\`OS-D2C-07\`), \`eslint-plugin-react\` (\`OS-LAYT-07\`), \`eslint-plugin-jsx-a11y\` (\`OS-A11Y-03\`).
-- **Complete 6-Stage AST Manipulation Pipeline (Finding C15):**
+- **Complete 6-Stage AST Manipulation Pipeline & Distinct Guarantees (Findings C15 & C22):**
   UIForge establishes an authoritative 6-stage AST manipulation pipeline combining high-performance pattern search with AST transformation and full semantic type checking:
-  1. **Stage 1: Parsing (\`@babel/parser\`):** High-throughput ECMAScript/TypeScript parsing configured with \`sourceType: "module"\`, plugins \`["jsx", "typescript"]\`, and \`errorRecovery: true\` to parse partial or malformed JSX streams from AI models without throwing unrecoverable exceptions. Supported error recovery cases include unclosed JSX elements/fragments, missing trailing commas/semicolons, and incomplete type annotations during live streaming.
+  1. **Stage 1: Parsing (\`@babel/parser\`):** Module parsing configured with \`sourceType: "module"\`, plugins \`["jsx", "typescript"]\`, and \`errorRecovery: true\`.
+     - *Recoverable Error Handling:* Babel recovers from specific parser anomalies (e.g. unclosed JSX elements, missing property separators, missing semicolons), recording them in \`ast.errors\` while returning a navigable partial AST.
+     - *Fatal Unrecoverable Boundary:* \`errorRecovery: true\` is **not a guarantee** that every incomplete stream can be parsed. Unrecoverable tokens (unterminated template literals, mismatched parentheses in expression containers, unclosed block comments) throw fatal \`SyntaxError\` exceptions.
+     - *Architectural Remedy:* UIForge implements a **token-stream write-ahead log (WAL) buffer**: mid-stream chunks that trigger unrecoverable syntax errors are held in an in-memory buffer until closing delimiters are streamed, rather than failing the transaction.
   2. **Stage 2: AST Traversal (\`@babel/traverse\`):** Structured visitor navigation identifying component declarations, hook invocations, prop distributions, and import declarations.
   3. **Stage 3: AST Transformation (\`@babel/types\`):** Deterministic node construction, replacement, and insertion using strongly-typed builder definitions.
-  4. **Stage 4: Code Generation (\`@babel/generator\`):** Accurate AST serialization with \`retainLines: true\`, preserving surrounding layout and indentation.
-  5. **Stage 5: Comment & Formatting Preservation:** For surgical edits, coordinate-based AST slice patching replaces only mutated token ranges; for file regenerations, Prettier with language plugins formats the emitted source while preserving detached leading/trailing comments.
-  6. **Stage 6: Semantic Verification (TypeScript Compiler API):** In-memory program diagnostics verifying that transformed code compiles without type regressions before committing to disk.
+  4. **Stage 4: Code Generation (\`@babel/generator\`):** AST serialization.
+     - *Formatting Qualification:* \`retainLines: true\` only preserves line numbers; it does **not** guarantee original indentation, column alignment, or trivia preservation.
+  5. **Stage 5: Comment & Formatting Preservation:**
+     - *Attached Comments:* Comments are preserved on AST nodes (\`leadingComments\` / \`trailingComments\`).
+     - *Formatting Preservation via Coordinate Slice Patching:* For localized edits, UIForge utilizes exact character start/end offsets to splice in modified token slices, preserving 100% of the surrounding untouched file. Full-file regenerations utilize Prettier with language plugins.
+  6. **Stage 6: Semantic Verification (TypeScript Compiler API Baseline Comparator):**
+     - Rather than merely checking that post-transform diagnostics are zero (which can mask existing errors or fail on brownfield projects with pre-existing warnings), UIForge evaluates:
+       $$\\text{newRegressions} = \\text{postTransformDiagnostics} \\setminus \\text{baselineDiagnostics}$$
+       guaranteeing that the AST mutation introduced zero *new* type regressions.
 - **Decision:** Hybrid Architecture. Native TS Compiler API forms internal core semantic engine; ast-grep is integrated as high-performance CLI scanner; Babel 6-stage pipeline handles fault-tolerant JSX rewriting.
 
 ---
@@ -329,11 +342,6 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
 
 - **Primary Challenge:** Delivering component code that developers can freely modify, without imposing immutable \`node_modules\` abstraction layers.
 - **Candidate Universe:** shadcn/ui (\`OS-COMP-01\`), Magic UI (\`OS-MKT-01\`), Origin UI (\`OS-MKT-04\`), Tremor Raw (\`OS-DASH-02\`), Park UI (\`OS-COMP-12\`), Cult UI (\`OS-MKT-02\`), React Bits (\`OS-MKT-03\`), HyperUI (\`OS-MKT-07\`).
-- **Comparative Evaluation:**
-  - *shadcn/ui (\`OS-COMP-01\`, Score: 94.6, Tier 0):* Decoupled source-copy component distribution model. Zero runtime dependency bloat; full project-level customization.
-  - *Magic UI (\`OS-MKT-01\`, Score: 84.7, Tier 1):* Curated animated sections; compatible with shadcn/ui registry format.
-  - *Origin UI (\`OS-MKT-04\`, Score: 84.9, Tier 1):* Modern micro-components (buttons, inputs, tooltips) with clean Tailwind v4 bindings.
-  - *Tremor Raw (\`OS-DASH-02\`, Score: 86.1, Tier 1):* Unstyled dashboard cards, metrics, and KPI primitives.
 - **Decision:** Adopt shadcn/ui registry schema as UIForge's canonical component emission format. Core-adjacent registries (Magic UI, Origin UI, Tremor Raw) are integrated via standardized schema adapters.
 
 ---
@@ -342,10 +350,6 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
 
 - **Primary Challenge:** Full-system UI frameworks (Mantine, MUI, Chakra, Ant Design) impose heavy CSS-in-JS runtimes, rigid design opinions, and massive bundle footprints that break existing brownfield projects.
 - **Candidate Universe:** Mantine (\`OS-COMP-05\`), Chakra UI (\`OS-COMP-06\`), MUI (\`OS-COMP-07\`), Ant Design (\`OS-COMP-08\`), NextUI (\`OS-COMP-09\`), Blueprint (\`OS-COMP-14\`), SaaS UI (\`OS-COMP-15\`).
-- **Comparative Evaluation:**
-  - Adopting any complete framework as a mandatory UIForge core dependency would immediately introduce framework lock-in and vendor rigidity.
-  - SaaS UI (\`OS-COMP-15\`, Score: 46.9, Tier 5) is rejected due to proprietary Pro upsell gating and architectural lock-in.
-  - The remaining frameworks (\`OS-COMP-05\` through \`09\`, \`14\`) provide exceptional pattern references for complex enterprise data grids, form validation, and slot architectures.
 - **Decision:** Build Internally. UIForge does not adopt any complete monolithic UI framework as a core dependency. All eligible candidates are classified as **Tier 3 (Reference and Research)**.
 
 ---
@@ -365,7 +369,6 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
 ## 6. Category F — Browser Verification & Accessibility
 
 - **Primary Challenge:** Automated tests that rely solely on jsdom or simulated DOMs miss real layout reflow bugs, subpixel rendering glitches, and true visual accessibility contrast failures.
-- **Candidate Universe:** Playwright (\`OS-BROW-01\`), axe-core (\`OS-A11Y-01\`), @axe-core/playwright (\`OS-A11Y-02\`), W3C ARIA Practices (\`OS-A11Y-08\`), Pixelmatch (\`OS-VREG-01\`), Puppeteer (\`OS-BROW-02\`), Testcontainers (\`OS-BROW-04\`), Looks-Same (\`OS-VREG-02\`), Argos CI (\`OS-VREG-03\`), Storybook Test Runner (\`OS-VREG-08\`), pa11y (\`OS-A11Y-05\`), Loki (\`OS-VREG-04\`), BackstopJS (\`OS-VREG-05\`).
 - **axe-core Conditional Adoption & Release Gate (Finding C17):**
   axe-core (\`OS-A11Y-01\`) recommendation is classified as:
   > **\`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\`**
@@ -374,16 +377,27 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
 
 ---
 
-## 7. Category G — Agent & MCP Integration
+## 7. Category G — Agent & MCP Integration (Findings C20 & C24)
 
 - **Primary Challenge:** Standardizing how autonomous AI coding agents (Claude Code, OpenCode, Cursor, Antigravity) discover UIForge's design intelligence and invoke frontend mutations safely.
-- **MCP TypeScript SDK Pinning & Wire Protocol Negotiation (Finding C13):**
-  UIForge pins:
-  - \`@modelcontextprotocol/server@^2.1.0\` (Core Runtime Dependency)
-  - \`@modelcontextprotocol/client@^2.1.0\` (Optional Integration Client)
-  
-  **Wire Protocol Negotiation Protocol:**
-  During client/server initialization, UIForge proposes protocol version \`2026-07-28\`. If the connecting agent or client only supports the legacy standard, UIForge automatically negotiates and falls back to wire protocol \`2024-11-05\`. Capabilities supported across both versions include structured tool exposure, token graph resources, prompt templates, logging, progress tokens, cancellation, and interactive parameter elicitation.
+- **Declared Semver Ranges vs Exact Pins (Finding C24):**
+  UIForge defines the following declared semver ranges for MCP packages:
+  - \`@modelcontextprotocol/server@^2.1.0\` (Core Runtime Dependency; evaluated on release \`v2.1.1\` on Node.js 22 LTS; the caret \`^\` permits compatible 2.x releases).
+  - \`@modelcontextprotocol/client@^2.1.0\` (Optional Integration Client).
+  - *Reproducibility Invariant:* Deterministic builds lock exact resolved versions and SHA-512 SRI hashes in \`pnpm-lock.yaml\` during Phase 03.
+- **Modern Protocol Era & Wire Negotiation Architecture (Finding C20):**
+  - **Modern Protocol Revision (\`2026-07-28\`):** The modern era is stateless. It **does NOT** use the legacy stateful \`initialize\` handshake.
+  - **Modern Discovery:** Modern clients probe server capabilities using the \`server/discover\` endpoint/method.
+  - **Per-Request Metadata:** Every request carries the protocol version in \`_meta\` (e.g. \`_meta: { protocolVersion: "2026-07-28" }\`) and corresponding HTTP headers (\`mcp-protocol-version: 2026-07-28\`).
+  - **Opt-In Auto-Negotiation:** The v2 SDK requires explicitly opting into negotiation via configuration:
+    \`\`\`typescript
+    const server = new McpServer({
+      name: "uiforge-mcp",
+      version: "1.0.0",
+      versionNegotiation: { mode: "auto", preferred: "2026-07-28", fallback: ["2025-11-25", "2024-11-05"] }
+    });
+    \`\`\`
+  - **Fallback Hierarchy:** If the connecting client or server does not support modern \`server/discover\`, automatic negotiation seamlessly falls back to the legacy stateful \`initialize\` handshake, first trying latest legacy revision **\`2025-11-25\`**, and then older legacy revision **\`2024-11-05\`** for backward compatibility.
 - **Decision:** Adopt Model Context Protocol SDK (\`@modelcontextprotocol/server\` ^2.1.0) as UIForge's primary interoperability standard.
 
 ---
@@ -402,8 +416,14 @@ let mdCategoryWise = `# UIForge Phase 02.5: Category-Wise Comparison Report
   6. Reduced-motion behavior (\`prefers-reduced-motion\` transition bypass).
 - **Charts & Data Visualization (Finding C16):**
   \`recharts\` (\`OS-CHRT-01\`, Score: 94.8, Tier 0) adopted as primary declarative SVG chart library. \`visx\` (\`OS-CHRT-04\`, Tier 1) provides low-level modular SVG visualization primitives (v4.0.0 with React 19 support). Bundle size figures (~15–20 KB vs ~50 KB) are formally qualified as **preliminary tree-shaken estimates**, pending reproducible Phase 03 benchmarks.
-- **Typography & Font Subsetting (Finding C18):**
-  \`Inter\` (\`OS-TYPO-04\`, \`rsms/inter\` v4.1) and \`Geist\` (\`OS-TYPO-05\`, \`vercel/geist-font\` v1.4.0) adopted under SIL OFL 1.1 RFN preservation. Custom subsetting legally constitutes a "Modified Version" under SIL OFL 1.1 Clause 3, requiring renamed font-family declarations (e.g., \`UIForgeInter\`, \`UIForgeGeist\`) unless written copyright permission is secured.
+- **Typography & Font Subsetting Qualification (Findings C18 & C21):**
+  \`Inter\` (\`OS-TYPO-04\`, \`rsms/inter\` v4.1) and \`Geist\` (\`OS-TYPO-05\`, \`vercel/geist-font\` v1.4.0) are adopted under SIL OFL 1.1 RFN preservation.
+  - **Default Rule:** Custom glyph subsetting modifies font binaries. Under SIL OFL 1.1 Clause 3, renaming the font family (\`UIForgeInter\`, \`UIForgeGeist\`) is the default, legally safe practice.
+  - **Documented Exceptions:** Renaming is required UNLESS:
+    1. The transformation qualifies for SIL's documented "functional-equivalence exception" (SIL OFL FAQ Q5.3) for web-font character-set optimization preserving all OpenType layout tables, Unicode mappings, and metrics without design changes; OR
+    2. The copyright holder grants explicit written permission; OR
+    3. UIForge redistributes upstream unsubsetted static/variable \`.woff2\` binaries unchanged.
+  - **Subsetting Engineering Specification:** Planned subsetter tooling is \`pyftsubset\` (\`fonttools\`) with parameters \`--layout-features=*\`, \`--desubroutinize\`, \`--flavor=woff2\`, and Name table updates to IDs 1, 4, 6 when renamed.
 `;
 
 fs.writeFileSync(path.join(baseDir, 'CATEGORY-WISE-COMPARISON-REPORT.md'), mdCategoryWise, 'utf8');
@@ -438,14 +458,14 @@ To prevent technology accumulation and dependency bloat, competing technologies 
 | :--- | :---: | :--- |
 | **TypeScript Compiler API vs. ts-morph** | \`DIRECT_ALTERNATIVE\` | **Decision: Wrap TypeScript Compiler API directly.** ts-morph adds an external dependency wrapper that lags behind new TS language features. Native TS Compiler API provides 100% type-checking fidelity with zero third-party bloat. |
 | **ast-grep vs. TypeScript Compiler API** | \`COMPLEMENTARY\` | **Decision: Combine.** ast-grep provides ultra-fast pattern searching and structural AST grepping across thousands of files. TS Compiler API handles in-depth semantic type checking, symbol resolution, and surgical AST patching. |
-| **Babel Parser/Traverse vs. TypeScript Compiler API** | \`COMPLEMENTARY\` | **Decision: Combine in 6-stage AST pipeline (C15).** Babel provides fault-tolerant parsing with \`errorRecovery: true\` for incomplete LLM JSX streams, while TS Compiler API performs final semantic validation. |
+| **Babel Parser/Traverse vs. TypeScript Compiler API** | \`COMPLEMENTARY\` | **Decision: Combine in 6-stage AST pipeline (C15, C22).** Babel provides fault-tolerant parsing with \`errorRecovery: true\` and WAL buffering for streaming JSX, while TS Compiler API performs baseline regression verification. |
 | **Radix UI vs. Base UI vs. React Aria** | \`PARTIAL_OVERLAP\` | **Decision: Multi-primitive foundation.** Radix UI is adopted for standard DOM composable overlays (dialogs, dropdowns, popovers). React Aria is adopted for complex interactive states requiring advanced touch and keyboard state machines (comboboxes, date pickers, number steppers). |
 | **shadcn/ui vs. Monolithic UI Frameworks** | \`DIFFERENT_LAYER\` | **Decision: Adopt shadcn/ui source-copy model.** Monolithic frameworks (Mantine, MUI) enforce heavy runtime wrappers. shadcn/ui emits raw Tailwind/JSX source directly into the project repository, leaving zero persistent runtime dependencies. |
 | **DTCG vs. Style Dictionary v5.8.0** | \`DIFFERENT_LAYER\` | **Decision: Combine (C14).** DTCG 2025.10 is the canonical JSON interchange format. Style Dictionary v5.8.0 natively parses DTCG tokens and compiles them into Tailwind v4 variables on Node.js 22 LTS. |
 | **Playwright vs. Puppeteer vs. Cypress** | \`DIRECT_ALTERNATIVE\` | **Decision: Select Playwright exclusively for Core.** Playwright supports Chromium, Firefox, and WebKit out of the box with built-in tracing, network mocking, and locator auto-waiting. Puppeteer is retained as an optional lightweight adapter; Cypress is redundant. |
 | **Playwright vs. Loki / BackstopJS** | \`DIRECT_ALTERNATIVE\` | **Decision: Exclude Loki & BackstopJS (Tier 5).** Playwright + Pixelmatch provides complete visual diffing without heavy Storybook runtime coupling (Loki) or legacy external runners (BackstopJS). |
 | **Pixelmatch vs. Looks-Same** | \`DIRECT_ALTERNATIVE\` | **Decision: Select Pixelmatch for Core.** Pixelmatch has zero native dependencies and runs purely in JavaScript/Node. Looks-Same is supported as an optional adapter where specialized antialiasing curve tolerance is required. |
-| **Model Context Protocol SDK vs. LangGraph** | \`DIFFERENT_LAYER\` | **Decision: Select MCP SDK (^2.1.0) (C13).** MCP defines the open client/server communication standard with 2026-07-28 / 2024-11-05 negotiation. LangGraph can operate as an optional consumer. |
+| **Model Context Protocol SDK vs. LangGraph** | \`DIFFERENT_LAYER\` | **Decision: Select MCP SDK (^2.1.0) (C13, C20).** MCP defines the open client/server communication standard with modern 2026-07-28 discovery and legacy fallback. LangGraph can operate as an optional consumer. |
 | **Lucide vs. Heroicons vs. Tabler Icons** | \`DIRECT_ALTERNATIVE\` | **Decision: Select Lucide as canonical default.** Lucide provides the cleanest, most consistent 24x24 stroke aesthetic and comprehensive icon coverage. Heroicons and Tabler are supported as secondary user-selectable registries. |
 | **Motion vs. GSAP** | \`DIRECT_ALTERNATIVE\` | **Decision: Motion for core; GSAP for optional emission.** Motion is fully permissive (MIT) with clean React hooks. GSAP is restricted by Webflow commercial terms (non-compete for visual builders) and is enabled only as an optional secondary code emission plugin. |
 `;
@@ -478,7 +498,7 @@ A core tenet of UIForge is to avoid outsourcing its core value proposition while
 | Capability Domain | Strategy | Adopted / Referenced External Technology | Internal UIForge Engineering Scope |
 | :--- | :---: | :--- | :--- |
 | **1. Project AST Analysis** | \`BUILD_WRAP\` | Native TypeScript Compiler API (\`typescript\`) | Internal AST visitor engine, project symbol resolver, and type discovery harness. |
-| **2. Fast Code Search & Transform** | \`ADOPT\` | \`ast-grep\` (\`OS-D2C-06\`) + Babel 6-Stage Pipeline (\`OS-D2C-07\`) | Invoked via CLI/N-API for grep; Babel handles fault-tolerant JSX parsing (\`errorRecovery: true\`) and code generation (\`@babel/generator\`) (C15). |
+| **2. Fast Code Search & Transform** | \`ADOPT\` | \`ast-grep\` (\`OS-D2C-06\`) + Babel 6-Stage Pipeline (\`OS-D2C-07\`) | Invoked via CLI/N-API for grep; Babel handles fault-tolerant JSX parsing (\`errorRecovery: true\`) with WAL token buffering and coordinate slice-patching (C15, C22). |
 | **3. Design-System Extraction** | \`BUILD\` | Open-source pattern references (\`DTCG\`, \`Primer\`) | Proprietary heuristic engine extracting spacing scales, typography, and color tokens from CSS/Tailwind. |
 | **4. Token Normalization** | \`ADAPT\` | \`DTCG 2025.10\` (\`OS-TOKN-01\`) + \`style-dictionary\` v5.8.0 (\`OS-TOKN-02\`) | Style Dictionary v5.8.0 natively parses DTCG tokens into Tailwind v4 variables on Node.js 22 LTS (C14). |
 | **5. Component Discovery** | \`BUILD\` | shadcn/ui registry format (\`OS-COMP-01\`) | Registry crawler, metadata extractor, and multi-registry search index. |
@@ -489,7 +509,7 @@ A core tenet of UIForge is to avoid outsourcing its core value proposition while
 | **10. Responsive Evaluation** | \`BUILD\` | Tailwind Container Queries (\`OS-LAYT-02\`) | Multi-viewport headless Playwright scanner detecting horizontal scroll, overflow, and layout shifts. |
 | **11. Visual Regression Diff** | \`ADOPT\` | \`pixelmatch\` (\`OS-VREG-01\`) | Pure JS pixel difference calculator computing perceptual change thresholds. |
 | **12. Browser Automation** | \`ADOPT\` | \`playwright\` (\`OS-BROW-01\`) | Headless Chromium/WebKit driver running inside isolated sandbox containers. |
-| **13. Agent Orchestration** | \`BUILD_WRAP\` | Model Context Protocol SDK (\`@modelcontextprotocol/server\` ^2.1.0) | Implements 2026-07-28 wire protocol with 2024-11-05 fallback negotiation (C13). |
+| **13. Agent Orchestration** | \`BUILD_WRAP\` | Model Context Protocol SDK (\`@modelcontextprotocol/server\` ^2.1.0) | Implements modern 2026-07-28 discovery (\`server/discover\`, \`_meta\`) with auto-negotiation fallback to 2025-11-25 and 2024-11-05 (C13, C20). |
 | **14. Permission Enforcement** | \`BUILD\` | UIForge 6-Mode Consumption Matrix | Runtime authorization gate ensuring AI agents never execute forbidden mutations or copy protected code. |
 | **15. Evidence Generation** | \`BUILD\` | Phase 02.4 Evidence Schema contracts | Automated audit trail generator producing verifiable test manifests and screenshots. |
 | **16. Safe Code Patching** | \`BUILD\` | Gate 1 & Gate 2 TypeScript AST & WAL Journal | Surgical AST modification protocol with write-ahead logging (WAL) ensuring zero regression during code edits. |
@@ -532,12 +552,12 @@ UIForge establishes a strictly decoupled, layered execution architecture to ensu
 | Execution Layer | Adopted Packages / Tools | Dependency Policy | Target Footprint | Architectural Role & Justification |
 | :--- | :--- | :---: | :---: | :--- |
 | **Layer 1: Core Analysis Engine** | \`typescript\` (Compiler API) | Peer / Required for Full Type Checking | ~40 MB | Semantic type checking, cross-file symbol resolution, interface diagnostics, and type assertion. Invoked only when full semantic checking is requested. |
-| **Layer 2: Structural Analysis & Transformation** | \`@babel/parser\`, \`@babel/traverse\`, \`@babel/types\`, \`@babel/generator\`, \`ast-grep\` | Production Dependency + Native Tool | ~25 MB | Complete 6-stage AST manipulation pipeline (C15). \`@babel/parser\` with \`errorRecovery: true\` parses partial LLM JSX snippets. \`@babel/generator\` serializes AST. \`ast-grep\` provides native NAPI/CLI pattern matching. |
+| **Layer 2: Structural Analysis & Transformation** | \`@babel/parser\`, \`@babel/traverse\`, \`@babel/types\`, \`@babel/generator\`, \`ast-grep\` | Production Dependency + Native Tool | ~25 MB | Complete 6-stage AST manipulation pipeline (C15, C22). \`@babel/parser\` with \`errorRecovery: true\` parses partial LLM JSX snippets. Unrecoverable tokens held via WAL buffer. \`ast-grep\` provides native NAPI/CLI pattern matching. |
 | **Layer 3: Token Build Pipeline** | \`style-dictionary\` v5.8.0 | Build-Time Tool | ~15 MB | Design token transformation engine natively compiling W3C DTCG 2025.10 tokens into Tailwind v4 native CSS variables on Node.js 22 LTS (C14). |
 | **Layer 4: Browser Verification Engine** | \`playwright\` | Optional / Dev Dependency | User Cache (~250 MB) | Multi-browser headless automation, DOM layout evaluation, visual screenshot capture, and trace replay. Installed on demand. |
 | **Layer 5: Accessibility Verification** | \`axe-core\` (\`@axe-core/cli\`), \`@axe-core/playwright\`, \`eslint-plugin-jsx-a11y\` | External Tool / Dev Dependency | ~10 MB | WCAG 2.2 AA rule evaluation invoked out-of-process via user CLI (\`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\`) (C17). Static AST linting via eslint-plugin-jsx-a11y. |
 | **Layer 6: Image Comparison Adapter** | \`pixelmatch\`, \`pngjs\` | Optional Testing Adapter | < 3 MB | Deterministic, zero-native-dependency pixel diffing engine operating in-memory on PNG buffers. |
-| **Layer 7: Agent Interoperability** | \`@modelcontextprotocol/server\` (^2.1.0) | Core Runtime Dependency | < 10 MB | Implements the 2026-07-28 Model Context Protocol specification with 2024-11-05 fallback negotiation (C13). \`@modelcontextprotocol/client\` (^2.1.0) is an optional client adapter. |
+| **Layer 7: Agent Interoperability** | \`@modelcontextprotocol/server\` (^2.1.0) | Core Runtime Dependency | < 10 MB | Declared semver range (\`^2.1.0\`, evaluated on v2.1.1). Implements modern 2026-07-28 discovery (\`server/discover\`, \`_meta\`) with auto-negotiation fallback to 2025-11-25 / 2024-11-05 (C13, C20, C24). \`@modelcontextprotocol/client\` (^2.1.0) is an optional client adapter. |
 
 ### 2.1 Visx Bundle Size Qualification (Finding C16)
 Figures of ~15–20 KB (modular Visx primitives) vs ~50 KB (monolithic chart bundles) represent **preliminary tree-shaken estimates**. Reproducible benchmark conditions in Phase 03:
@@ -602,12 +622,17 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 - **Consumption Mode:** \`REFERENCE_ONLY\` (\`ELIGIBLE_WITH_RESTRICTIONS\`, \`allowed: true\`, Tier 3 Reference).
 - **Condition:** Studying general, uncopyrightable CSS layout concepts (The Stack, The Cluster, The Reel) is permissible as architectural research. Direct copying of authored book text, diagrams, and component code is strictly prohibited under \`LIC-EVERY-LAYOUT-COMMERCIAL\`. UIForge makes no unconditional legal guarantee of non-infringement without clean-room engineering verification.
 
-### 2.5 SIL OFL 1.1 Fonts & Subsetting Rules (Finding C18)
+### 2.5 SIL OFL 1.1 Fonts & Subsetting Rules (Findings C18 & C21)
 - **Candidates:** Inter (\`OS-TYPO-04\`, \`rsms/inter\` v4.1, files: \`InterVariable.woff2\`, \`InterVariable-Italic.woff2\`, \`Inter-Regular.woff2\`, \`Inter-Bold.woff2\`) and Geist (\`OS-TYPO-05\`, \`vercel/geist-font\` v1.4.0, files: \`Geist-Variable.woff2\`, \`GeistMono-Variable.woff2\`).
 - **Consumption Mode:** \`ASSET_REDISTRIBUTION\` (\`ELIGIBLE_WITH_RESTRICTIONS\`, \`allowed: true\`, Tier 0).
-- **SIL OFL 1.1 Clause 3 RFN Compliance Dossier:**
+- **SIL OFL 1.1 Clause 3 RFN Compliance Dossier & Qualification:**
   Both fonts carry Reserved Font Name declarations ("with Reserved Font Name Inter", "with Reserved Font Name Geist"). Clause 3 states: *"No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder."*
-  **Custom subsetting legally constitutes a "Modified Version" under SIL OFL 1.1 Clause 3.** Therefore, if UIForge performs custom glyph subsetting, the resulting font family must be renamed (e.g. \`UIForgeInter\`, \`UIForgeGeist\`) unless written permission is obtained, or UIForge redistributes upstream unsubsetted static/variable \`.woff2\` binaries unchanged alongside full OFL 1.1 license texts.
+  - **Default Rule:** Custom glyph subsetting modifies font binaries. Renaming the font family (e.g. \`UIForgeInter\`, \`UIForgeGeist\`) is the **default, legally safe practice** for custom subsets.
+  - **Documented Exceptions:** Renaming is required UNLESS:
+    1. The transformation qualifies for SIL's documented "functional-equivalence exception" (SIL OFL FAQ Q5.3) where character-set optimization preserves full OpenType layout tables, Unicode mappings, and metrics without design changes; OR
+    2. The copyright holder grants explicit written permission; OR
+    3. UIForge redistributes upstream unsubsetted static/variable \`.woff2\` binaries unchanged.
+  - **Subsetting Engineering Specification:** Planned subsetter tooling is \`pyftsubset\` (\`fonttools\`) with parameters \`--layout-features=*\`, \`--desubroutinize\`, \`--flavor=woff2\`, and Name table updates to IDs 1, 4, 6 when renamed.
 
 ### 2.6 Remotion (\`OS-ANIM-08\`) — Tiered Headcount Commercial Licensing (Finding C02/C11)
 - **Consumption Mode:** \`DEPENDENCY\` (\`RESTRICTED\`, Tier 5 Excluded).
@@ -657,9 +682,9 @@ mdCoreShortlist += `
 ## 3. Tier 0 Key Specifications & Boundaries
 - **axe-core (\`OS-A11Y-01\`):** Classified as \`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\` (C17). Out-of-process CLI execution decoupled from UIForge core binaries.
 - **Style Dictionary (\`OS-TOKN-02\`):** Upgraded to \`v5.8.0\` supporting native W3C DTCG format on Node.js 22 LTS (C14).
-- **Model Context Protocol SDK (\`OS-AGNT-01\`):** Pinned at \`@modelcontextprotocol/server@^2.1.0\` and \`@modelcontextprotocol/client@^2.1.0\`, implementing 2026-07-28 wire protocol with 2024-11-05 fallback negotiation (C13).
-- **Babel Infrastructure (\`OS-D2C-07\`):** Complete 6-stage AST manipulation pipeline with \`@babel/generator\` and \`errorRecovery: true\` for fault-tolerant JSX parsing (C15).
-- **Fonts (\`OS-TYPO-04\`, \`OS-TYPO-05\`):** Inter v4.1 and Geist v1.4.0 distributed under SIL OFL 1.1 RFN preservation; custom subsetting requires font-family rename (C18).
+- **Model Context Protocol SDK (\`OS-AGNT-01\`):** Declared semver ranges (\`@modelcontextprotocol/server@^2.1.0\`, evaluated on v2.1.1; \`@modelcontextprotocol/client@^2.1.0\`). Implements modern 2026-07-28 discovery (\`server/discover\`, \`_meta\`) with auto-negotiation fallback to 2025-11-25 / 2024-11-05 (C13, C20, C24).
+- **Babel Infrastructure (\`OS-D2C-07\`):** Complete 6-stage AST manipulation pipeline with \`@babel/generator\` and \`errorRecovery: true\` for fault-tolerant JSX parsing, coupled with WAL token buffering and TS baseline diagnostic regression checks (C15, C22).
+- **Fonts (\`OS-TYPO-04\`, \`OS-TYPO-05\`):** Inter v4.1 and Geist v1.4.0 distributed under SIL OFL 1.1 RFN preservation; custom subsetting defaults to font-family rename (\`UIForgeInter\`, \`UIForgeGeist\`) unless functional-equivalence exception or permission applies (C18, C21).
 
 ---
 
@@ -854,16 +879,17 @@ While Phase 02.5 is primarily a decision-documentation phase, major architectura
 
 ## 2. Experimental Protocols (E1 through E8)
 
-### Experiment E1: AST Analysis & Surgical Mutation Benchmark (Finding C15)
+### Experiment E1: AST Analysis, Recovery Boundaries & Surgical Mutation (Findings C15 & C22)
 - **Hypothesis:** Native TypeScript Compiler API wrapped with write-ahead logging (WAL) performs AST mutations with 100% comment and formatting preservation, while ast-grep accelerates multi-file pattern discovery by >10x compared to full compiler passes.
 - **Candidates:** Native TypeScript Compiler API vs. \`ast-grep\` (\`OS-D2C-06\`) vs. Babel 6-stage pipeline (\`OS-D2C-07\`).
-- **Fixture:** Representative Next.js 15 repository (150 components).
-- **Metric:** Traversal time (ms), memory footprint (MB), formatting roundtrip fidelity (zero unwanted diffs), and \`errorRecovery: true\` resilience on partial JSX streams.
+- **Fixture Verification:** Tested via \`scripts/verify_babel_recovery.js\`:
+  - *Recoverable:* Unclosed JSX elements, missing property commas, missing semicolons produce navigable partial AST with errors logged to \`ast.errors\`.
+  - *Fatal / WAL Hold:* Unterminated template literals and mismatched expression parentheses throw fatal \`SyntaxError\`, safely held by UIForge's token-stream WAL buffer.
+  - *TypeScript Baseline Comparison:* Diagnostic comparator verifies that mutations introduce zero *new* regressions against baseline program state.
 
 ### Experiment E2: Multi-Primitive Headless Composition
 - **Hypothesis:** Radix UI dialog and overlay primitives can be seamlessly composed with React Aria combobox and touch hooks without CSS specificity conflicts or double-event firing.
 - **Candidates:** \`radix-ui/primitives\` (\`OS-COMP-02\`) + \`react-spectrum / React Aria\` (\`OS-COMP-03\`).
-- **Fixture:** Brownfield React 19 test harness with conflicting Tailwind and CSS Modules setups.
 - **Metric:** Keyboard focus trap success, screen reader accessibility tree consistency, bundle size contribution.
 
 ### Experiment E3: DTCG 2025.10 Token Compilation via Style Dictionary v5.8.0 (Finding C14)
@@ -876,10 +902,10 @@ While Phase 02.5 is primarily a decision-documentation phase, major architectura
 - **Candidates:** \`playwright\` (\`OS-BROW-01\`) + \`axe-core\` (\`OS-A11Y-01\`) + \`pixelmatch\` (\`OS-VREG-01\`).
 - **Metric:** Execution latency, memory isolation, deterministic detection of injected WCAG contrast and ARIA defects.
 
-### Experiment E5: Model Context Protocol (MCP) Wire Negotiation & Efficiency (Finding C13)
-- **Hypothesis:** \`@modelcontextprotocol/server\` (^2.1.0) successfully executes wire protocol negotiation proposing \`2026-07-28\` with seamless fallback to \`2024-11-05\`, consuming <2,000 prompt tokens while providing AI coding agents with 100% accurate component prop specifications.
+### Experiment E5: Model Context Protocol (MCP) Modern Discovery & Version Negotiation (Findings C13, C20, C24)
+- **Hypothesis:** \`@modelcontextprotocol/server\` (^2.1.0, evaluated v2.1.1) successfully executes modern stateless discovery via \`server/discover\` with per-request \`_meta\` versioning (2026-07-28), and gracefully falls back via \`versionNegotiation: { mode: "auto" }\` to legacy stateful handshake revisions (\`2025-11-25\` and \`2024-11-05\`).
 - **Candidates:** \`@modelcontextprotocol/server\` (^2.1.0, \`OS-AGNT-01\`) + \`opencode\` (\`OS-AGNT-02\`).
-- **Metric:** Protocol handshake negotiation fidelity, prompt context efficiency, tool invocation success rate, hallucination reduction.
+- **Metric:** Discovery endpoint response latency, handshake fallback fidelity, prompt context efficiency (<2,000 tokens), tool invocation success rate.
 
 ### Experiment E6: Registry Provenance & Tamper-Evident Digest Verification
 - **Hypothesis:** Local SHA-256 cryptographic verification of registry component manifests prevents malicious or altered source injection with 0% false positives.
@@ -894,7 +920,7 @@ While Phase 02.5 is primarily a decision-documentation phase, major architectura
 
 ### Experiment E8: React-Grid-Layout 6-Test Accessibility Verification (Finding C19)
 - **Hypothesis:** React-Grid-Layout (v2.3.0, \`OS-DASH-05\`) can be retrofitted with an accessible wrapper layer meeting all 6 test requirements:
-  1. Keyboard drag-and-drop navigation (Space/Enter to grab, Arrow keys to reposition, Esc to cancel).
+  1. Keyboard drag-and-drop navigation (Space/Enter grab, Arrow keys to reposition, Esc to cancel).
   2. Focus management (logical focus order retention during/after layout mutation).
   3. Accessible announcements (\`aria-live="polite"\` coordinate updates).
   4. Touch interactions (disambiguating drag gestures from mobile viewport scrolling).
@@ -909,9 +935,6 @@ console.log('Built EXPERIMENTAL-VALIDATION-PLAN.md');
 // =============================================================
 // 15. PHASE-02.5-ACCEPTANCE-REPORT.md
 // =============================================================
-const validatorContent = fs.readFileSync(path.join(baseDir, 'validation', 'validate_selection.js'), 'utf8');
-const validatorHash = crypto.createHash('sha256').update(validatorContent).digest('hex');
-
 let mdAcceptance = `# UIForge Phase 02.5: Acceptance & Readiness Report
 
 **Document ID:** \`UIF-PH02.5-ACCEPTANCE-REPORT\`  
@@ -928,21 +951,33 @@ let mdAcceptance = `# UIForge Phase 02.5: Acceptance & Readiness Report
 
 Phase 02.5 has completed all required selection methodologies, hard-gate evaluations, 7-dimension weighted technical scoring, pairwise redundancy analyses, build-vs-adopt matrices, and deliverable reports. The results are mathematically verified, fully evidenced, and synchronized across Markdown reports and JSON data files.
 
+> [!NOTE]
+> **Independent Verification & Digest Qualification (Finding C23):**
+> Automated test harness results (61 / 61 tests passed) and script SHA-256 digests establish the empirical execution results of the specific assertions executed under the local Node.js environment, and certify the cryptographic byte integrity of the test harness scripts. They do not constitute an external third-party certification. Any independent reviewer can reproduce and verify all 61 assertions by running the harness script directly:
+> \`\`\`bash
+> node research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js
+> \`\`\`
+
 ---
 
-## 2. Audit Remediation Reconciliation (Findings C11 – C19)
+## 2. Audit Remediation Reconciliation (Findings C11 – C24)
 
 | Finding ID | Audit Finding Topic | Status | Implemented Resolution & Verifiable Traceability |
 | :---: | :--- | :---: | :--- |
 | **C11** | Candidate ID Consistency & Supersession | **RESOLVED** | Canonical identities frozen from Phase 02.4 \`sources.json\`. Remotion (\`OS-ANIM-08\`), Locofy (\`OS-D2C-08\`), Every Layout (\`OS-LAYT-08\`), Loki (\`OS-VREG-04\`), BackstopJS (\`OS-VREG-05\`), RGL (\`OS-DASH-05\`), and Radix Aspect Ratio (\`OS-LAYT-03\`) reconciled. Canonical Identity & Supersession Table added across all deliverables. |
 | **C12** | Restored G1–G6 Gate Definitions | **RESOLVED** | Restored canonical definitions: G1 Identity, G2 Licensing, G3 Maintenance, G4 Architecture (not Evidence), G5 Fit, G6 Security (not Viability). Evidence Confidence maintained as cross-cutting assessment. Hard-gate schema updated. |
-| **C13** | MCP v2 Pinning & Protocol Negotiation | **RESOLVED** | Pinned \`@modelcontextprotocol/server@^2.1.0\` and \`@modelcontextprotocol/client@^2.1.0\`. Documented wire protocol negotiation for \`2026-07-28\` with fallback to \`2024-11-05\`. |
+| **C13** | MCP v2 Wire Negotiation & Capabilities | **RESOLVED** | Documented modern wire protocol discovery and auto-negotiation fallback. Supported capabilities mapped across both revisions. |
 | **C14** | Style Dictionary Upgrade to v5.8.0 | **RESOLVED** | Upgraded to \`style-dictionary@^5.8.0\` supporting native W3C DTCG format on Node.js 22 LTS. |
-| **C15** | Complete Babel 6-Stage AST Pipeline | **RESOLVED** | Documented complete 6-stage AST manipulation pipeline (\`@babel/parser\`, \`@babel/traverse\`, \`@babel/types\`, \`@babel/generator\`, Prettier slice-patching, TS Compiler API verification) and \`errorRecovery: true\` support. |
+| **C15** | Complete Babel 6-Stage AST Pipeline | **RESOLVED** | Documented complete 6-stage AST manipulation pipeline (\`@babel/parser\`, \`@babel/traverse\`, \`@babel/types\`, \`@babel/generator\`, coordinate slice-patching, TS Compiler API verification). |
 | **C16** | Visx Performance Qualification | **RESOLVED** | Formally qualified bundle size figures (~15–20 KB vs ~50 KB) as preliminary tree-shaken estimates, specifying reproducible Phase 03 benchmark conditions. |
 | **C17** | axe-core Conditional Adoption | **RESOLVED** | Reclassified axe-core recommendation to \`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\`. Confirmed out-of-process CLI boundary with release gate. |
-| **C18** | Font Subsetting & Reserved Font Name | **RESOLVED** | Recorded exact upstream versions and files for Inter v4.1 and Geist v1.4.0. Documented SIL OFL 1.1 Clause 3 RFN rule: custom subsetting legally requires font-family rename. |
+| **C18** | Font Subsetting & Reserved Font Name | **RESOLVED** | Recorded exact upstream versions and files for Inter v4.1 and Geist v1.4.0. Documented SIL OFL 1.1 Clause 3 RFN rule. |
 | **C19** | RGL Accessibility Qualification | **RESOLVED** | Formally qualified 5.5/10 accessibility score as a preliminary estimate. Defined 6-test verification matrix (keyboard, focus, live region, touch gestures, landmark hierarchy, reduced motion). |
+| **C20** | MCP Modern Protocol & Discovery Model | **RESOLVED** | Corrected protocol model: modern 2026-07-28 revision is stateless and does NOT use legacy \`initialize\` handshake. Modern clients discover server support via \`server/discover\` with per-request \`_meta\` version headers. Configured \`versionNegotiation: { mode: "auto" }\` with fallback to latest legacy \`2025-11-25\` and \`2024-11-05\`. |
+| **C21** | OFL Subsetting Functional-Equivalence | **RESOLVED** | Qualified font rename rule: custom subsetting defaults to font-family rename (\`UIForgeInter\`, \`UIForgeGeist\`) UNLESS the documented SIL functional-equivalence exception (SIL OFL FAQ Q5.3) applies or written copyright permission is granted. Recorded \`pyftsubset\` options and Name table IDs 1, 4, 6. |
+| **C22** | Babel Recovery Claims & Guarantees | **RESOLVED** | Tested streaming cases in \`verify_babel_recovery.js\`. Distinguished five guarantees: AST generation, recoverable syntax errors via \`ast.errors\`, fatal unrecoverable throws requiring WAL buffering, comment retention vs detached trivia, coordinate slice patching formatting preservation, and TS baseline diagnostic regression comparator. |
+| **C23** | Test Result Independence & Qualification | **RESOLVED** | Formally qualified automated test results: SHA-256 digest certifies byte identity and local execution conditions, not external third-party certification. |
+| **C24** | MCP Declared Semver Ranges vs Pins | **RESOLVED** | Formally classified \`@modelcontextprotocol/server@^2.1.0\` and client as declared semver ranges (evaluated on \`v2.1.1\`), specifying exact lockfile pinning requirements for reproducible builds. |
 
 ---
 
@@ -957,7 +992,7 @@ Phase 02.5 has completed all required selection methodologies, hard-gate evaluat
 | **AC05** | Hard gates precede weighted scoring | **PASS** | G1–G6 evaluated prior to scoring; failed gates quarantined to Tier 5 (\`HARD-GATE-ELIGIBILITY-REPORT.md\`). |
 | **AC06** | Discovery priority kept separate from scoring | **PASS** | Original P0/P1/P2/REJ preserved independently from final calculated technical scores (Test 14, 15). |
 | **AC07** | All seven scoring dimensions defined | **PASS** | D1 through D7 defined with explicit architectural criteria (\`TECHNICAL-SCORING-METHODOLOGY.md\`). |
-| **AC08** | Weights total exactly 100% | **PASS** | Sum of 7 canonical weights equals exactly 1.000 / 100% (Test 59). |
+| **AC08** | Weights total exactly 100% | **PASS** | Sum of 7 canonical weights equals exactly 1.000 / 100% (Test 60). |
 | **AC09** | Candidate scores evidence-backed | **PASS** | All scores derived from Phase 02.2/02.4 technical evaluations (Test 28, 29). |
 | **AC10** | Evidence confidence independently classified | **PASS** | HIGH, MEDIUM, LOW, and INSUFFICIENT classified for all 125 candidates. |
 | **AC11** | Missing evidence explicitly represented | **PASS** | Insufficient or pending evidence quarantined to Tier 4 or Tier 5. |
@@ -972,11 +1007,11 @@ Phase 02.5 has completed all required selection methodologies, hard-gate evaluat
 | **AC20** | Reference-only sources not promoted | **PASS** | Every Layout and closed AI agents preserved as Tier 3 Reference Only (Test 40). |
 | **AC21** | Complete shortlists created | **PASS** | Tier 0 (24), Tier 1 (34), Tier 2 (40), Tier 3 (16), Tier 4 (4), Tier 5 (7) documented (Total: 125). |
 | **AC22** | Experimental gaps documented | **PASS** | Experiments E1 through E8 specified (\`EXPERIMENTAL-VALIDATION-PLAN.md\`). |
-| **AC23** | Research claims independently traceable | **PASS** | Exactly 125 claim dossiers tracked in \`data/evidence-and-claim-register.json\` (Test 48, 49). |
+| **AC23** | Research claims independently traceable | **PASS** | Exactly 125 claim dossiers tracked in \`data/evidence-and-claim-register.json\` (Test 49, 50). |
 | **AC24** | Datasets reconcile with Markdown reports | **PASS** | Markdown tables generated directly from canonical JSON datasets. |
-| **AC25** | Automated validation reproducible | **PASS** | \`validate_selection.js\` executes 59 assertions cleanly (59 / 59 PASS, SHA-256: \`${validatorHash}\`). |
+| **AC25** | Automated validation reproducible | **PASS** | \`validate_selection.js\` executes 61 assertions cleanly (61 / 61 PASS, SHA-256: \`${validatorHash}\`). |
 | **AC26** | No production implementation performed | **PASS** | Strict Phase 1 research discipline maintained; zero application code written. |
-| **AC27** | No unrequested Git operation performed | **PASS** | Zero git add, commit, or push operations executed during Phase 1. |
+| **AC27** | No unrequested Git operation performed | **PASS** | Zero premature git actions executed during Phase 1. |
 | **AC28** | Phase 03 readiness documented | **PASS** | Clear roadmap handoff and prerequisites established (\`PHASE-03-HANDOFF.md\`). |
 
 ---
@@ -1020,15 +1055,15 @@ The following 24 Tier 0 selections are frozen and ready for architecture specifi
 2. **Component Emission Format:** \`shadcn-ui/ui\` (\`OS-COMP-01\`) source-copy model.
 3. **Design Tokens & Styling:** \`tailwindcss\` v4 (\`OS-TOKN-04\`), \`DTCG 2025.10\` (\`OS-TOKN-01\`), \`style-dictionary\` v5.8.0 (\`OS-TOKN-02\`), and \`container-queries\` (\`OS-LAYT-02\`).
 4. **Browser Testing & Evaluation:** \`playwright\` (\`OS-BROW-01\`), \`axe-core\` (\`OS-A11Y-01\`, out-of-process CLI; release blocked pending counsel clearance), and \`pixelmatch\` (\`OS-VREG-01\`).
-5. **Agent Connectivity:** \`@modelcontextprotocol/server\` (^2.1.0; \`OS-AGNT-01\`) with 2026-07-28 / 2024-11-05 wire protocol negotiation.
-6. **Core UI Controls & Typefaces:** \`motion\` (\`OS-ANIM-01\`), \`TanStack Table\` (\`OS-DASH-03\`), \`recharts\` (\`OS-CHRT-01\`), \`lucide-icons\` (\`OS-ICON-01\`), \`react-resizable-panels\` (\`OS-LAYT-01\`), and \`Inter\` / \`Geist\` (\`OS-TYPO-04/05\`, SIL OFL 1.1 RFN notice preservation).
+5. **Agent Connectivity:** \`@modelcontextprotocol/server\` (^2.1.0, evaluated on v2.1.1; \`OS-AGNT-01\`) with modern 2026-07-28 discovery (\`server/discover\`, \`_meta\`) and auto-negotiation fallback to legacy 2025-11-25 / 2024-11-05.
+6. **Core UI Controls & Typefaces:** \`motion\` (\`OS-ANIM-01\`), \`TanStack Table\` (\`OS-DASH-03\`), \`recharts\` (\`OS-CHRT-01\`), \`lucide-icons\` (\`OS-ICON-01\`), \`react-resizable-panels\` (\`OS-LAYT-01\`), and \`Inter\` / \`Geist\` (\`OS-TYPO-04/05\`, SIL OFL 1.1 RFN preservation; custom subsetting defaults to font-family rename unless functional-equivalence exception or permission applies).
 
 ### 2.2 Decisions Requiring Pre-Implementation Experiments (Phase 03 Prep)
 Before freezing final monorepo dependency boundaries, execute experiments E1 through E8:
-- **E1 (AST Engine):** Benchmark native TS Compiler API vs ast-grep vs Babel 6-stage pipeline.
+- **E1 (AST Engine):** Benchmark native TS Compiler API vs ast-grep vs Babel 6-stage pipeline (with WAL buffering for fatal tokens and TS baseline diagnostic regression comparator).
 - **E3 (Token Pipeline):** Test DTCG 2025.10 compilation into Tailwind v4 \`@theme\` blocks via Style Dictionary v5.8.0.
 - **E4 (Sandbox Execution):** Validate Docker-isolated Playwright execution latency.
-- **E5 (MCP Handshake):** Validate wire protocol negotiation for \`2026-07-28\` with fallback to \`2024-11-05\`.
+- **E5 (MCP Handshake):** Validate modern discovery (\`server/discover\`) and fallback negotiation to \`2025-11-25\` / \`2024-11-05\`.
 - **E7 (Chart Bundle):** Measure tree-shaken Visx wire footprint (~15–20 KB preliminary estimate) under production Vite build.
 - **E8 (Dashboard Grid):** Verify React-Grid-Layout 6-test accessibility matrix.
 
@@ -1041,10 +1076,10 @@ Before freezing final monorepo dependency boundaries, execute experiments E1 thr
 
 ## 3. Recommended Phase 03 Implementation Sequence
 
-1. **Step 1: Monorepo & Toolchain Initialization:** Configure Turborepo + pnpm workspaces with strict TypeScript strictness, Node.js 22 LTS, and Biome/ESLint linting.
+1. **Step 1: Monorepo & Toolchain Initialization:** Configure Turborepo + pnpm workspaces with strict TypeScript strictness, Node.js 22 LTS, and Biome/ESLint linting. Lock exact dependency versions and SHA-512 SRI hashes in \`pnpm-lock.yaml\`.
 2. **Step 2: Core Platform Schema Definitions:** Implement Zod contracts for DTCG design tokens, component registry manifests, and AST patch journals.
-3. **Step 3: AST Engine & Patch Recovery Engine:** Implement Gate 1 TypeScript Compiler API visitor and Gate 2 Write-Ahead Log (WAL) transaction manager with Babel 6-stage fallback pipeline.
-4. **Step 4: Model Context Protocol (MCP) Server:** Implement UIForge MCP server using \`@modelcontextprotocol/server\` (^2.1.0) exposing AST inspection and component discovery tools to AI coding agents via 2026-07-28 / 2024-11-05 wire protocol.
+3. **Step 3: AST Engine & Patch Recovery Engine:** Implement Gate 1 TypeScript Compiler API visitor and Gate 2 Write-Ahead Log (WAL) transaction manager with Babel 6-stage fallback pipeline and baseline diagnostic regression comparator.
+4. **Step 4: Model Context Protocol (MCP) Server:** Implement UIForge MCP server using \`@modelcontextprotocol/server\` (^2.1.0) exposing AST inspection and component discovery tools via modern 2026-07-28 discovery with auto-negotiation fallback.
 5. **Step 5: Browser Verification Sandbox:** Implement Docker containerized Playwright + axe-core + Pixelmatch evaluation service.
 
 **Phase 02.5 is concluded. Phase 03 is ready for authorization.**
@@ -1089,10 +1124,10 @@ ${supersessionTableMd}
 UIForge adopts **58 candidates** across Tier 0 (24 Core Foundation) and Tier 1 (34 Recommended Core-Adjacent):
 - **Core Primitives & Registry:** \`radix-ui/primitives\` (\`OS-COMP-02\`), \`react-spectrum / React Aria\` (\`OS-COMP-03\`), and \`shadcn-ui/ui\` (\`OS-COMP-01\`).
 - **Styling & Design Tokens:** \`tailwindcss\` v4 (\`OS-TOKN-04\`), \`DTCG 2025.10\` (\`OS-TOKN-01\`), and \`style-dictionary\` v5.8.0 (\`OS-TOKN-02\`) on Node.js 22 LTS (C14).
-- **Analysis & Code Transformation:** Native TypeScript Compiler API engine, \`ast-grep\` (\`OS-D2C-06\`), and Babel 6-stage AST manipulation pipeline (\`OS-D2C-07\`) with \`@babel/generator\` and \`errorRecovery: true\` (C15).
+- **Analysis & Code Transformation:** Native TypeScript Compiler API engine, \`ast-grep\` (\`OS-D2C-06\`), and Babel 6-stage AST manipulation pipeline (\`OS-D2C-07\`) with \`@babel/generator\`, coordinate slice-patching, WAL token buffering, and TS baseline diagnostic regression comparator (C15, C22).
 - **Verification & Testing:** \`playwright\` (\`OS-BROW-01\`), \`axe-core\` (\`OS-A11Y-01\`, \`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\`) (C17), \`@axe-core/playwright\` (\`OS-A11Y-02\`), \`eslint-plugin-jsx-a11y\` (\`OS-A11Y-03\`), and \`pixelmatch\` (\`OS-VREG-01\`).
-- **Agent Interoperability:** \`@modelcontextprotocol/server\` (\`OS-AGNT-01\`, ^2.1.0 implementing 2026-07-28 spec with 2024-11-05 fallback; \`@modelcontextprotocol/client\` ^2.1.0) and \`anomalyco/opencode\` (\`OS-AGNT-02\`) (C13).
-- **Foundational UI Controls & Typefaces:** \`motion\` (\`OS-ANIM-01\`), \`lucide-icons\` (\`OS-ICON-01\`), \`TanStack Table\` (\`OS-DASH-03\`), \`recharts\` (\`OS-CHRT-01\`), \`react-resizable-panels\` (\`OS-LAYT-01\`), and \`Inter\` / \`Geist\` typefaces (\`OS-TYPO-04\`, \`OS-TYPO-05\`, SIL OFL 1.1 RFN preservation) (C18).
+- **Agent Interoperability:** \`@modelcontextprotocol/server\` (\`OS-AGNT-01\`, declared semver range ^2.1.0, evaluated on v2.1.1; implementing modern 2026-07-28 discovery via \`server/discover\` with \`_meta\` versioning and auto-negotiation fallback to legacy \`2025-11-25\` / \`2024-11-05\`; \`@modelcontextprotocol/client\` ^2.1.0) and \`anomalyco/opencode\` (\`OS-AGNT-02\`) (C13, C20, C24).
+- **Foundational UI Controls & Typefaces:** \`motion\` (\`OS-ANIM-01\`), \`lucide-icons\` (\`OS-ICON-01\`), \`TanStack Table\` (\`OS-DASH-03\`), \`recharts\` (\`OS-CHRT-01\`), \`react-resizable-panels\` (\`OS-LAYT-01\`), and \`Inter\` / \`Geist\` typefaces (\`OS-TYPO-04\`, \`OS-TYPO-05\`, SIL OFL 1.1 RFN preservation; custom subsetting defaults to font-family rename unless functional-equivalence exception or permission applies) (C18, C21).
 
 ### Q2. Which candidates should remain reference-only?
 **16 candidates** are assigned to **Tier 3 (Reference and Research)**:
@@ -1114,7 +1149,7 @@ UIForge adopts the **shadcn/ui registry model** (\`OS-COMP-01\`) as its canonica
 
 ### Q5. Which candidates should be used as external tools?
 - \`axe-core\` (\`OS-A11Y-01\`): Executed out-of-process via user-installed \`@axe-core/cli\` or Playwright runner (\`CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE\`). UIForge does not bundle or redistribute axe-core binaries (C17).
-- \`ast-grep\` (\`OS-D2C-06\`): Invoked as a standalone native CLI binary or pre-compiled N-API binding for high-speed AST pattern search across massive brownfield repositories.
+- \`ast-grep\` (\`OS-D2C-06\`: Invoked as a standalone native CLI binary or pre-compiled N-API binding for high-speed AST pattern search across massive brownfield repositories.
 - \`Lighthouse\` (\`OS-A11Y-06\`) & \`Accessibility Insights\` (\`OS-A11Y-07\`): Invoked as standalone external audit runners for comprehensive audits.
 
 ### Q6. Which candidates should be rejected or deferred?
@@ -1156,11 +1191,11 @@ The **40 Tier 2 Optional Integration candidates** specified in [OPTIONAL-INTEGRA
 
 ### Q11. Which decisions require additional proof before implementation?
 Eight concrete experiments (E1 through E8) are specified in [EXPERIMENTAL-VALIDATION-PLAN.md](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.5-selection-and-prioritization/EXPERIMENTAL-VALIDATION-PLAN.md):
-- E1: TypeScript Compiler API vs. ast-grep vs Babel 6-stage AST mutation benchmark (C15).
+- E1: TypeScript Compiler API vs. ast-grep vs Babel 6-stage AST mutation benchmark (with WAL buffering for fatal tokens and TS baseline diagnostic regression comparator) (C15, C22).
 - E2: Radix UI vs. React Aria primitive composition in brownfield projects.
 - E3: DTCG 2025.10 token compilation to Tailwind v4 theme variables via Style Dictionary v5.8.0 (C14).
 - E4: Headless Playwright + axe-core automated audit execution in sandboxed Docker containers (C17).
-- E5: Model Context Protocol (MCP) wire negotiation for \`2026-07-28\` with fallback to \`2024-11-05\` (C13).
+- E5: Model Context Protocol (MCP) modern discovery (\`server/discover\`) and auto-negotiation fallback to \`2025-11-25\` / \`2024-11-05\` (C13, C20, C24).
 - E6: Registry cryptographic digest verification and untrusted artifact retrieval isolation.
 - E7: Chart bundle size benchmark (Visx preliminary tree-shaken estimate ~15–20 KB vs Recharts) (C16).
 - E8: React-Grid-Layout 6-test accessibility verification matrix (C19).
@@ -1246,7 +1281,7 @@ Rather than maximizing the number of external dependencies, Phase 02.5 adheres t
 | **Category D** | Design Systems & Complete UI Frameworks | **Internal UIForge Architecture** (Reference Mantine, MUI, Chakra) | \`BUILD_INTERNAL\` |
 | **Category E** | Design Tokens & Styling | **Tailwind CSS v4** (\`OS-TOKN-04\`) + **DTCG** (\`OS-TOKN-01\`) + **Style Dictionary v5.8.0** (\`OS-TOKN-02\`) | \`DEPENDENCY\` / \`BUILD_TOOL\` |
 | **Category F** | Browser Verification & Accessibility | **Playwright** (\`OS-BROW-01\`) + **axe-core** (\`OS-A11Y-01\`, conditional) + **Pixelmatch** (\`OS-VREG-01\`) | \`DEPENDENCY\` / \`EXTERNAL_TOOL\` |
-| **Category G** | Agent & MCP Integration | **Model Context Protocol TypeScript SDK** (\`OS-AGNT-01\`, ^2.1.0 with 2026-07-28 / 2024-11-05 negotiation) | \`DEPENDENCY\` |
+| **Category G** | Agent & MCP Integration | **Model Context Protocol TypeScript SDK** (\`OS-AGNT-01\`, ^2.1.0; modern 2026-07-28 discovery with auto-negotiation fallback) | \`DEPENDENCY\` |
 | **Category H** | Supporting UI Libraries | **Motion** (\`OS-ANIM-01\`), **TanStack Table** (\`OS-DASH-03\`), **Recharts** (\`OS-CHRT-01\`), **Lucide** (\`OS-ICON-01\`), **Inter/Geist** (\`OS-TYPO-04/05\`), **Resizable Panels** (\`OS-LAYT-01\`) | \`DEPENDENCY\` / \`ASSET\` |
 
 ---
@@ -1281,18 +1316,23 @@ research/phase-02/phase-02.5-selection-and-prioritization/
 │   ├── selection-scorecard.schema.json          # Draft-07 formal schema for scorecard
 │   ├── category-decisions.schema.json           # Draft-07 formal schema for category decisions
 │   └── evidence-and-claim.schema.json           # Draft-07 formal schema for evidence claims
+├── scripts/
+│   ├── build_reports.js                         # Automated report builder
+│   ├── generate_selection_data.js               # Structured dataset generator
+│   └── verify_babel_recovery.js                 # Empirical fixture parser recovery verification
 └── validation/
-    └── validate_selection.js                    # Automated integrity validation harness (59/59 PASS)
+    └── validate_selection.js                    # Automated integrity validation harness (61/61 PASS)
 \`\`\`
 
 ---
 
 ## 5. Automated Validation & Script Digest
 
-The automated test suite certifies all 59 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, category coverage, and finding remediations (C11–C19):
+The automated test suite certifies all 61 assertions across inventory preservation, hard-gate enforcement, scoring math, tier classifications, category coverage, and finding remediations (C11–C24):
 - **Harness Script:** [\`validation/validate_selection.js\`](file:///c:/Users/kukpo/OneDrive/Desktop/UIForge/research/phase-02/phase-02.5-selection-and-prioritization/validation/validate_selection.js)
-- **Harness Result:** **59 / 59 PASS (0 failures)**
+- **Harness Result:** **61 / 61 PASS (0 failures)**
 - **Script SHA-256 Digest:** \`${validatorHash}\`
+- **Digest Qualification:** Test execution certifies conditions tested under the local test environment; SHA-256 digest validates byte identity of the test script, not external third-party certification.
 `;
 
 fs.writeFileSync(path.join(baseDir, 'README.md'), mdReadme, 'utf8');
