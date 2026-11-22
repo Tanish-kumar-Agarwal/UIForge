@@ -10,7 +10,7 @@
 ## 1. Ranked Technical Scorecard (Descending by Final Score)
 
 | Rank | Candidate ID | Name | Category | Hard Gate | D1 (20%) | D2 (15%) | D3 (15%) | D4 (15%) | D5 (15%) | D6 (10%) | D7 (10%) | Final Score | Confidence | Adoption Tier | Recommendation |
-| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |
+| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | 1 | OS-COMP-01 | shadcn-ui/ui | CAT_C | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
 | 2 | OS-TOKN-01 | design-tokens/community-group | CAT_E | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
 | 3 | OS-ANIM-01 | motiondivision/motion | CAT_H | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
@@ -18,7 +18,7 @@
 | 5 | OS-CHRT-01 | recharts/recharts | CAT_H | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
 | 6 | OS-TYPO-05 | vercel/geist-font | CAT_H | PASS_WITH_RESTRICTIONS | 9.6 | 9.1 | 9.8 | 9.5 | 9.7 | 9 | 9.6 | **95** | HIGH | **TIER 0** | `ADOPT` |
 | 7 | OS-LAYT-01 | bvaughn/react-resizable-panels | CAT_H | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
-| 8 | OS-A11Y-01 | dequelabs/axe-core | CAT_F | PASS_WITH_RESTRICTIONS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
+| 8 | OS-A11Y-01 | dequelabs/axe-core | CAT_F | PASS_WITH_RESTRICTIONS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE` |
 | 9 | OS-AGNT-01 | modelcontextprotocol/typescript-sdk | CAT_G | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
 | 10 | OS-BROW-01 | microsoft/playwright | CAT_F | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |
 | 11 | OS-VREG-01 | mapbox/pixelmatch | CAT_F | PASS | 9.8 | 9.1 | 9.2 | 9.5 | 9.9 | 9 | 9.8 | **95** | HIGH | **TIER 0** | `ADOPT` |

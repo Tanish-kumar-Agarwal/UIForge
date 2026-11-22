@@ -24,14 +24,12 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 
 ## 2. Special Governance Cases
 
-### 2.1 axe-core (`OS-A11Y-01`) — User-Managed External Tool Boundary & Legal Clearance Gate (C05)
+### 2.1 axe-core (`OS-A11Y-01`) — Conditional Adoption & Legal Clearance Gate (Finding C17)
+- **Status:** `CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE`
 - **Consumption Mode:** `EXTERNAL_TOOL` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, `counselReviewRequired: true`).
 - **Architectural Isolation Strategy:** UIForge invokes user-installed `@axe-core/cli` via out-of-process subprocess execution over standard stdio JSON streams. UIForge does **not** bundle, vendor, or redistribute executable axe-core binaries.
 - **Legal Compliance Boundary:** While the subprocess boundary provides strong architectural decoupling, it does **not** automatically eliminate MPL-2.0 copyleft obligations in every hypothetical distribution or hosted architecture. Legal clearance from qualified IP counsel remains an **explicit release gate** before shipping any bundled, hosted, SaaS, or redistributed delivery model.
-- **Package & Integration Separation:**
-  1. `axe-core`: Core rule engine script / npm library (governed by MPL-2.0).
-  2. `@axe-core/playwright`: Headless browser test runner adapter for CI/local verification (MPL-2.0).
-  3. `@axe-core/cli`: Out-of-process command-line executable invoked via user environment.
+- **Package Separation:** `axe-core` (MPL-2.0 engine), `@axe-core/playwright` (MPL-2.0 test runner), `@axe-core/cli` (out-of-process CLI executable).
 
 ### 2.2 pa11y (`OS-A11Y-05`) — Prudent Copyleft Gating
 - **Consumption Mode:** `EXTERNAL_TOOL` (`PENDING_REVIEW`, `allowed: false`, Tier 4 Deferred).
@@ -41,15 +39,18 @@ Adoption decisions strictly enforce the six canonical consumption modes establis
 - **Consumption Mode:** `DEPENDENCY` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 2 Optional Plugin Emission).
 - **Condition:** Scoped to Webflow's April 30, 2025 Standard License terms. The prohibited-use clause strictly targets competing no-code visual animation builders. UIForge's programmatic developer-facing React code generation is permitted. GSAP is strictly excluded from Tier 0 Core Foundation.
 
-### 2.4 Every Layout (`OS-LAYT-08`) — Authored Content Protection Boundary
+### 2.4 Every Layout (`OS-LAYT-08`) — Authored Content Protection Boundary (Finding C01/C11)
 - **Consumption Mode:** `REFERENCE_ONLY` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 3 Reference).
 - **Condition:** Studying general, uncopyrightable CSS layout concepts (The Stack, The Cluster, The Reel) is permissible as architectural research. Direct copying of authored book text, diagrams, and component code is strictly prohibited under `LIC-EVERY-LAYOUT-COMMERCIAL`. UIForge makes no unconditional legal guarantee of non-infringement without clean-room engineering verification.
 
-### 2.5 SIL OFL 1.1 Fonts (Inter `OS-TYPO-04`, Geist `OS-TYPO-05`)
+### 2.5 SIL OFL 1.1 Fonts & Subsetting Rules (Finding C18)
+- **Candidates:** Inter (`OS-TYPO-04`, `rsms/inter` v4.1, files: `InterVariable.woff2`, `InterVariable-Italic.woff2`, `Inter-Regular.woff2`, `Inter-Bold.woff2`) and Geist (`OS-TYPO-05`, `vercel/geist-font` v1.4.0, files: `Geist-Variable.woff2`, `GeistMono-Variable.woff2`).
 - **Consumption Mode:** `ASSET_REDISTRIBUTION` (`ELIGIBLE_WITH_RESTRICTIONS`, `allowed: true`, Tier 0).
-- **Condition:** Both typefaces carry Reserved Font Name declarations ("with Reserved Font Name Inter", "with Reserved Font Name Geist"). Distributed unchanged as unmodified font binaries accompanied by the full OFL 1.1 license text.
+- **SIL OFL 1.1 Clause 3 RFN Compliance Dossier:**
+  Both fonts carry Reserved Font Name declarations ("with Reserved Font Name Inter", "with Reserved Font Name Geist"). Clause 3 states: *"No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder."*
+  **Custom subsetting legally constitutes a "Modified Version" under SIL OFL 1.1 Clause 3.** Therefore, if UIForge performs custom glyph subsetting, the resulting font family must be renamed (e.g. `UIForgeInter`, `UIForgeGeist`) unless written permission is obtained, or UIForge redistributes upstream unsubsetted static/variable `.woff2` binaries unchanged alongside full OFL 1.1 license texts.
 
-### 2.6 Remotion (`OS-ANIM-08`) — Tiered Headcount Commercial Licensing (C02)
+### 2.6 Remotion (`OS-ANIM-08`) — Tiered Headcount Commercial Licensing (Finding C02/C11)
 - **Consumption Mode:** `DEPENDENCY` (`RESTRICTED`, Tier 5 Excluded).
 - **License Terms:** Remotion's license is not a blanket commercial prohibition. It permits free, unlimited commercial use for individuals and small entities of up to 3 people. Entities with >3 employees must purchase a paid commercial Company License.
-- **Architectural Scope Misfit:** Remotion is excluded based on Gate G5 (Product and Architectural Fit): it is a specialized programmatic video rendering and composition engine (HTML/CSS to MP4 via headless Chromium/FFmpeg), whereas UIForge's mission is web UI design-to-code generation.
+- **Architectural Scope Misfit:** Remotion is excluded based on Gate G5 (Product Scope and Mission Fit): it is a specialized programmatic video rendering and composition engine (HTML/CSS to MP4 via headless Chromium/FFmpeg), whereas UIForge's mission is web UI design-to-code generation.

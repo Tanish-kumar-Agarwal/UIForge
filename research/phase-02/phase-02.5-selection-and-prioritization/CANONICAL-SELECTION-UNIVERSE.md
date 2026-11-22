@@ -15,17 +15,36 @@ The canonical selection universe consists of exactly **125 candidates** originat
 
 | Adoption Tier | Count | Percentage | Primary Recommendation | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **TIER 0 (Core Foundation)** | 24 | 19.2% | `ADOPT` | Essential architectural pillars forming core UIForge platform |
+| **TIER 0 (Core Foundation)** | 24 | 19.2% | `ADOPT` / `CONDITIONALLY ADOPT` | Essential architectural pillars forming core UIForge platform |
 | **TIER 1 (Recommended Core-Adjacent)** | 34 | 27.2% | `ADOPT` | Curated registries, component blocks, and standard extensions |
-| **TIER 2 (Optional Integrations)** | 39 | 31.2% | `OPTIONAL` | Modular plugins, secondary adapters, and optional integrations |
+| **TIER 2 (Optional Integrations)** | 40 | 32.0% | `OPTIONAL` | Modular plugins, secondary adapters, and optional integrations |
 | **TIER 3 (Reference & Research)** | 16 | 12.8% | `REFERENCE` | Architectural patterns, layout concepts, and monolithic frameworks |
 | **TIER 4 (Deferred)** | 4 | 3.2% | `DEFER` | Candidates requiring legal review or post-React framework gates |
-| **TIER 5 (Rejected / Excluded)** | 8 | 6.4% | `REJECT` | Incompatible licenses, proprietary terms, or abandoned packages |
+| **TIER 5 (Rejected / Excluded)** | 7 | 5.6% | `REJECT` | Incompatible licenses, proprietary terms, or redundant tools |
 | **TOTAL** | **125** | **100.0%** | — | **100% Canonical Candidates Accounted For** |
 
 ---
 
-## 2. Complete Candidate Master Census (125 Sources)
+## 2. Canonical Identity & Supersession Reconciliation (C11)
+
+### Canonical Identity & Supersession Table (Finding C11 Reconciliation)
+
+To ensure tamper-evident traceability and prevent alias confusion, the following table formally maps every scrutinized candidate to its immutable identifier in the Phase 02.4 Canonical Source Registry (`sources.json`), superseding all erroneous identifiers from earlier working drafts:
+
+| Canonical Candidate ID | Canonical Source ID | Formal Name | Primary Category | Erroneous Prior Draft ID | Root Cause & Supersession Rationale |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`OS-ANIM-08`** | `SRC-OS-ANIM-08` | `remotion-dev/remotion` | Category 07 (Motion) | `OS-ANIM-05` | `OS-ANIM-05` is canonical `airbnb/lottie-web`. Remotion is canonical `OS-ANIM-08` (REJ priority; Tier 5 Excluded due to G5 mission misfit). |
+| **`OS-D2C-08`** | `SRC-OS-D2C-08` | `locofy/locofy` | Category 02 (Design-to-Code) | `OS-D2C-05` | `OS-D2C-05` is canonical `WICG/open-ui`. Locofy is canonical `OS-D2C-08` (REJ priority; Tier 5 Excluded due to closed proprietary SaaS). |
+| **`OS-LAYT-08`** | `SRC-OS-LAYT-08` | `Every-Layout` | Category 09 (Layout) | `OS-LAYT-06` | `OS-LAYT-06` is canonical `kristoferbaxter/flexboxgrid`. Every Layout is canonical `OS-LAYT-08` (P1 priority; Tier 3 Reference under clean-room boundary). |
+| **`OS-VREG-04`** | `SRC-OS-VREG-04` | `oblador/loki` | Category 06 (Visual Regr.) | `OS-VREG-03` | `OS-VREG-03` is canonical `argos-ci/argos`. Loki is canonical `OS-VREG-04` (P2 priority; Tier 5 Excluded due to Playwright redundancy). |
+| **`OS-VREG-05`** | `SRC-OS-VREG-05` | `garris/BackstopJS` | Category 06 (Visual Regr.) | `OS-VREG-04` | `OS-VREG-04` is canonical `oblador/loki`. BackstopJS is canonical `OS-VREG-05` (P2 priority; Tier 5 Excluded due to Playwright redundancy). |
+| **`OS-DASH-05`** | `SRC-OS-DASH-05` | `react-grid-layout/react-grid-layout` | Category 08 (Dashboard) | `OS-LAYT-03` | `OS-LAYT-03` is canonical Radix UI Aspect Ratio primitive. React-Grid-Layout is canonical `OS-DASH-05` (P2 priority; Tier 2 Optional adapter). |
+| **`OS-LAYT-03`** | `SRC-OS-LAYT-03` | `radix-ui/primitives (Aspect Ratio)` | Category 09 (Layout) | None | Immutable Radix Aspect Ratio primitive (P1 priority; Tier 1 Core-Adjacent), strictly distinct from `OS-DASH-05`. |
+
+
+---
+
+## 3. Complete Candidate Master Census (125 Sources)
 
 | Candidate ID | Source ID | Name | Category | Priority | Tier | Gate Result | Final Score | Mode | Adoption Tier | Recommendation |
 | :--- | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- | :--- | :--- |
@@ -36,7 +55,7 @@ The canonical selection universe consists of exactly **125 candidates** originat
 | OS-CHRT-01 | SRC-OS-CHRT-01 | recharts/recharts | CAT_H | P0 | TIER_A | PASS | 95 | DEPENDENCY | **TIER 0** | `ADOPT` |
 | OS-TYPO-05 | SRC-OS-TYPO-05 | vercel/geist-font | CAT_H | P1 | TIER_B | PASS_WITH_RESTRICTIONS | 95 | ASSET_REDISTRIBUTION | **TIER 0** | `ADOPT` |
 | OS-LAYT-01 | SRC-OS-LAYT-01 | bvaughn/react-resizable-panels | CAT_H | P0 | TIER_A | PASS | 95 | DEPENDENCY | **TIER 0** | `ADOPT` |
-| OS-A11Y-01 | SRC-OS-A11Y-01 | dequelabs/axe-core | CAT_F | P0 | TIER_A | PASS_WITH_RESTRICTIONS | 95 | EXTERNAL_TOOL | **TIER 0** | `ADOPT` |
+| OS-A11Y-01 | SRC-OS-A11Y-01 | dequelabs/axe-core | CAT_F | P0 | TIER_A | PASS_WITH_RESTRICTIONS | 95 | EXTERNAL_TOOL | **TIER 0** | `CONDITIONALLY ADOPT — RELEASE BLOCKED PENDING COUNSEL CLEARANCE` |
 | OS-AGNT-01 | SRC-OS-AGNT-01 | modelcontextprotocol/typescript-sdk | CAT_G | P0 | TIER_A | PASS | 95 | DEPENDENCY | **TIER 0** | `ADOPT` |
 | OS-BROW-01 | SRC-OS-BROW-01 | microsoft/playwright | CAT_F | P0 | TIER_A | PASS | 95 | DEPENDENCY | **TIER 0** | `ADOPT` |
 | OS-VREG-01 | SRC-OS-VREG-01 | mapbox/pixelmatch | CAT_F | P0 | TIER_A | PASS | 95 | DEPENDENCY | **TIER 0** | `ADOPT` |
@@ -157,9 +176,10 @@ The canonical selection universe consists of exactly **125 candidates** originat
 
 ---
 
-## 3. Census Reconciliation Proof
+## 4. Census Reconciliation Proof
 
 - Total Records: **125**
+- Mathematical Tier Balance: **$24 + 34 + 40 + 16 + 4 + 7 = 125$**
 - Original Discovery Priority Preservation: **P0: 24, P1: 47, P2: 50, REJ: 4**
 - Registry Operational Tier Preservation: **TIER_A: 24, TIER_B: 47, TIER_C: 50, TIER_D: 4**
 - 100% of candidates have hard-gate evaluations (G1–G6) and 7-dimension weighted technical scores.

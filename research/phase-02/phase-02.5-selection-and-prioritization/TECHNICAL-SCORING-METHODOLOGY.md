@@ -24,7 +24,7 @@ Candidates passing mandatory hard gates are evaluated across **seven technical d
 
 ---
 
-## 2. Evidence Confidence Classification
+## 2. Evidence Confidence Classification (Independent of Hard Gates)
 
 Scores are paired with an independent **Evidence Confidence Classification**:
 - **HIGH:** Backed by direct repository inspection, audited package exports, and verified unit test suites.
