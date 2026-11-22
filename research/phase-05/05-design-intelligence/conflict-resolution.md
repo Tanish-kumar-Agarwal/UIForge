@@ -16,10 +16,10 @@ When rules conflict, the Design Intelligence Engine arbitrates using an **Immuta
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  LEVEL 1: NORMATIVE STANDARDS (MANDATORY GATE)              │
-│  - WCAG 2.2 AA Contrast (4.5:1 / 3:1)                       │
-│  - Target Size Minimums (24px / 44px mobile)                │
-│  - Unbroken Keyboard Focus Rings                            │
-│  - ARIA APG Interaction Contracts                           │
+│  - WCAG 2.2 AA Contrast (4.5:1 text / 3:1 non-text)         │
+│  - Target Size Minimums: 24×24 CSS px (WCAG 2.2 AA SC 2.5.8)│
+│  - Unbroken Keyboard Focus Rings (SC 2.4.7 / SC 2.4.11 AA)  │
+│  - ARIA APG Interaction Contracts & Focus Trapping          │
 │  * Overrides all lower levels unconditionally *             │
 └──────────────────────────────┬──────────────────────────────┘
                                │
@@ -57,9 +57,10 @@ When rules conflict, the Design Intelligence Engine arbitrates using an **Immuta
 - **Scenario:** Brand palette specifies bright yellow (`#FACC15`) or bright cyan (`#06B6D4`) as the primary brand color. Using white text fails contrast ($1.2:1$); using black text clashes with brand guidelines.
 - **Resolution:** Level 1 (WCAG AA) overrides Level 4. The engine automatically computes an accessible dark slate text color (`#0F172A`, contrast $12.4:1$) for the button label, or applies the vibrant color strictly as a background surface/border while using dark text.
 
-### Conflict 2: High Data Density vs. 44px Mobile Touch Targets
-- **Scenario:** A financial trading table requires 32px row heights to display 25 rows on a desktop screen, but mobile accessibility standards mandate 44px touch targets.
-- **Resolution:** Contextual Viewport Splitting. The engine enforces 32px density on `@media (pointer: fine)` (desktop mouse devices), and automatically switches to 44px row heights or a touch-friendly card stack on `@media (pointer: coarse)` (mobile devices).
+### Conflict 2: High Data Density vs. Mobile Touch Target Ergonomics
+- **Scenario:** A financial trading table requires 32px row heights to display 25 rows on a desktop screen, but mobile touch ergonomics (Apple HIG / WCAG AAA SC 2.5.5) recommend 44×44px touch targets (and WCAG 2.2 Level AA SC 2.5.8 mandates a 24×24px minimum).
+- **Resolution:** Contextual Viewport Splitting. The engine enforces 32px density on `@media (pointer: fine)` (desktop mouse devices, satisfying mouse ergonomics), and automatically expands rows to 44px height or switches to a touch-friendly card stack on `@media (pointer: coarse)` (mobile devices, satisfying both WCAG AA 24px floor and Apple HIG 44px recommendation).
+
 
 ### Conflict 3: Creative Motion vs. Reduced Motion Preferences
 - **Scenario:** Marketing team requests an immersive parallax scrolling hero with animated SVG line drawings.
