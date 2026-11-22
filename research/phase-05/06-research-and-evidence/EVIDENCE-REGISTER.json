@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "totalEvidenceEntries": 24,
+  "evidence": [
+    {
+      "id": "EVID-A11Y-001",
+      "sourceId": "SRC-STD-001",
+      "citation": "WCAG 2.2 SC 1.4.3 Contrast (Minimum)",
+      "authorityTier": 1,
+      "claim": "Visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for large-scale text (at least 18pt or 14pt bold) which requires at least 3:1.",
+      "empiricalBasis": "Normative ISO/IEC standard based on human visual acuity thresholds across diverse ocular pathologies and display conditions.",
+      "confidence": "MANDATORY",
+      "limitations": "Does not apply to text that is part of an inactive user interface component, pure decoration, or part of a picture containing other visual content."
+    },
+    {
+      "id": "EVID-A11Y-002",
+      "sourceId": "SRC-STD-001",
+      "citation": "WCAG 2.2 SC 1.4.11 Non-text Contrast",
+      "authorityTier": 1,
+      "claim": "The visual presentation of user interface components and graphical objects has a contrast ratio of at least 3:1 against adjacent colors.",
+      "empiricalBasis": "Threshold testing for distinguishing boundaries of input fields, checkboxes, sliders, and graphic icons without relying on contextual guessing.",
+      "confidence": "MANDATORY",
+      "limitations": "Does not apply when a particular presentation of graphics is essential to the information being conveyed."
+    },
+    {
+      "id": "EVID-A11Y-003",
+      "sourceId": "SRC-STD-001",
+      "citation": "WCAG 2.2 SC 2.5.8 Target Size (Minimum)",
+      "authorityTier": 1,
+      "claim": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, or provides an adequate spacing offset so a 24px diameter circle does not intersect another target.",
+      "empiricalBasis": "Human motor control distribution and finger pad contact area measurements (average adult finger pad contact diameter is 10-14mm, corresponding to ~38-53px at typical device densities).",
+      "confidence": "MANDATORY",
+      "limitations": "Exceptions apply if the target is in a sentence or list of items, or if the size is legally required."
+    },
+    {
+      "id": "EVID-A11Y-004",
+      "sourceId": "SRC-STD-001",
+      "citation": "WCAG 2.2 SC 2.4.13 Focus Appearance",
+      "authorityTier": 1,
+      "claim": "Focus indicators must achieve at least 3:1 contrast against adjacent background colors and cover an area of at least a 2px perimeter line around the component.",
+      "empiricalBasis": "Usability testing with low-vision and motor-impaired keyboard navigators who lose visual tracking during rapid tab navigation.",
+      "confidence": "MANDATORY",
+      "limitations": "Applies to keyboard-focused states; does not mandate mouse focus indicator appearance."
+    },
+    {
+      "id": "EVID-TYP-001",
+      "sourceId": "SRC-HCI-004",
+      "citation": "Bringhurst (2012), Elements of Typographic Style, p. 26",
+      "authorityTier": 2,
+      "claim": "Optimal measure for single-column body text is 45 to 75 characters (including spaces), with 66 characters considered the harmonic optimum in Roman alphabets.",
+      "empiricalBasis": "Psycholinguistic reading speed and eye saccade tracking. Lines beyond 75-80 characters induce lateral saccadic fatigue and tracking errors when jumping to the next line.",
+      "confidence": "VERY_HIGH",
+      "limitations": "Multi-column layouts or dense technical/code listings may successfully utilize 35-50 characters with appropriate line-height adjustments."
+    },
+    {
+      "id": "EVID-TYP-002",
+      "sourceId": "SRC-HCI-004",
+      "citation": "Bringhurst (2012), Elements of Typographic Style, p. 36",
+      "authorityTier": 2,
+      "claim": "Line height (leading) must be dynamically scaled inversely with measure and font size: wider lines require larger line-height (1.5-1.7x), while large display headings require compact line-height (1.1-1.25x).",
+      "empiricalBasis": "Optical mechanics of reading: display text letters nest optically and excessive leading creates visual fragmentation; wide body text loses interlinear tracking if leading is too tight.",
+      "confidence": "HIGH",
+      "limitations": "Requires adjustment for fonts with unusually tall or short x-heights (e.g. Helvetica requires more leading than Garamond at identical pt size)."
+    },
+    {
+      "id": "EVID-HCI-001",
+      "sourceId": "SRC-HCI-001",
+      "citation": "Nielsen Norman Group Eye-Tracking Studies (Nielsen & Pernice 2006, 2017)",
+      "authorityTier": 2,
+      "claim": "Users scan web content in an F-shaped pattern: two horizontal eye movements across top and middle, followed by a vertical sweep along the left edge.",
+      "empiricalBasis": "Laboratory eye-tracking datasets across thousands of web browsing sessions and diverse user tasks.",
+      "confidence": "HIGH",
+      "limitations": "Applies primarily to text-heavy information foraging; visual search in e-commerce or data dashboards follows grid or pinball scanning patterns."
+    },
+    {
+      "id": "EVID-HCI-002",
+      "sourceId": "SRC-HCI-002",
+      "citation": "Nielsen Norman Group — Chunking and Cognitive Capacity (Moran 2016)",
+      "authorityTier": 2,
+      "claim": "Grouping related information into units of 3 to 5 chunks reduces cognitive load and allows working memory to parse complex interfaces without error.",
+      "empiricalBasis": "Cognitive psychology benchmarks establishing that human working memory can hold 4 ± 1 discrete information chunks at once without decay.",
+      "confidence": "HIGH",
+      "limitations": "Chunk size can be expanded if items possess strong pre-existing semantic associations or familiar hierarchical organization."
+    },
+    {
+      "id": "EVID-HCI-003",
+      "sourceId": "SRC-HCI-003",
+      "citation": "Nielsen Norman Group — Aesthetic-Usability Effect (Moran 2017)",
+      "authorityTier": 2,
+      "claim": "Visual attractiveness increases user patience and perceived ease of use, but cannot overcome severe functional or navigation defects.",
+      "empiricalBasis": "Comparative task completion usability tests measuring subjective satisfaction vs objective task success and time-on-task.",
+      "confidence": "HIGH",
+      "limitations": "Aesthetic masking is temporary; once a user experiences task failure or data loss, aesthetic goodwill evaporates immediately."
+    },
+    {
+      "id": "EVID-HCI-004",
+      "sourceId": "SRC-HCI-005",
+      "citation": "Ware (2019), Information Visualization: Perception for Design, Chapter 5",
+      "authorityTier": 2,
+      "claim": "Preattentive visual features (spatial position, size, color hue, orientation) are processed by the human visual cortex in under 200 milliseconds before focused cognitive attention begins.",
+      "empiricalBasis": "Electrophysiological and psychophysical visual response benchmarks in human perception laboratories.",
+      "confidence": "VERY_HIGH",
+      "limitations": "Conjunction search (combining multiple visual cues like red circle vs green square) breaks preattentive processing and requires serial scanning."
+    },
+    {
+      "id": "EVID-HCI-005",
+      "sourceId": "SRC-HCI-006",
+      "citation": "Fitts (1954), Journal of Experimental Psychology, 47(6)",
+      "authorityTier": 2,
+      "claim": "Movement time to acquire a target is proportional to the distance to target divided by target width. Targets placed along screen boundaries effectively have infinite width in the direction of the boundary.",
+      "empiricalBasis": "Replicated motor control experiments across desktop mice, trackpads, and mobile touch surfaces.",
+      "confidence": "VERY_HIGH",
+      "limitations": "Applies strictly to physical pointing and touch acquisition; does not govern keyboard-only navigation."
+    },
+    {
+      "id": "EVID-TOK-001",
+      "sourceId": "SRC-STD-003",
+      "citation": "W3C Design Tokens Community Group Specification 2025.10",
+      "authorityTier": 1,
+      "claim": "Tokens must be structured into three distinct abstraction tiers: primitive tokens (raw values), semantic tokens (intent/context values), and component tokens (scoped values).",
+      "empiricalBasis": "Multi-organization consensus across Figma, Adobe, Salesforce, Google, and independent tooling maintainers.",
+      "confidence": "MANDATORY",
+      "limitations": "Small design systems (<20 components) can operate with primitive and semantic tiers, omitting component tokens to avoid over-abstraction."
+    },
+    {
+      "id": "EVID-COL-001",
+      "sourceId": "SRC-STD-004",
+      "citation": "W3C CSS Color Module Level 4 (OKLCH Color Space)",
+      "authorityTier": 1,
+      "claim": "OKLCH provides perceptual uniformity where lightness (L) is decoupled from chroma (C) and hue (H), preventing the perceptual brightness distortion inherent to HSL and RGB color models.",
+      "empiricalBasis": "Ottosson (2020) color appearance model matching human perceptual uniformity curves (CIE Delta E 2000).",
+      "confidence": "VERY_HIGH",
+      "limitations": "Requires modern browser engines (supported in Chrome 111+, Safari 15.4+, Firefox 113+); legacy fallback to hex/sRGB required for unsupported browsers."
+    },
+    {
+      "id": "EVID-LAY-001",
+      "sourceId": "SRC-STD-005",
+      "citation": "W3C CSS Containment Module Level 3 (Container Queries)",
+      "authorityTier": 1,
+      "claim": "Component responsiveness must be governed by container width rather than global viewport width, allowing components to adapt correctly regardless of layout slot placement.",
+      "empiricalBasis": "Modular component encapsulation requirements; viewport media queries break when a component is moved from a full-width slot to a narrow sidebar.",
+      "confidence": "VERY_HIGH",
+      "limitations": "Requires explicit `container-type: inline-size` definition on parent containers; slight layout containment calculation overhead."
+    },
+    {
+      "id": "EVID-SYS-001",
+      "sourceId": "SRC-SYS-003",
+      "citation": "IBM Carbon Design System v11 — 2x Grid Specification",
+      "authorityTier": 3,
+      "claim": "An 8px baseline spatial grid with 4px sub-increments maintains optical balance, eliminates subpixel rendering artifacts, and scales predictably across device resolutions.",
+      "empiricalBasis": "Production deployment across thousands of IBM enterprise software products and extensive ergonomic studies.",
+      "confidence": "HIGH",
+      "limitations": "Dense data tables or micro-interfaces frequently require 2px micro-spacing units for inline badge padding and borders."
+    },
+    {
+      "id": "EVID-SYS-002",
+      "sourceId": "SRC-SYS-001",
+      "citation": "Google Material Design 3 — State Layers Specification",
+      "authorityTier": 3,
+      "claim": "Interaction states (hover, focus, pressed, dragged) should be represented via semi-transparent overlay layers (8%, 12%, 12%, 16%) rather than arbitrary color swaps.",
+      "empiricalBasis": "Preserves underlying semantic surface color while guaranteeing consistent contrast feedback across arbitrary light and dark themes.",
+      "confidence": "HIGH",
+      "limitations": "Requires composite color blending and clear stacking context management."
+    },
+    {
+      "id": "EVID-SYS-003",
+      "sourceId": "SRC-SYS-002",
+      "citation": "Apple Human Interface Guidelines — Touch Targets",
+      "authorityTier": 3,
+      "claim": "Interactive touch targets must provide a minimum tappable area of 44 by 44 points to prevent input errors and accidental adjacent activations.",
+      "empiricalBasis": "Empirical physiological measurements of adult finger tapping accuracy in mobile postures.",
+      "confidence": "HIGH",
+      "limitations": "Desktop cursor interfaces can accommodate smaller interactive elements (e.g. 28-32px) due to mouse pointer precision."
+    },
+    {
+      "id": "EVID-SYS-004",
+      "sourceId": "SRC-SYS-005",
+      "citation": "GOV.UK Design System — Error Message Guidelines",
+      "authorityTier": 3,
+      "claim": "Error messages must describe what went wrong in plain language and how to fix it, positioned directly above the input and linked via aria-describedby, accompanied by an error summary at the top of the form.",
+      "empiricalBasis": "Over 10 years of longitudinal accessibility and usability research across diverse UK citizens and assistive technology users.",
+      "confidence": "VERY_HIGH",
+      "limitations": "Applies primarily to transactional form workflows; inline feedback in real-time canvas editors may require toast or HUD notifications."
+    },
+    {
+      "id": "EVID-SYS-005",
+      "sourceId": "SRC-SYS-006",
+      "citation": "Shopify Polaris Design System v12 — Actionable Empty States",
+      "authorityTier": 3,
+      "claim": "Empty states must never be static dead ends; they must explain why no data exists, convey the value of populating the state, and provide a single prominent primary call to action.",
+      "empiricalBasis": "Merchant onboarding conversion and activation metrics across hundreds of thousands of store management sessions.",
+      "confidence": "HIGH",
+      "limitations": "Filters returning zero results require a 'Clear filters' or search-refinement action rather than an onboarding creation CTA."
+    },
+    {
+      "id": "EVID-SYS-006",
+      "sourceId": "SRC-SYS-004",
+      "citation": "Microsoft Fluent Design System 2 — Motion Curves",
+      "authorityTier": 3,
+      "claim": "UI transitions must use asymmetric easing: elements entering the viewport should use decelerate easing (fast in, gentle stop; 150-300ms); elements exiting should use accelerate easing (quick exit; 100-200ms).",
+      "empiricalBasis": "Perceptual studies showing that entering elements need time to be visually parsed, while exiting elements delay user actions if they linger.",
+      "confidence": "HIGH",
+      "limitations": "Must be completely disabled or clamped to opacity-only when `prefers-reduced-motion: reduce` is active."
+    },
+    {
+      "id": "EVID-DOM-001",
+      "sourceId": "SRC-SYS-003",
+      "citation": "Carbon Design System — Complex Data Tables & Density",
+      "authorityTier": 3,
+      "claim": "Data-heavy professional dashboards require tabular numbers (`font-variant-numeric: tabular-nums`), right-aligned numeric data, column pinning, and compact row density (32-40px).",
+      "empiricalBasis": "Speed-of-scanning experiments comparing tabular vs proportional numerals in financial and operational monitoring environments.",
+      "confidence": "HIGH",
+      "limitations": "Consumer-facing summaries and mobile invoice views benefit from standard proportional typography and relaxed spacing."
+    },
+    {
+      "id": "EVID-DOM-002",
+      "sourceId": "SRC-SYS-007",
+      "citation": "Atlassian Design System — Optimistic UI and State Rollback",
+      "authorityTier": 3,
+      "claim": "High-frequency micro-interactions (toggling checkboxes, adding tags, favoriting) should apply optimistic UI updates immediately, with a deterministic rollback and notification on network failure.",
+      "empiricalBasis": "Interaction responsiveness benchmarks: users perceive interfaces with <100ms response as instantaneous, reducing perceived latency friction.",
+      "confidence": "HIGH",
+      "limitations": "Strictly prohibited for irreversible, destructive, or high-risk financial transactions where authorization confirmation is legally required."
+    },
+    {
+      "id": "EVID-DOM-003",
+      "sourceId": "SRC-STD-002",
+      "citation": "W3C ARIA APG — Modal Dialog Pattern",
+      "authorityTier": 1,
+      "claim": "When a modal dialog opens, focus must move into the dialog, focus must be trapped within the dialog during keyboard navigation, Esc must dismiss, and focus must return to the trigger element upon closing.",
+      "empiricalBasis": "Assistive technology navigation standards; failure to trap focus results in screen reader and keyboard users unknowingly interacting with obscured background elements.",
+      "confidence": "MANDATORY",
+      "limitations": "Non-modal overlays (popovers, toast notifications) must explicitly avoid trapping focus."
+    },
+    {
+      "id": "EVID-DOM-004",
+      "sourceId": "SRC-HCI-001",
+      "citation": "Nielsen Norman Group — Banner Blindness (Pernice 2018)",
+      "authorityTier": 2,
+      "claim": "Users systematically ignore items that resemble advertisements, are located in traditional ad locations, or use generic flashy styling without contextual relevance.",
+      "empiricalBasis": "Longitudinal eye-tracking studies demonstrating near-zero eye fixations on generic visual banners and decorative hero boxes.",
+      "confidence": "HIGH",
+      "limitations": "Contextual notices embedded directly within user workflow paths overcome banner blindness when styled as native system alerts."
+    }
+  ]
+}
